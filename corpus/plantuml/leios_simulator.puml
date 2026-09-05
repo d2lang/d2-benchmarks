@@ -1,0 +1,56 @@
+@startuml
+' Generated from the compiled D2 semantic mapping; see TRANSLATION.md.
+' Graphviz is PlantUML's default deployment-diagram layout; GRAPHVIZ_DOT pins it.
+skinparam shadowing false
+skinparam defaultTextAlignment center
+top to bottom direction
+rectangle "<size:24><b>ouroboros-leios-sim - Component Diagram</b></size>" as n000 #back:transparent;line:transparent
+rectangle "<color:#2a2a2a>Protocol Engine</color>" as n001 #back:f5f5f5;line:2a2a2a;text:2a2a2a {
+  rectangle "<color:#2a2a2a>Praos Protocol</color>\n<color:#2a2a2a>&#160;</color>\n<color:#2a2a2a>Implements consensus</color>" as n002 #back:ffffff;line:2a2a2a;text:2a2a2a
+  rectangle "<color:#2a2a2a>Chain-Sync Mini-Protocol</color>\n<color:#2a2a2a>&#160;</color>\n<color:#2a2a2a>Reconstrucs blockchain of peers</color>" as n003 #back:ffffff;line:2a2a2a;text:2a2a2a
+  rectangle "<color:#2a2a2a>Block-Fetch Mini-Protocol</color>\n<color:#2a2a2a>&#160;</color>\n<color:#2a2a2a>Fetches bodies of selected chain</color>" as n004 #back:ffffff;line:2a2a2a;text:2a2a2a
+  rectangle "<color:#2a2a2a>Leios Protocol</color>" as n005 #back:ffffff;line:2a2a2a;text:2a2a2a {
+    rectangle "<color:#2a2a2a>Input Blocks Relay</color>" as n006 #back:ffffff;line:666666;text:2a2a2a
+    rectangle "<color:#2a2a2a>Endorse Blocks Relay</color>" as n007 #back:ffffff;line:666666;text:2a2a2a
+    rectangle "<color:#2a2a2a>Vote Messages Relay</color>" as n008 #back:ffffff;line:666666;text:2a2a2a
+  }
+  rectangle "<color:#2a2a2a>Relay Mini-Protocol</color>\n<color:#2a2a2a>&#160;</color>\n<color:#2a2a2a>Relays messages</color>\n<color:#2a2a2a>with configurable priority</color>" as n009 #back:ffffff;line:2a2a2a;text:2a2a2a
+  rectangle "<color:#2a2a2a>Node</color>\n<color:#2a2a2a>&#160;</color>\n<color:#2a2a2a>Manages node state and</color>\n<color:#2a2a2a>protocol interactions</color>" as n010 #back:ffffff;line:2a2a2a;text:2a2a2a
+}
+rectangle "<color:#2a2a2a>Channel Layer</color>" as n011 #back:f5f5f5;line:2a2a2a;text:2a2a2a {
+  rectangle "<color:#2a2a2a>Generic Channel</color>\n<color:#2a2a2a>&#160;</color>\n<color:#2a2a2a>Base channel abstraction</color>" as n012 #back:ffffff;line:2a2a2a;text:2a2a2a
+  rectangle "<color:#2a2a2a>TCP Model</color>\n<color:#2a2a2a>&#160;</color>\n<color:#2a2a2a>Simulates TCP behavior</color>" as n013 #back:ffffff;line:2a2a2a;text:2a2a2a
+  rectangle "<color:#2a2a2a>Channel Multiplexer</color>\n<color:#2a2a2a>&#160;</color>\n<color:#2a2a2a>Multiplexes protocols</color>" as n014 #back:ffffff;line:2a2a2a;text:2a2a2a
+}
+rectangle "<color:#2a2a2a>Visualization Engine</color>" as n015 #back:f5f5f5;line:2a2a2a;text:2a2a2a {
+  rectangle "<color:#2a2a2a>Layout Engine</color>\n<color:#2a2a2a>&#160;</color>\n<color:#2a2a2a>Handles visualization</color>\n<color:#2a2a2a>layout</color>" as n016 #back:ffffff;line:2a2a2a;text:2a2a2a
+  rectangle "<color:#2a2a2a>Protocol Renderer</color>\n<color:#2a2a2a>&#160;</color>\n<color:#2a2a2a>Renders mini-protocol</color>\n<color:#2a2a2a> messages and node state</color>\n<color:#2a2a2a>(made for small sims)</color>" as n017 #back:ffffff;line:2a2a2a;text:2a2a2a
+  rectangle "<color:#2a2a2a>P2P Renderer</color>\n<color:#2a2a2a>&#160;</color>\n<color:#2a2a2a>Visualizes P2P</color>\n<color:#2a2a2a>network state</color>\n<color:#2a2a2a>and charts</color>\n<color:#2a2a2a>(made for &#126;100 nodes sims)</color>" as n018 #back:ffffff;line:2a2a2a;text:2a2a2a
+  rectangle "<color:#2a2a2a>Frame Output</color>\n<color:#2a2a2a>&#160;</color>\n<color:#2a2a2a>Outputs animation frames</color>\n<color:#2a2a2a>(on-screen or as PNG files)</color>" as n019 #back:ffffff;line:2a2a2a;text:2a2a2a
+}
+rectangle "<color:#2a2a2a>Event Consumer</color>" as n020 #back:f5f5f5;line:2a2a2a;text:2a2a2a {
+  rectangle "<color:#2a2a2a>Model</color>\n<color:#2a2a2a>&#160;</color>\n<color:#2a2a2a>Computes state and metrics from trace</color>" as n021 #back:ffffff;line:2a2a2a;text:2a2a2a
+  rectangle "<color:#2a2a2a>Event Tracer</color>\n<color:#2a2a2a>&#160;</color>\n<color:#2a2a2a>Collects trace of</color>\n<color:#2a2a2a>node and network events</color>" as n022 #back:ffffff;line:2a2a2a;text:2a2a2a
+  rectangle "<color:#2a2a2a>IO-Sim library</color>\n<color:#2a2a2a>&#160;</color>\n<color:#2a2a2a>Simulates threading, clocks, STM, ..</color>" as n023 #back:ffffff;line:2a2a2a;line.dashed;text:2a2a2a
+  rectangle "<color:#2a2a2a>File-System</color>" as n024 #back:ffffff;line:2a2a2a;line.dashed;text:2a2a2a
+}
+' One link per D2 edge, in compiler order; no synthetic layout links.
+n017 --> n016 : Assembled with
+n018 --> n016 : Assembled with
+n016 --> n019 : Emits frames
+n022 --> n023 : Uses to run nodes and channels
+n021 --> n022 : Consumes trace
+n021 --> n024 : Outputs metrics
+n013 --> n012 : Implements
+n014 --> n012 : Uses
+n001 --> n011 : Uses for messaging
+n002 --> n004 : Bodies diffusion
+n002 --> n003 : Headers diffusion
+n005 --> n002 : Extends consensus
+n005 --> n009 : Uses for diffusion
+n010 --> n002 : Manages ranking blocks\nvalidation/generation
+n010 --> n005 : Manages ledger state\nand validation/generation
+n015 --> n020 : Visualizes state and metrics
+n020 --> n011 : Traces network events
+n020 --> n001 : Traces node events
+@enduml

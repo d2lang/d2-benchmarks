@@ -1,0 +1,48 @@
+@startuml
+' Generated from the compiled D2 semantic mapping; see TRANSLATION.md.
+' Graphviz is PlantUML's default deployment-diagram layout; GRAPHVIZ_DOT pins it.
+skinparam shadowing false
+skinparam defaultTextAlignment center
+top to bottom direction
+rectangle "<size:20><b>AWS Account</b></size>" as n000 #back:fff3e0;line:e65100 {
+  rectangle "<size:18><b>&#160;</b></size>" as n001 #back:transparent;line:e65100;line.dashed {
+    rectangle "<size:20><b>Route 53</b></size>" as n002 #back:ffe0b2;line:f57c00 {
+      rectangle "<size:18><b>Hosted Zone</b></size>" as n003 #back:ffe0b2;line:f57c00;line.dashed {
+        rectangle "<size:20><b>DNS Record</b></size>" as n004 #back:ffe0b2;line:f57c00
+      }
+    }
+    rectangle "&#160;" as n005 #back:transparent;line:transparent
+    rectangle "<size:20><b>IAM</b></size>" as n006 #back:fce4ec;line:c62828 {
+      rectangle "<size:20><b>OIDC Provider</b></size>" as n007 #back:fce4ec;line:c62828
+    }
+  }
+  rectangle "<size:18><b>Region (e.g. us-east-1)</b></size>" as n008 #back:fef9e7;line:e65100;line.dashed {
+    rectangle "<size:20><b>VPC</b></size>" as n009 #back:e8f5e9;line:2e7d32 {
+      rectangle "<size:20><b>Network</b></size>\n<size:20><b>Load Balancer</b></size>" as n010 #back:c8e6c9;line:388e3c
+      rectangle "<size:20><b>EKS Cluster</b></size>" as n011 #back:e3f2fd;line:1565c0 {
+        rectangle "<size:18><b>Platform Node Group</b></size>\n<size:18><b>(managed)</b></size>" as n012 #back:bbdefb;line:1565c0 {
+          rectangle "<size:16><b>m5.large</b></size>" as n013 #back:bbdefb;line:transparent
+          rectangle "<size:16><b>m5.large</b></size>" as n014 #back:bbdefb;line:transparent
+        }
+        rectangle "<size:18><b>Routing NodePool</b></size>\n<size:18><b>(Karpenter)</b></size>" as n015 #back:c8e6c9;line:388e3c {
+          rectangle "<size:16><b>c6.large</b></size>" as n016 #back:c8e6c9;line:transparent
+          rectangle "<size:16><b>m6.large</b></size>" as n017 #back:c8e6c9;line:transparent
+        }
+        rectangle "<size:18><b>Workspace NodePool(s)</b></size>\n<size:18><b>(Karpenter, scale-to-zero)</b></size>" as n018 #back:e1bee7;line:8e24aa {
+          rectangle "<size:16><b>c6i.2xlarge</b></size>" as n019 #back:e1bee7;line:transparent
+          rectangle "<size:16><b>r7i.xlarge</b></size>" as n020 #back:e1bee7;line:transparent
+        }
+        rectangle "<size:18><b>EKS Control Plane</b></size>" as n021 #back:bbdefb;line:1565c0;line.dashed {
+          rectangle "<size:20><b>API Server</b></size>" as n022 #back:bbdefb;line:1565c0
+          database "<size:20><b>etcd</b></size>" as n023 #back:bbdefb;line:1565c0
+        }
+      }
+    }
+  }
+}
+' One link per D2 edge, in compiler order; no synthetic layout links.
+n004 -[#1565c0,dashed,thickness=3]-> n010 : resolves to
+n010 -[#1565c0,thickness=3]-> n015 : routes to
+n007 -[#c62828,dashed,thickness=3]-> n004 : references
+n007 -[#c62828,dashed,thickness=3]-> n022 : associate
+@enduml

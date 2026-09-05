@@ -1,0 +1,1411 @@
+{
+  "fixture": "jupyter_aws_eks",
+  "source_sha256": "d0ad1e2d69568d0daf0de87c2d6c0c889c5a2f6e9ac5eaa26c8597debef6617e",
+  "mermaid_sha256": "5f3f5c0da4a035ce93c7de9b196c299e15ea1d934865402e7d8e0a2e727ca76d",
+  "counts": {
+    "objects": 24,
+    "leaf_nodes": 12,
+    "groups": 12,
+    "edges": 4
+  },
+  "root_attributes": {
+    "label": {
+      "value": ""
+    },
+    "labelDimensions": {
+      "width": 0,
+      "height": 0
+    },
+    "style": {},
+    "iconStyle": {},
+    "near_key": null,
+    "shape": {
+      "value": ""
+    },
+    "direction": {
+      "value": "down"
+    },
+    "constraint": null
+  },
+  "source_config": {
+    "sketch": null,
+    "themeID": null,
+    "darkThemeID": null,
+    "pad": null,
+    "center": null,
+    "layoutEngine": "dagre"
+  },
+  "limitations": {
+    "group fontSize omitted to avoid Mermaid label clipping": 12,
+    "group bold omitted to avoid Mermaid label clipping": 12,
+    "grid approximated by subgraph direction": 3
+  },
+  "objects": [
+    {
+      "d2_id": "aws.global.route53.hosted_zone.dns_record",
+      "mermaid_id": "n004",
+      "parent_d2_id": "aws.global.route53.hosted_zone",
+      "parent_mermaid_id": "n003",
+      "kind": "node",
+      "source_label": "DNS Record",
+      "translated_label": "DNS Record",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "DNS Record"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "fill": {
+            "value": "#ffe0b2"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      }
+    },
+    {
+      "d2_id": "aws.global.route53.hosted_zone",
+      "mermaid_id": "n003",
+      "parent_d2_id": "aws.global.route53",
+      "parent_mermaid_id": "n002",
+      "kind": "group",
+      "source_label": "Hosted Zone",
+      "translated_label": "Hosted Zone",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Hosted Zone"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "fill": {
+            "value": "#ffe0b2"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws.global.route53",
+      "mermaid_id": "n002",
+      "parent_d2_id": "aws.global",
+      "parent_mermaid_id": "n001",
+      "kind": "group",
+      "source_label": "Route 53",
+      "translated_label": "Route 53",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Route 53"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "fill": {
+            "value": "#ffe0b2"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws.global.spacer",
+      "mermaid_id": "n005",
+      "parent_d2_id": "aws.global",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "transparent"
+          },
+          "fill": {
+            "value": "transparent"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws.global.iam.oidc_provider",
+      "mermaid_id": "n007",
+      "parent_d2_id": "aws.global.iam",
+      "parent_mermaid_id": "n006",
+      "kind": "node",
+      "source_label": "OIDC Provider",
+      "translated_label": "OIDC Provider",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "OIDC Provider"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "fill": {
+            "value": "#fce4ec"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      }
+    },
+    {
+      "d2_id": "aws.global.iam",
+      "mermaid_id": "n006",
+      "parent_d2_id": "aws.global",
+      "parent_mermaid_id": "n001",
+      "kind": "group",
+      "source_label": "IAM",
+      "translated_label": "IAM",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "IAM"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "fill": {
+            "value": "#fce4ec"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws.global",
+      "mermaid_id": "n001",
+      "parent_d2_id": "aws",
+      "parent_mermaid_id": "n000",
+      "kind": "group",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "grid approximated by subgraph direction",
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#e65100"
+          },
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "strokeDash": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridColumns": {
+          "value": "3"
+        }
+      }
+    },
+    {
+      "d2_id": "aws.region.vpc.nlb",
+      "mermaid_id": "n010",
+      "parent_d2_id": "aws.region.vpc",
+      "parent_mermaid_id": "n009",
+      "kind": "node",
+      "source_label": "Network\nLoad Balancer",
+      "translated_label": "Network\nLoad Balancer",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Network\nLoad Balancer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#388e3c"
+          },
+          "fill": {
+            "value": "#c8e6c9"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      }
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.platform_ng.node1",
+      "mermaid_id": "n013",
+      "parent_d2_id": "aws.region.vpc.eks.platform_ng",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "m5.large",
+      "translated_label": "m5.large",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "m5.large"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "0"
+          },
+          "fontSize": {
+            "value": "16"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.platform_ng.node2",
+      "mermaid_id": "n014",
+      "parent_d2_id": "aws.region.vpc.eks.platform_ng",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "m5.large",
+      "translated_label": "m5.large",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "m5.large"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "0"
+          },
+          "fontSize": {
+            "value": "16"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.platform_ng",
+      "mermaid_id": "n012",
+      "parent_d2_id": "aws.region.vpc.eks",
+      "parent_mermaid_id": "n011",
+      "kind": "group",
+      "source_label": "Platform Node Group\n(managed)",
+      "translated_label": "Platform Node Group\n(managed)",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Platform Node Group\n(managed)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.routing_np.node1",
+      "mermaid_id": "n016",
+      "parent_d2_id": "aws.region.vpc.eks.routing_np",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "c6.large",
+      "translated_label": "c6.large",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "c6.large"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#c8e6c9"
+          },
+          "strokeWidth": {
+            "value": "0"
+          },
+          "fontSize": {
+            "value": "16"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.routing_np.node2",
+      "mermaid_id": "n017",
+      "parent_d2_id": "aws.region.vpc.eks.routing_np",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "m6.large",
+      "translated_label": "m6.large",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "m6.large"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#c8e6c9"
+          },
+          "strokeWidth": {
+            "value": "0"
+          },
+          "fontSize": {
+            "value": "16"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.routing_np",
+      "mermaid_id": "n015",
+      "parent_d2_id": "aws.region.vpc.eks",
+      "parent_mermaid_id": "n011",
+      "kind": "group",
+      "source_label": "Routing NodePool\n(Karpenter)",
+      "translated_label": "Routing NodePool\n(Karpenter)",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Routing NodePool\n(Karpenter)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#388e3c"
+          },
+          "fill": {
+            "value": "#c8e6c9"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.workspaces_np.node1",
+      "mermaid_id": "n019",
+      "parent_d2_id": "aws.region.vpc.eks.workspaces_np",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "c6i.2xlarge",
+      "translated_label": "c6i.2xlarge",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "c6i.2xlarge"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#e1bee7"
+          },
+          "strokeWidth": {
+            "value": "0"
+          },
+          "fontSize": {
+            "value": "16"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.workspaces_np.node2",
+      "mermaid_id": "n020",
+      "parent_d2_id": "aws.region.vpc.eks.workspaces_np",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "r7i.xlarge",
+      "translated_label": "r7i.xlarge",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "r7i.xlarge"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#e1bee7"
+          },
+          "strokeWidth": {
+            "value": "0"
+          },
+          "fontSize": {
+            "value": "16"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.workspaces_np",
+      "mermaid_id": "n018",
+      "parent_d2_id": "aws.region.vpc.eks",
+      "parent_mermaid_id": "n011",
+      "kind": "group",
+      "source_label": "Workspace NodePool(s)\n(Karpenter, scale-to-zero)",
+      "translated_label": "Workspace NodePool(s)\n(Karpenter, scale-to-zero)",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Workspace NodePool(s)\n(Karpenter, scale-to-zero)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#8e24aa"
+          },
+          "fill": {
+            "value": "#e1bee7"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.control_plane.api_server",
+      "mermaid_id": "n022",
+      "parent_d2_id": "aws.region.vpc.eks.control_plane",
+      "parent_mermaid_id": "n021",
+      "kind": "node",
+      "source_label": "API Server",
+      "translated_label": "API Server",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "API Server"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      }
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.control_plane.etcd",
+      "mermaid_id": "n023",
+      "parent_d2_id": "aws.region.vpc.eks.control_plane",
+      "parent_mermaid_id": "n021",
+      "kind": "node",
+      "source_label": "etcd",
+      "translated_label": "etcd",
+      "source_shape": "cylinder",
+      "mermaid_shape": "cylinder",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "etcd"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "cylinder"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.control_plane",
+      "mermaid_id": "n021",
+      "parent_d2_id": "aws.region.vpc.eks",
+      "parent_mermaid_id": "n011",
+      "kind": "group",
+      "source_label": "EKS Control Plane",
+      "translated_label": "EKS Control Plane",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "EKS Control Plane"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws.region.vpc.eks",
+      "mermaid_id": "n011",
+      "parent_d2_id": "aws.region.vpc",
+      "parent_mermaid_id": "n009",
+      "kind": "group",
+      "source_label": "EKS Cluster",
+      "translated_label": "EKS Cluster",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "grid approximated by subgraph direction",
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "EKS Cluster"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#e3f2fd"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridColumns": {
+          "value": "2"
+        }
+      }
+    },
+    {
+      "d2_id": "aws.region.vpc",
+      "mermaid_id": "n009",
+      "parent_d2_id": "aws.region",
+      "parent_mermaid_id": "n008",
+      "kind": "group",
+      "source_label": "VPC",
+      "translated_label": "VPC",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "VPC"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2e7d32"
+          },
+          "fill": {
+            "value": "#e8f5e9"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws.region",
+      "mermaid_id": "n008",
+      "parent_d2_id": "aws",
+      "parent_mermaid_id": "n000",
+      "kind": "group",
+      "source_label": "Region (e.g. us-east-1)",
+      "translated_label": "Region (e.g. us-east-1)",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Region (e.g. us-east-1)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#e65100"
+          },
+          "fill": {
+            "value": "#fef9e7"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "strokeDash": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "aws",
+      "mermaid_id": "n000",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "AWS Account",
+      "translated_label": "AWS Account",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "grid approximated by subgraph direction",
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "AWS Account"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#e65100"
+          },
+          "fill": {
+            "value": "#fff3e0"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridColumns": {
+          "value": "1"
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "index": 0,
+      "d2_id": "aws.(global.route53.hosted_zone.dns_record -> region.vpc.nlb)[0]",
+      "source_d2_id": "aws.global.route53.hosted_zone.dns_record",
+      "target_d2_id": "aws.region.vpc.nlb",
+      "source_mermaid_id": "n004",
+      "target_mermaid_id": "n010",
+      "mermaid_start_id": "n004",
+      "mermaid_end_id": "n010",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "resolves to",
+      "translated_label": "resolves to",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "resolves to"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "strokeDash": {
+            "value": "5"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 1,
+      "d2_id": "aws.region.vpc.(nlb -> eks.routing_np)[0]",
+      "source_d2_id": "aws.region.vpc.nlb",
+      "target_d2_id": "aws.region.vpc.eks.routing_np",
+      "source_mermaid_id": "n010",
+      "target_mermaid_id": "n015",
+      "mermaid_start_id": "n010",
+      "mermaid_end_id": "n015",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "routes to",
+      "translated_label": "routes to",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "routes to"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 2,
+      "d2_id": "aws.global.(iam.oidc_provider -> route53.hosted_zone.dns_record)[0]",
+      "source_d2_id": "aws.global.iam.oidc_provider",
+      "target_d2_id": "aws.global.route53.hosted_zone.dns_record",
+      "source_mermaid_id": "n007",
+      "target_mermaid_id": "n004",
+      "mermaid_start_id": "n007",
+      "mermaid_end_id": "n004",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "references",
+      "translated_label": "references",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "references"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "strokeDash": {
+            "value": "5"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 3,
+      "d2_id": "aws.(global.iam.oidc_provider -> region.vpc.eks.control_plane.api_server)[0]",
+      "source_d2_id": "aws.global.iam.oidc_provider",
+      "target_d2_id": "aws.region.vpc.eks.control_plane.api_server",
+      "source_mermaid_id": "n007",
+      "target_mermaid_id": "n022",
+      "mermaid_start_id": "n007",
+      "mermaid_end_id": "n022",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "associate",
+      "translated_label": "associate",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "associate"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "strokeDash": {
+            "value": "5"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    }
+  ],
+  "synthetic_objects": 0,
+  "synthetic_edges": 0
+}

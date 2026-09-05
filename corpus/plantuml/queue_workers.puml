@@ -1,0 +1,74 @@
+@startuml
+' Generated from the compiled D2 semantic mapping; see TRANSLATION.md.
+' Graphviz is PlantUML's default deployment-diagram layout; GRAPHVIZ_DOT pins it.
+skinparam shadowing false
+skinparam defaultTextAlignment center
+left to right direction
+person "<size:28><b>User01</b></size>" as n000
+person "<size:28><b>User02</b></size>" as n001
+person "<size:28><b>User03</b></size>" as n002
+person "<size:28><b>User04</b></size>" as n003
+rectangle "<size:28><b>Service01</b></size>" as n004 {
+  rectangle "<size:32><b>task01</b></size>" as n005
+  rectangle "<size:32><b>task02</b></size>" as n006
+  rectangle "<size:28><b>Queue Library</b></size>" as n007 #back:honeydew {
+    rectangle "<size:32><b>Producer</b></size>" as n008 #back:PapayaWhip
+  }
+}
+rectangle "<size:28><b>Service02</b></size>" as n009 {
+  rectangle "<size:32><b>task01</b></size>" as n010
+  rectangle "<size:32><b>task02</b></size>" as n011
+  rectangle "<size:28><b>Queue Library</b></size>" as n012 #back:honeydew {
+    rectangle "<size:32><b>Producer</b></size>" as n013 #back:PapayaWhip
+  }
+}
+database "<size:32><b>Ring</b></size>\n<size:32><b>Buffer</b></size>" as n014
+rectangle "&#160;" as n015 #back:transparent;line:transparent {
+  database "<size:32><b>Redis</b></size>" as n016
+  queue "<size:32><b>RabbotMQ</b></size>" as n017
+  queue "<size:32><b>NATS</b></size>" as n018
+}
+rectangle "<size:28><b>Worker01</b></size>" as n019 {
+  rectangle "<size:32><b>task01</b></size>" as n020
+  rectangle "<size:32><b>task02</b></size>" as n021
+  rectangle "<size:28><b>Queue Library</b></size>" as n022 #back:honeydew {
+    rectangle "<size:32><b>Consumer</b></size>" as n023 #back:PapayaWhip
+  }
+}
+rectangle "<size:28><b>Worker02</b></size>" as n024 {
+  rectangle "<size:32><b>task01</b></size>" as n025
+  rectangle "<size:32><b>task02</b></size>" as n026
+  rectangle "<size:32><b>task03</b></size>" as n027
+  rectangle "<size:32><b>task04</b></size>" as n028
+  rectangle "<size:28><b>Queue Library</b></size>" as n029 #back:honeydew {
+    rectangle "<size:32><b>Consumer</b></size>" as n030 #back:PapayaWhip
+  }
+  rectangle "<size:28><b>Queue Library</b></size>" as n031 #back:honeydew {
+    rectangle "<size:32><b>Consumer</b></size>" as n032 #back:PapayaWhip
+  }
+}
+' One link per D2 edge, in compiler order; no synthetic layout links.
+n005 --> n008 : <size:28><b>Enqueue Task</b></size>
+n006 --> n008 : <size:28><b>Enqueue Task</b></size>
+n010 --> n013 : <size:28><b>Enqueue Task</b></size>
+n011 --> n013 : <size:28><b>Enqueue Task</b></size>
+n023 --> n020 : <size:28><b>Handle Task</b></size>
+n023 --> n021 : <size:28><b>Handle Task</b></size>
+n030 --> n025 : <size:28><b>Handle Task</b></size>
+n030 --> n026 : <size:28><b>Handle Task</b></size>
+n032 --> n027 : <size:28><b>Handle Task</b></size>
+n032 --> n028 : <size:28><b>Handle Task</b></size>
+n000 --> n005 : <size:28><b>Create Task</b></size>
+n001 --> n006 : <size:28><b>Create Task</b></size>
+n002 --> n010 : <size:28><b>Create Task</b></size>
+n003 --> n011 : <size:28><b>Create Task</b></size>
+n008 --> n014 : <size:28><b>Store Task</b></size>
+n013 --> n017 : <size:28><b>Store Task</b></size>
+n013 --> n016
+n013 --> n018
+n014 --> n023 : <size:28><b>Fetch Task</b></size>
+n014 --> n030 : <size:28><b>Fetch Task</b></size>
+n017 --> n032 : <size:28><b>Fetch Task</b></size>
+n016 --> n032
+n018 --> n032
+@enduml

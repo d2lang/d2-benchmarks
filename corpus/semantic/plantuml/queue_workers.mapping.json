@@ -1,0 +1,2649 @@
+{
+  "fixture": "queue_workers",
+  "counts": {
+    "objects": 33,
+    "leaf_nodes": 23,
+    "groups": 10,
+    "edges": 23
+  },
+  "source_sha256": "11b9f2b73765887e5fe21fb5eda2633f1a96a02926f3100b4966b5897a012085",
+  "semantic_mapping_sha256": "10cdf645c00d3d99a7b7b7287138924b6003a89dec9168d59e3183d40a302396",
+  "plantuml_sha256": "937e2ed9f5d53d01f5b92384607ad6e7b2470d9723c95ba322407ab19d0953bb",
+  "layout": "Graphviz dot (PlantUML default)",
+  "root_attributes": {
+    "label": {
+      "value": ""
+    },
+    "labelDimensions": {
+      "width": 0,
+      "height": 0
+    },
+    "style": {},
+    "iconStyle": {},
+    "near_key": null,
+    "shape": {
+      "value": ""
+    },
+    "direction": {
+      "value": "right"
+    },
+    "constraint": null
+  },
+  "source_config": null,
+  "limitations": {
+    "multiple style omitted": 14,
+    "person silhouette uses PlantUML person": 4,
+    "fillPattern style omitted": 6,
+    "borderRadius style omitted": 5,
+    "font style omitted": 9,
+    "per-container direction omitted": 4,
+    "partial opacity omitted": 2,
+    "queue uses PlantUML queue": 2
+  },
+  "objects": [
+    {
+      "d2_id": "user01",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "User01",
+      "translated_label": "User01",
+      "source_shape": "person",
+      "source_attributes": {
+        "label": {
+          "value": "User01"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "multiple": {
+            "value": "true"
+          },
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "person"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n000",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "person",
+      "encoded_label": "<size:28><b>User01</b></size>",
+      "differences": [
+        "multiple style omitted",
+        "person silhouette uses PlantUML person"
+      ]
+    },
+    {
+      "d2_id": "user02",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "User02",
+      "translated_label": "User02",
+      "source_shape": "person",
+      "source_attributes": {
+        "label": {
+          "value": "User02"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "multiple": {
+            "value": "true"
+          },
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "person"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n001",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "person",
+      "encoded_label": "<size:28><b>User02</b></size>",
+      "differences": [
+        "multiple style omitted",
+        "person silhouette uses PlantUML person"
+      ]
+    },
+    {
+      "d2_id": "user03",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "User03",
+      "translated_label": "User03",
+      "source_shape": "person",
+      "source_attributes": {
+        "label": {
+          "value": "User03"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "multiple": {
+            "value": "true"
+          },
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "person"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n002",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "person",
+      "encoded_label": "<size:28><b>User03</b></size>",
+      "differences": [
+        "multiple style omitted",
+        "person silhouette uses PlantUML person"
+      ]
+    },
+    {
+      "d2_id": "user04",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "User04",
+      "translated_label": "User04",
+      "source_shape": "person",
+      "source_attributes": {
+        "label": {
+          "value": "User04"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "multiple": {
+            "value": "true"
+          },
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "person"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n003",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "person",
+      "encoded_label": "<size:28><b>User04</b></size>",
+      "differences": [
+        "multiple style omitted",
+        "person silhouette uses PlantUML person"
+      ]
+    },
+    {
+      "d2_id": "container_producer_01.task01",
+      "parent_d2_id": "container_producer_01",
+      "parent_mermaid_id": "n004",
+      "kind": "node",
+      "source_label": "task01",
+      "translated_label": "task01",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "task01"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "multiple": {
+            "value": "true"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n005",
+      "parent_plantuml_id": "n004",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:32><b>task01</b></size>",
+      "differences": [
+        "multiple style omitted"
+      ]
+    },
+    {
+      "d2_id": "container_producer_01.task02",
+      "parent_d2_id": "container_producer_01",
+      "parent_mermaid_id": "n004",
+      "kind": "node",
+      "source_label": "task02",
+      "translated_label": "task02",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "task02"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "multiple": {
+            "value": "true"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n006",
+      "parent_plantuml_id": "n004",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:32><b>task02</b></size>",
+      "differences": [
+        "multiple style omitted"
+      ]
+    },
+    {
+      "d2_id": "container_producer_01.queue.producer",
+      "parent_d2_id": "container_producer_01.queue",
+      "parent_mermaid_id": "n007",
+      "kind": "node",
+      "source_label": "Producer",
+      "translated_label": "Producer",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Producer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "PapayaWhip"
+          },
+          "fillPattern": {
+            "value": "grain"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "font": {
+            "value": "mono"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n008",
+      "parent_plantuml_id": "n007",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:32><b>Producer</b></size>",
+      "differences": [
+        "fillPattern style omitted",
+        "borderRadius style omitted",
+        "font style omitted"
+      ]
+    },
+    {
+      "d2_id": "container_producer_01.queue",
+      "parent_d2_id": "container_producer_01",
+      "parent_mermaid_id": "n004",
+      "kind": "group",
+      "source_label": "Queue Library",
+      "translated_label": "Queue Library",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Queue Library"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "honeydew"
+          },
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n007",
+      "parent_plantuml_id": "n004",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:28><b>Queue Library</b></size>",
+      "differences": []
+    },
+    {
+      "d2_id": "container_producer_01",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Service01",
+      "translated_label": "Service01",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Service01"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": "right"
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n004",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:28><b>Service01</b></size>",
+      "differences": [
+        "per-container direction omitted"
+      ]
+    },
+    {
+      "d2_id": "container_producer_02.task01",
+      "parent_d2_id": "container_producer_02",
+      "parent_mermaid_id": "n009",
+      "kind": "node",
+      "source_label": "task01",
+      "translated_label": "task01",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "task01"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "multiple": {
+            "value": "true"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n010",
+      "parent_plantuml_id": "n009",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:32><b>task01</b></size>",
+      "differences": [
+        "multiple style omitted"
+      ]
+    },
+    {
+      "d2_id": "container_producer_02.task02",
+      "parent_d2_id": "container_producer_02",
+      "parent_mermaid_id": "n009",
+      "kind": "node",
+      "source_label": "task02",
+      "translated_label": "task02",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "task02"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "multiple": {
+            "value": "true"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n011",
+      "parent_plantuml_id": "n009",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:32><b>task02</b></size>",
+      "differences": [
+        "multiple style omitted"
+      ]
+    },
+    {
+      "d2_id": "container_producer_02.queue.producer",
+      "parent_d2_id": "container_producer_02.queue",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "Producer",
+      "translated_label": "Producer",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Producer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "PapayaWhip"
+          },
+          "fillPattern": {
+            "value": "grain"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "font": {
+            "value": "mono"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n013",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:32><b>Producer</b></size>",
+      "differences": [
+        "fillPattern style omitted",
+        "borderRadius style omitted",
+        "font style omitted"
+      ]
+    },
+    {
+      "d2_id": "container_producer_02.queue",
+      "parent_d2_id": "container_producer_02",
+      "parent_mermaid_id": "n009",
+      "kind": "group",
+      "source_label": "Queue Library",
+      "translated_label": "Queue Library",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Queue Library"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "honeydew"
+          },
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n012",
+      "parent_plantuml_id": "n009",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:28><b>Queue Library</b></size>",
+      "differences": []
+    },
+    {
+      "d2_id": "container_producer_02",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Service02",
+      "translated_label": "Service02",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Service02"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": "right"
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n009",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:28><b>Service02</b></size>",
+      "differences": [
+        "per-container direction omitted"
+      ]
+    },
+    {
+      "d2_id": "database",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "Ring\nBuffer",
+      "translated_label": "Ring\nBuffer",
+      "source_shape": "cylinder",
+      "source_attributes": {
+        "label": {
+          "value": "Ring\nBuffer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fillPattern": {
+            "value": "lines"
+          },
+          "font": {
+            "value": "mono"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "cylinder"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n014",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "database",
+      "encoded_label": "<size:32><b>Ring</b></size>\\n<size:32><b>Buffer</b></size>",
+      "differences": [
+        "fillPattern style omitted",
+        "font style omitted"
+      ]
+    },
+    {
+      "d2_id": "other_store.redis",
+      "parent_d2_id": "other_store",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "Redis",
+      "translated_label": "Redis",
+      "source_shape": "cylinder",
+      "source_attributes": {
+        "label": {
+          "value": "Redis"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0.7"
+          },
+          "font": {
+            "value": "mono"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "cylinder"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n016",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "database",
+      "encoded_label": "<size:32><b>Redis</b></size>",
+      "differences": [
+        "partial opacity omitted",
+        "font style omitted"
+      ]
+    },
+    {
+      "d2_id": "other_store.rabbitmq",
+      "parent_d2_id": "other_store",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "RabbotMQ",
+      "translated_label": "RabbotMQ",
+      "source_shape": "queue",
+      "source_attributes": {
+        "label": {
+          "value": "RabbotMQ"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "font": {
+            "value": "mono"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "queue"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n017",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "queue",
+      "encoded_label": "<size:32><b>RabbotMQ</b></size>",
+      "differences": [
+        "font style omitted",
+        "queue uses PlantUML queue"
+      ]
+    },
+    {
+      "d2_id": "other_store.nats",
+      "parent_d2_id": "other_store",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "NATS",
+      "translated_label": "NATS",
+      "source_shape": "queue",
+      "source_attributes": {
+        "label": {
+          "value": "NATS"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0.7"
+          },
+          "font": {
+            "value": "mono"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "queue"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n018",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "queue",
+      "encoded_label": "<size:32><b>NATS</b></size>",
+      "differences": [
+        "partial opacity omitted",
+        "font style omitted",
+        "queue uses PlantUML queue"
+      ]
+    },
+    {
+      "d2_id": "other_store",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n015",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": []
+    },
+    {
+      "d2_id": "container_consumer_01.task01",
+      "parent_d2_id": "container_consumer_01",
+      "parent_mermaid_id": "n019",
+      "kind": "node",
+      "source_label": "task01",
+      "translated_label": "task01",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "task01"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "multiple": {
+            "value": "true"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n020",
+      "parent_plantuml_id": "n019",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:32><b>task01</b></size>",
+      "differences": [
+        "multiple style omitted"
+      ]
+    },
+    {
+      "d2_id": "container_consumer_01.task02",
+      "parent_d2_id": "container_consumer_01",
+      "parent_mermaid_id": "n019",
+      "kind": "node",
+      "source_label": "task02",
+      "translated_label": "task02",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "task02"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "multiple": {
+            "value": "true"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n021",
+      "parent_plantuml_id": "n019",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:32><b>task02</b></size>",
+      "differences": [
+        "multiple style omitted"
+      ]
+    },
+    {
+      "d2_id": "container_consumer_01.queue.consumer",
+      "parent_d2_id": "container_consumer_01.queue",
+      "parent_mermaid_id": "n022",
+      "kind": "node",
+      "source_label": "Consumer",
+      "translated_label": "Consumer",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Consumer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "PapayaWhip"
+          },
+          "fillPattern": {
+            "value": "grain"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "font": {
+            "value": "mono"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n023",
+      "parent_plantuml_id": "n022",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:32><b>Consumer</b></size>",
+      "differences": [
+        "fillPattern style omitted",
+        "borderRadius style omitted",
+        "font style omitted"
+      ]
+    },
+    {
+      "d2_id": "container_consumer_01.queue",
+      "parent_d2_id": "container_consumer_01",
+      "parent_mermaid_id": "n019",
+      "kind": "group",
+      "source_label": "Queue Library",
+      "translated_label": "Queue Library",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Queue Library"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "honeydew"
+          },
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n022",
+      "parent_plantuml_id": "n019",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:28><b>Queue Library</b></size>",
+      "differences": []
+    },
+    {
+      "d2_id": "container_consumer_01",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Worker01",
+      "translated_label": "Worker01",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Worker01"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": "right"
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n019",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:28><b>Worker01</b></size>",
+      "differences": [
+        "per-container direction omitted"
+      ]
+    },
+    {
+      "d2_id": "container_consumer_02.task01",
+      "parent_d2_id": "container_consumer_02",
+      "parent_mermaid_id": "n024",
+      "kind": "node",
+      "source_label": "task01",
+      "translated_label": "task01",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "task01"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "multiple": {
+            "value": "true"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n025",
+      "parent_plantuml_id": "n024",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:32><b>task01</b></size>",
+      "differences": [
+        "multiple style omitted"
+      ]
+    },
+    {
+      "d2_id": "container_consumer_02.task02",
+      "parent_d2_id": "container_consumer_02",
+      "parent_mermaid_id": "n024",
+      "kind": "node",
+      "source_label": "task02",
+      "translated_label": "task02",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "task02"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "multiple": {
+            "value": "true"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n026",
+      "parent_plantuml_id": "n024",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:32><b>task02</b></size>",
+      "differences": [
+        "multiple style omitted"
+      ]
+    },
+    {
+      "d2_id": "container_consumer_02.task03",
+      "parent_d2_id": "container_consumer_02",
+      "parent_mermaid_id": "n024",
+      "kind": "node",
+      "source_label": "task03",
+      "translated_label": "task03",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "task03"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "multiple": {
+            "value": "true"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n027",
+      "parent_plantuml_id": "n024",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:32><b>task03</b></size>",
+      "differences": [
+        "multiple style omitted"
+      ]
+    },
+    {
+      "d2_id": "container_consumer_02.task04",
+      "parent_d2_id": "container_consumer_02",
+      "parent_mermaid_id": "n024",
+      "kind": "node",
+      "source_label": "task04",
+      "translated_label": "task04",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "task04"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "multiple": {
+            "value": "true"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n028",
+      "parent_plantuml_id": "n024",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:32><b>task04</b></size>",
+      "differences": [
+        "multiple style omitted"
+      ]
+    },
+    {
+      "d2_id": "container_consumer_02.queue01.consumer",
+      "parent_d2_id": "container_consumer_02.queue01",
+      "parent_mermaid_id": "n029",
+      "kind": "node",
+      "source_label": "Consumer",
+      "translated_label": "Consumer",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Consumer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "PapayaWhip"
+          },
+          "fillPattern": {
+            "value": "grain"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "font": {
+            "value": "mono"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n030",
+      "parent_plantuml_id": "n029",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:32><b>Consumer</b></size>",
+      "differences": [
+        "fillPattern style omitted",
+        "borderRadius style omitted",
+        "font style omitted"
+      ]
+    },
+    {
+      "d2_id": "container_consumer_02.queue01",
+      "parent_d2_id": "container_consumer_02",
+      "parent_mermaid_id": "n024",
+      "kind": "group",
+      "source_label": "Queue Library",
+      "translated_label": "Queue Library",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Queue Library"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "honeydew"
+          },
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n029",
+      "parent_plantuml_id": "n024",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:28><b>Queue Library</b></size>",
+      "differences": []
+    },
+    {
+      "d2_id": "container_consumer_02.queue02.consumer",
+      "parent_d2_id": "container_consumer_02.queue02",
+      "parent_mermaid_id": "n031",
+      "kind": "node",
+      "source_label": "Consumer",
+      "translated_label": "Consumer",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Consumer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "PapayaWhip"
+          },
+          "fillPattern": {
+            "value": "grain"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "font": {
+            "value": "mono"
+          },
+          "fontSize": {
+            "value": "32"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n032",
+      "parent_plantuml_id": "n031",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:32><b>Consumer</b></size>",
+      "differences": [
+        "fillPattern style omitted",
+        "borderRadius style omitted",
+        "font style omitted"
+      ]
+    },
+    {
+      "d2_id": "container_consumer_02.queue02",
+      "parent_d2_id": "container_consumer_02",
+      "parent_mermaid_id": "n024",
+      "kind": "group",
+      "source_label": "Queue Library",
+      "translated_label": "Queue Library",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Queue Library"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "honeydew"
+          },
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n031",
+      "parent_plantuml_id": "n024",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:28><b>Queue Library</b></size>",
+      "differences": []
+    },
+    {
+      "d2_id": "container_consumer_02",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Worker02",
+      "translated_label": "Worker02",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Worker02"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": "right"
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n024",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:28><b>Worker02</b></size>",
+      "differences": [
+        "per-container direction omitted"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "index": 0,
+      "d2_id": "container_producer_01.(task01 -> queue.producer)[0]",
+      "source_d2_id": "container_producer_01.task01",
+      "target_d2_id": "container_producer_01.queue.producer",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Enqueue Task",
+      "translated_label": "Enqueue Task",
+      "source_attributes": {
+        "label": {
+          "value": "Enqueue Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n005",
+      "target_plantuml_id": "n008",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Enqueue Task</b></size>"
+    },
+    {
+      "index": 1,
+      "d2_id": "container_producer_01.(task02 -> queue.producer)[0]",
+      "source_d2_id": "container_producer_01.task02",
+      "target_d2_id": "container_producer_01.queue.producer",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Enqueue Task",
+      "translated_label": "Enqueue Task",
+      "source_attributes": {
+        "label": {
+          "value": "Enqueue Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n006",
+      "target_plantuml_id": "n008",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Enqueue Task</b></size>"
+    },
+    {
+      "index": 2,
+      "d2_id": "container_producer_02.(task01 -> queue.producer)[0]",
+      "source_d2_id": "container_producer_02.task01",
+      "target_d2_id": "container_producer_02.queue.producer",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Enqueue Task",
+      "translated_label": "Enqueue Task",
+      "source_attributes": {
+        "label": {
+          "value": "Enqueue Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n010",
+      "target_plantuml_id": "n013",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Enqueue Task</b></size>"
+    },
+    {
+      "index": 3,
+      "d2_id": "container_producer_02.(task02 -> queue.producer)[0]",
+      "source_d2_id": "container_producer_02.task02",
+      "target_d2_id": "container_producer_02.queue.producer",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Enqueue Task",
+      "translated_label": "Enqueue Task",
+      "source_attributes": {
+        "label": {
+          "value": "Enqueue Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n011",
+      "target_plantuml_id": "n013",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Enqueue Task</b></size>"
+    },
+    {
+      "index": 4,
+      "d2_id": "container_consumer_01.(queue.consumer -> task01)[0]",
+      "source_d2_id": "container_consumer_01.queue.consumer",
+      "target_d2_id": "container_consumer_01.task01",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Handle Task",
+      "translated_label": "Handle Task",
+      "source_attributes": {
+        "label": {
+          "value": "Handle Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n023",
+      "target_plantuml_id": "n020",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Handle Task</b></size>"
+    },
+    {
+      "index": 5,
+      "d2_id": "container_consumer_01.(queue.consumer -> task02)[0]",
+      "source_d2_id": "container_consumer_01.queue.consumer",
+      "target_d2_id": "container_consumer_01.task02",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Handle Task",
+      "translated_label": "Handle Task",
+      "source_attributes": {
+        "label": {
+          "value": "Handle Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n023",
+      "target_plantuml_id": "n021",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Handle Task</b></size>"
+    },
+    {
+      "index": 6,
+      "d2_id": "container_consumer_02.(queue01.consumer -> task01)[0]",
+      "source_d2_id": "container_consumer_02.queue01.consumer",
+      "target_d2_id": "container_consumer_02.task01",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Handle Task",
+      "translated_label": "Handle Task",
+      "source_attributes": {
+        "label": {
+          "value": "Handle Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n030",
+      "target_plantuml_id": "n025",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Handle Task</b></size>"
+    },
+    {
+      "index": 7,
+      "d2_id": "container_consumer_02.(queue01.consumer -> task02)[0]",
+      "source_d2_id": "container_consumer_02.queue01.consumer",
+      "target_d2_id": "container_consumer_02.task02",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Handle Task",
+      "translated_label": "Handle Task",
+      "source_attributes": {
+        "label": {
+          "value": "Handle Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n030",
+      "target_plantuml_id": "n026",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Handle Task</b></size>"
+    },
+    {
+      "index": 8,
+      "d2_id": "container_consumer_02.(queue02.consumer -> task03)[0]",
+      "source_d2_id": "container_consumer_02.queue02.consumer",
+      "target_d2_id": "container_consumer_02.task03",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Handle Task",
+      "translated_label": "Handle Task",
+      "source_attributes": {
+        "label": {
+          "value": "Handle Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n032",
+      "target_plantuml_id": "n027",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Handle Task</b></size>"
+    },
+    {
+      "index": 9,
+      "d2_id": "container_consumer_02.(queue02.consumer -> task04)[0]",
+      "source_d2_id": "container_consumer_02.queue02.consumer",
+      "target_d2_id": "container_consumer_02.task04",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Handle Task",
+      "translated_label": "Handle Task",
+      "source_attributes": {
+        "label": {
+          "value": "Handle Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n032",
+      "target_plantuml_id": "n028",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Handle Task</b></size>"
+    },
+    {
+      "index": 10,
+      "d2_id": "(user01 -> container_producer_01.task01)[0]",
+      "source_d2_id": "user01",
+      "target_d2_id": "container_producer_01.task01",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Create Task",
+      "translated_label": "Create Task",
+      "source_attributes": {
+        "label": {
+          "value": "Create Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n000",
+      "target_plantuml_id": "n005",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Create Task</b></size>"
+    },
+    {
+      "index": 11,
+      "d2_id": "(user02 -> container_producer_01.task02)[0]",
+      "source_d2_id": "user02",
+      "target_d2_id": "container_producer_01.task02",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Create Task",
+      "translated_label": "Create Task",
+      "source_attributes": {
+        "label": {
+          "value": "Create Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n001",
+      "target_plantuml_id": "n006",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Create Task</b></size>"
+    },
+    {
+      "index": 12,
+      "d2_id": "(user03 -> container_producer_02.task01)[0]",
+      "source_d2_id": "user03",
+      "target_d2_id": "container_producer_02.task01",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Create Task",
+      "translated_label": "Create Task",
+      "source_attributes": {
+        "label": {
+          "value": "Create Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n002",
+      "target_plantuml_id": "n010",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Create Task</b></size>"
+    },
+    {
+      "index": 13,
+      "d2_id": "(user04 -> container_producer_02.task02)[0]",
+      "source_d2_id": "user04",
+      "target_d2_id": "container_producer_02.task02",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Create Task",
+      "translated_label": "Create Task",
+      "source_attributes": {
+        "label": {
+          "value": "Create Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n003",
+      "target_plantuml_id": "n011",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Create Task</b></size>"
+    },
+    {
+      "index": 14,
+      "d2_id": "(container_producer_01.queue.producer -> database)[0]",
+      "source_d2_id": "container_producer_01.queue.producer",
+      "target_d2_id": "database",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Store Task",
+      "translated_label": "Store Task",
+      "source_attributes": {
+        "label": {
+          "value": "Store Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n008",
+      "target_plantuml_id": "n014",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Store Task</b></size>"
+    },
+    {
+      "index": 15,
+      "d2_id": "(container_producer_02.queue.producer -> other_store.rabbitmq)[0]",
+      "source_d2_id": "container_producer_02.queue.producer",
+      "target_d2_id": "other_store.rabbitmq",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Store Task",
+      "translated_label": "Store Task",
+      "source_attributes": {
+        "label": {
+          "value": "Store Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n013",
+      "target_plantuml_id": "n017",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Store Task</b></size>"
+    },
+    {
+      "index": 16,
+      "d2_id": "(container_producer_02.queue.producer -> other_store.redis)[0]",
+      "source_d2_id": "container_producer_02.queue.producer",
+      "target_d2_id": "other_store.redis",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0.3"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n013",
+      "target_plantuml_id": "n016",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 17,
+      "d2_id": "(container_producer_02.queue.producer -> other_store.nats)[0]",
+      "source_d2_id": "container_producer_02.queue.producer",
+      "target_d2_id": "other_store.nats",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0.3"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n013",
+      "target_plantuml_id": "n018",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 18,
+      "d2_id": "(database -> container_consumer_01.queue.consumer)[0]",
+      "source_d2_id": "database",
+      "target_d2_id": "container_consumer_01.queue.consumer",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Fetch Task",
+      "translated_label": "Fetch Task",
+      "source_attributes": {
+        "label": {
+          "value": "Fetch Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n014",
+      "target_plantuml_id": "n023",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Fetch Task</b></size>"
+    },
+    {
+      "index": 19,
+      "d2_id": "(database -> container_consumer_02.queue01.consumer)[0]",
+      "source_d2_id": "database",
+      "target_d2_id": "container_consumer_02.queue01.consumer",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Fetch Task",
+      "translated_label": "Fetch Task",
+      "source_attributes": {
+        "label": {
+          "value": "Fetch Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n014",
+      "target_plantuml_id": "n030",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Fetch Task</b></size>"
+    },
+    {
+      "index": 20,
+      "d2_id": "(other_store.rabbitmq -> container_consumer_02.queue02.consumer)[0]",
+      "source_d2_id": "other_store.rabbitmq",
+      "target_d2_id": "container_consumer_02.queue02.consumer",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Fetch Task",
+      "translated_label": "Fetch Task",
+      "source_attributes": {
+        "label": {
+          "value": "Fetch Task"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "animated": {
+            "value": "true"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n017",
+      "target_plantuml_id": "n032",
+      "plantuml_arrow": "-->",
+      "encoded_label": "<size:28><b>Fetch Task</b></size>"
+    },
+    {
+      "index": 21,
+      "d2_id": "(other_store.redis -> container_consumer_02.queue02.consumer)[0]",
+      "source_d2_id": "other_store.redis",
+      "target_d2_id": "container_consumer_02.queue02.consumer",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0.3"
+          },
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n016",
+      "target_plantuml_id": "n032",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 22,
+      "d2_id": "(other_store.nats -> container_consumer_02.queue02.consumer)[0]",
+      "source_d2_id": "other_store.nats",
+      "target_d2_id": "container_consumer_02.queue02.consumer",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0.3"
+          },
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n018",
+      "target_plantuml_id": "n032",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    }
+  ],
+  "synthetic_objects": 0,
+  "synthetic_edges": 0
+}

@@ -1,0 +1,1155 @@
+{
+  "fixture": "spyre_encoder",
+  "source_mapping_file": "spyre_encoder.mapping.json",
+  "source_mapping_sha256": "782082efb3c86740504bd952e00783cd44ea22245790381c92663c30badfe759",
+  "source_d2_sha256": "be33eacb33a62e972f5b7f498ced3e21e80855693560121d26bf7cbadce5bebf",
+  "dot_sha256": "543aca4f8acd7efa68b38b774aba41d625d851d50b913c755660e1f67df6835a",
+  "counts": {
+    "objects": 67,
+    "leaf_nodes": 32,
+    "groups": 35,
+    "edges": 6
+  },
+  "rankdir": "TB",
+  "objects": [
+    {
+      "d2_id": "upper.serving.sched.sched_d",
+      "dot_id": "node_n003",
+      "parent_d2_id": "upper.serving.sched",
+      "parent_dot_id": "cluster_n002",
+      "kind": "node",
+      "label": "batches S requests carrying T tokens in total · chunked prefill off\nnever subclassed, its output never mutated",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.sched",
+      "dot_id": "cluster_n002",
+      "parent_d2_id": "upper.serving",
+      "parent_dot_id": "cluster_n001",
+      "kind": "group",
+      "label": "vLLM Scheduler, used as-is",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "invisible endpoint representative inside cluster",
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.dispatch.dispatch_d",
+      "dot_id": "node_n005",
+      "parent_d2_id": "upper.serving.dispatch",
+      "parent_dot_id": "cluster_n004",
+      "kind": "node",
+      "label": "round T up to the next compiled bucket, giving T_padded\nupstream this hook pads to a captured CUDA graph; here to a compiled shape\npad rows zeroed · also cuts torch-spyre per-op recompiles",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.dispatch",
+      "dot_id": "cluster_n004",
+      "parent_d2_id": "upper.serving",
+      "parent_dot_id": "cluster_n001",
+      "kind": "group",
+      "label": "Token-count bucket dispatch",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "invisible endpoint representative inside cluster",
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.body.body_note",
+      "dot_id": "node_n007",
+      "parent_d2_id": "upper.serving.body",
+      "parent_dot_id": "cluster_n006",
+      "kind": "node",
+      "label": "sees only the flat token list [T_padded, hidden], with no request boundaries\nall layers share op shapes, so cost scales with distinct T, not with depth",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.body.layer_stack.layer_stack_d",
+      "dot_id": "node_n009",
+      "parent_d2_id": "upper.serving.body.layer_stack",
+      "parent_dot_id": "cluster_n008",
+      "kind": "node",
+      "label": "N = 24 for multilingual-e5-large · 6 matrix multiplies per layer, 5 of them outside attention",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.body.layer_stack",
+      "dot_id": "cluster_n008",
+      "parent_d2_id": "upper.serving.body",
+      "parent_dot_id": "cluster_n006",
+      "kind": "group",
+      "label": "Embeddings → N × [ Q · K · V projections (un-fused) · output projection · FFN ×2 · LayerNorm ×2 ]",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.body.boundary.boundary_d",
+      "dot_id": "node_n011",
+      "parent_d2_id": "upper.serving.body.boundary",
+      "parent_dot_id": "cluster_n010",
+      "kind": "node",
+      "label": "Dynamo does not trace inside. Selected by the platform's opaque_attention_op() → True,\nwhich TorchSpyrePlatform inherits from CpuPlatform",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.body.boundary",
+      "dot_id": "cluster_n010",
+      "parent_d2_id": "upper.serving.body",
+      "parent_dot_id": "cluster_n006",
+      "kind": "group",
+      "label": "torch.ops.vllm.unified_attention_with_output  ·  opaque boundary",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.body",
+      "dot_id": "cluster_n006",
+      "parent_d2_id": "upper.serving",
+      "parent_dot_id": "cluster_n001",
+      "kind": "group",
+      "label": "Compiled model body: one graph per token bucket  (fullgraph, dynamic=False)",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "invisible endpoint representative inside cluster",
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.attn_note",
+      "dot_id": "node_n013",
+      "parent_d2_id": "upper.serving.attention",
+      "parent_dot_id": "cluster_n012",
+      "kind": "node",
+      "label": "dense-grid strategy, compared with the planned flash variant below\nrounds up its own grid: S to a power of two, L already 64-aligned",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.tables.tables_d",
+      "dot_id": "node_n015",
+      "parent_d2_id": "upper.serving.attention.tables",
+      "parent_dot_id": "cluster_n014",
+      "kind": "node",
+      "label": "additive mask + three gather index lists · derived from S and the per-request lengths, so identical for every layer",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.tables",
+      "dot_id": "cluster_n014",
+      "parent_d2_id": "upper.serving.attention",
+      "parent_dot_id": "cluster_n012",
+      "kind": "group",
+      "label": "Batch-shape tables, built once per step and carried on the attention metadata",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.gathers.pack.pack_d",
+      "dot_id": "node_n018",
+      "parent_d2_id": "upper.serving.attention.gathers.pack",
+      "parent_dot_id": "cluster_n017",
+      "kind": "node",
+      "label": "[T, H, D] → [S, H, L, D]\npad slots point at a zero row",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.gathers.pack",
+      "dot_id": "cluster_n017",
+      "parent_d2_id": "upper.serving.attention.gathers",
+      "parent_dot_id": "cluster_n016",
+      "kind": "group",
+      "label": "gather_pack",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.gathers.sdpa.sdpa_d",
+      "dot_id": "node_n020",
+      "parent_d2_id": "upper.serving.attention.gathers.sdpa",
+      "parent_dot_id": "cluster_n019",
+      "kind": "node",
+      "label": "bidirectional, additive mask\none fused kernel per (S, L)",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.gathers.sdpa",
+      "dot_id": "cluster_n019",
+      "parent_d2_id": "upper.serving.attention.gathers",
+      "parent_dot_id": "cluster_n016",
+      "kind": "group",
+      "label": "SDPA on device",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.gathers.unpack.unpack_d",
+      "dot_id": "node_n022",
+      "parent_d2_id": "upper.serving.attention.gathers.unpack",
+      "parent_dot_id": "cluster_n021",
+      "kind": "node",
+      "label": "[S, H, L, D] → [T, H, D]\nsingle bulk output copy",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.gathers.unpack",
+      "dot_id": "cluster_n021",
+      "parent_d2_id": "upper.serving.attention.gathers",
+      "parent_dot_id": "cluster_n016",
+      "kind": "group",
+      "label": "gather_unpack",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.gathers",
+      "dot_id": "cluster_n016",
+      "parent_d2_id": "upper.serving.attention",
+      "parent_dot_id": "cluster_n012",
+      "kind": "group",
+      "label": " ",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.barriers",
+      "dot_id": "node_n023",
+      "parent_d2_id": "upper.serving.attention",
+      "parent_dot_id": "cluster_n012",
+      "kind": "node",
+      "label": "tables on the metadata instead of rebuilt per layer ⇒ roughly 4 host/device barriers per pass, not one set per layer",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention",
+      "dot_id": "cluster_n012",
+      "parent_d2_id": "upper.serving",
+      "parent_dot_id": "cluster_n001",
+      "kind": "group",
+      "label": "Encoder attention: the only request-aware stage",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "invisible endpoint representative inside cluster",
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.pooler.pooler_d",
+      "dot_id": "node_n025",
+      "parent_d2_id": "upper.serving.pooler",
+      "parent_dot_id": "cluster_n024",
+      "kind": "node",
+      "label": "row gather via index_select · L2 normalize via rsqrt · reads only real rows, using the per-request offsets\neager today · compiling the pooler is its own work item, not a warmup",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.pooler",
+      "dot_id": "cluster_n024",
+      "parent_d2_id": "upper.serving",
+      "parent_dot_id": "cluster_n001",
+      "kind": "group",
+      "label": "Pooler on device: CLS / LAST / MEAN",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "invisible endpoint representative inside cluster",
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.mean_dep",
+      "dot_id": "node_n026",
+      "parent_d2_id": "upper.serving",
+      "parent_dot_id": "cluster_n001",
+      "kind": "node",
+      "label": "MEAN copies packed [T, H] as fp16 and reduces with MeanPool on the host.\nDestagger of a device fp32 sum (to(fp16) then convert) is garbage (torch-spyre#2971). index_add_ (#3507) would let the reduce stay on the card.",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.output.output_d",
+      "dot_id": "node_n028",
+      "parent_d2_id": "upper.serving.output",
+      "parent_dot_id": "cluster_n027",
+      "kind": "node",
+      "label": "only [num_reqs, hidden] crosses the boundary · padded rows are discarded, never pooled",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.output",
+      "dot_id": "cluster_n027",
+      "parent_d2_id": "upper.serving",
+      "parent_dot_id": "cluster_n001",
+      "kind": "group",
+      "label": "Pooled vectors → host",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "invisible endpoint representative inside cluster",
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.serving",
+      "dot_id": "cluster_n001",
+      "parent_d2_id": "upper",
+      "parent_dot_id": "cluster_n000",
+      "kind": "group",
+      "label": "Per-step serving path",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "per-container direction omitted; dot uses one global rank direction",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes.T_tokens.T_tokens_d",
+      "dot_id": "node_n032",
+      "parent_d2_id": "upper.sidebar.shapes.T_tokens",
+      "parent_dot_id": "cluster_n031",
+      "kind": "node",
+      "label": "sum of the batched prompt lengths · bucketed to 64 / 128 / 256 / 512 tokens",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes.T_tokens",
+      "dot_id": "cluster_n031",
+      "parent_d2_id": "upper.sidebar.shapes",
+      "parent_dot_id": "cluster_n030",
+      "kind": "group",
+      "label": "T · tokens in the step",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes.S_reqs.S_reqs_d",
+      "dot_id": "node_n034",
+      "parent_d2_id": "upper.sidebar.shapes.S_reqs",
+      "parent_dot_id": "cluster_n033",
+      "kind": "node",
+      "label": "how many prompts are batched together · bucketed to 1 / 2 / 4 / 8 …",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes.S_reqs",
+      "dot_id": "cluster_n033",
+      "parent_d2_id": "upper.sidebar.shapes",
+      "parent_dot_id": "cluster_n030",
+      "kind": "group",
+      "label": "S · requests in the step",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes.L_width.L_width_d",
+      "dot_id": "node_n036",
+      "parent_d2_id": "upper.sidebar.shapes.L_width",
+      "parent_dot_id": "cluster_n035",
+      "kind": "node",
+      "label": "every request gets one row of L columns; L = align_up(longest prompt, 64)\nshort requests leave their remaining columns as padding",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes.L_width",
+      "dot_id": "cluster_n035",
+      "parent_d2_id": "upper.sidebar.shapes",
+      "parent_dot_id": "cluster_n030",
+      "kind": "group",
+      "label": "L · the width of attention's grid",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes.example.example_d",
+      "dot_id": "node_n038",
+      "parent_d2_id": "upper.sidebar.shapes.example",
+      "parent_dot_id": "cluster_n037",
+      "kind": "node",
+      "label": "T = 110 → T_padded = 128 · S = 3 → 4 · L = 64 · grid = 4 × 64. Note S × L ≠ T.",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes.example",
+      "dot_id": "cluster_n037",
+      "parent_d2_id": "upper.sidebar.shapes",
+      "parent_dot_id": "cluster_n030",
+      "kind": "group",
+      "label": "Worked example, prompts of 40, 12 and 58 tokens",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes",
+      "dot_id": "cluster_n030",
+      "parent_d2_id": "upper.sidebar",
+      "parent_dot_id": "cluster_n029",
+      "kind": "group",
+      "label": "Shape vocabulary",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.compile_mode.mode.mode_d",
+      "dot_id": "node_n041",
+      "parent_d2_id": "upper.sidebar.compile_mode.mode",
+      "parent_dot_id": "cluster_n040",
+      "kind": "node",
+      "label": "torch.compile(model, backend='inductor',\nfullgraph=True, dynamic=False)",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.compile_mode.mode",
+      "dot_id": "cluster_n040",
+      "parent_d2_id": "upper.sidebar.compile_mode",
+      "parent_dot_id": "cluster_n039",
+      "kind": "group",
+      "label": "CompilationMode.STOCK_TORCH_COMPILE",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.compile_mode.static_shapes",
+      "dot_id": "node_n042",
+      "parent_d2_id": "upper.sidebar.compile_mode",
+      "parent_dot_id": "cluster_n039",
+      "kind": "node",
+      "label": "dynamic=False → sizes are baked in as constants.  \nA graph built for 128 tokens works only for 128.  \nA new count means a new compile.",
+      "source_shape": "text",
+      "dot_shape": "plaintext",
+      "differences": [
+        "width placement/sizing omitted",
+        "markdown uses the same plain multiline text as Mermaid",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.compile_mode",
+      "dot_id": "cluster_n039",
+      "parent_d2_id": "upper.sidebar",
+      "parent_dot_id": "cluster_n029",
+      "kind": "group",
+      "label": "Compilation mode",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.warmup.bodies.bodies_d",
+      "dot_id": "node_n045",
+      "parent_d2_id": "upper.sidebar.warmup.bodies",
+      "parent_dot_id": "cluster_n044",
+      "kind": "node",
+      "label": "one compiled body graph per bucket",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.warmup.bodies",
+      "dot_id": "cluster_n044",
+      "parent_d2_id": "upper.sidebar.warmup",
+      "parent_dot_id": "cluster_n043",
+      "kind": "group",
+      "label": "for T in token buckets: _dummy_run(T)",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.warmup.attn.attn_d",
+      "dot_id": "node_n047",
+      "parent_d2_id": "upper.sidebar.warmup.attn",
+      "parent_dot_id": "cluster_n046",
+      "kind": "node",
+      "label": "without the flag no attention metadata is built,\nso the attention path is never traced or compiled",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.warmup.attn",
+      "dot_id": "cluster_n046",
+      "parent_d2_id": "upper.sidebar.warmup",
+      "parent_dot_id": "cluster_n043",
+      "kind": "group",
+      "label": "for (S, L): _dummy_run(force_attention=True)",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.warmup.pool.pool_d",
+      "dot_id": "node_n049",
+      "parent_d2_id": "upper.sidebar.warmup.pool",
+      "parent_dot_id": "cluster_n048",
+      "kind": "node",
+      "label": "warms pooler shapes · upstream's version is only a memory probe",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.warmup.pool",
+      "dot_id": "cluster_n048",
+      "parent_d2_id": "upper.sidebar.warmup",
+      "parent_dot_id": "cluster_n043",
+      "kind": "group",
+      "label": "_dummy_pooler_run(hidden_states)",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.warmup",
+      "dot_id": "cluster_n043",
+      "parent_d2_id": "upper.sidebar",
+      "parent_dot_id": "cluster_n029",
+      "kind": "group",
+      "label": "Startup: warmup walks both sets of buckets",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.invariants.rules",
+      "dot_id": "node_n051",
+      "parent_d2_id": "upper.sidebar.invariants",
+      "parent_dot_id": "cluster_n050",
+      "kind": "node",
+      "label": "· The metadata always describes the real batch, so no  \npadded row is ever pooled.\n\n· Padding the body is safe: each layer treats every  \ntoken row on its own.",
+      "source_shape": "text",
+      "dot_shape": "plaintext",
+      "differences": [
+        "width placement/sizing omitted",
+        "markdown uses the same plain multiline text as Mermaid"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.invariants",
+      "dot_id": "cluster_n050",
+      "parent_d2_id": "upper.sidebar",
+      "parent_dot_id": "cluster_n029",
+      "kind": "group",
+      "label": "Design invariants",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar",
+      "dot_id": "cluster_n029",
+      "parent_d2_id": "upper",
+      "parent_dot_id": "cluster_n000",
+      "kind": "group",
+      "label": " ",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted"
+      ]
+    },
+    {
+      "d2_id": "upper",
+      "dot_id": "cluster_n000",
+      "parent_d2_id": "",
+      "parent_dot_id": null,
+      "kind": "group",
+      "label": " ",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted"
+      ]
+    },
+    {
+      "d2_id": "lower.strategies.dense.dense_body",
+      "dot_id": "node_n055",
+      "parent_d2_id": "lower.strategies.dense",
+      "parent_dot_id": "cluster_n054",
+      "kind": "node",
+      "label": "Pack the ragged flat list into a rectangle, so every  \nshape is fixed at compile time.  \nNeeded because an offset computed from data does not  \nlower under compilation (torch-spyre#3508) — exactly  \nthe arithmetic that flash relies on.  \nEager tolerates it; compiled mode, our target, does not.\n\n· build an additive mask [S, 1, L, L] marking padding  \nand cross-request slots  \n· build three index lists, then gather Q / K / V into  \n[S, H, L, D]  \n· one fused SDPA kernel per (S, L), then gather the  \nresults back out\n\n**Shape axes: T for the body, (S, L) for attention.  \nTwo sets of buckets to warm.**\n\nCosts: the mask grows with L², plus index lists and a  \nbarrier per gather.  \nWorks today. This is the current implementation.",
+      "source_shape": "text",
+      "dot_shape": "plaintext",
+      "differences": [
+        "width placement/sizing omitted",
+        "markdown uses the same plain multiline text as Mermaid"
+      ]
+    },
+    {
+      "d2_id": "lower.strategies.dense",
+      "dot_id": "cluster_n054",
+      "parent_d2_id": "lower.strategies",
+      "parent_dot_id": "cluster_n053",
+      "kind": "group",
+      "label": "A · Dense grid, the strategy shown above",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "lower.strategies.flash.flash_body",
+      "dot_id": "node_n057",
+      "parent_d2_id": "lower.strategies.flash",
+      "parent_dot_id": "cluster_n056",
+      "kind": "node",
+      "label": "Never materialise the rectangle.  \nEach block of queries reads its request's offset from  \nthe metadata at runtime, and works directly on the flat  \nlist, carrying a running softmax maximum and sum.  \nThat is the online-softmax structure the Spyre decoder  \nalready uses over KV pages.\n\n· no [S, 1, L, L] mask; request boundaries are the offsets  \n· no gather_pack / gather_unpack; the kernel reads the  \nflat list directly  \n· no per-layer index lists, so no per-gather barriers\n\n**Shape axis: block count, bucketed like the decoder's  \npage loop. L disappears.**\n\nBoth upstream backends already work this way, neither  \npadding into a rectangle.  \nFlash attention consumes the flat list with  \ncu_seqlens_q = query_start_loc, and the CPU backend  \npasses query[:num_actual_tokens] to a C++ kernel.",
+      "source_shape": "text",
+      "dot_shape": "plaintext",
+      "differences": [
+        "width placement/sizing omitted",
+        "markdown uses the same plain multiline text as Mermaid"
+      ]
+    },
+    {
+      "d2_id": "lower.strategies.flash",
+      "dot_id": "cluster_n056",
+      "parent_d2_id": "lower.strategies",
+      "parent_dot_id": "cluster_n053",
+      "kind": "group",
+      "label": "B · Flash-style attention, planned",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "lower.strategies",
+      "dot_id": "cluster_n053",
+      "parent_d2_id": "lower",
+      "parent_dot_id": "cluster_n052",
+      "kind": "group",
+      "label": " ",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted"
+      ]
+    },
+    {
+      "d2_id": "lower.footer.simplifies.simplifies_body",
+      "dot_id": "node_n060",
+      "parent_d2_id": "lower.footer.simplifies",
+      "parent_dot_id": "cluster_n059",
+      "kind": "node",
+      "label": "· the second shape axis collapses; bucket T and a block count,  \nmuch closer to upstream's single axis  \n· the batch-shape tables box disappears, and with it the  \nper-layer rebuild problem and its barriers  \n· gather_pack / SDPA / gather_unpack collapse into one  \nblocked-attention kernel  \n· the mask's L² growth at long prompts disappears, today's  \nlargest untested risk\n\nOpen question: whether a Spyre kernel can do the runtime  \noffset arithmetic this depends on. If it cannot, the block  \ncount stays bucketed.  \nEverything else holds either way: padding seam, unpadded  \nmetadata, warmup, compilation mode.",
+      "source_shape": "text",
+      "dot_shape": "plaintext",
+      "differences": [
+        "width placement/sizing omitted",
+        "markdown uses the same plain multiline text as Mermaid"
+      ]
+    },
+    {
+      "d2_id": "lower.footer.simplifies",
+      "dot_id": "cluster_n059",
+      "parent_d2_id": "lower.footer",
+      "parent_dot_id": "cluster_n058",
+      "kind": "group",
+      "label": "If flash attention lands, the design converges on upstream",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "lower.footer.legend.L1",
+      "dot_id": "node_n062",
+      "parent_d2_id": "lower.footer.legend",
+      "parent_dot_id": "cluster_n061",
+      "kind": "node",
+      "label": "Upstream vLLM, used as-is",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "lower.footer.legend.L2",
+      "dot_id": "node_n063",
+      "parent_d2_id": "lower.footer.legend",
+      "parent_dot_id": "cluster_n061",
+      "kind": "node",
+      "label": "spyre-inference component",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "lower.footer.legend.L3",
+      "dot_id": "node_n064",
+      "parent_d2_id": "lower.footer.legend",
+      "parent_dot_id": "cluster_n061",
+      "kind": "node",
+      "label": "Internal step · dense-grid path",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "lower.footer.legend.L4",
+      "dot_id": "node_n065",
+      "parent_d2_id": "lower.footer.legend",
+      "parent_dot_id": "cluster_n061",
+      "kind": "node",
+      "label": "Planned flash-attention path",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "lower.footer.legend.L5",
+      "dot_id": "node_n066",
+      "parent_d2_id": "lower.footer.legend",
+      "parent_dot_id": "cluster_n061",
+      "kind": "node",
+      "label": "Note or upstream dependency",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": [
+        "width placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "lower.footer.legend",
+      "dot_id": "cluster_n061",
+      "parent_d2_id": "lower.footer",
+      "parent_dot_id": "cluster_n058",
+      "kind": "group",
+      "label": "Legend",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    },
+    {
+      "d2_id": "lower.footer",
+      "dot_id": "cluster_n058",
+      "parent_d2_id": "lower",
+      "parent_dot_id": "cluster_n052",
+      "kind": "group",
+      "label": " ",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted"
+      ]
+    },
+    {
+      "d2_id": "lower",
+      "dot_id": "cluster_n052",
+      "parent_d2_id": "",
+      "parent_dot_id": null,
+      "kind": "group",
+      "label": "Attention shape strategy: dense grid today, and planned flash attention",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted",
+        "labelPosition placement/sizing omitted",
+        "numeric corner radius approximated by Graphviz rounded style"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "index": 0,
+      "dot_id": "edge000",
+      "d2_id": "upper.serving.(sched -> dispatch)[0]",
+      "source_d2_id": "upper.serving.sched",
+      "target_d2_id": "upper.serving.dispatch",
+      "actual_source": "proxy_n002",
+      "actual_target": "proxy_n004",
+      "ltail": "cluster_n002",
+      "lhead": "cluster_n004",
+      "label": "",
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "differences": []
+    },
+    {
+      "index": 1,
+      "dot_id": "edge001",
+      "d2_id": "upper.serving.(dispatch -> body)[0]",
+      "source_d2_id": "upper.serving.dispatch",
+      "target_d2_id": "upper.serving.body",
+      "actual_source": "proxy_n004",
+      "actual_target": "proxy_n006",
+      "ltail": "cluster_n004",
+      "lhead": "cluster_n006",
+      "label": "",
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "differences": []
+    },
+    {
+      "index": 2,
+      "dot_id": "edge002",
+      "d2_id": "upper.serving.(body -> attention)[0]",
+      "source_d2_id": "upper.serving.body",
+      "target_d2_id": "upper.serving.attention",
+      "actual_source": "proxy_n006",
+      "actual_target": "proxy_n012",
+      "ltail": "cluster_n006",
+      "lhead": "cluster_n012",
+      "label": "",
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "differences": []
+    },
+    {
+      "index": 3,
+      "dot_id": "edge003",
+      "d2_id": "upper.serving.(attention -> pooler)[0]",
+      "source_d2_id": "upper.serving.attention",
+      "target_d2_id": "upper.serving.pooler",
+      "actual_source": "proxy_n012",
+      "actual_target": "proxy_n024",
+      "ltail": "cluster_n012",
+      "lhead": "cluster_n024",
+      "label": "",
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "differences": []
+    },
+    {
+      "index": 4,
+      "dot_id": "edge004",
+      "d2_id": "upper.serving.(pooler -> mean_dep)[0]",
+      "source_d2_id": "upper.serving.pooler",
+      "target_d2_id": "upper.serving.mean_dep",
+      "actual_source": "proxy_n024",
+      "actual_target": "node_n026",
+      "ltail": "cluster_n024",
+      "lhead": null,
+      "label": "",
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "differences": []
+    },
+    {
+      "index": 5,
+      "dot_id": "edge005",
+      "d2_id": "upper.serving.(mean_dep -> output)[0]",
+      "source_d2_id": "upper.serving.mean_dep",
+      "target_d2_id": "upper.serving.output",
+      "actual_source": "node_n026",
+      "actual_target": "proxy_n027",
+      "ltail": null,
+      "lhead": "cluster_n027",
+      "label": "",
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "differences": []
+    }
+  ],
+  "synthetic_nodes": [
+    {
+      "dot_id": "proxy_n012",
+      "represents_d2_group": "upper.serving.attention",
+      "parent_dot_id": "cluster_n012",
+      "visible": false,
+      "role": "cluster endpoint representative"
+    },
+    {
+      "dot_id": "proxy_n006",
+      "represents_d2_group": "upper.serving.body",
+      "parent_dot_id": "cluster_n006",
+      "visible": false,
+      "role": "cluster endpoint representative"
+    },
+    {
+      "dot_id": "proxy_n004",
+      "represents_d2_group": "upper.serving.dispatch",
+      "parent_dot_id": "cluster_n004",
+      "visible": false,
+      "role": "cluster endpoint representative"
+    },
+    {
+      "dot_id": "proxy_n027",
+      "represents_d2_group": "upper.serving.output",
+      "parent_dot_id": "cluster_n027",
+      "visible": false,
+      "role": "cluster endpoint representative"
+    },
+    {
+      "dot_id": "proxy_n024",
+      "represents_d2_group": "upper.serving.pooler",
+      "parent_dot_id": "cluster_n024",
+      "visible": false,
+      "role": "cluster endpoint representative"
+    },
+    {
+      "dot_id": "proxy_n002",
+      "represents_d2_group": "upper.serving.sched",
+      "parent_dot_id": "cluster_n002",
+      "visible": false,
+      "role": "cluster endpoint representative"
+    }
+  ],
+  "synthetic_edges": 0,
+  "limitations": {
+    "width placement/sizing omitted": 55,
+    "height placement/sizing omitted": 18,
+    "invisible endpoint representative inside cluster": 6,
+    "grid layout constraint omitted": 33,
+    "labelPosition placement/sizing omitted": 30,
+    "numeric corner radius approximated by Graphviz rounded style": 40,
+    "per-container direction omitted; dot uses one global rank direction": 1,
+    "markdown uses the same plain multiline text as Mermaid": 5
+  }
+}

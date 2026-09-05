@@ -1,0 +1,2152 @@
+{
+  "fixture": "leios_simulator",
+  "counts": {
+    "objects": 25,
+    "leaf_nodes": 20,
+    "groups": 5,
+    "edges": 18
+  },
+  "source_sha256": "d7b578a4ca03d271d6c535f3fea9c9c3bc8e772345f25ca83361329c408e446a",
+  "semantic_mapping_sha256": "e0e1a722ac7da16cfdd9a8ba92ef9bffccced8e2b04616905273e67242c4b9b6",
+  "plantuml_sha256": "3e628455467ad1f4772ff9cc8f356b609e5e880aa1b81d40d96aed1777e65c95",
+  "layout": "Graphviz dot (PlantUML default)",
+  "root_attributes": {
+    "label": {
+      "value": ""
+    },
+    "labelDimensions": {
+      "width": 0,
+      "height": 0
+    },
+    "style": {},
+    "iconStyle": {},
+    "near_key": null,
+    "shape": {
+      "value": ""
+    },
+    "direction": {
+      "value": ""
+    },
+    "constraint": null
+  },
+  "source_config": null,
+  "limitations": {
+    "near positioning omitted": 5,
+    "borderRadius style omitted": 24,
+    "shadow style omitted": 22,
+    "dash pattern approximated by dashed line": 2
+  },
+  "objects": [
+    {
+      "d2_id": "title",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "ouroboros-leios-sim - Component Diagram",
+      "translated_label": "ouroboros-leios-sim - Component Diagram",
+      "source_shape": "text",
+      "source_attributes": {
+        "label": {
+          "value": "ouroboros-leios-sim - Component Diagram"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "24"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": {
+          "range": "leios_simulator.d2,6:8:305-6:18:315",
+          "path": [
+            {
+              "unquoted_string": {
+                "range": ",0:0:0-0:10:10",
+                "value": [
+                  {
+                    "string": "top-center",
+                    "raw_string": "top-center"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "shape": {
+          "value": "text"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n000",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:24><b>ouroboros-leios-sim - Component Diagram</b></size>",
+      "differences": [
+        "near positioning omitted"
+      ]
+    },
+    {
+      "d2_id": "protocol-engine.praos",
+      "parent_d2_id": "protocol-engine",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Praos Protocol\n\nImplements consensus",
+      "translated_label": "Praos Protocol\n\nImplements consensus",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Praos Protocol\n\nImplements consensus"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      },
+      "plantuml_id": "n002",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Praos Protocol</color>\\n<color:#2a2a2a>&#160;</color>\\n<color:#2a2a2a>Implements consensus</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "protocol-engine.chain-sync",
+      "parent_d2_id": "protocol-engine",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Chain-Sync Mini-Protocol\n\nReconstrucs blockchain of peers",
+      "translated_label": "Chain-Sync Mini-Protocol\n\nReconstrucs blockchain of peers",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Chain-Sync Mini-Protocol\n\nReconstrucs blockchain of peers"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      },
+      "plantuml_id": "n003",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Chain-Sync Mini-Protocol</color>\\n<color:#2a2a2a>&#160;</color>\\n<color:#2a2a2a>Reconstrucs blockchain of peers</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "protocol-engine.block-fetch",
+      "parent_d2_id": "protocol-engine",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Block-Fetch Mini-Protocol\n\nFetches bodies of selected chain",
+      "translated_label": "Block-Fetch Mini-Protocol\n\nFetches bodies of selected chain",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Block-Fetch Mini-Protocol\n\nFetches bodies of selected chain"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      },
+      "plantuml_id": "n004",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Block-Fetch Mini-Protocol</color>\\n<color:#2a2a2a>&#160;</color>\\n<color:#2a2a2a>Fetches bodies of selected chain</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "protocol-engine.leios.ib-relay",
+      "parent_d2_id": "protocol-engine.leios",
+      "parent_mermaid_id": "n005",
+      "kind": "node",
+      "source_label": "Input Blocks Relay",
+      "translated_label": "Input Blocks Relay",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Input Blocks Relay"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#666666"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "5"
+          },
+          "shadow": {
+            "value": "false"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "subcomponent"
+        ]
+      },
+      "plantuml_id": "n006",
+      "parent_plantuml_id": "n005",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Input Blocks Relay</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "protocol-engine.leios.eb-relay",
+      "parent_d2_id": "protocol-engine.leios",
+      "parent_mermaid_id": "n005",
+      "kind": "node",
+      "source_label": "Endorse Blocks Relay",
+      "translated_label": "Endorse Blocks Relay",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Endorse Blocks Relay"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#666666"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "5"
+          },
+          "shadow": {
+            "value": "false"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "subcomponent"
+        ]
+      },
+      "plantuml_id": "n007",
+      "parent_plantuml_id": "n005",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Endorse Blocks Relay</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "protocol-engine.leios.vote-relay",
+      "parent_d2_id": "protocol-engine.leios",
+      "parent_mermaid_id": "n005",
+      "kind": "node",
+      "source_label": "Vote Messages Relay",
+      "translated_label": "Vote Messages Relay",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Vote Messages Relay"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#666666"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "5"
+          },
+          "shadow": {
+            "value": "false"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "subcomponent"
+        ]
+      },
+      "plantuml_id": "n008",
+      "parent_plantuml_id": "n005",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Vote Messages Relay</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "protocol-engine.leios",
+      "parent_d2_id": "protocol-engine",
+      "parent_mermaid_id": "n001",
+      "kind": "group",
+      "source_label": "Leios Protocol",
+      "translated_label": "Leios Protocol",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Leios Protocol"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      },
+      "plantuml_id": "n005",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Leios Protocol</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "protocol-engine.relay",
+      "parent_d2_id": "protocol-engine",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Relay Mini-Protocol\n\nRelays messages\nwith configurable priority",
+      "translated_label": "Relay Mini-Protocol\n\nRelays messages\nwith configurable priority",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Relay Mini-Protocol\n\nRelays messages\nwith configurable priority"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      },
+      "plantuml_id": "n009",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Relay Mini-Protocol</color>\\n<color:#2a2a2a>&#160;</color>\\n<color:#2a2a2a>Relays messages</color>\\n<color:#2a2a2a>with configurable priority</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "protocol-engine.node-manager",
+      "parent_d2_id": "protocol-engine",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Node\n\nManages node state and\nprotocol interactions",
+      "translated_label": "Node\n\nManages node state and\nprotocol interactions",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Node\n\nManages node state and\nprotocol interactions"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      },
+      "plantuml_id": "n010",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Node</color>\\n<color:#2a2a2a>&#160;</color>\\n<color:#2a2a2a>Manages node state and</color>\\n<color:#2a2a2a>protocol interactions</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "protocol-engine",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Protocol Engine",
+      "translated_label": "Protocol Engine",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Protocol Engine"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#f5f5f5"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": {
+          "range": "leios_simulator.d2,55:8:1077-55:19:1088",
+          "path": [
+            {
+              "unquoted_string": {
+                "range": ",0:0:0-0:11:11",
+                "value": [
+                  {
+                    "string": "center-left",
+                    "raw_string": "center-left"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "container"
+        ]
+      },
+      "plantuml_id": "n001",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Protocol Engine</color>",
+      "differences": [
+        "near positioning omitted",
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "channel-layer.chan",
+      "parent_d2_id": "channel-layer",
+      "parent_mermaid_id": "n011",
+      "kind": "node",
+      "source_label": "Generic Channel\n\nBase channel abstraction",
+      "translated_label": "Generic Channel\n\nBase channel abstraction",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Generic Channel\n\nBase channel abstraction"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      },
+      "plantuml_id": "n012",
+      "parent_plantuml_id": "n011",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Generic Channel</color>\\n<color:#2a2a2a>&#160;</color>\\n<color:#2a2a2a>Base channel abstraction</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "channel-layer.tcp",
+      "parent_d2_id": "channel-layer",
+      "parent_mermaid_id": "n011",
+      "kind": "node",
+      "source_label": "TCP Model\n\nSimulates TCP behavior",
+      "translated_label": "TCP Model\n\nSimulates TCP behavior",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "TCP Model\n\nSimulates TCP behavior"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      },
+      "plantuml_id": "n013",
+      "parent_plantuml_id": "n011",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>TCP Model</color>\\n<color:#2a2a2a>&#160;</color>\\n<color:#2a2a2a>Simulates TCP behavior</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "channel-layer.mux",
+      "parent_d2_id": "channel-layer",
+      "parent_mermaid_id": "n011",
+      "kind": "node",
+      "source_label": "Channel Multiplexer\n\nMultiplexes protocols",
+      "translated_label": "Channel Multiplexer\n\nMultiplexes protocols",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Channel Multiplexer\n\nMultiplexes protocols"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      },
+      "plantuml_id": "n014",
+      "parent_plantuml_id": "n011",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Channel Multiplexer</color>\\n<color:#2a2a2a>&#160;</color>\\n<color:#2a2a2a>Multiplexes protocols</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "channel-layer",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Channel Layer",
+      "translated_label": "Channel Layer",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Channel Layer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#f5f5f5"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": {
+          "range": "leios_simulator.d2,103:8:2062-103:19:2073",
+          "path": [
+            {
+              "unquoted_string": {
+                "range": ",0:0:0-0:11:11",
+                "value": [
+                  {
+                    "string": "bottom-left",
+                    "raw_string": "bottom-left"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "container"
+        ]
+      },
+      "plantuml_id": "n011",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Channel Layer</color>",
+      "differences": [
+        "near positioning omitted",
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "viz-engine.layout",
+      "parent_d2_id": "viz-engine",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "Layout Engine\n\nHandles visualization\nlayout",
+      "translated_label": "Layout Engine\n\nHandles visualization\nlayout",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Layout Engine\n\nHandles visualization\nlayout"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      },
+      "plantuml_id": "n016",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Layout Engine</color>\\n<color:#2a2a2a>&#160;</color>\\n<color:#2a2a2a>Handles visualization</color>\\n<color:#2a2a2a>layout</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "viz-engine.protocol-viz",
+      "parent_d2_id": "viz-engine",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "Protocol Renderer\n\nRenders mini-protocol\n messages and node state\n(made for small sims)",
+      "translated_label": "Protocol Renderer\n\nRenders mini-protocol\n messages and node state\n(made for small sims)",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Protocol Renderer\n\nRenders mini-protocol\n messages and node state\n(made for small sims)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      },
+      "plantuml_id": "n017",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Protocol Renderer</color>\\n<color:#2a2a2a>&#160;</color>\\n<color:#2a2a2a>Renders mini-protocol</color>\\n<color:#2a2a2a> messages and node state</color>\\n<color:#2a2a2a>(made for small sims)</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "viz-engine.p2p-viz",
+      "parent_d2_id": "viz-engine",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "P2P Renderer\n\nVisualizes P2P\nnetwork state\nand charts\n(made for ~100 nodes sims)",
+      "translated_label": "P2P Renderer\n\nVisualizes P2P\nnetwork state\nand charts\n(made for ~100 nodes sims)",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "P2P Renderer\n\nVisualizes P2P\nnetwork state\nand charts\n(made for ~100 nodes sims)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      },
+      "plantuml_id": "n018",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>P2P Renderer</color>\\n<color:#2a2a2a>&#160;</color>\\n<color:#2a2a2a>Visualizes P2P</color>\\n<color:#2a2a2a>network state</color>\\n<color:#2a2a2a>and charts</color>\\n<color:#2a2a2a>(made for &#126;100 nodes sims)</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "viz-engine.frame-output",
+      "parent_d2_id": "viz-engine",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "Frame Output\n\nOutputs animation frames\n(on-screen or as PNG files)",
+      "translated_label": "Frame Output\n\nOutputs animation frames\n(on-screen or as PNG files)",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Frame Output\n\nOutputs animation frames\n(on-screen or as PNG files)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      },
+      "plantuml_id": "n019",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Frame Output</color>\\n<color:#2a2a2a>&#160;</color>\\n<color:#2a2a2a>Outputs animation frames</color>\\n<color:#2a2a2a>(on-screen or as PNG files)</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "viz-engine",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Visualization Engine",
+      "translated_label": "Visualization Engine",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Visualization Engine"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#f5f5f5"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": {
+          "range": "leios_simulator.d2,130:8:2550-130:20:2562",
+          "path": [
+            {
+              "unquoted_string": {
+                "range": ",0:0:0-0:12:12",
+                "value": [
+                  {
+                    "string": "center-right",
+                    "raw_string": "center-right"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "container"
+        ]
+      },
+      "plantuml_id": "n015",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Visualization Engine</color>",
+      "differences": [
+        "near positioning omitted",
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "monitor.metrics",
+      "parent_d2_id": "monitor",
+      "parent_mermaid_id": "n020",
+      "kind": "node",
+      "source_label": "Model\n\nComputes state and metrics from trace",
+      "translated_label": "Model\n\nComputes state and metrics from trace",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Model\n\nComputes state and metrics from trace"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      },
+      "plantuml_id": "n021",
+      "parent_plantuml_id": "n020",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Model</color>\\n<color:#2a2a2a>&#160;</color>\\n<color:#2a2a2a>Computes state and metrics from trace</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "monitor.tracer",
+      "parent_d2_id": "monitor",
+      "parent_mermaid_id": "n020",
+      "kind": "node",
+      "source_label": "Event Tracer\n\nCollects trace of\nnode and network events",
+      "translated_label": "Event Tracer\n\nCollects trace of\nnode and network events",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Event Tracer\n\nCollects trace of\nnode and network events"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      },
+      "plantuml_id": "n022",
+      "parent_plantuml_id": "n020",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Event Tracer</color>\\n<color:#2a2a2a>&#160;</color>\\n<color:#2a2a2a>Collects trace of</color>\\n<color:#2a2a2a>node and network events</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    },
+    {
+      "d2_id": "monitor.io-sim",
+      "parent_d2_id": "monitor",
+      "parent_mermaid_id": "n020",
+      "kind": "node",
+      "source_label": "IO-Sim library\n\nSimulates threading, clocks, STM, ..",
+      "translated_label": "IO-Sim library\n\nSimulates threading, clocks, STM, ..",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "IO-Sim library\n\nSimulates threading, clocks, STM, .."
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "strokeDash": {
+            "value": "5"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "external"
+        ]
+      },
+      "plantuml_id": "n023",
+      "parent_plantuml_id": "n020",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>IO-Sim library</color>\\n<color:#2a2a2a>&#160;</color>\\n<color:#2a2a2a>Simulates threading, clocks, STM, ..</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "monitor.file-system",
+      "parent_d2_id": "monitor",
+      "parent_mermaid_id": "n020",
+      "kind": "node",
+      "source_label": "File-System",
+      "translated_label": "File-System",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "File-System"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "strokeDash": {
+            "value": "5"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "external"
+        ]
+      },
+      "plantuml_id": "n024",
+      "parent_plantuml_id": "n020",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>File-System</color>",
+      "differences": [
+        "borderRadius style omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "monitor",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Event Consumer",
+      "translated_label": "Event Consumer",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Event Consumer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#f5f5f5"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": {
+          "range": "leios_simulator.d2,160:8:3297-160:20:3309",
+          "path": [
+            {
+              "unquoted_string": {
+                "range": ",0:0:0-0:12:12",
+                "value": [
+                  {
+                    "string": "bottom-right",
+                    "raw_string": "bottom-right"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "container"
+        ]
+      },
+      "plantuml_id": "n020",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<color:#2a2a2a>Event Consumer</color>",
+      "differences": [
+        "near positioning omitted",
+        "borderRadius style omitted",
+        "shadow style omitted"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "index": 0,
+      "d2_id": "viz-engine.(protocol-viz -> layout)[0]",
+      "source_d2_id": "viz-engine.protocol-viz",
+      "target_d2_id": "viz-engine.layout",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Assembled with",
+      "translated_label": "Assembled with",
+      "source_attributes": {
+        "label": {
+          "value": "Assembled with"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n017",
+      "target_plantuml_id": "n016",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Assembled with"
+    },
+    {
+      "index": 1,
+      "d2_id": "viz-engine.(p2p-viz -> layout)[0]",
+      "source_d2_id": "viz-engine.p2p-viz",
+      "target_d2_id": "viz-engine.layout",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Assembled with",
+      "translated_label": "Assembled with",
+      "source_attributes": {
+        "label": {
+          "value": "Assembled with"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n018",
+      "target_plantuml_id": "n016",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Assembled with"
+    },
+    {
+      "index": 2,
+      "d2_id": "viz-engine.(layout -> frame-output)[0]",
+      "source_d2_id": "viz-engine.layout",
+      "target_d2_id": "viz-engine.frame-output",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Emits frames",
+      "translated_label": "Emits frames",
+      "source_attributes": {
+        "label": {
+          "value": "Emits frames"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n016",
+      "target_plantuml_id": "n019",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Emits frames"
+    },
+    {
+      "index": 3,
+      "d2_id": "monitor.(tracer -> io-sim)[0]",
+      "source_d2_id": "monitor.tracer",
+      "target_d2_id": "monitor.io-sim",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Uses to run nodes and channels",
+      "translated_label": "Uses to run nodes and channels",
+      "source_attributes": {
+        "label": {
+          "value": "Uses to run nodes and channels"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n022",
+      "target_plantuml_id": "n023",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Uses to run nodes and channels"
+    },
+    {
+      "index": 4,
+      "d2_id": "monitor.(metrics -> tracer)[0]",
+      "source_d2_id": "monitor.metrics",
+      "target_d2_id": "monitor.tracer",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Consumes trace",
+      "translated_label": "Consumes trace",
+      "source_attributes": {
+        "label": {
+          "value": "Consumes trace"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n021",
+      "target_plantuml_id": "n022",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Consumes trace"
+    },
+    {
+      "index": 5,
+      "d2_id": "monitor.(metrics -> file-system)[0]",
+      "source_d2_id": "monitor.metrics",
+      "target_d2_id": "monitor.file-system",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Outputs metrics",
+      "translated_label": "Outputs metrics",
+      "source_attributes": {
+        "label": {
+          "value": "Outputs metrics"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n021",
+      "target_plantuml_id": "n024",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Outputs metrics"
+    },
+    {
+      "index": 6,
+      "d2_id": "channel-layer.(tcp -> chan)[0]",
+      "source_d2_id": "channel-layer.tcp",
+      "target_d2_id": "channel-layer.chan",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Implements",
+      "translated_label": "Implements",
+      "source_attributes": {
+        "label": {
+          "value": "Implements"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n013",
+      "target_plantuml_id": "n012",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Implements"
+    },
+    {
+      "index": 7,
+      "d2_id": "channel-layer.(mux -> chan)[0]",
+      "source_d2_id": "channel-layer.mux",
+      "target_d2_id": "channel-layer.chan",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Uses",
+      "translated_label": "Uses",
+      "source_attributes": {
+        "label": {
+          "value": "Uses"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n014",
+      "target_plantuml_id": "n012",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Uses"
+    },
+    {
+      "index": 8,
+      "d2_id": "(protocol-engine -> channel-layer)[0]",
+      "source_d2_id": "protocol-engine",
+      "target_d2_id": "channel-layer",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Uses for messaging",
+      "translated_label": "Uses for messaging",
+      "source_attributes": {
+        "label": {
+          "value": "Uses for messaging"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n001",
+      "target_plantuml_id": "n011",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Uses for messaging"
+    },
+    {
+      "index": 9,
+      "d2_id": "protocol-engine.(praos -> block-fetch)[0]",
+      "source_d2_id": "protocol-engine.praos",
+      "target_d2_id": "protocol-engine.block-fetch",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Bodies diffusion",
+      "translated_label": "Bodies diffusion",
+      "source_attributes": {
+        "label": {
+          "value": "Bodies diffusion"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n002",
+      "target_plantuml_id": "n004",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Bodies diffusion"
+    },
+    {
+      "index": 10,
+      "d2_id": "protocol-engine.(praos -> chain-sync)[0]",
+      "source_d2_id": "protocol-engine.praos",
+      "target_d2_id": "protocol-engine.chain-sync",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Headers diffusion",
+      "translated_label": "Headers diffusion",
+      "source_attributes": {
+        "label": {
+          "value": "Headers diffusion"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n002",
+      "target_plantuml_id": "n003",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Headers diffusion"
+    },
+    {
+      "index": 11,
+      "d2_id": "protocol-engine.(leios -> praos)[0]",
+      "source_d2_id": "protocol-engine.leios",
+      "target_d2_id": "protocol-engine.praos",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Extends consensus",
+      "translated_label": "Extends consensus",
+      "source_attributes": {
+        "label": {
+          "value": "Extends consensus"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n005",
+      "target_plantuml_id": "n002",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Extends consensus"
+    },
+    {
+      "index": 12,
+      "d2_id": "protocol-engine.(leios -> relay)[0]",
+      "source_d2_id": "protocol-engine.leios",
+      "target_d2_id": "protocol-engine.relay",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Uses for diffusion",
+      "translated_label": "Uses for diffusion",
+      "source_attributes": {
+        "label": {
+          "value": "Uses for diffusion"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n005",
+      "target_plantuml_id": "n009",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Uses for diffusion"
+    },
+    {
+      "index": 13,
+      "d2_id": "protocol-engine.(node-manager -> praos)[0]",
+      "source_d2_id": "protocol-engine.node-manager",
+      "target_d2_id": "protocol-engine.praos",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Manages ranking blocks\nvalidation/generation",
+      "translated_label": "Manages ranking blocks\nvalidation/generation",
+      "source_attributes": {
+        "label": {
+          "value": "Manages ranking blocks\nvalidation/generation"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n010",
+      "target_plantuml_id": "n002",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Manages ranking blocks\\nvalidation/generation"
+    },
+    {
+      "index": 14,
+      "d2_id": "protocol-engine.(node-manager -> leios)[0]",
+      "source_d2_id": "protocol-engine.node-manager",
+      "target_d2_id": "protocol-engine.leios",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Manages ledger state\nand validation/generation",
+      "translated_label": "Manages ledger state\nand validation/generation",
+      "source_attributes": {
+        "label": {
+          "value": "Manages ledger state\nand validation/generation"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n010",
+      "target_plantuml_id": "n005",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Manages ledger state\\nand validation/generation"
+    },
+    {
+      "index": 15,
+      "d2_id": "(viz-engine -> monitor)[0]",
+      "source_d2_id": "viz-engine",
+      "target_d2_id": "monitor",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Visualizes state and metrics",
+      "translated_label": "Visualizes state and metrics",
+      "source_attributes": {
+        "label": {
+          "value": "Visualizes state and metrics"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n015",
+      "target_plantuml_id": "n020",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Visualizes state and metrics"
+    },
+    {
+      "index": 16,
+      "d2_id": "(monitor -> channel-layer)[0]",
+      "source_d2_id": "monitor",
+      "target_d2_id": "channel-layer",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Traces network events",
+      "translated_label": "Traces network events",
+      "source_attributes": {
+        "label": {
+          "value": "Traces network events"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n020",
+      "target_plantuml_id": "n011",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Traces network events"
+    },
+    {
+      "index": 17,
+      "d2_id": "(monitor -> protocol-engine)[0]",
+      "source_d2_id": "monitor",
+      "target_d2_id": "protocol-engine",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Traces node events",
+      "translated_label": "Traces node events",
+      "source_attributes": {
+        "label": {
+          "value": "Traces node events"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n020",
+      "target_plantuml_id": "n001",
+      "plantuml_arrow": "-->",
+      "encoded_label": "Traces node events"
+    }
+  ],
+  "synthetic_objects": 0,
+  "synthetic_edges": 0
+}

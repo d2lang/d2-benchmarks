@@ -1,0 +1,106 @@
+%% Generated from the compiled D2 graph; see matching .mapping.json and TRANSLATION.md.
+flowchart TB
+  n000["DRAM<br/><br/>1 GiB of DDR3"]
+  subgraph n001["Mocha"]
+    direction TB
+    subgraph n002["CVA6-CHERI"]
+      direction TB
+      n003["Frontend"]
+      n004["ID stage"]
+      n005["Issue stage"]
+      n006["EX stage"]
+      n007["Commit stage"]
+      n008["Cache subsystem"]
+    end
+    n009["AXI crossbar<br/><br/>64-bit width"]
+    n010["TileLink crossbar<br/><br/>32-bit width"]
+    n011["Tag control"]
+    n012["Debug"]
+    n013["SRAM"]
+    n014["Mailbox"]
+    subgraph n015["Peripherals"]
+      direction TB
+      n016["ROM<br/><br/>32 KiB"]
+      n017["Entropy<br/><br/>Source"]
+      n018["KMAC<br/><br/>SHA3"]
+      n019["PLIC"]
+      n020["Timer"]
+      n021["GPIO"]
+      n022["I2C"]
+      n023["SPI<br/><br/>Device"]
+      n024["SPI<br/><br/>Host"]
+      n025["UART"]
+      n026["Managers<br/><br/>- Clock<br/>- Reset<br/>- Power"]
+    end
+  end
+  n027["Rest of chip<br/><br/>64-bit bus"]
+  n028["Flash"]
+  n029["I2C"]
+  n030["SPI"]
+  n031["UART"]
+  n032["GPIO"]
+  subgraph n033["Legend"]
+    direction TB
+    n034["Cached"]
+    n035["Uncached"]
+    n036["Tag aware"]
+    n037["Tag oblivious"]
+  end
+  %% Edges in original compiler order; one line per compiled edge.
+  n008 --> n003
+  n006 <--> n008
+  n008 <--> n009
+  n008 <--> n010
+  n009 <--> n011
+  n009 <--> n012
+  n009 <--> n013
+  n009 <--> n014
+  n010 <--> n015
+  n024 <--> n028
+  n011 <--> n000
+  n009 <--> n027
+  n014 <--> n027
+  n022 <--> n029
+  n023 <--> n030
+  n025 <--> n031
+  n021 <--> n032
+  n033 <--> n002
+  style n000 stroke:black,stroke-width:5px,font-size:50px,stroke-dasharray:5 5
+  style n001 stroke:transparent,stroke-width:5px
+  style n002 stroke:black,stroke-width:5px
+  style n003 stroke:black,stroke-width:5px,font-size:40px
+  style n004 stroke:black,stroke-width:5px,font-size:40px
+  style n005 stroke:black,stroke-width:5px,font-size:40px
+  style n006 stroke:black,stroke-width:5px,font-size:40px
+  style n007 stroke:black,stroke-width:5px,font-size:40px
+  style n008 stroke:black,stroke-width:5px,font-size:40px
+  style n009 stroke:black,stroke-width:5px,font-size:50px
+  style n010 fill:hotpink,stroke:black,stroke-width:5px,font-size:50px,stroke-dasharray:5 5
+  style n011 stroke:black,stroke-width:5px,font-size:50px
+  style n012 fill:hotpink,stroke:black,stroke-width:5px,font-size:50px
+  style n013 fill:hotpink,stroke:black,stroke-width:5px,font-size:50px
+  style n014 fill:hotpink,stroke:black,stroke-width:5px,font-size:50px,stroke-dasharray:5 5
+  style n015 fill:hotpink,stroke:black,stroke-width:5px,stroke-dasharray:5 5
+  style n016 fill:lightpink,stroke:black,stroke-width:5px,font-size:40px,stroke-dasharray:5 5
+  style n017 fill:lightpink,stroke:black,stroke-width:5px,font-size:40px,stroke-dasharray:5 5
+  style n018 fill:lightpink,stroke:black,stroke-width:5px,font-size:40px,stroke-dasharray:5 5
+  style n019 fill:lightpink,stroke:black,stroke-width:5px,font-size:40px,stroke-dasharray:5 5
+  style n020 fill:lightpink,stroke:black,stroke-width:5px,font-size:40px,stroke-dasharray:5 5
+  style n021 fill:lightpink,stroke:black,stroke-width:5px,font-size:40px,stroke-dasharray:5 5
+  style n022 fill:lightpink,stroke:black,stroke-width:5px,font-size:40px,stroke-dasharray:5 5
+  style n023 fill:lightpink,stroke:black,stroke-width:5px,font-size:40px,stroke-dasharray:5 5
+  style n024 fill:lightpink,stroke:black,stroke-width:5px,font-size:40px,stroke-dasharray:5 5
+  style n025 fill:lightpink,stroke:black,stroke-width:5px,font-size:40px,stroke-dasharray:5 5
+  style n026 fill:lightpink,stroke:black,stroke-width:5px,font-size:40px,stroke-dasharray:5 5
+  style n027 fill:hotpink,stroke:black,stroke-width:5px,font-size:50px,stroke-dasharray:5 5
+  style n028 fill:hotpink,stroke:black,stroke-width:5px,font-size:50px,stroke-dasharray:5 5
+  style n029 fill:hotpink,stroke:black,stroke-width:5px,font-size:50px,stroke-dasharray:5 5
+  style n030 fill:hotpink,stroke:black,stroke-width:5px,font-size:50px,stroke-dasharray:5 5
+  style n031 fill:hotpink,stroke:black,stroke-width:5px,font-size:50px,stroke-dasharray:5 5
+  style n032 fill:hotpink,stroke:black,stroke-width:5px,font-size:50px,stroke-dasharray:5 5
+  style n033 fill:transparent,stroke:transparent,stroke-width:5px
+  style n034 stroke:black,stroke-width:0px,font-size:50px
+  style n035 fill:hotpink,stroke:black,stroke-width:0px,font-size:50px
+  style n036 fill:transparent,stroke:black,stroke-width:5px,font-size:50px
+  style n037 fill:transparent,stroke:black,stroke-width:5px,font-size:50px,stroke-dasharray:5 5
+  linkStyle 17 stroke:transparent

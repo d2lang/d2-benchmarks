@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "versions": {
+    "d2_revision": "a825194903523c4409f4df7e7f4385efacb6deeb",
+    "go": "1.27.0",
+    "node": "24.19.0",
+    "mermaid_cli": "11.17.0",
+    "mermaid": "11.17.2",
+    "puppeteer": "25.10.0",
+    "chrome": "152.0.7977.75",
+    "graphviz": "14.1.2",
+    "java": "21.0.10",
+    "plantuml": "1.2026.8",
+    "micromamba": "2.9.0"
+  },
+  "common": {
+    "d2_source": {
+      "url": "https://codeload.github.com/d2lang/d2/tar.gz/a825194903523c4409f4df7e7f4385efacb6deeb",
+      "sha256": "1c1a760074566e6d78712b4a334e688f671acf5866afb7d6d3422248f69193b2"
+    },
+    "plantuml": {
+      "url": "https://github.com/plantuml/plantuml/releases/download/v1.2026.8/plantuml.jar",
+      "sha256": "5e1ecfa8ecd32c90b03bbf3b1eb6f020943f98ab0fcf4032be31a0002ee2c462"
+    }
+  },
+  "platforms": {
+    "osx-arm64": {
+      "go": {
+        "url": "https://go.dev/dl/go1.27.0.darwin-arm64.tar.gz",
+        "sha256": "90493b3bbd5e10f91d12153198bf1994fd756399b4fec93b49b0c6e2acdeeb3e",
+        "root": "go"
+      },
+      "node": {
+        "url": "https://nodejs.org/dist/v24.19.0/node-v24.19.0-darwin-arm64.tar.gz",
+        "sha256": "8294b7aa9b03997481c06babf1e8b270c859358f27da57a11509afe537ac381d",
+        "root": "node-v24.19.0-darwin-arm64"
+      },
+      "micromamba": {
+        "url": "https://conda.anaconda.org/conda-forge/osx-arm64/micromamba-2.9.0-0.tar.bz2",
+        "sha256": "500f5074feb8d02c4296ef9921c3650ed2874171805a9fbb8fbb53896433646b"
+      },
+      "chrome": {
+        "url": "https://storage.googleapis.com/chrome-for-testing-public/152.0.7977.75/mac-arm64/chrome-mac-arm64.zip",
+        "sha256": "9f279f88b20934303003a435b161d4138daaf26bc354ae94c3d6cd68575e600f",
+        "executable": "chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"
+      }
+    },
+    "linux-64": {
+      "go": {
+        "url": "https://go.dev/dl/go1.27.0.linux-amd64.tar.gz",
+        "sha256": "675c26c449cbb18fc24b74650de1eabbae6e16f64326fd85a283fb3b58280685",
+        "root": "go"
+      },
+      "node": {
+        "url": "https://nodejs.org/dist/v24.19.0/node-v24.19.0-linux-x64.tar.gz",
+        "sha256": "f625d97cd707df4ff96254916fbc5ff014f09c09effe5a1e0ca8f6d41a8789d4",
+        "root": "node-v24.19.0-linux-x64"
+      },
+      "micromamba": {
+        "url": "https://conda.anaconda.org/conda-forge/linux-64/micromamba-2.9.0-0.tar.bz2",
+        "sha256": "8761c382127e6363bd9e0a2451aa3ef90d071a79133f736e2f759a3bf13040dd"
+      },
+      "chrome": {
+        "url": "https://storage.googleapis.com/chrome-for-testing-public/152.0.7977.75/linux64/chrome-linux64.zip",
+        "sha256": "a16d36890636bd72251133b27f05825f7f9269c2425b3408fa3a76e10dccd8f1",
+        "executable": "chrome-linux64/chrome"
+      }
+    }
+  }
+}

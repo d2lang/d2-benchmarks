@@ -1,0 +1,1731 @@
+{
+  "fixture": "fulcro_rad",
+  "source_sha256": "c5b0910a00b4bc0ff33a4a232796e8fa9fcddc7b7feb9b718a06a2605cfb4bd4",
+  "mermaid_sha256": "dcd64cf86d4152c823a6101ac3c3b2e9aa4223eddd1846894707c6f9c37cf80b",
+  "counts": {
+    "objects": 25,
+    "leaf_nodes": 19,
+    "groups": 6,
+    "edges": 16
+  },
+  "root_attributes": {
+    "label": {
+      "value": ""
+    },
+    "labelDimensions": {
+      "width": 0,
+      "height": 0
+    },
+    "style": {},
+    "iconStyle": {},
+    "near_key": null,
+    "shape": {
+      "value": ""
+    },
+    "direction": {
+      "value": "down"
+    },
+    "constraint": null
+  },
+  "source_config": null,
+  "limitations": {
+    "near positioning omitted": 1,
+    "markdown formatted as plain multiline text": 2,
+    "group fontSize omitted to avoid Mermaid label clipping": 1,
+    "group bold omitted to avoid Mermaid label clipping": 1,
+    "doubleBorder style omitted": 1
+  },
+  "objects": [
+    {
+      "d2_id": "title",
+      "mermaid_id": "n000",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "# Fulcro RAD Architecture",
+      "translated_label": "Fulcro RAD Architecture",
+      "source_shape": "text",
+      "mermaid_shape": "transparent-rectangle",
+      "differences": [
+        "near positioning omitted",
+        "markdown formatted as plain multiline text"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "# Fulcro RAD Architecture"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          }
+        },
+        "iconStyle": {},
+        "near_key": {
+          "range": "fulcro_rad.d2,8:8:223-8:18:233",
+          "path": [
+            {
+              "unquoted_string": {
+                "range": ",0:0:0-0:10:10",
+                "value": [
+                  {
+                    "string": "top-center",
+                    "raw_string": "top-center"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "language": "markdown",
+        "shape": {
+          "value": "text"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "attributes.core",
+      "mermaid_id": "n002",
+      "parent_d2_id": "attributes",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "**key, type, target**\n**cardinality, identities**",
+      "translated_label": "key, type, target\ncardinality, identities",
+      "source_shape": "text",
+      "mermaid_shape": "transparent-rectangle",
+      "differences": [
+        "markdown formatted as plain multiline text"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "**key, type, target**\n**cardinality, identities**"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#d4edda"
+          },
+          "borderRadius": {
+            "value": "8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "text"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "attributes.form-ctx",
+      "mermaid_id": "n003",
+      "parent_d2_id": "attributes",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "fo/* Context",
+      "translated_label": "fo/* Context",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "fo/* Context"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#fff3cd"
+          },
+          "borderRadius": {
+            "value": "8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "attributes.report-ctx",
+      "mermaid_id": "n004",
+      "parent_d2_id": "attributes",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "ro/* Context",
+      "translated_label": "ro/* Context",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "ro/* Context"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#fff3cd"
+          },
+          "borderRadius": {
+            "value": "8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "attributes.resolver-ctx",
+      "mermaid_id": "n005",
+      "parent_d2_id": "attributes",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Resolver Metadata",
+      "translated_label": "Resolver Metadata",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Resolver Metadata"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#fff3cd"
+          },
+          "borderRadius": {
+            "value": "8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "attributes.ext",
+      "mermaid_id": "n006",
+      "parent_d2_id": "attributes",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Any NS Key...",
+      "translated_label": "Any NS Key...",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Any NS Key..."
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#f0e6ff"
+          },
+          "strokeDash": {
+            "value": "5"
+          },
+          "borderRadius": {
+            "value": "8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "attributes",
+      "mermaid_id": "n001",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Attributes",
+      "translated_label": "Attributes",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Attributes"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2980b9"
+          },
+          "fill": {
+            "value": "#e8f4f8"
+          },
+          "borderRadius": {
+            "value": "12"
+          },
+          "fontSize": {
+            "value": "22"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "forms.ui",
+      "mermaid_id": "n008",
+      "parent_d2_id": "forms",
+      "parent_mermaid_id": "n007",
+      "kind": "node",
+      "source_label": "Pluggable UI",
+      "translated_label": "Pluggable UI",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Pluggable UI"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#fdebd0"
+          },
+          "borderRadius": {
+            "value": "8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "forms.sm",
+      "mermaid_id": "n009",
+      "parent_d2_id": "forms",
+      "parent_mermaid_id": "n007",
+      "kind": "node",
+      "source_label": "State Machine",
+      "translated_label": "State Machine",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "State Machine"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#fadbd8"
+          },
+          "borderRadius": {
+            "value": "8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "forms",
+      "mermaid_id": "n007",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Forms",
+      "translated_label": "Forms",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Forms"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#e67e22"
+          },
+          "fill": {
+            "value": "#fef9e7"
+          },
+          "borderRadius": {
+            "value": "12"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "reports.rui",
+      "mermaid_id": "n011",
+      "parent_d2_id": "reports",
+      "parent_mermaid_id": "n010",
+      "kind": "node",
+      "source_label": "Pluggable UI",
+      "translated_label": "Pluggable UI",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Pluggable UI"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#d6eaf8"
+          },
+          "borderRadius": {
+            "value": "8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "reports.rsm",
+      "mermaid_id": "n012",
+      "parent_d2_id": "reports",
+      "parent_mermaid_id": "n010",
+      "kind": "node",
+      "source_label": "State Machine",
+      "translated_label": "State Machine",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "State Machine"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#d4e6f1"
+          },
+          "borderRadius": {
+            "value": "8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "reports",
+      "mermaid_id": "n010",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Reports",
+      "translated_label": "Reports",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Reports"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2471a3"
+          },
+          "fill": {
+            "value": "#eaf2f8"
+          },
+          "borderRadius": {
+            "value": "12"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "delta.format",
+      "mermaid_id": "n014",
+      "parent_d2_id": "delta",
+      "parent_mermaid_id": "n013",
+      "kind": "node",
+      "source_label": "{ident {attr {:before v :after v}}}",
+      "translated_label": "{ident {attr {:before v :after v}}}",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "{ident {attr {:before v :after v}}}"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#ebdef0"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "14"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "delta",
+      "mermaid_id": "n013",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Minimum Form Delta",
+      "translated_label": "Minimum Form Delta",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Minimum Form Delta"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#8e44ad"
+          },
+          "fill": {
+            "value": "#f5eef8"
+          },
+          "borderRadius": {
+            "value": "12"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "middleware.rewrite",
+      "mermaid_id": "n016",
+      "parent_d2_id": "middleware",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "Rewrite Values",
+      "translated_label": "Rewrite Values",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Rewrite Values"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#fadbd8"
+          },
+          "borderRadius": {
+            "value": "8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "middleware.validate",
+      "mermaid_id": "n017",
+      "parent_d2_id": "middleware",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "Validate",
+      "translated_label": "Validate",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Validate"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#fadbd8"
+          },
+          "borderRadius": {
+            "value": "8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "middleware.gc",
+      "mermaid_id": "n018",
+      "parent_d2_id": "middleware",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "GC Orphans",
+      "translated_label": "GC Orphans",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "GC Orphans"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#fadbd8"
+          },
+          "borderRadius": {
+            "value": "8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "middleware.conflict",
+      "mermaid_id": "n019",
+      "parent_d2_id": "middleware",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "Conflict Detection",
+      "translated_label": "Conflict Detection",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Conflict Detection"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#fadbd8"
+          },
+          "borderRadius": {
+            "value": "8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "middleware",
+      "mermaid_id": "n015",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Save Middleware",
+      "translated_label": "Save Middleware",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Save Middleware"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c0392b"
+          },
+          "fill": {
+            "value": "#fdedec"
+          },
+          "borderRadius": {
+            "value": "12"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "resolvers.gen",
+      "mermaid_id": "n021",
+      "parent_d2_id": "resolvers",
+      "parent_mermaid_id": "n020",
+      "kind": "node",
+      "source_label": "Auto-Generated",
+      "translated_label": "Auto-Generated",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Auto-Generated"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#d1f2eb"
+          },
+          "borderRadius": {
+            "value": "8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "resolvers.adapter",
+      "mermaid_id": "n022",
+      "parent_d2_id": "resolvers",
+      "parent_mermaid_id": "n020",
+      "kind": "node",
+      "source_label": "DB Adapter Plugins",
+      "translated_label": "DB Adapter Plugins",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "DB Adapter Plugins"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#a9dfbf"
+          },
+          "borderRadius": {
+            "value": "8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "resolvers.pathom",
+      "mermaid_id": "n023",
+      "parent_d2_id": "resolvers",
+      "parent_mermaid_id": "n020",
+      "kind": "node",
+      "source_label": "Pathom EQL Graph",
+      "translated_label": "Pathom EQL Graph",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Pathom EQL Graph"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#abebc6"
+          },
+          "borderRadius": {
+            "value": "8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "resolvers",
+      "mermaid_id": "n020",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Resolvers",
+      "translated_label": "Resolvers",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Resolvers"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1abc9c"
+          },
+          "fill": {
+            "value": "#e8f8f5"
+          },
+          "borderRadius": {
+            "value": "12"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "db",
+      "mermaid_id": "n024",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "Database",
+      "translated_label": "Database",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "doubleBorder style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Database"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#7f8c8d"
+          },
+          "fill": {
+            "value": "#f2f3f4"
+          },
+          "borderRadius": {
+            "value": "12"
+          },
+          "doubleBorder": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    }
+  ],
+  "edges": [
+    {
+      "index": 0,
+      "d2_id": "forms.(ui <-> sm)[0]",
+      "source_d2_id": "forms.ui",
+      "target_d2_id": "forms.sm",
+      "source_mermaid_id": "n008",
+      "target_mermaid_id": "n009",
+      "mermaid_start_id": "n008",
+      "mermaid_end_id": "n009",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "events",
+      "translated_label": "events",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": "events"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 1,
+      "d2_id": "reports.(rui <-> rsm)[0]",
+      "source_d2_id": "reports.rui",
+      "target_d2_id": "reports.rsm",
+      "source_mermaid_id": "n011",
+      "target_mermaid_id": "n012",
+      "mermaid_start_id": "n011",
+      "mermaid_end_id": "n012",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "events",
+      "translated_label": "events",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": "events"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 2,
+      "d2_id": "middleware.(rewrite -> validate)[0]",
+      "source_d2_id": "middleware.rewrite",
+      "target_d2_id": "middleware.validate",
+      "source_mermaid_id": "n016",
+      "target_mermaid_id": "n017",
+      "mermaid_start_id": "n016",
+      "mermaid_end_id": "n017",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "pipeline",
+      "translated_label": "pipeline",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "pipeline"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 3,
+      "d2_id": "middleware.(validate -> gc)[0]",
+      "source_d2_id": "middleware.validate",
+      "target_d2_id": "middleware.gc",
+      "source_mermaid_id": "n017",
+      "target_mermaid_id": "n018",
+      "mermaid_start_id": "n017",
+      "mermaid_end_id": "n018",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "pipeline",
+      "translated_label": "pipeline",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "pipeline"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 4,
+      "d2_id": "middleware.(gc -> conflict)[0]",
+      "source_d2_id": "middleware.gc",
+      "target_d2_id": "middleware.conflict",
+      "source_mermaid_id": "n018",
+      "target_mermaid_id": "n019",
+      "mermaid_start_id": "n018",
+      "mermaid_end_id": "n019",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "pipeline",
+      "translated_label": "pipeline",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "pipeline"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 5,
+      "d2_id": "resolvers.(gen -> pathom)[0]",
+      "source_d2_id": "resolvers.gen",
+      "target_d2_id": "resolvers.pathom",
+      "source_mermaid_id": "n021",
+      "target_mermaid_id": "n023",
+      "mermaid_start_id": "n021",
+      "mermaid_end_id": "n023",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 6,
+      "d2_id": "resolvers.(adapter -> pathom)[0]",
+      "source_d2_id": "resolvers.adapter",
+      "target_d2_id": "resolvers.pathom",
+      "source_mermaid_id": "n022",
+      "target_mermaid_id": "n023",
+      "mermaid_start_id": "n022",
+      "mermaid_end_id": "n023",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 7,
+      "d2_id": "(attributes -> forms)[0]",
+      "source_d2_id": "attributes",
+      "target_d2_id": "forms",
+      "source_mermaid_id": "n001",
+      "target_mermaid_id": "n007",
+      "mermaid_start_id": "n001",
+      "mermaid_end_id": "n007",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "fo/ keys",
+      "translated_label": "fo/ keys",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "fo/ keys"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#e67e22"
+          },
+          "strokeWidth": {
+            "value": "2"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 8,
+      "d2_id": "(attributes -> reports)[0]",
+      "source_d2_id": "attributes",
+      "target_d2_id": "reports",
+      "source_mermaid_id": "n001",
+      "target_mermaid_id": "n010",
+      "mermaid_start_id": "n001",
+      "mermaid_end_id": "n010",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "ro/ keys",
+      "translated_label": "ro/ keys",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "ro/ keys"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2471a3"
+          },
+          "strokeWidth": {
+            "value": "2"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 9,
+      "d2_id": "(attributes -> resolvers)[0]",
+      "source_d2_id": "attributes",
+      "target_d2_id": "resolvers",
+      "source_mermaid_id": "n001",
+      "target_mermaid_id": "n020",
+      "mermaid_start_id": "n001",
+      "mermaid_end_id": "n020",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "schema metadata",
+      "translated_label": "schema metadata",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "schema metadata"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1abc9c"
+          },
+          "strokeWidth": {
+            "value": "2"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 10,
+      "d2_id": "(forms -> delta)[0]",
+      "source_d2_id": "forms",
+      "target_d2_id": "delta",
+      "source_mermaid_id": "n007",
+      "target_mermaid_id": "n013",
+      "mermaid_start_id": "n007",
+      "mermaid_end_id": "n013",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "dirty-fields",
+      "translated_label": "dirty-fields",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "dirty-fields"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#8e44ad"
+          },
+          "strokeWidth": {
+            "value": "2"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 11,
+      "d2_id": "(delta -> middleware)[0]",
+      "source_d2_id": "delta",
+      "target_d2_id": "middleware",
+      "source_mermaid_id": "n013",
+      "target_mermaid_id": "n015",
+      "mermaid_start_id": "n013",
+      "mermaid_end_id": "n015",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "delta",
+      "translated_label": "delta",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "delta"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c0392b"
+          },
+          "strokeWidth": {
+            "value": "2"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 12,
+      "d2_id": "(middleware -> db)[0]",
+      "source_d2_id": "middleware",
+      "target_d2_id": "db",
+      "source_mermaid_id": "n015",
+      "target_mermaid_id": "n024",
+      "mermaid_start_id": "n015",
+      "mermaid_end_id": "n024",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "save",
+      "translated_label": "save",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "save"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c0392b"
+          },
+          "strokeWidth": {
+            "value": "2"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 13,
+      "d2_id": "(resolvers -> db)[0]",
+      "source_d2_id": "resolvers",
+      "target_d2_id": "db",
+      "source_mermaid_id": "n020",
+      "target_mermaid_id": "n024",
+      "mermaid_start_id": "n020",
+      "mermaid_end_id": "n024",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "read",
+      "translated_label": "read",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "read"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1abc9c"
+          },
+          "strokeWidth": {
+            "value": "2"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 14,
+      "d2_id": "(resolvers -> forms)[0]",
+      "source_d2_id": "resolvers",
+      "target_d2_id": "forms",
+      "source_mermaid_id": "n020",
+      "target_mermaid_id": "n007",
+      "mermaid_start_id": "n020",
+      "mermaid_end_id": "n007",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "EQL load",
+      "translated_label": "EQL load",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "EQL load"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#e67e22"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "strokeDash": {
+            "value": "5"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 15,
+      "d2_id": "(resolvers -> reports)[0]",
+      "source_d2_id": "resolvers",
+      "target_d2_id": "reports",
+      "source_mermaid_id": "n020",
+      "target_mermaid_id": "n010",
+      "mermaid_start_id": "n020",
+      "mermaid_end_id": "n010",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "EQL load",
+      "translated_label": "EQL load",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "EQL load"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2471a3"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "strokeDash": {
+            "value": "5"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    }
+  ],
+  "synthetic_objects": 0,
+  "synthetic_edges": 0
+}

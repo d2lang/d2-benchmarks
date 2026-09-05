@@ -1,0 +1,2088 @@
+{
+  "fixture": "leios_simulator",
+  "source_sha256": "d7b578a4ca03d271d6c535f3fea9c9c3bc8e772345f25ca83361329c408e446a",
+  "mermaid_sha256": "7001f052f4ac52c6a2dd155a26dffe46864783f74481d7d50926cf98ebbfc39b",
+  "counts": {
+    "objects": 25,
+    "leaf_nodes": 20,
+    "groups": 5,
+    "edges": 18
+  },
+  "root_attributes": {
+    "label": {
+      "value": ""
+    },
+    "labelDimensions": {
+      "width": 0,
+      "height": 0
+    },
+    "style": {},
+    "iconStyle": {},
+    "near_key": null,
+    "shape": {
+      "value": ""
+    },
+    "direction": {
+      "value": ""
+    },
+    "constraint": null
+  },
+  "source_config": null,
+  "limitations": {
+    "near positioning omitted": 5,
+    "shadow style omitted": 22
+  },
+  "objects": [
+    {
+      "d2_id": "title",
+      "mermaid_id": "n000",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "ouroboros-leios-sim - Component Diagram",
+      "translated_label": "ouroboros-leios-sim - Component Diagram",
+      "source_shape": "text",
+      "mermaid_shape": "transparent-rectangle",
+      "differences": [
+        "near positioning omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "ouroboros-leios-sim - Component Diagram"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "24"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": {
+          "range": "leios_simulator.d2,6:8:305-6:18:315",
+          "path": [
+            {
+              "unquoted_string": {
+                "range": ",0:0:0-0:10:10",
+                "value": [
+                  {
+                    "string": "top-center",
+                    "raw_string": "top-center"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "shape": {
+          "value": "text"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "protocol-engine.praos",
+      "mermaid_id": "n002",
+      "parent_d2_id": "protocol-engine",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Praos Protocol\n\nImplements consensus",
+      "translated_label": "Praos Protocol\n\nImplements consensus",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Praos Protocol\n\nImplements consensus"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      }
+    },
+    {
+      "d2_id": "protocol-engine.chain-sync",
+      "mermaid_id": "n003",
+      "parent_d2_id": "protocol-engine",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Chain-Sync Mini-Protocol\n\nReconstrucs blockchain of peers",
+      "translated_label": "Chain-Sync Mini-Protocol\n\nReconstrucs blockchain of peers",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Chain-Sync Mini-Protocol\n\nReconstrucs blockchain of peers"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      }
+    },
+    {
+      "d2_id": "protocol-engine.block-fetch",
+      "mermaid_id": "n004",
+      "parent_d2_id": "protocol-engine",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Block-Fetch Mini-Protocol\n\nFetches bodies of selected chain",
+      "translated_label": "Block-Fetch Mini-Protocol\n\nFetches bodies of selected chain",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Block-Fetch Mini-Protocol\n\nFetches bodies of selected chain"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      }
+    },
+    {
+      "d2_id": "protocol-engine.leios.ib-relay",
+      "mermaid_id": "n006",
+      "parent_d2_id": "protocol-engine.leios",
+      "parent_mermaid_id": "n005",
+      "kind": "node",
+      "source_label": "Input Blocks Relay",
+      "translated_label": "Input Blocks Relay",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Input Blocks Relay"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#666666"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "5"
+          },
+          "shadow": {
+            "value": "false"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "subcomponent"
+        ]
+      }
+    },
+    {
+      "d2_id": "protocol-engine.leios.eb-relay",
+      "mermaid_id": "n007",
+      "parent_d2_id": "protocol-engine.leios",
+      "parent_mermaid_id": "n005",
+      "kind": "node",
+      "source_label": "Endorse Blocks Relay",
+      "translated_label": "Endorse Blocks Relay",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Endorse Blocks Relay"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#666666"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "5"
+          },
+          "shadow": {
+            "value": "false"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "subcomponent"
+        ]
+      }
+    },
+    {
+      "d2_id": "protocol-engine.leios.vote-relay",
+      "mermaid_id": "n008",
+      "parent_d2_id": "protocol-engine.leios",
+      "parent_mermaid_id": "n005",
+      "kind": "node",
+      "source_label": "Vote Messages Relay",
+      "translated_label": "Vote Messages Relay",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Vote Messages Relay"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#666666"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "5"
+          },
+          "shadow": {
+            "value": "false"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "subcomponent"
+        ]
+      }
+    },
+    {
+      "d2_id": "protocol-engine.leios",
+      "mermaid_id": "n005",
+      "parent_d2_id": "protocol-engine",
+      "parent_mermaid_id": "n001",
+      "kind": "group",
+      "source_label": "Leios Protocol",
+      "translated_label": "Leios Protocol",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Leios Protocol"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      }
+    },
+    {
+      "d2_id": "protocol-engine.relay",
+      "mermaid_id": "n009",
+      "parent_d2_id": "protocol-engine",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Relay Mini-Protocol\n\nRelays messages\nwith configurable priority",
+      "translated_label": "Relay Mini-Protocol\n\nRelays messages\nwith configurable priority",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Relay Mini-Protocol\n\nRelays messages\nwith configurable priority"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      }
+    },
+    {
+      "d2_id": "protocol-engine.node-manager",
+      "mermaid_id": "n010",
+      "parent_d2_id": "protocol-engine",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Node\n\nManages node state and\nprotocol interactions",
+      "translated_label": "Node\n\nManages node state and\nprotocol interactions",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Node\n\nManages node state and\nprotocol interactions"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      }
+    },
+    {
+      "d2_id": "protocol-engine",
+      "mermaid_id": "n001",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Protocol Engine",
+      "translated_label": "Protocol Engine",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "near positioning omitted",
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Protocol Engine"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#f5f5f5"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": {
+          "range": "leios_simulator.d2,55:8:1077-55:19:1088",
+          "path": [
+            {
+              "unquoted_string": {
+                "range": ",0:0:0-0:11:11",
+                "value": [
+                  {
+                    "string": "center-left",
+                    "raw_string": "center-left"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "container"
+        ]
+      }
+    },
+    {
+      "d2_id": "channel-layer.chan",
+      "mermaid_id": "n012",
+      "parent_d2_id": "channel-layer",
+      "parent_mermaid_id": "n011",
+      "kind": "node",
+      "source_label": "Generic Channel\n\nBase channel abstraction",
+      "translated_label": "Generic Channel\n\nBase channel abstraction",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Generic Channel\n\nBase channel abstraction"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      }
+    },
+    {
+      "d2_id": "channel-layer.tcp",
+      "mermaid_id": "n013",
+      "parent_d2_id": "channel-layer",
+      "parent_mermaid_id": "n011",
+      "kind": "node",
+      "source_label": "TCP Model\n\nSimulates TCP behavior",
+      "translated_label": "TCP Model\n\nSimulates TCP behavior",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "TCP Model\n\nSimulates TCP behavior"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      }
+    },
+    {
+      "d2_id": "channel-layer.mux",
+      "mermaid_id": "n014",
+      "parent_d2_id": "channel-layer",
+      "parent_mermaid_id": "n011",
+      "kind": "node",
+      "source_label": "Channel Multiplexer\n\nMultiplexes protocols",
+      "translated_label": "Channel Multiplexer\n\nMultiplexes protocols",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Channel Multiplexer\n\nMultiplexes protocols"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      }
+    },
+    {
+      "d2_id": "channel-layer",
+      "mermaid_id": "n011",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Channel Layer",
+      "translated_label": "Channel Layer",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "near positioning omitted",
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Channel Layer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#f5f5f5"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": {
+          "range": "leios_simulator.d2,103:8:2062-103:19:2073",
+          "path": [
+            {
+              "unquoted_string": {
+                "range": ",0:0:0-0:11:11",
+                "value": [
+                  {
+                    "string": "bottom-left",
+                    "raw_string": "bottom-left"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "container"
+        ]
+      }
+    },
+    {
+      "d2_id": "viz-engine.layout",
+      "mermaid_id": "n016",
+      "parent_d2_id": "viz-engine",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "Layout Engine\n\nHandles visualization\nlayout",
+      "translated_label": "Layout Engine\n\nHandles visualization\nlayout",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Layout Engine\n\nHandles visualization\nlayout"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      }
+    },
+    {
+      "d2_id": "viz-engine.protocol-viz",
+      "mermaid_id": "n017",
+      "parent_d2_id": "viz-engine",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "Protocol Renderer\n\nRenders mini-protocol\n messages and node state\n(made for small sims)",
+      "translated_label": "Protocol Renderer\n\nRenders mini-protocol\n messages and node state\n(made for small sims)",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Protocol Renderer\n\nRenders mini-protocol\n messages and node state\n(made for small sims)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      }
+    },
+    {
+      "d2_id": "viz-engine.p2p-viz",
+      "mermaid_id": "n018",
+      "parent_d2_id": "viz-engine",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "P2P Renderer\n\nVisualizes P2P\nnetwork state\nand charts\n(made for ~100 nodes sims)",
+      "translated_label": "P2P Renderer\n\nVisualizes P2P\nnetwork state\nand charts\n(made for ~100 nodes sims)",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "P2P Renderer\n\nVisualizes P2P\nnetwork state\nand charts\n(made for ~100 nodes sims)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      }
+    },
+    {
+      "d2_id": "viz-engine.frame-output",
+      "mermaid_id": "n019",
+      "parent_d2_id": "viz-engine",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "Frame Output\n\nOutputs animation frames\n(on-screen or as PNG files)",
+      "translated_label": "Frame Output\n\nOutputs animation frames\n(on-screen or as PNG files)",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Frame Output\n\nOutputs animation frames\n(on-screen or as PNG files)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      }
+    },
+    {
+      "d2_id": "viz-engine",
+      "mermaid_id": "n015",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Visualization Engine",
+      "translated_label": "Visualization Engine",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "near positioning omitted",
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Visualization Engine"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#f5f5f5"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": {
+          "range": "leios_simulator.d2,130:8:2550-130:20:2562",
+          "path": [
+            {
+              "unquoted_string": {
+                "range": ",0:0:0-0:12:12",
+                "value": [
+                  {
+                    "string": "center-right",
+                    "raw_string": "center-right"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "container"
+        ]
+      }
+    },
+    {
+      "d2_id": "monitor.metrics",
+      "mermaid_id": "n021",
+      "parent_d2_id": "monitor",
+      "parent_mermaid_id": "n020",
+      "kind": "node",
+      "source_label": "Model\n\nComputes state and metrics from trace",
+      "translated_label": "Model\n\nComputes state and metrics from trace",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Model\n\nComputes state and metrics from trace"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      }
+    },
+    {
+      "d2_id": "monitor.tracer",
+      "mermaid_id": "n022",
+      "parent_d2_id": "monitor",
+      "parent_mermaid_id": "n020",
+      "kind": "node",
+      "source_label": "Event Tracer\n\nCollects trace of\nnode and network events",
+      "translated_label": "Event Tracer\n\nCollects trace of\nnode and network events",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Event Tracer\n\nCollects trace of\nnode and network events"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "component"
+        ]
+      }
+    },
+    {
+      "d2_id": "monitor.io-sim",
+      "mermaid_id": "n023",
+      "parent_d2_id": "monitor",
+      "parent_mermaid_id": "n020",
+      "kind": "node",
+      "source_label": "IO-Sim library\n\nSimulates threading, clocks, STM, ..",
+      "translated_label": "IO-Sim library\n\nSimulates threading, clocks, STM, ..",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "IO-Sim library\n\nSimulates threading, clocks, STM, .."
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "strokeDash": {
+            "value": "5"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "external"
+        ]
+      }
+    },
+    {
+      "d2_id": "monitor.file-system",
+      "mermaid_id": "n024",
+      "parent_d2_id": "monitor",
+      "parent_mermaid_id": "n020",
+      "kind": "node",
+      "source_label": "File-System",
+      "translated_label": "File-System",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "File-System"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#ffffff"
+          },
+          "strokeDash": {
+            "value": "5"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "external"
+        ]
+      }
+    },
+    {
+      "d2_id": "monitor",
+      "mermaid_id": "n020",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Event Consumer",
+      "translated_label": "Event Consumer",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "near positioning omitted",
+        "shadow style omitted"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Event Consumer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2a2a2a"
+          },
+          "fill": {
+            "value": "#f5f5f5"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "shadow": {
+            "value": "true"
+          },
+          "fontColor": {
+            "value": "#2a2a2a"
+          }
+        },
+        "iconStyle": {},
+        "near_key": {
+          "range": "leios_simulator.d2,160:8:3297-160:20:3309",
+          "path": [
+            {
+              "unquoted_string": {
+                "range": ",0:0:0-0:12:12",
+                "value": [
+                  {
+                    "string": "bottom-right",
+                    "raw_string": "bottom-right"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "container"
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "index": 0,
+      "d2_id": "viz-engine.(protocol-viz -> layout)[0]",
+      "source_d2_id": "viz-engine.protocol-viz",
+      "target_d2_id": "viz-engine.layout",
+      "source_mermaid_id": "n017",
+      "target_mermaid_id": "n016",
+      "mermaid_start_id": "n017",
+      "mermaid_end_id": "n016",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Assembled with",
+      "translated_label": "Assembled with",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Assembled with"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 1,
+      "d2_id": "viz-engine.(p2p-viz -> layout)[0]",
+      "source_d2_id": "viz-engine.p2p-viz",
+      "target_d2_id": "viz-engine.layout",
+      "source_mermaid_id": "n018",
+      "target_mermaid_id": "n016",
+      "mermaid_start_id": "n018",
+      "mermaid_end_id": "n016",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Assembled with",
+      "translated_label": "Assembled with",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Assembled with"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 2,
+      "d2_id": "viz-engine.(layout -> frame-output)[0]",
+      "source_d2_id": "viz-engine.layout",
+      "target_d2_id": "viz-engine.frame-output",
+      "source_mermaid_id": "n016",
+      "target_mermaid_id": "n019",
+      "mermaid_start_id": "n016",
+      "mermaid_end_id": "n019",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Emits frames",
+      "translated_label": "Emits frames",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Emits frames"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 3,
+      "d2_id": "monitor.(tracer -> io-sim)[0]",
+      "source_d2_id": "monitor.tracer",
+      "target_d2_id": "monitor.io-sim",
+      "source_mermaid_id": "n022",
+      "target_mermaid_id": "n023",
+      "mermaid_start_id": "n022",
+      "mermaid_end_id": "n023",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Uses to run nodes and channels",
+      "translated_label": "Uses to run nodes and channels",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Uses to run nodes and channels"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 4,
+      "d2_id": "monitor.(metrics -> tracer)[0]",
+      "source_d2_id": "monitor.metrics",
+      "target_d2_id": "monitor.tracer",
+      "source_mermaid_id": "n021",
+      "target_mermaid_id": "n022",
+      "mermaid_start_id": "n021",
+      "mermaid_end_id": "n022",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Consumes trace",
+      "translated_label": "Consumes trace",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Consumes trace"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 5,
+      "d2_id": "monitor.(metrics -> file-system)[0]",
+      "source_d2_id": "monitor.metrics",
+      "target_d2_id": "monitor.file-system",
+      "source_mermaid_id": "n021",
+      "target_mermaid_id": "n024",
+      "mermaid_start_id": "n021",
+      "mermaid_end_id": "n024",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Outputs metrics",
+      "translated_label": "Outputs metrics",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Outputs metrics"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 6,
+      "d2_id": "channel-layer.(tcp -> chan)[0]",
+      "source_d2_id": "channel-layer.tcp",
+      "target_d2_id": "channel-layer.chan",
+      "source_mermaid_id": "n013",
+      "target_mermaid_id": "n012",
+      "mermaid_start_id": "n013",
+      "mermaid_end_id": "n012",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Implements",
+      "translated_label": "Implements",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Implements"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 7,
+      "d2_id": "channel-layer.(mux -> chan)[0]",
+      "source_d2_id": "channel-layer.mux",
+      "target_d2_id": "channel-layer.chan",
+      "source_mermaid_id": "n014",
+      "target_mermaid_id": "n012",
+      "mermaid_start_id": "n014",
+      "mermaid_end_id": "n012",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Uses",
+      "translated_label": "Uses",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Uses"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 8,
+      "d2_id": "(protocol-engine -> channel-layer)[0]",
+      "source_d2_id": "protocol-engine",
+      "target_d2_id": "channel-layer",
+      "source_mermaid_id": "n001",
+      "target_mermaid_id": "n011",
+      "mermaid_start_id": "n001",
+      "mermaid_end_id": "n011",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Uses for messaging",
+      "translated_label": "Uses for messaging",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Uses for messaging"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 9,
+      "d2_id": "protocol-engine.(praos -> block-fetch)[0]",
+      "source_d2_id": "protocol-engine.praos",
+      "target_d2_id": "protocol-engine.block-fetch",
+      "source_mermaid_id": "n002",
+      "target_mermaid_id": "n004",
+      "mermaid_start_id": "n002",
+      "mermaid_end_id": "n004",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Bodies diffusion",
+      "translated_label": "Bodies diffusion",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Bodies diffusion"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 10,
+      "d2_id": "protocol-engine.(praos -> chain-sync)[0]",
+      "source_d2_id": "protocol-engine.praos",
+      "target_d2_id": "protocol-engine.chain-sync",
+      "source_mermaid_id": "n002",
+      "target_mermaid_id": "n003",
+      "mermaid_start_id": "n002",
+      "mermaid_end_id": "n003",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Headers diffusion",
+      "translated_label": "Headers diffusion",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Headers diffusion"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 11,
+      "d2_id": "protocol-engine.(leios -> praos)[0]",
+      "source_d2_id": "protocol-engine.leios",
+      "target_d2_id": "protocol-engine.praos",
+      "source_mermaid_id": "n005",
+      "target_mermaid_id": "n002",
+      "mermaid_start_id": "n005",
+      "mermaid_end_id": "n002",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Extends consensus",
+      "translated_label": "Extends consensus",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Extends consensus"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 12,
+      "d2_id": "protocol-engine.(leios -> relay)[0]",
+      "source_d2_id": "protocol-engine.leios",
+      "target_d2_id": "protocol-engine.relay",
+      "source_mermaid_id": "n005",
+      "target_mermaid_id": "n009",
+      "mermaid_start_id": "n005",
+      "mermaid_end_id": "n009",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Uses for diffusion",
+      "translated_label": "Uses for diffusion",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Uses for diffusion"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 13,
+      "d2_id": "protocol-engine.(node-manager -> praos)[0]",
+      "source_d2_id": "protocol-engine.node-manager",
+      "target_d2_id": "protocol-engine.praos",
+      "source_mermaid_id": "n010",
+      "target_mermaid_id": "n002",
+      "mermaid_start_id": "n010",
+      "mermaid_end_id": "n002",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Manages ranking blocks\nvalidation/generation",
+      "translated_label": "Manages ranking blocks\nvalidation/generation",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Manages ranking blocks\nvalidation/generation"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 14,
+      "d2_id": "protocol-engine.(node-manager -> leios)[0]",
+      "source_d2_id": "protocol-engine.node-manager",
+      "target_d2_id": "protocol-engine.leios",
+      "source_mermaid_id": "n010",
+      "target_mermaid_id": "n005",
+      "mermaid_start_id": "n010",
+      "mermaid_end_id": "n005",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Manages ledger state\nand validation/generation",
+      "translated_label": "Manages ledger state\nand validation/generation",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Manages ledger state\nand validation/generation"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 15,
+      "d2_id": "(viz-engine -> monitor)[0]",
+      "source_d2_id": "viz-engine",
+      "target_d2_id": "monitor",
+      "source_mermaid_id": "n015",
+      "target_mermaid_id": "n020",
+      "mermaid_start_id": "n015",
+      "mermaid_end_id": "n020",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Visualizes state and metrics",
+      "translated_label": "Visualizes state and metrics",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Visualizes state and metrics"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 16,
+      "d2_id": "(monitor -> channel-layer)[0]",
+      "source_d2_id": "monitor",
+      "target_d2_id": "channel-layer",
+      "source_mermaid_id": "n020",
+      "target_mermaid_id": "n011",
+      "mermaid_start_id": "n020",
+      "mermaid_end_id": "n011",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Traces network events",
+      "translated_label": "Traces network events",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Traces network events"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 17,
+      "d2_id": "(monitor -> protocol-engine)[0]",
+      "source_d2_id": "monitor",
+      "target_d2_id": "protocol-engine",
+      "source_mermaid_id": "n020",
+      "target_mermaid_id": "n001",
+      "mermaid_start_id": "n020",
+      "mermaid_end_id": "n001",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Traces node events",
+      "translated_label": "Traces node events",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "Traces node events"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    }
+  ],
+  "synthetic_objects": 0,
+  "synthetic_edges": 0
+}

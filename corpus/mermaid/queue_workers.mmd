@@ -1,0 +1,131 @@
+%% Generated from the compiled D2 graph; see matching .mapping.json and TRANSLATION.md.
+flowchart LR
+  n000(("User01"))
+  n001(("User02"))
+  n002(("User03"))
+  n003(("User04"))
+  subgraph n004["Service01"]
+    direction LR
+    n005["task01"]
+    n006["task02"]
+    subgraph n007["Queue Library"]
+      direction LR
+      n008["Producer"]
+    end
+  end
+  subgraph n009["Service02"]
+    direction LR
+    n010["task01"]
+    n011["task02"]
+    subgraph n012["Queue Library"]
+      direction LR
+      n013["Producer"]
+    end
+  end
+  n014[("Ring<br/>Buffer")]
+  subgraph n015["#160;"]
+    direction LR
+    n016[("Redis")]
+    n017@{ shape: h-cyl, label: "RabbotMQ" }
+    n018@{ shape: h-cyl, label: "NATS" }
+  end
+  subgraph n019["Worker01"]
+    direction LR
+    n020["task01"]
+    n021["task02"]
+    subgraph n022["Queue Library"]
+      direction LR
+      n023["Consumer"]
+    end
+  end
+  subgraph n024["Worker02"]
+    direction LR
+    n025["task01"]
+    n026["task02"]
+    n027["task03"]
+    n028["task04"]
+    subgraph n029["Queue Library"]
+      direction LR
+      n030["Consumer"]
+    end
+    subgraph n031["Queue Library"]
+      direction LR
+      n032["Consumer"]
+    end
+  end
+  %% Edges in original compiler order; one line per compiled edge.
+  n005 -->|"Enqueue Task"| n008
+  n006 -->|"Enqueue Task"| n008
+  n010 -->|"Enqueue Task"| n013
+  n011 -->|"Enqueue Task"| n013
+  n023 -->|"Handle Task"| n020
+  n023 -->|"Handle Task"| n021
+  n030 -->|"Handle Task"| n025
+  n030 -->|"Handle Task"| n026
+  n032 -->|"Handle Task"| n027
+  n032 -->|"Handle Task"| n028
+  n000 -->|"Create Task"| n005
+  n001 -->|"Create Task"| n006
+  n002 -->|"Create Task"| n010
+  n003 -->|"Create Task"| n011
+  n008 -->|"Store Task"| n014
+  n013 -->|"Store Task"| n017
+  n013 --> n016
+  n013 --> n018
+  n014 -->|"Fetch Task"| n023
+  n014 -->|"Fetch Task"| n030
+  n017 -->|"Fetch Task"| n032
+  n016 --> n032
+  n018 --> n032
+  style n000 font-size:28px,font-weight:bold
+  style n001 font-size:28px,font-weight:bold
+  style n002 font-size:28px,font-weight:bold
+  style n003 font-size:28px,font-weight:bold
+  style n005 font-size:32px,font-weight:bold
+  style n006 font-size:32px,font-weight:bold
+  style n007 fill:honeydew
+  style n008 fill:PapayaWhip,font-size:32px,font-weight:bold,rx:8,ry:8
+  style n010 font-size:32px,font-weight:bold
+  style n011 font-size:32px,font-weight:bold
+  style n012 fill:honeydew
+  style n013 fill:PapayaWhip,font-size:32px,font-weight:bold,rx:8,ry:8
+  style n014 font-size:32px,font-weight:bold
+  style n015 opacity:0
+  style n016 opacity:0.7,font-size:32px,font-weight:bold
+  style n017 font-size:32px,font-weight:bold
+  style n018 opacity:0.7,font-size:32px,font-weight:bold
+  style n020 font-size:32px,font-weight:bold
+  style n021 font-size:32px,font-weight:bold
+  style n022 fill:honeydew
+  style n023 fill:PapayaWhip,font-size:32px,font-weight:bold,rx:8,ry:8
+  style n025 font-size:32px,font-weight:bold
+  style n026 font-size:32px,font-weight:bold
+  style n027 font-size:32px,font-weight:bold
+  style n028 font-size:32px,font-weight:bold
+  style n029 fill:honeydew
+  style n030 fill:PapayaWhip,font-size:32px,font-weight:bold,rx:8,ry:8
+  style n031 fill:honeydew
+  style n032 fill:PapayaWhip,font-size:32px,font-weight:bold,rx:8,ry:8
+  linkStyle 0 font-size:28px,font-weight:bold
+  linkStyle 1 font-size:28px,font-weight:bold
+  linkStyle 2 font-size:28px,font-weight:bold
+  linkStyle 3 font-size:28px,font-weight:bold
+  linkStyle 4 font-size:28px,font-weight:bold
+  linkStyle 5 font-size:28px,font-weight:bold
+  linkStyle 6 font-size:28px,font-weight:bold
+  linkStyle 7 font-size:28px,font-weight:bold
+  linkStyle 8 font-size:28px,font-weight:bold
+  linkStyle 9 font-size:28px,font-weight:bold
+  linkStyle 10 font-size:28px,font-weight:bold
+  linkStyle 11 font-size:28px,font-weight:bold
+  linkStyle 12 font-size:28px,font-weight:bold
+  linkStyle 13 font-size:28px,font-weight:bold
+  linkStyle 14 font-size:28px,font-weight:bold
+  linkStyle 15 font-size:28px,font-weight:bold
+  linkStyle 16 opacity:0.3,font-weight:bold
+  linkStyle 17 opacity:0.3,font-weight:bold
+  linkStyle 18 font-size:28px,font-weight:bold
+  linkStyle 19 font-size:28px,font-weight:bold
+  linkStyle 20 font-size:28px,font-weight:bold
+  linkStyle 21 opacity:0.3,font-size:28px,font-weight:bold
+  linkStyle 22 opacity:0.3,font-size:28px,font-weight:bold

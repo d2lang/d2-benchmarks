@@ -1,0 +1,83 @@
+// Generated from the audited D2 semantic mapping. See TRANSLATION.md.
+digraph diagram {
+  graph [compound="true", rankdir="LR", bgcolor="white", fontname="Helvetica", fontsize="14", pad="0.25"];
+  node [shape="box", fontname="Helvetica", fontsize="14", color="#333333", margin="0.12,0.08"];
+  edge [fontname="Helvetica", fontsize="14", color="#333333"];
+  node_n000 [id="node_n000", label="User01", d2_id="user01", semantic_kind="node", fontsize="28", fontname="Helvetica-Bold", shape="circle"];
+  node_n001 [id="node_n001", label="User02", d2_id="user02", semantic_kind="node", fontsize="28", fontname="Helvetica-Bold", shape="circle"];
+  node_n002 [id="node_n002", label="User03", d2_id="user03", semantic_kind="node", fontsize="28", fontname="Helvetica-Bold", shape="circle"];
+  node_n003 [id="node_n003", label="User04", d2_id="user04", semantic_kind="node", fontsize="28", fontname="Helvetica-Bold", shape="circle"];
+  subgraph cluster_n004 {
+    graph [id="cluster_n004", label="Service01", d2_id="container_producer_01", semantic_kind="group", fontsize="28", fontname="Helvetica-Bold", labelloc="t", labeljust="l", margin="12"];
+    node_n005 [id="node_n005", label="task01", d2_id="container_producer_01.task01", semantic_kind="node", fontsize="32", fontname="Helvetica-Bold", shape="box"];
+    node_n006 [id="node_n006", label="task02", d2_id="container_producer_01.task02", semantic_kind="node", fontsize="32", fontname="Helvetica-Bold", shape="box"];
+    subgraph cluster_n007 {
+      graph [id="cluster_n007", label="Queue Library", d2_id="container_producer_01.queue", semantic_kind="group", fillcolor="honeydew", fontsize="28", fontname="Helvetica-Bold", style="filled", labelloc="t", labeljust="l", margin="12"];
+      node_n008 [id="node_n008", label="Producer", d2_id="container_producer_01.queue.producer", semantic_kind="node", fillcolor="PapayaWhip", fontsize="32", fontname="Courier", style="filled,rounded", shape="box"];
+    }
+  }
+  subgraph cluster_n009 {
+    graph [id="cluster_n009", label="Service02", d2_id="container_producer_02", semantic_kind="group", fontsize="28", fontname="Helvetica-Bold", labelloc="t", labeljust="l", margin="12"];
+    node_n010 [id="node_n010", label="task01", d2_id="container_producer_02.task01", semantic_kind="node", fontsize="32", fontname="Helvetica-Bold", shape="box"];
+    node_n011 [id="node_n011", label="task02", d2_id="container_producer_02.task02", semantic_kind="node", fontsize="32", fontname="Helvetica-Bold", shape="box"];
+    subgraph cluster_n012 {
+      graph [id="cluster_n012", label="Queue Library", d2_id="container_producer_02.queue", semantic_kind="group", fillcolor="honeydew", fontsize="28", fontname="Helvetica-Bold", style="filled", labelloc="t", labeljust="l", margin="12"];
+      node_n013 [id="node_n013", label="Producer", d2_id="container_producer_02.queue.producer", semantic_kind="node", fillcolor="PapayaWhip", fontsize="32", fontname="Courier", style="filled,rounded", shape="box"];
+    }
+  }
+  node_n014 [id="node_n014", label="Ring\nBuffer", d2_id="database", semantic_kind="node", fontsize="32", fontname="Courier", shape="cylinder"];
+  subgraph cluster_n015 {
+    graph [id="cluster_n015", label="", d2_id="other_store", semantic_kind="group", color="transparent", fillcolor="transparent", fontcolor="transparent", labelloc="t", labeljust="l", margin="12"];
+    node_n016 [id="node_n016", label="Redis", d2_id="other_store.redis", semantic_kind="node", fontsize="32", fontname="Courier", shape="cylinder"];
+    node_n017 [id="node_n017", label="RabbotMQ", d2_id="other_store.rabbitmq", semantic_kind="node", fontsize="32", fontname="Courier", shape="cylinder"];
+    node_n018 [id="node_n018", label="NATS", d2_id="other_store.nats", semantic_kind="node", fontsize="32", fontname="Courier", shape="cylinder"];
+  }
+  subgraph cluster_n019 {
+    graph [id="cluster_n019", label="Worker01", d2_id="container_consumer_01", semantic_kind="group", fontsize="28", fontname="Helvetica-Bold", labelloc="t", labeljust="l", margin="12"];
+    node_n020 [id="node_n020", label="task01", d2_id="container_consumer_01.task01", semantic_kind="node", fontsize="32", fontname="Helvetica-Bold", shape="box"];
+    node_n021 [id="node_n021", label="task02", d2_id="container_consumer_01.task02", semantic_kind="node", fontsize="32", fontname="Helvetica-Bold", shape="box"];
+    subgraph cluster_n022 {
+      graph [id="cluster_n022", label="Queue Library", d2_id="container_consumer_01.queue", semantic_kind="group", fillcolor="honeydew", fontsize="28", fontname="Helvetica-Bold", style="filled", labelloc="t", labeljust="l", margin="12"];
+      node_n023 [id="node_n023", label="Consumer", d2_id="container_consumer_01.queue.consumer", semantic_kind="node", fillcolor="PapayaWhip", fontsize="32", fontname="Courier", style="filled,rounded", shape="box"];
+    }
+  }
+  subgraph cluster_n024 {
+    graph [id="cluster_n024", label="Worker02", d2_id="container_consumer_02", semantic_kind="group", fontsize="28", fontname="Helvetica-Bold", labelloc="t", labeljust="l", margin="12"];
+    node_n025 [id="node_n025", label="task01", d2_id="container_consumer_02.task01", semantic_kind="node", fontsize="32", fontname="Helvetica-Bold", shape="box"];
+    node_n026 [id="node_n026", label="task02", d2_id="container_consumer_02.task02", semantic_kind="node", fontsize="32", fontname="Helvetica-Bold", shape="box"];
+    node_n027 [id="node_n027", label="task03", d2_id="container_consumer_02.task03", semantic_kind="node", fontsize="32", fontname="Helvetica-Bold", shape="box"];
+    node_n028 [id="node_n028", label="task04", d2_id="container_consumer_02.task04", semantic_kind="node", fontsize="32", fontname="Helvetica-Bold", shape="box"];
+    subgraph cluster_n029 {
+      graph [id="cluster_n029", label="Queue Library", d2_id="container_consumer_02.queue01", semantic_kind="group", fillcolor="honeydew", fontsize="28", fontname="Helvetica-Bold", style="filled", labelloc="t", labeljust="l", margin="12"];
+      node_n030 [id="node_n030", label="Consumer", d2_id="container_consumer_02.queue01.consumer", semantic_kind="node", fillcolor="PapayaWhip", fontsize="32", fontname="Courier", style="filled,rounded", shape="box"];
+    }
+    subgraph cluster_n031 {
+      graph [id="cluster_n031", label="Queue Library", d2_id="container_consumer_02.queue02", semantic_kind="group", fillcolor="honeydew", fontsize="28", fontname="Helvetica-Bold", style="filled", labelloc="t", labeljust="l", margin="12"];
+      node_n032 [id="node_n032", label="Consumer", d2_id="container_consumer_02.queue02.consumer", semantic_kind="node", fillcolor="PapayaWhip", fontsize="32", fontname="Courier", style="filled,rounded", shape="box"];
+    }
+  }
+  // Exactly one DOT edge per compiled D2 edge, preserving order and multiplicity.
+  node_n005 -> node_n008 [id="edge000", d2_id="container_producer_01.(task01 -> queue.producer)[0]", label="Enqueue Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n006 -> node_n008 [id="edge001", d2_id="container_producer_01.(task02 -> queue.producer)[0]", label="Enqueue Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n010 -> node_n013 [id="edge002", d2_id="container_producer_02.(task01 -> queue.producer)[0]", label="Enqueue Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n011 -> node_n013 [id="edge003", d2_id="container_producer_02.(task02 -> queue.producer)[0]", label="Enqueue Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n023 -> node_n020 [id="edge004", d2_id="container_consumer_01.(queue.consumer -> task01)[0]", label="Handle Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n023 -> node_n021 [id="edge005", d2_id="container_consumer_01.(queue.consumer -> task02)[0]", label="Handle Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n030 -> node_n025 [id="edge006", d2_id="container_consumer_02.(queue01.consumer -> task01)[0]", label="Handle Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n030 -> node_n026 [id="edge007", d2_id="container_consumer_02.(queue01.consumer -> task02)[0]", label="Handle Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n032 -> node_n027 [id="edge008", d2_id="container_consumer_02.(queue02.consumer -> task03)[0]", label="Handle Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n032 -> node_n028 [id="edge009", d2_id="container_consumer_02.(queue02.consumer -> task04)[0]", label="Handle Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n000 -> node_n005 [id="edge010", d2_id="(user01 -> container_producer_01.task01)[0]", label="Create Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n001 -> node_n006 [id="edge011", d2_id="(user02 -> container_producer_01.task02)[0]", label="Create Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n002 -> node_n010 [id="edge012", d2_id="(user03 -> container_producer_02.task01)[0]", label="Create Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n003 -> node_n011 [id="edge013", d2_id="(user04 -> container_producer_02.task02)[0]", label="Create Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n008 -> node_n014 [id="edge014", d2_id="(container_producer_01.queue.producer -> database)[0]", label="Store Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n013 -> node_n017 [id="edge015", d2_id="(container_producer_02.queue.producer -> other_store.rabbitmq)[0]", label="Store Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n013 -> node_n016 [id="edge016", d2_id="(container_producer_02.queue.producer -> other_store.redis)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", fontname="Helvetica-Bold"];
+  node_n013 -> node_n018 [id="edge017", d2_id="(container_producer_02.queue.producer -> other_store.nats)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", fontname="Helvetica-Bold"];
+  node_n014 -> node_n023 [id="edge018", d2_id="(database -> container_consumer_01.queue.consumer)[0]", label="Fetch Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n014 -> node_n030 [id="edge019", d2_id="(database -> container_consumer_02.queue01.consumer)[0]", label="Fetch Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n017 -> node_n032 [id="edge020", d2_id="(other_store.rabbitmq -> container_consumer_02.queue02.consumer)[0]", label="Fetch Task", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n016 -> node_n032 [id="edge021", d2_id="(other_store.redis -> container_consumer_02.queue02.consumer)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+  node_n018 -> node_n032 [id="edge022", d2_id="(other_store.nats -> container_consumer_02.queue02.consumer)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", fontsize="28", fontname="Helvetica-Bold"];
+}

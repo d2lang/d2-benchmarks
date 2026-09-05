@@ -1,0 +1,116 @@
+@startuml
+' Generated from the compiled D2 semantic mapping; see TRANSLATION.md.
+' Graphviz is PlantUML's default deployment-diagram layout; GRAPHVIZ_DOT pins it.
+skinparam shadowing false
+skinparam defaultTextAlignment center
+top to bottom direction
+rectangle " " as n000 #back:FFFFFF;line:FFFFFF {
+  rectangle "<size:20><color:#212121><b>Per-step serving path</b></color></size>" as n001 #back:EEF1F8;line:CFD2DD;text:212121 {
+    rectangle "<size:15><color:#ffffff><b>vLLM Scheduler, used as-is</b></color></size>" as n002 #back:37474f;line:263238;text:ffffff {
+      rectangle "<size:13><color:#CFD2DD><plain>batches S requests carrying T tokens in total · chunked prefill off</plain></color></size>\n<size:13><color:#CFD2DD><plain>never subclassed, its output never mutated</plain></color></size>" as n003 #back:37474f;line:37474f;text:CFD2DD
+    }
+    rectangle "<size:15><color:#ffffff><b>Token-count bucket dispatch</b></color></size>" as n004 #back:1565c0;line:0d47a1;text:ffffff {
+      rectangle "<size:13><color:#D6E4F7><plain>round T up to the next compiled bucket, giving T&#95;padded</plain></color></size>\n<size:13><color:#D6E4F7><plain>upstream this hook pads to a captured CUDA graph; here to a compiled shape</plain></color></size>\n<size:13><color:#D6E4F7><plain>pad rows zeroed · also cuts torch-spyre per-op recompiles</plain></color></size>" as n005 #back:1565c0;line:1565c0;text:D6E4F7
+    }
+    rectangle "<size:16><color:#ffffff><b>Compiled model body: one graph per token bucket  (fullgraph, dynamic=False)</b></color></size>" as n006 #back:1565c0;line:0d47a1;text:ffffff {
+      rectangle "<size:13><color:#D6E4F7><plain>sees only the flat token list &#91;T&#95;padded, hidden&#93;, with no request boundaries</plain></color></size>\n<size:13><color:#D6E4F7><plain>all layers share op shapes, so cost scales with distinct T, not with depth</plain></color></size>" as n007 #back:1565c0;line:1565c0;text:D6E4F7
+      rectangle "<size:14><color:#0A0F25><b>Embeddings → N × &#91; Q · K · V projections (un-fused) · output projection · FFN ×2 · LayerNorm ×2 &#93;</b></color></size>" as n008 #back:E3E9FD;line:0d47a1;text:0A0F25 {
+        rectangle "<size:12><color:#37474f><plain>N = 24 for multilingual-e5-large · 6 matrix multiplies per layer, 5 of them outside attention</plain></color></size>" as n009 #back:E3E9FD;line:E3E9FD;text:37474f
+      }
+      rectangle "<size:14><color:#0A0F25><b>torch.ops.vllm.unified&#95;attention&#95;with&#95;output  ·  opaque boundary</b></color></size>" as n010 #back:E3E9FD;line:0d47a1;line.dashed;text:0A0F25 {
+        rectangle "<size:12><color:#5c6bc0><plain>Dynamo does not trace inside. Selected by the platform's opaque&#95;attention&#95;op() → True,</plain></color></size>\n<size:12><color:#5c6bc0><plain>which TorchSpyrePlatform inherits from CpuPlatform</plain></color></size>" as n011 #back:E3E9FD;line:E3E9FD;text:5c6bc0
+      }
+    }
+    rectangle "<size:16><color:#ffffff><b>Encoder attention: the only request-aware stage</b></color></size>" as n012 #back:1565c0;line:0d47a1;text:ffffff {
+      rectangle "<size:13><color:#D6E4F7><plain>dense-grid strategy, compared with the planned flash variant below</plain></color></size>\n<size:13><color:#D6E4F7><plain>rounds up its own grid: S to a power of two, L already 64-aligned</plain></color></size>" as n013 #back:1565c0;line:1565c0;text:D6E4F7
+      rectangle "<size:14><color:#0A0F25><b>Batch-shape tables, built once per step and carried on the attention metadata</b></color></size>" as n014 #back:E3E9FD;line:0d47a1;text:0A0F25 {
+        rectangle "<size:12><color:#37474f><plain>additive mask + three gather index lists · derived from S and the per-request lengths, so identical for every layer</plain></color></size>" as n015 #back:E3E9FD;line:E3E9FD;text:37474f
+      }
+      rectangle " " as n016 #back:1565c0;line:1565c0 {
+        rectangle "<size:14><color:#0A0F25><b>gather&#95;pack</b></color></size>" as n017 #back:E3E9FD;line:0d47a1;text:0A0F25 {
+          rectangle "<size:12><color:#37474f><plain>&#91;T, H, D&#93; → &#91;S, H, L, D&#93;</plain></color></size>\n<size:12><color:#37474f><plain>pad slots point at a zero row</plain></color></size>" as n018 #back:E3E9FD;line:E3E9FD;text:37474f
+        }
+        rectangle "<size:14><color:#0A0F25><b>SDPA on device</b></color></size>" as n019 #back:E3E9FD;line:0d47a1;text:0A0F25 {
+          rectangle "<size:12><color:#37474f><plain>bidirectional, additive mask</plain></color></size>\n<size:12><color:#37474f><plain>one fused kernel per (S, L)</plain></color></size>" as n020 #back:E3E9FD;line:E3E9FD;text:37474f
+        }
+        rectangle "<size:14><color:#0A0F25><b>gather&#95;unpack</b></color></size>" as n021 #back:E3E9FD;line:0d47a1;text:0A0F25 {
+          rectangle "<size:12><color:#37474f><plain>&#91;S, H, L, D&#93; → &#91;T, H, D&#93;</plain></color></size>\n<size:12><color:#37474f><plain>single bulk output copy</plain></color></size>" as n022 #back:E3E9FD;line:E3E9FD;text:37474f
+        }
+      }
+      rectangle "<size:13><color:#D6E4F7><plain>tables on the metadata instead of rebuilt per layer ⇒ roughly 4 host/device barriers per pass, not one set per layer</plain></color></size>" as n023 #back:1565c0;line:1565c0;text:D6E4F7
+    }
+    rectangle "<size:15><color:#ffffff><b>Pooler on device: CLS / LAST / MEAN</b></color></size>" as n024 #back:1565c0;line:0d47a1;text:ffffff {
+      rectangle "<size:13><color:#D6E4F7><plain>row gather via index&#95;select · L2 normalize via rsqrt · reads only real rows, using the per-request offsets</plain></color></size>\n<size:13><color:#D6E4F7><plain>eager today · compiling the pooler is its own work item, not a warmup</plain></color></size>" as n025 #back:1565c0;line:1565c0;text:D6E4F7
+    }
+    rectangle "<size:13><color:#5d4037><plain>MEAN copies packed &#91;T, H&#93; as fp16 and reduces with MeanPool on the host.</plain></color></size>\n<size:13><color:#5d4037><plain>Destagger of a device fp32 sum (to(fp16) then convert) is garbage (torch-spyre&#35;2971). index&#95;add&#95; (&#35;3507) would let the reduce stay on the card.</plain></color></size>" as n026 #back:FFF8E1;line:F9A825;text:5d4037
+    rectangle "<size:15><color:#ffffff><b>Pooled vectors → host</b></color></size>" as n027 #back:37474f;line:263238;text:ffffff {
+      rectangle "<size:13><color:#CFD2DD><plain>only &#91;num&#95;reqs, hidden&#93; crosses the boundary · padded rows are discarded, never pooled</plain></color></size>" as n028 #back:37474f;line:37474f;text:CFD2DD
+    }
+  }
+  rectangle " " as n029 #back:FFFFFF;line:FFFFFF {
+    rectangle "<size:20><color:#212121><b>Shape vocabulary</b></color></size>" as n030 #back:EEF1F8;line:CFD2DD;text:212121 {
+      rectangle "<size:14><color:#0A0F25><b>T · tokens in the step</b></color></size>" as n031 #back:E3E9FD;line:0d47a1;text:0A0F25 {
+        rectangle "<size:12><color:#37474f><plain>sum of the batched prompt lengths · bucketed to 64 / 128 / 256 / 512 tokens</plain></color></size>" as n032 #back:E3E9FD;line:E3E9FD;text:37474f
+      }
+      rectangle "<size:14><color:#0A0F25><b>S · requests in the step</b></color></size>" as n033 #back:E3E9FD;line:0d47a1;text:0A0F25 {
+        rectangle "<size:12><color:#37474f><plain>how many prompts are batched together · bucketed to 1 / 2 / 4 / 8 …</plain></color></size>" as n034 #back:E3E9FD;line:E3E9FD;text:37474f
+      }
+      rectangle "<size:14><color:#0A0F25><b>L · the width of attention's grid</b></color></size>" as n035 #back:E3E9FD;line:0d47a1;text:0A0F25 {
+        rectangle "<size:12><color:#37474f><plain>every request gets one row of L columns; L = align&#95;up(longest prompt, 64)</plain></color></size>\n<size:12><color:#37474f><plain>short requests leave their remaining columns as padding</plain></color></size>" as n036 #back:E3E9FD;line:E3E9FD;text:37474f
+      }
+      rectangle "<size:14><color:#5d4037><b>Worked example, prompts of 40, 12 and 58 tokens</b></color></size>" as n037 #back:FFF8E1;line:F9A825;text:5d4037 {
+        rectangle "<size:12><color:#5d4037><plain>T = 110 → T&#95;padded = 128 · S = 3 → 4 · L = 64 · grid = 4 × 64. Note S × L ≠ T.</plain></color></size>" as n038 #back:FFF8E1;line:FFF8E1;text:5d4037
+      }
+    }
+    rectangle "<size:20><color:#212121><b>Compilation mode</b></color></size>" as n039 #back:EEF1F8;line:CFD2DD;text:212121 {
+      rectangle "<size:14><color:#ffffff><b>CompilationMode.STOCK&#95;TORCH&#95;COMPILE</b></color></size>" as n040 #back:1565c0;line:0d47a1;text:ffffff {
+        rectangle "<size:12><color:#D6E4F7><plain>torch.compile(model, backend='inductor',</plain></color></size>\n<size:12><color:#D6E4F7><plain>fullgraph=True, dynamic=False)</plain></color></size>" as n041 #back:1565c0;line:1565c0;text:D6E4F7
+      }
+      rectangle "<size:14><color:#37474f>dynamic=False → sizes are baked in as constants.  </color></size>\n<size:14><color:#37474f>A graph built for 128 tokens works only for 128.  </color></size>\n<size:14><color:#37474f>A new count means a new compile.</color></size>" as n042 #back:transparent;line:transparent;text:37474f
+    }
+    rectangle "<size:20><color:#212121><b>Startup: warmup walks both sets of buckets</b></color></size>" as n043 #back:EEF1F8;line:CFD2DD;text:212121 {
+      rectangle "<size:14><color:#ffffff><b>for T in token buckets: &#95;dummy&#95;run(T)</b></color></size>" as n044 #back:1565c0;line:0d47a1;text:ffffff {
+        rectangle "<size:12><color:#D6E4F7><plain>one compiled body graph per bucket</plain></color></size>" as n045 #back:1565c0;line:1565c0;text:D6E4F7
+      }
+      rectangle "<size:14><color:#ffffff><b>for (S, L): &#95;dummy&#95;run(force&#95;attention=True)</b></color></size>" as n046 #back:1565c0;line:0d47a1;text:ffffff {
+        rectangle "<size:12><color:#D6E4F7><plain>without the flag no attention metadata is built,</plain></color></size>\n<size:12><color:#D6E4F7><plain>so the attention path is never traced or compiled</plain></color></size>" as n047 #back:1565c0;line:1565c0;text:D6E4F7
+      }
+      rectangle "<size:14><color:#ffffff><b>&#95;dummy&#95;pooler&#95;run(hidden&#95;states)</b></color></size>" as n048 #back:1565c0;line:0d47a1;text:ffffff {
+        rectangle "<size:12><color:#D6E4F7><plain>warms pooler shapes · upstream's version is only a memory probe</plain></color></size>" as n049 #back:1565c0;line:1565c0;text:D6E4F7
+      }
+    }
+    rectangle "<size:20><color:#212121><b>Design invariants</b></color></size>" as n050 #back:EEF1F8;line:CFD2DD;text:212121 {
+      rectangle "<size:14><color:#37474f>· The metadata always describes the real batch, so no  </color></size>\n<size:14><color:#37474f>padded row is ever pooled.</color></size>\n<size:14><color:#37474f>&#160;</color></size>\n<size:14><color:#37474f>· Padding the body is safe: each layer treats every  </color></size>\n<size:14><color:#37474f>token row on its own.</color></size>" as n051 #back:transparent;line:transparent;text:37474f
+    }
+  }
+}
+rectangle "<size:20><color:#212121><b>Attention shape strategy: dense grid today, and planned flash attention</b></color></size>" as n052 #back:EEF1F8;line:CFD2DD;text:212121 {
+  rectangle " " as n053 #back:EEF1F8;line:EEF1F8 {
+    rectangle "<size:15><color:#0A0F25><b>A · Dense grid, the strategy shown above</b></color></size>" as n054 #back:E3E9FD;line:0d47a1;text:0A0F25 {
+      rectangle "<size:14><color:#0A0F25>Pack the ragged flat list into a rectangle, so every  </color></size>\n<size:14><color:#0A0F25>shape is fixed at compile time.  </color></size>\n<size:14><color:#0A0F25>Needed because an offset computed from data does not  </color></size>\n<size:14><color:#0A0F25>lower under compilation (torch-spyre&#35;3508) — exactly  </color></size>\n<size:14><color:#0A0F25>the arithmetic that flash relies on.  </color></size>\n<size:14><color:#0A0F25>Eager tolerates it; compiled mode, our target, does not.</color></size>\n<size:14><color:#0A0F25>&#160;</color></size>\n<size:14><color:#0A0F25>· build an additive mask &#91;S, 1, L, L&#93; marking padding  </color></size>\n<size:14><color:#0A0F25>and cross-request slots  </color></size>\n<size:14><color:#0A0F25>· build three index lists, then gather Q / K / V into  </color></size>\n<size:14><color:#0A0F25>&#91;S, H, L, D&#93;  </color></size>\n<size:14><color:#0A0F25>· one fused SDPA kernel per (S, L), then gather the  </color></size>\n<size:14><color:#0A0F25>results back out</color></size>\n<size:14><color:#0A0F25>&#160;</color></size>\n<size:14><color:#0A0F25>&#42;&#42;Shape axes: T for the body, (S, L) for attention.  </color></size>\n<size:14><color:#0A0F25>Two sets of buckets to warm.&#42;&#42;</color></size>\n<size:14><color:#0A0F25>&#160;</color></size>\n<size:14><color:#0A0F25>Costs: the mask grows with L², plus index lists and a  </color></size>\n<size:14><color:#0A0F25>barrier per gather.  </color></size>\n<size:14><color:#0A0F25>Works today. This is the current implementation.</color></size>" as n055 #back:transparent;line:transparent;text:0A0F25
+    }
+    rectangle "<size:15><color:#0A0F25><b>B · Flash-style attention, planned</b></color></size>" as n056 #back:E8F5E9;line:2e7d32;text:0A0F25 {
+      rectangle "<size:14><color:#0A0F25>Never materialise the rectangle.  </color></size>\n<size:14><color:#0A0F25>Each block of queries reads its request's offset from  </color></size>\n<size:14><color:#0A0F25>the metadata at runtime, and works directly on the flat  </color></size>\n<size:14><color:#0A0F25>list, carrying a running softmax maximum and sum.  </color></size>\n<size:14><color:#0A0F25>That is the online-softmax structure the Spyre decoder  </color></size>\n<size:14><color:#0A0F25>already uses over KV pages.</color></size>\n<size:14><color:#0A0F25>&#160;</color></size>\n<size:14><color:#0A0F25>· no &#91;S, 1, L, L&#93; mask; request boundaries are the offsets  </color></size>\n<size:14><color:#0A0F25>· no gather&#95;pack / gather&#95;unpack; the kernel reads the  </color></size>\n<size:14><color:#0A0F25>flat list directly  </color></size>\n<size:14><color:#0A0F25>· no per-layer index lists, so no per-gather barriers</color></size>\n<size:14><color:#0A0F25>&#160;</color></size>\n<size:14><color:#0A0F25>&#42;&#42;Shape axis: block count, bucketed like the decoder's  </color></size>\n<size:14><color:#0A0F25>page loop. L disappears.&#42;&#42;</color></size>\n<size:14><color:#0A0F25>&#160;</color></size>\n<size:14><color:#0A0F25>Both upstream backends already work this way, neither  </color></size>\n<size:14><color:#0A0F25>padding into a rectangle.  </color></size>\n<size:14><color:#0A0F25>Flash attention consumes the flat list with  </color></size>\n<size:14><color:#0A0F25>cu&#95;seqlens&#95;q = query&#95;start&#95;loc, and the CPU backend  </color></size>\n<size:14><color:#0A0F25>passes query&#91;:num&#95;actual&#95;tokens&#93; to a C++ kernel.</color></size>" as n057 #back:transparent;line:transparent;text:0A0F25
+    }
+  }
+  rectangle " " as n058 #back:EEF1F8;line:EEF1F8 {
+    rectangle "<size:15><color:#5d4037><b>If flash attention lands, the design converges on upstream</b></color></size>" as n059 #back:FFF8E1;line:F9A825;text:5d4037 {
+      rectangle "<size:14><color:#5d4037>· the second shape axis collapses; bucket T and a block count,  </color></size>\n<size:14><color:#5d4037>much closer to upstream's single axis  </color></size>\n<size:14><color:#5d4037>· the batch-shape tables box disappears, and with it the  </color></size>\n<size:14><color:#5d4037>per-layer rebuild problem and its barriers  </color></size>\n<size:14><color:#5d4037>· gather&#95;pack / SDPA / gather&#95;unpack collapse into one  </color></size>\n<size:14><color:#5d4037>blocked-attention kernel  </color></size>\n<size:14><color:#5d4037>· the mask's L² growth at long prompts disappears, today's  </color></size>\n<size:14><color:#5d4037>largest untested risk</color></size>\n<size:14><color:#5d4037>&#160;</color></size>\n<size:14><color:#5d4037>Open question: whether a Spyre kernel can do the runtime  </color></size>\n<size:14><color:#5d4037>offset arithmetic this depends on. If it cannot, the block  </color></size>\n<size:14><color:#5d4037>count stays bucketed.  </color></size>\n<size:14><color:#5d4037>Everything else holds either way: padding seam, unpadded  </color></size>\n<size:14><color:#5d4037>metadata, warmup, compilation mode.</color></size>" as n060 #back:transparent;line:transparent;text:5d4037
+    }
+    rectangle "<size:20><color:#212121><b>Legend</b></color></size>" as n061 #back:FFFFFF;line:CFD2DD;text:212121 {
+      rectangle "<size:14><color:#ffffff><plain>Upstream vLLM, used as-is</plain></color></size>" as n062 #back:37474f;line:263238;text:ffffff
+      rectangle "<size:14><color:#ffffff><plain>spyre-inference component</plain></color></size>" as n063 #back:1565c0;line:0d47a1;text:ffffff
+      rectangle "<size:14><color:#0A0F25><plain>Internal step · dense-grid path</plain></color></size>" as n064 #back:E3E9FD;line:0d47a1;text:0A0F25
+      rectangle "<size:14><color:#0A0F25><plain>Planned flash-attention path</plain></color></size>" as n065 #back:E8F5E9;line:2e7d32;text:0A0F25
+      rectangle "<size:14><color:#5d4037><plain>Note or upstream dependency</plain></color></size>" as n066 #back:FFF8E1;line:F9A825;text:5d4037
+    }
+  }
+}
+' One link per D2 edge, in compiler order; no synthetic layout links.
+n002 --> n004
+n004 --> n006
+n006 --> n012
+n012 --> n024
+n024 --> n026
+n026 --> n027
+@enduml

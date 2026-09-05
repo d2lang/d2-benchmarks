@@ -1,0 +1,384 @@
+// Generated from the audited D2 semantic mapping. See TRANSLATION.md.
+digraph diagram {
+  graph [compound="true", rankdir="TB", bgcolor="white", fontname="Helvetica", fontsize="14", pad="0.25"];
+  node [shape="box", fontname="Helvetica", fontsize="14", color="#333333", margin="0.12,0.08"];
+  edge [fontname="Helvetica", fontsize="14", color="#333333"];
+  subgraph cluster_n000 {
+    graph [id="cluster_n000", label="External Clients", d2_id="clients", semantic_kind="group", color="#00838f", fillcolor="#e0f7fa", style="filled", labelloc="t", labeljust="l", margin="12"];
+    node_n001 [id="node_n001", label="Web App\n(Next.js 16)", d2_id="clients.web", semantic_kind="node", shape="box"];
+    node_n002 [id="node_n002", label="TPMJS CLI\n(@tpmjs/cli)", d2_id="clients.cli", semantic_kind="node", shape="box"];
+    node_n003 [id="node_n003", label="AI Clients\n(Claude Desktop, GPT, etc.)", d2_id="clients.ai_clients", semantic_kind="node", shape="box"];
+    node_n004 [id="node_n004", label="Bridge CLI\n(@tpmjs/bridge)", d2_id="clients.bridge_cli", semantic_kind="node", style="dashed", shape="box"];
+  }
+  subgraph cluster_n005 {
+    graph [id="cluster_n005", label="API Gateway", d2_id="gateway", semantic_kind="group", color="#1976d2", fillcolor="#e3f2fd", style="filled", labelloc="t", labeljust="l", margin="12"];
+    proxy_n005 [id="proxy_n005", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="gateway"];
+    subgraph cluster_n006 {
+      graph [id="cluster_n006", label="Authentication", d2_id="gateway.auth", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n006 [id="proxy_n006", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="gateway.auth"];
+      node_n007 [id="node_n007", label="Better Auth\n(email/password, OAuth)", d2_id="gateway.auth.better_auth", semantic_kind="node", shape="box"];
+      node_n008 [id="node_n008", label="TPMJS API Keys\n(scoped permissions)", d2_id="gateway.auth.api_keys", semantic_kind="node", shape="box"];
+      node_n009 [id="node_n009", label="Session Tokens", d2_id="gateway.auth.sessions", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n010 {
+      graph [id="cluster_n010", label="Rate Limiting", d2_id="gateway.rate_limit", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      node_n011 [id="node_n011", label="Per-endpoint limits", d2_id="gateway.rate_limit.per_endpoint", semantic_kind="node", shape="box"];
+      node_n012 [id="node_n012", label="User tier-based\n(FREE, PRO, ENTERPRISE)", d2_id="gateway.rate_limit.tier_based", semantic_kind="node", shape="box"];
+    }
+  }
+  subgraph cluster_n013 {
+    graph [id="cluster_n013", label="API Endpoints", d2_id="api", semantic_kind="group", color="#1976d2", fillcolor="#e3f2fd", style="filled", labelloc="t", labeljust="l", margin="12"];
+    proxy_n013 [id="proxy_n013", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="api"];
+    subgraph cluster_n014 {
+      graph [id="cluster_n014", label="Tool Discovery", d2_id="api.discovery", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n014 [id="proxy_n014", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="api.discovery"];
+      node_n015 [id="node_n015", label="GET /api/tools", d2_id="api.discovery.list", semantic_kind="node", shape="box"];
+      node_n016 [id="node_n016", label="GET /api/tools/search", d2_id="api.discovery.search", semantic_kind="node", shape="box"];
+      node_n017 [id="node_n017", label="GET /api/tools/[id]", d2_id="api.discovery.detail", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n018 {
+      graph [id="cluster_n018", label="Execution", d2_id="api.execution", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n018 [id="proxy_n018", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="api.execution"];
+      node_n019 [id="node_n019", label="POST /api/tools/execute/[slug]", d2_id="api.execution.execute", semantic_kind="node", shape="box"];
+      node_n020 [id="node_n020", label="(SSE streaming)", d2_id="api.execution.stream", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n021 {
+      graph [id="cluster_n021", label="MCP Protocol", d2_id="api.mcp", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n021 [id="proxy_n021", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="api.mcp"];
+      node_n022 [id="node_n022", label="/api/mcp/[user]/[slug]/[transport]", d2_id="api.mcp.endpoint", semantic_kind="node", shape="box"];
+      node_n023 [id="node_n023", label="(JSON-RPC 2.0)", d2_id="api.mcp.protocol", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n024 {
+      graph [id="cluster_n024", label="Agents & Collections", d2_id="api.agents", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n024 [id="proxy_n024", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="api.agents"];
+      node_n025 [id="node_n025", label="/api/agents/*", d2_id="api.agents.agents_api", semantic_kind="node", shape="box"];
+      node_n026 [id="node_n026", label="/api/collections/*", d2_id="api.agents.collections_api", semantic_kind="node", shape="box"];
+      node_n027 [id="node_n027", label="/api/chat/*", d2_id="api.agents.chat_api", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n028 {
+      graph [id="cluster_n028", label="Bridge", d2_id="api.bridge", semantic_kind="group", style="dashed", labelloc="t", labeljust="l", margin="12"];
+      proxy_n028 [id="proxy_n028", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="api.bridge"];
+      node_n029 [id="node_n029", label="POST /api/bridge", d2_id="api.bridge.register", semantic_kind="node", shape="box"];
+      node_n030 [id="node_n030", label="GET /api/bridge", d2_id="api.bridge.poll", semantic_kind="node", shape="box"];
+      node_n031 [id="node_n031", label="(polling + results)", d2_id="api.bridge.respond", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n032 {
+      graph [id="cluster_n032", label="Scenarios", d2_id="api.testing", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n032 [id="proxy_n032", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="api.testing"];
+      node_n033 [id="node_n033", label="/api/scenarios/*", d2_id="api.testing.scenarios_api", semantic_kind="node", shape="box"];
+      node_n034 [id="node_n034", label="/api/use-cases/*", d2_id="api.testing.use_cases_api", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n035 {
+      graph [id="cluster_n035", label="Sync (Cron)", d2_id="api.sync", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n035 [id="proxy_n035", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="api.sync"];
+      node_n036 [id="node_n036", label="/api/sync/changes", d2_id="api.sync.changes", semantic_kind="node", shape="box"];
+      node_n037 [id="node_n037", label="/api/sync/keyword", d2_id="api.sync.keyword", semantic_kind="node", shape="box"];
+      node_n038 [id="node_n038", label="/api/sync/metrics", d2_id="api.sync.metrics", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n039 {
+      graph [id="cluster_n039", label="Stats & Health", d2_id="api.health", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n039 [id="proxy_n039", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="api.health"];
+      node_n040 [id="node_n040", label="GET /api/stats", d2_id="api.health.stats", semantic_kind="node", shape="box"];
+      node_n041 [id="node_n041", label="GET /api/health", d2_id="api.health.health", semantic_kind="node", shape="box"];
+      node_n042 [id="node_n042", label="POST /api/health/report", d2_id="api.health.report", semantic_kind="node", shape="box"];
+    }
+  }
+  subgraph cluster_n043 {
+    graph [id="cluster_n043", label="Execution Flows", d2_id="execution_flows", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+    subgraph cluster_n044 {
+      graph [id="cluster_n044", label="Path A: Playground Flow\n(Web UI)", d2_id="execution_flows.playground_flow", semantic_kind="group", color="#c2185b", fillcolor="#fce4ec", style="filled", labelloc="t", labeljust="l", margin="12"];
+      node_n045 [id="node_n045", label="1. User Prompt", d2_id="execution_flows.playground_flow.step1", semantic_kind="node", shape="box"];
+      node_n046 [id="node_n046", label="2. POST /api/tools/execute/[slug]", d2_id="execution_flows.playground_flow.step2", semantic_kind="node", shape="box"];
+      node_n047 [id="node_n047", label="3. AI Agent (AI SDK v6)\nGPT-4 / Claude / etc.", d2_id="execution_flows.playground_flow.step3", semantic_kind="node", shape="box"];
+      node_n048 [id="node_n048", label="4. Tool Schema (Zod)", d2_id="execution_flows.playground_flow.step4", semantic_kind="node", shape="box"];
+      node_n049 [id="node_n049", label="5. Executor Resolution\nAgent -> Collection -> Default", d2_id="execution_flows.playground_flow.step5", semantic_kind="node", shape="box"];
+      node_n050 [id="node_n050", label="6. EXECUTOR (Railway)\nPOST /execute-tool", d2_id="execution_flows.playground_flow.step6", semantic_kind="node", shape="box"];
+      node_n051 [id="node_n051", label="7. SSE Stream Response\n(chunk, tokens, complete)", d2_id="execution_flows.playground_flow.step7", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n052 {
+      graph [id="cluster_n052", label="Path B: MCP Flow\n(External AI Client)", d2_id="execution_flows.mcp_flow", semantic_kind="group", color="#c2185b", fillcolor="#fce4ec", style="filled", labelloc="t", labeljust="l", margin="12"];
+      node_n053 [id="node_n053", label="1. External AI Client", d2_id="execution_flows.mcp_flow.mcp1", semantic_kind="node", shape="box"];
+      node_n054 [id="node_n054", label="2. JSON-RPC 2.0", d2_id="execution_flows.mcp_flow.mcp2", semantic_kind="node", shape="box"];
+      node_n055 [id="node_n055", label="3. /api/mcp/[user]/[slug]/[transport]", d2_id="execution_flows.mcp_flow.mcp3", semantic_kind="node", shape="box"];
+      node_n056 [id="node_n056", label="4. MCP Handler\ntools/list, tools/call", d2_id="execution_flows.mcp_flow.mcp4", semantic_kind="node", shape="box"];
+      node_n057 [id="node_n057", label="5. Tool Name Resolution\nRegistry + Bridge tools", d2_id="execution_flows.mcp_flow.mcp5", semantic_kind="node", shape="box"];
+      node_n058 [id="node_n058", label="6. Same Executor", d2_id="execution_flows.mcp_flow.mcp6", semantic_kind="node", shape="box"];
+      node_n059 [id="node_n059", label="7. JSON-RPC Response", d2_id="execution_flows.mcp_flow.mcp7", semantic_kind="node", shape="box"];
+    }
+  }
+  subgraph cluster_n060 {
+    graph [id="cluster_n060", label="Schema Extraction Pipeline", d2_id="schema_pipeline", semantic_kind="group", color="#7b1fa2", fillcolor="#f3e5f5", style="filled", labelloc="t", labeljust="l", margin="12"];
+    node_n061 [id="node_n061", label="NPM Registry\npackages with 'tpmjs' keyword", d2_id="schema_pipeline.npm_source", semantic_kind="node", color="#f57c00", fillcolor="#fff3e0", style="filled", shape="box"];
+    subgraph cluster_n062 {
+      graph [id="cluster_n062", label="Sync Workers (Actions + on-box timers)", d2_id="schema_pipeline.sync_workers", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n062 [id="proxy_n062", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="schema_pipeline.sync_workers"];
+      node_n063 [id="node_n063", label="/api/sync/changes (every 2 min)\nnpm _changes feed", d2_id="schema_pipeline.sync_workers.changes_feed", semantic_kind="node", shape="box"];
+      node_n064 [id="node_n064", label="/api/sync/keyword (every 15 min)\nkeyword search", d2_id="schema_pipeline.sync_workers.keyword_search", semantic_kind="node", shape="box"];
+      node_n065 [id="node_n065", label="/api/sync/metrics (every hour)\ndownloads, stars", d2_id="schema_pipeline.sync_workers.metrics_sync", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n066 {
+      graph [id="cluster_n066", label="Schema Extraction", d2_id="schema_pipeline.extraction", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n066 [id="proxy_n066", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="schema_pipeline.extraction"];
+      node_n067 [id="node_n067", label="1. Fetch package from npm", d2_id="schema_pipeline.extraction.step1", semantic_kind="node", shape="box"];
+      node_n068 [id="node_n068", label="2. Import via esm.sh (dynamic)", d2_id="schema_pipeline.extraction.step2", semantic_kind="node", shape="box"];
+      node_n069 [id="node_n069", label="3. listToolExports() - discover exports", d2_id="schema_pipeline.extraction.step3", semantic_kind="node", shape="box"];
+      node_n070 [id="node_n070", label="4. extractToolSchema() - analyze signatures", d2_id="schema_pipeline.extraction.step4", semantic_kind="node", shape="box"];
+      node_n071 [id="node_n071", label="5. AI extraction (if needed)", d2_id="schema_pipeline.extraction.step5", semantic_kind="node", shape="box"];
+      node_n072 [id="node_n072", label="6. validateTpmjsField()", d2_id="schema_pipeline.extraction.step6", semantic_kind="node", shape="box"];
+      node_n073 [id="node_n073", label="7. Store in database (inputSchema)", d2_id="schema_pipeline.extraction.step7", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n074 {
+      graph [id="cluster_n074", label="Zod / AI SDK Conversion", d2_id="schema_pipeline.zod_conversion", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n074 [id="proxy_n074", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="schema_pipeline.zod_conversion"];
+      node_n075 [id="node_n075", label="TPMJS Parameters", d2_id="schema_pipeline.zod_conversion.params", semantic_kind="node", shape="box"];
+      node_n076 [id="node_n076", label="convertToZodSchema()", d2_id="schema_pipeline.zod_conversion.convert", semantic_kind="node", shape="box"];
+      node_n077 [id="node_n077", label="Zod Schema\nz.object({ ... })", d2_id="schema_pipeline.zod_conversion.zod", semantic_kind="node", shape="box"];
+      node_n078 [id="node_n078", label="AI SDK inputSchema", d2_id="schema_pipeline.zod_conversion.ai_sdk", semantic_kind="node", shape="box"];
+      node_n079 [id="node_n079", label="LLM Tool Definition\n(OpenAI/Anthropic format)", d2_id="schema_pipeline.zod_conversion.llm_def", semantic_kind="node", shape="box"];
+    }
+  }
+  subgraph cluster_n080 {
+    graph [id="cluster_n080", label="Executor Architecture", d2_id="executors", semantic_kind="group", color="#c2185b", fillcolor="#fce4ec", style="filled", labelloc="t", labeljust="l", margin="12"];
+    subgraph cluster_n081 {
+      graph [id="cluster_n081", label="Executor Contract", d2_id="executors.contract", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n081 [id="proxy_n081", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="executors.contract"];
+      node_n082 [id="node_n082", label="POST /execute-tool\n{ packageName, name, version, params, env }", d2_id="executors.contract.execute", semantic_kind="node", shape="box"];
+      node_n083 [id="node_n083", label="Response: { success, output, error, executionTimeMs }", d2_id="executors.contract.response", semantic_kind="node", shape="box"];
+      node_n084 [id="node_n084", label="GET /health", d2_id="executors.contract.health", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n085 {
+      graph [id="cluster_n085", label="Implementations", d2_id="executors.implementations", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n085 [id="proxy_n085", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="executors.implementations"];
+      node_n086 [id="node_n086", label="Railway (Default)\n- Sandboxed Node.js\n- Dynamic imports from esm.sh\n- Runs untrusted npm code safely", d2_id="executors.implementations.railway", semantic_kind="node", shape="box"];
+      node_n087 [id="node_n087", label="Vercel Template\n- Serverless functions\n- One-click deploy", d2_id="executors.implementations.vercel_template", semantic_kind="node", shape="box"];
+      node_n088 [id="node_n088", label="Future Options\n- AWS Lambda\n- Docker\n- Custom HTTP service", d2_id="executors.implementations.future", semantic_kind="node", shape="box"];
+    }
+  }
+  subgraph cluster_n089 {
+    graph [id="cluster_n089", label="Database (Neon PostgreSQL)", d2_id="database", semantic_kind="group", color="#388e3c", fillcolor="#e8f5e9", style="filled", labelloc="t", labeljust="l", margin="12"];
+    proxy_n089 [id="proxy_n089", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="database"];
+    subgraph cluster_n090 {
+      graph [id="cluster_n090", label="PACKAGES", d2_id="database.packages_group", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n090 [id="proxy_n090", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="database.packages_group"];
+      node_n091 [id="node_n091", label="Package", d2_id="database.packages_group.Package", semantic_kind="node", shape="box"];
+      node_n092 [id="node_n092", label="Tool", d2_id="database.packages_group.Tool", semantic_kind="node", shape="box"];
+      node_n093 [id="node_n093", label="HealthCheck", d2_id="database.packages_group.HealthCheck", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n094 {
+      graph [id="cluster_n094", label="USERS", d2_id="database.users_group", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      node_n095 [id="node_n095", label="User", d2_id="database.users_group.User", semantic_kind="node", shape="box"];
+      node_n096 [id="node_n096", label="Session", d2_id="database.users_group.Session", semantic_kind="node", shape="box"];
+      node_n097 [id="node_n097", label="Account", d2_id="database.users_group.Account", semantic_kind="node", shape="box"];
+      node_n098 [id="node_n098", label="Verification", d2_id="database.users_group.Verification", semantic_kind="node", shape="box"];
+      node_n099 [id="node_n099", label="UserApiKey", d2_id="database.users_group.UserApiKey", semantic_kind="node", shape="box"];
+      node_n100 [id="node_n100", label="TpmjsApiKey", d2_id="database.users_group.TpmjsApiKey", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n101 {
+      graph [id="cluster_n101", label="EXECUTION", d2_id="database.execution_group", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      node_n102 [id="node_n102", label="Simulation", d2_id="database.execution_group.Simulation", semantic_kind="node", shape="box"];
+      node_n103 [id="node_n103", label="TokenUsage", d2_id="database.execution_group.TokenUsage", semantic_kind="node", shape="box"];
+      node_n104 [id="node_n104", label="ExecutionLog", d2_id="database.execution_group.ExecutionLog", semantic_kind="node", shape="box"];
+      node_n105 [id="node_n105", label="ApiUsageRecord", d2_id="database.execution_group.ApiUsageRecord", semantic_kind="node", shape="box"];
+      node_n106 [id="node_n106", label="ApiUsageSummary", d2_id="database.execution_group.ApiUsageSummary", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n107 {
+      graph [id="cluster_n107", label="COLLECTIONS", d2_id="database.collections_group", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n107 [id="proxy_n107", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="database.collections_group"];
+      node_n108 [id="node_n108", label="Collection", d2_id="database.collections_group.Collection", semantic_kind="node", shape="box"];
+      node_n109 [id="node_n109", label="CollectionTool", d2_id="database.collections_group.CollectionTool", semantic_kind="node", shape="box"];
+      node_n110 [id="node_n110", label="CollectionLike", d2_id="database.collections_group.CollectionLike", semantic_kind="node", shape="box"];
+      node_n111 [id="node_n111", label="CollectionBridgeTool", d2_id="database.collections_group.CollectionBridgeTool", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n112 {
+      graph [id="cluster_n112", label="AGENTS", d2_id="database.agents_group", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n112 [id="proxy_n112", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="database.agents_group"];
+      node_n113 [id="node_n113", label="Agent", d2_id="database.agents_group.Agent", semantic_kind="node", shape="box"];
+      node_n114 [id="node_n114", label="AgentCollection", d2_id="database.agents_group.AgentCollection", semantic_kind="node", shape="box"];
+      node_n115 [id="node_n115", label="AgentTool", d2_id="database.agents_group.AgentTool", semantic_kind="node", shape="box"];
+      node_n116 [id="node_n116", label="AgentLike", d2_id="database.agents_group.AgentLike", semantic_kind="node", shape="box"];
+      node_n117 [id="node_n117", label="Conversation", d2_id="database.agents_group.Conversation", semantic_kind="node", shape="box"];
+      node_n118 [id="node_n118", label="Message", d2_id="database.agents_group.Message", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n119 {
+      graph [id="cluster_n119", label="SYNC", d2_id="database.sync_group", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n119 [id="proxy_n119", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="database.sync_group"];
+      node_n120 [id="node_n120", label="SyncCheckpoint", d2_id="database.sync_group.SyncCheckpoint", semantic_kind="node", shape="box"];
+      node_n121 [id="node_n121", label="SyncLog", d2_id="database.sync_group.SyncLog", semantic_kind="node", shape="box"];
+      node_n122 [id="node_n122", label="StatsSnapshot", d2_id="database.sync_group.StatsSnapshot", semantic_kind="node", shape="box"];
+      node_n123 [id="node_n123", label="EndpointHealthReport", d2_id="database.sync_group.EndpointHealthReport", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n124 {
+      graph [id="cluster_n124", label="SCENARIOS", d2_id="database.scenarios_group", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n124 [id="proxy_n124", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="database.scenarios_group"];
+      node_n125 [id="node_n125", label="Scenario", d2_id="database.scenarios_group.Scenario", semantic_kind="node", shape="box"];
+      node_n126 [id="node_n126", label="ScenarioRun", d2_id="database.scenarios_group.ScenarioRun", semantic_kind="node", shape="box"];
+      node_n127 [id="node_n127", label="ScenarioEmbedding", d2_id="database.scenarios_group.ScenarioEmbedding", semantic_kind="node", shape="box"];
+      node_n128 [id="node_n128", label="ScenarioQuota", d2_id="database.scenarios_group.ScenarioQuota", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n129 {
+      graph [id="cluster_n129", label="USE_CASES", d2_id="database.use_cases_group", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n129 [id="proxy_n129", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="database.use_cases_group"];
+      node_n130 [id="node_n130", label="UseCase", d2_id="database.use_cases_group.UseCase", semantic_kind="node", shape="box"];
+      node_n131 [id="node_n131", label="Persona", d2_id="database.use_cases_group.Persona", semantic_kind="node", shape="box"];
+      node_n132 [id="node_n132", label="Industry", d2_id="database.use_cases_group.Industry", semantic_kind="node", shape="box"];
+      node_n133 [id="node_n133", label="Category", d2_id="database.use_cases_group.Category", semantic_kind="node", shape="box"];
+      node_n134 [id="node_n134", label="SocialProof", d2_id="database.use_cases_group.SocialProof", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n135 {
+      graph [id="cluster_n135", label="ENGAGEMENT", d2_id="database.engagement_group", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      node_n136 [id="node_n136", label="ToolLike", d2_id="database.engagement_group.ToolLike", semantic_kind="node", shape="box"];
+      node_n137 [id="node_n137", label="ToolRating", d2_id="database.engagement_group.ToolRating", semantic_kind="node", shape="box"];
+      node_n138 [id="node_n138", label="ToolReview", d2_id="database.engagement_group.ToolReview", semantic_kind="node", shape="box"];
+      node_n139 [id="node_n139", label="UserActivity", d2_id="database.engagement_group.UserActivity", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n140 {
+      graph [id="cluster_n140", label="BRIDGE", d2_id="database.bridge_group", semantic_kind="group", style="dashed", labelloc="t", labeljust="l", margin="12"];
+      proxy_n140 [id="proxy_n140", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="database.bridge_group"];
+      node_n141 [id="node_n141", label="BridgeConnection", d2_id="database.bridge_group.BridgeConnection", semantic_kind="node", shape="box"];
+    }
+  }
+  subgraph cluster_n142 {
+    graph [id="cluster_n142", label="Background Workers (Self-hosted schedules)", d2_id="workers", semantic_kind="group", color="#f57c00", fillcolor="#fff3e0", style="filled", labelloc="t", labeljust="l", margin="12"];
+    subgraph cluster_n143 {
+      graph [id="cluster_n143", label="Sync Jobs", d2_id="workers.sync_jobs", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n143 [id="proxy_n143", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="workers.sync_jobs"];
+      node_n144 [id="node_n144", label="Every 2 min: /api/sync/changes\n(npm changes feed)", d2_id="workers.sync_jobs.changes", semantic_kind="node", shape="box"];
+      node_n145 [id="node_n145", label="Every 15 min: /api/sync/keyword\n(keyword search)", d2_id="workers.sync_jobs.keyword", semantic_kind="node", shape="box"];
+      node_n146 [id="node_n146", label="Every hour: /api/sync/metrics\n(downloads, stars)", d2_id="workers.sync_jobs.metrics", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n147 {
+      graph [id="cluster_n147", label="Daily Jobs", d2_id="workers.daily_jobs", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n147 [id="proxy_n147", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="workers.daily_jobs"];
+      node_n148 [id="node_n148", label="Daily: /api/sync/stats-snapshot", d2_id="workers.daily_jobs.stats", semantic_kind="node", shape="box"];
+      node_n149 [id="node_n149", label="Daily 3am: /api/sync/cleanup-activity", d2_id="workers.daily_jobs.cleanup", semantic_kind="node", shape="box"];
+      node_n150 [id="node_n150", label="Daily 9am: /api/cron/discord-summary", d2_id="workers.daily_jobs.discord", semantic_kind="node", shape="box"];
+      node_n151 [id="node_n151", label="Daily: /api/cron/use-cases\n(AI generation)", d2_id="workers.daily_jobs.use_cases", semantic_kind="node", shape="box"];
+    }
+  }
+  subgraph cluster_n152 {
+    graph [id="cluster_n152", label="External Services", d2_id="external", semantic_kind="group", color="#f57c00", fillcolor="#fff3e0", style="filled", labelloc="t", labeljust="l", margin="12"];
+    subgraph cluster_n153 {
+      graph [id="cluster_n153", label="Package Sources", d2_id="external.package_sources", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      node_n154 [id="node_n154", label="npm Registry\nMetadata, changes feed", d2_id="external.package_sources.npm", semantic_kind="node", shape="box"];
+      node_n155 [id="node_n155", label="GitHub API\nStars, repo metadata", d2_id="external.package_sources.github", semantic_kind="node", shape="box"];
+      node_n156 [id="node_n156", label="Bundlephobia\nPackage size analysis", d2_id="external.package_sources.bundlephobia", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n157 {
+      graph [id="cluster_n157", label="Runtime", d2_id="external.runtime", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      node_n158 [id="node_n158", label="esm.sh\nDynamic ESM imports", d2_id="external.runtime.esm_sh", semantic_kind="node", shape="box"];
+      node_n159 [id="node_n159", label="Vercel\nHosting, Edge, Cron", d2_id="external.runtime.vercel", semantic_kind="node", shape="box"];
+      node_n160 [id="node_n160", label="Railway\nDefault executor hosting", d2_id="external.runtime.railway", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n161 {
+      graph [id="cluster_n161", label="Data", d2_id="external.data", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      node_n162 [id="node_n162", label="Neon\nPostgreSQL database", d2_id="external.data.neon", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n163 {
+      graph [id="cluster_n163", label="AI Providers", d2_id="external.ai_providers", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n163 [id="proxy_n163", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="external.ai_providers"];
+      node_n164 [id="node_n164", label="OpenAI\nGPT-4, embeddings", d2_id="external.ai_providers.openai", semantic_kind="node", shape="box"];
+      node_n165 [id="node_n165", label="Anthropic\nClaude", d2_id="external.ai_providers.anthropic", semantic_kind="node", shape="box"];
+      node_n166 [id="node_n166", label="Google\nGemini", d2_id="external.ai_providers.google", semantic_kind="node", shape="box"];
+      node_n167 [id="node_n167", label="Groq", d2_id="external.ai_providers.groq", semantic_kind="node", shape="box"];
+      node_n168 [id="node_n168", label="Mistral", d2_id="external.ai_providers.mistral", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n169 {
+      graph [id="cluster_n169", label="Notifications", d2_id="external.notifications", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      node_n170 [id="node_n170", label="Discord\nDaily summaries", d2_id="external.notifications.discord", semantic_kind="node", shape="box"];
+    }
+  }
+  subgraph cluster_n171 {
+    graph [id="cluster_n171", label="Bridge System (WIP)", d2_id="bridge_system", semantic_kind="group", style="dashed", labelloc="t", labeljust="l", margin="12"];
+    proxy_n171 [id="proxy_n171", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="bridge_system"];
+    node_n172 [id="node_n172", label="Local MCP Server\n(Blender, etc.)", d2_id="bridge_system.local_mcp", semantic_kind="node", shape="box"];
+    node_n173 [id="node_n173", label="Bridge CLI\n(@tpmjs/bridge)", d2_id="bridge_system.bridge_cli", semantic_kind="node", shape="box"];
+    node_n174 [id="node_n174", label="POST /api/bridge\n{ type: 'register', tools: [...] }", d2_id="bridge_system.api_bridge", semantic_kind="node", shape="box"];
+    node_n175 [id="node_n175", label="BridgeConnection record", d2_id="bridge_system.db_record", semantic_kind="node", shape="box"];
+    node_n176 [id="node_n176", label="Tool calls via polling:\nGET /api/bridge -> pending calls\nPOST /api/bridge -> tool results", d2_id="bridge_system.polling", semantic_kind="node", shape="box"];
+  }
+  subgraph cluster_n177 {
+    graph [id="cluster_n177", label="AI Integration Points", d2_id="ai_integration", semantic_kind="group", color="#7b1fa2", fillcolor="#f3e5f5", style="filled", labelloc="t", labeljust="l", margin="12"];
+    subgraph cluster_n178 {
+      graph [id="cluster_n178", label="User-Provided Keys", d2_id="ai_integration.user_keys", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n178 [id="proxy_n178", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="ai_integration.user_keys"];
+      node_n179 [id="node_n179", label="Agent chats\n(users bring their own API keys)", d2_id="ai_integration.user_keys.agent_chat", semantic_kind="node", shape="box"];
+      node_n180 [id="node_n180", label="Custom collections\nwith API key storage", d2_id="ai_integration.user_keys.custom_collections", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n181 {
+      graph [id="cluster_n181", label="Internal Keys (TPMJS)", d2_id="ai_integration.internal_keys", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      proxy_n181 [id="proxy_n181", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="ai_integration.internal_keys"];
+      node_n182 [id="node_n182", label="Schema extraction\n(analyze tool signatures)", d2_id="ai_integration.internal_keys.schema_extraction", semantic_kind="node", shape="box"];
+      node_n183 [id="node_n183", label="Use case generation\n(marketing content)", d2_id="ai_integration.internal_keys.use_case_gen", semantic_kind="node", shape="box"];
+      node_n184 [id="node_n184", label="Scenario evaluation\n(pass/fail determination)", d2_id="ai_integration.internal_keys.scenario_eval", semantic_kind="node", shape="box"];
+      node_n185 [id="node_n185", label="Discord summaries", d2_id="ai_integration.internal_keys.discord_summaries", semantic_kind="node", shape="box"];
+    }
+    subgraph cluster_n186 {
+      graph [id="cluster_n186", label="Supported Providers", d2_id="ai_integration.providers", semantic_kind="group", labelloc="t", labeljust="l", margin="12"];
+      node_n187 [id="node_n187", label="OpenAI (GPT-4, GPT-4 Turbo)\nAnthropic (Claude)\nGoogle (Gemini)\nGroq\nMistral", d2_id="ai_integration.providers.list", semantic_kind="node", shape="box"];
+    }
+  }
+  // Exactly one DOT edge per compiled D2 edge, preserving order and multiplicity.
+  node_n045 -> node_n046 [id="edge000", d2_id="execution_flows.playground_flow.(step1 -> step2)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n046 -> node_n047 [id="edge001", d2_id="execution_flows.playground_flow.(step2 -> step3)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n047 -> node_n048 [id="edge002", d2_id="execution_flows.playground_flow.(step3 -> step4)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n048 -> node_n049 [id="edge003", d2_id="execution_flows.playground_flow.(step4 -> step5)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n049 -> node_n050 [id="edge004", d2_id="execution_flows.playground_flow.(step5 -> step6)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n050 -> node_n051 [id="edge005", d2_id="execution_flows.playground_flow.(step6 -> step7)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n053 -> node_n054 [id="edge006", d2_id="execution_flows.mcp_flow.(mcp1 -> mcp2)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n054 -> node_n055 [id="edge007", d2_id="execution_flows.mcp_flow.(mcp2 -> mcp3)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n055 -> node_n056 [id="edge008", d2_id="execution_flows.mcp_flow.(mcp3 -> mcp4)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n056 -> node_n057 [id="edge009", d2_id="execution_flows.mcp_flow.(mcp4 -> mcp5)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n057 -> node_n058 [id="edge010", d2_id="execution_flows.mcp_flow.(mcp5 -> mcp6)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n058 -> node_n059 [id="edge011", d2_id="execution_flows.mcp_flow.(mcp6 -> mcp7)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n075 -> node_n076 [id="edge012", d2_id="schema_pipeline.zod_conversion.(params -> convert)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n076 -> node_n077 [id="edge013", d2_id="schema_pipeline.zod_conversion.(convert -> zod)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n077 -> node_n078 [id="edge014", d2_id="schema_pipeline.zod_conversion.(zod -> ai_sdk)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n078 -> node_n079 [id="edge015", d2_id="schema_pipeline.zod_conversion.(ai_sdk -> llm_def)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n061 -> proxy_n062 [id="edge016", d2_id="schema_pipeline.(npm_source -> sync_workers)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", lhead="cluster_n062"];
+  proxy_n062 -> proxy_n066 [id="edge017", d2_id="schema_pipeline.(sync_workers -> extraction)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n062", lhead="cluster_n066"];
+  proxy_n066 -> proxy_n074 [id="edge018", d2_id="schema_pipeline.(extraction -> zod_conversion)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n066", lhead="cluster_n074"];
+  proxy_n081 -> proxy_n085 [id="edge019", d2_id="executors.(contract -> implementations)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n081", lhead="cluster_n085"];
+  node_n092 -> node_n109 [id="edge020", d2_id="database.(packages_group.Tool -> collections_group.CollectionTool)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n092 -> node_n115 [id="edge021", d2_id="database.(packages_group.Tool -> agents_group.AgentTool)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n092 -> node_n136 [id="edge022", d2_id="database.(packages_group.Tool -> engagement_group.ToolLike)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n092 -> node_n125 [id="edge023", d2_id="database.(packages_group.Tool -> scenarios_group.Scenario)[0]", label="via Collection", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n095 -> node_n108 [id="edge024", d2_id="database.(users_group.User -> collections_group.Collection)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n095 -> node_n113 [id="edge025", d2_id="database.(users_group.User -> agents_group.Agent)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n095 -> node_n141 [id="edge026", d2_id="database.(users_group.User -> bridge_group.BridgeConnection)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n108 -> node_n114 [id="edge027", d2_id="database.(collections_group.Collection -> agents_group.AgentCollection)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n108 -> node_n125 [id="edge028", d2_id="database.(collections_group.Collection -> scenarios_group.Scenario)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n125 -> node_n130 [id="edge029", d2_id="database.(scenarios_group.Scenario -> use_cases_group.UseCase)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n172 -> node_n173 [id="edge030", d2_id="bridge_system.(local_mcp -> bridge_cli)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n173 -> node_n174 [id="edge031", d2_id="bridge_system.(bridge_cli -> api_bridge)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n174 -> node_n175 [id="edge032", d2_id="bridge_system.(api_bridge -> db_record)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n175 -> node_n176 [id="edge033", d2_id="bridge_system.(db_record -> polling)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n001 -> proxy_n006 [id="edge034", d2_id="(clients.web -> gateway.auth)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", lhead="cluster_n006"];
+  node_n002 -> proxy_n006 [id="edge035", d2_id="(clients.cli -> gateway.auth)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", lhead="cluster_n006"];
+  node_n003 -> proxy_n006 [id="edge036", d2_id="(clients.ai_clients -> gateway.auth)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", lhead="cluster_n006"];
+  node_n004 -> proxy_n006 [id="edge037", d2_id="(clients.bridge_cli -> gateway.auth)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", style="dashed", lhead="cluster_n006"];
+  proxy_n005 -> proxy_n013 [id="edge038", d2_id="(gateway -> api)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n005", lhead="cluster_n013"];
+  proxy_n014 -> node_n046 [id="edge039", d2_id="(api.discovery -> execution_flows.playground_flow.step2)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n014"];
+  proxy_n018 -> node_n046 [id="edge040", d2_id="(api.execution -> execution_flows.playground_flow.step2)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n018"];
+  proxy_n021 -> node_n055 [id="edge041", d2_id="(api.mcp -> execution_flows.mcp_flow.mcp3)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n021"];
+  node_n050 -> proxy_n081 [id="edge042", d2_id="(execution_flows.playground_flow.step6 -> executors.contract)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", lhead="cluster_n081"];
+  node_n058 -> proxy_n081 [id="edge043", d2_id="(execution_flows.mcp_flow.mcp6 -> executors.contract)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", lhead="cluster_n081"];
+  node_n086 -> node_n160 [id="edge044", d2_id="(executors.implementations.railway -> external.runtime.railway)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n073 -> node_n092 [id="edge045", d2_id="(schema_pipeline.extraction.step7 -> database.packages_group.Tool)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n061 -> node_n154 [id="edge046", d2_id="(schema_pipeline.npm_source -> external.package_sources.npm)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n068 -> node_n158 [id="edge047", d2_id="(schema_pipeline.extraction.step2 -> external.runtime.esm_sh)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n071 -> proxy_n163 [id="edge048", d2_id="(schema_pipeline.extraction.step5 -> external.ai_providers)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", lhead="cluster_n163"];
+  proxy_n143 -> proxy_n035 [id="edge049", d2_id="(workers.sync_jobs -> api.sync)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n143", lhead="cluster_n035"];
+  proxy_n147 -> proxy_n032 [id="edge050", d2_id="(workers.daily_jobs -> api.testing)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n147", lhead="cluster_n032"];
+  proxy_n014 -> proxy_n090 [id="edge051", d2_id="(api.discovery -> database.packages_group)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n014", lhead="cluster_n090"];
+  proxy_n024 -> proxy_n112 [id="edge052", d2_id="(api.agents -> database.agents_group)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n024", lhead="cluster_n112"];
+  proxy_n024 -> proxy_n107 [id="edge053", d2_id="(api.agents -> database.collections_group)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n024", lhead="cluster_n107"];
+  proxy_n032 -> proxy_n124 [id="edge054", d2_id="(api.testing -> database.scenarios_group)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n032", lhead="cluster_n124"];
+  proxy_n032 -> proxy_n129 [id="edge055", d2_id="(api.testing -> database.use_cases_group)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n032", lhead="cluster_n129"];
+  proxy_n039 -> proxy_n119 [id="edge056", d2_id="(api.health -> database.sync_group)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n039", lhead="cluster_n119"];
+  node_n162 -> proxy_n089 [id="edge057", d2_id="(external.data.neon -> database)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", lhead="cluster_n089"];
+  proxy_n178 -> proxy_n163 [id="edge058", d2_id="(ai_integration.user_keys -> external.ai_providers)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n178", lhead="cluster_n163"];
+  proxy_n181 -> proxy_n163 [id="edge059", d2_id="(ai_integration.internal_keys -> external.ai_providers)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n181", lhead="cluster_n163"];
+  node_n004 -> node_n173 [id="edge060", d2_id="(clients.bridge_cli -> bridge_system.bridge_cli)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", style="dashed"];
+  proxy_n171 -> proxy_n028 [id="edge061", d2_id="(bridge_system -> api.bridge)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", style="dashed", ltail="cluster_n171", lhead="cluster_n028"];
+  node_n175 -> proxy_n140 [id="edge062", d2_id="(bridge_system.db_record -> database.bridge_group)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", style="dashed", lhead="cluster_n140"];
+}

@@ -1,0 +1,1459 @@
+{
+  "fixture": "jupyter_aws_eks",
+  "counts": {
+    "objects": 24,
+    "leaf_nodes": 12,
+    "groups": 12,
+    "edges": 4
+  },
+  "source_sha256": "d0ad1e2d69568d0daf0de87c2d6c0c889c5a2f6e9ac5eaa26c8597debef6617e",
+  "semantic_mapping_sha256": "849eb31bdc68c0ac8fcc7e810986dda8ae25b66894e454cb0406df7d4b3251f1",
+  "plantuml_sha256": "b21e6f58b991977b7b2733dec120a6237e5718fd6b3ad6f7125850b430efcdfe",
+  "layout": "Graphviz dot (PlantUML default)",
+  "root_attributes": {
+    "label": {
+      "value": ""
+    },
+    "labelDimensions": {
+      "width": 0,
+      "height": 0
+    },
+    "style": {},
+    "iconStyle": {},
+    "near_key": null,
+    "shape": {
+      "value": ""
+    },
+    "direction": {
+      "value": "down"
+    },
+    "constraint": null
+  },
+  "source_config": {
+    "sketch": null,
+    "themeID": null,
+    "darkThemeID": null,
+    "pad": null,
+    "center": null,
+    "layoutEngine": "dagre"
+  },
+  "limitations": {
+    "stroke width omitted": 17,
+    "dash pattern approximated by dashed line": 4,
+    "gridColumns layout omitted": 3
+  },
+  "objects": [
+    {
+      "d2_id": "aws.global.route53.hosted_zone.dns_record",
+      "parent_d2_id": "aws.global.route53.hosted_zone",
+      "parent_mermaid_id": "n003",
+      "kind": "node",
+      "source_label": "DNS Record",
+      "translated_label": "DNS Record",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "DNS Record"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "fill": {
+            "value": "#ffe0b2"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      },
+      "plantuml_id": "n004",
+      "parent_plantuml_id": "n003",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>DNS Record</b></size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "aws.global.route53.hosted_zone",
+      "parent_d2_id": "aws.global.route53",
+      "parent_mermaid_id": "n002",
+      "kind": "group",
+      "source_label": "Hosted Zone",
+      "translated_label": "Hosted Zone",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Hosted Zone"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "fill": {
+            "value": "#ffe0b2"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n003",
+      "parent_plantuml_id": "n002",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:18><b>Hosted Zone</b></size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "aws.global.route53",
+      "parent_d2_id": "aws.global",
+      "parent_mermaid_id": "n001",
+      "kind": "group",
+      "source_label": "Route 53",
+      "translated_label": "Route 53",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Route 53"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "fill": {
+            "value": "#ffe0b2"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n002",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>Route 53</b></size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "aws.global.spacer",
+      "parent_d2_id": "aws.global",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "transparent"
+          },
+          "fill": {
+            "value": "transparent"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n005",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.global.iam.oidc_provider",
+      "parent_d2_id": "aws.global.iam",
+      "parent_mermaid_id": "n006",
+      "kind": "node",
+      "source_label": "OIDC Provider",
+      "translated_label": "OIDC Provider",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "OIDC Provider"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "fill": {
+            "value": "#fce4ec"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      },
+      "plantuml_id": "n007",
+      "parent_plantuml_id": "n006",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>OIDC Provider</b></size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "aws.global.iam",
+      "parent_d2_id": "aws.global",
+      "parent_mermaid_id": "n001",
+      "kind": "group",
+      "source_label": "IAM",
+      "translated_label": "IAM",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "IAM"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "fill": {
+            "value": "#fce4ec"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n006",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>IAM</b></size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "aws.global",
+      "parent_d2_id": "aws",
+      "parent_mermaid_id": "n000",
+      "kind": "group",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#e65100"
+          },
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "strokeDash": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridColumns": {
+          "value": "3"
+        }
+      },
+      "plantuml_id": "n001",
+      "parent_plantuml_id": "n000",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:18><b>&#160;</b></size>",
+      "differences": [
+        "gridColumns layout omitted",
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "aws.region.vpc.nlb",
+      "parent_d2_id": "aws.region.vpc",
+      "parent_mermaid_id": "n009",
+      "kind": "node",
+      "source_label": "Network\nLoad Balancer",
+      "translated_label": "Network\nLoad Balancer",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Network\nLoad Balancer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#388e3c"
+          },
+          "fill": {
+            "value": "#c8e6c9"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      },
+      "plantuml_id": "n010",
+      "parent_plantuml_id": "n009",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>Network</b></size>\\n<size:20><b>Load Balancer</b></size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.platform_ng.node1",
+      "parent_d2_id": "aws.region.vpc.eks.platform_ng",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "m5.large",
+      "translated_label": "m5.large",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "m5.large"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "0"
+          },
+          "fontSize": {
+            "value": "16"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n013",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:16><b>m5.large</b></size>",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.platform_ng.node2",
+      "parent_d2_id": "aws.region.vpc.eks.platform_ng",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "m5.large",
+      "translated_label": "m5.large",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "m5.large"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "0"
+          },
+          "fontSize": {
+            "value": "16"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n014",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:16><b>m5.large</b></size>",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.platform_ng",
+      "parent_d2_id": "aws.region.vpc.eks",
+      "parent_mermaid_id": "n011",
+      "kind": "group",
+      "source_label": "Platform Node Group\n(managed)",
+      "translated_label": "Platform Node Group\n(managed)",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Platform Node Group\n(managed)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n012",
+      "parent_plantuml_id": "n011",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:18><b>Platform Node Group</b></size>\\n<size:18><b>(managed)</b></size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.routing_np.node1",
+      "parent_d2_id": "aws.region.vpc.eks.routing_np",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "c6.large",
+      "translated_label": "c6.large",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "c6.large"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#c8e6c9"
+          },
+          "strokeWidth": {
+            "value": "0"
+          },
+          "fontSize": {
+            "value": "16"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n016",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:16><b>c6.large</b></size>",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.routing_np.node2",
+      "parent_d2_id": "aws.region.vpc.eks.routing_np",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "m6.large",
+      "translated_label": "m6.large",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "m6.large"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#c8e6c9"
+          },
+          "strokeWidth": {
+            "value": "0"
+          },
+          "fontSize": {
+            "value": "16"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n017",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:16><b>m6.large</b></size>",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.routing_np",
+      "parent_d2_id": "aws.region.vpc.eks",
+      "parent_mermaid_id": "n011",
+      "kind": "group",
+      "source_label": "Routing NodePool\n(Karpenter)",
+      "translated_label": "Routing NodePool\n(Karpenter)",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Routing NodePool\n(Karpenter)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#388e3c"
+          },
+          "fill": {
+            "value": "#c8e6c9"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n015",
+      "parent_plantuml_id": "n011",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:18><b>Routing NodePool</b></size>\\n<size:18><b>(Karpenter)</b></size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.workspaces_np.node1",
+      "parent_d2_id": "aws.region.vpc.eks.workspaces_np",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "c6i.2xlarge",
+      "translated_label": "c6i.2xlarge",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "c6i.2xlarge"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#e1bee7"
+          },
+          "strokeWidth": {
+            "value": "0"
+          },
+          "fontSize": {
+            "value": "16"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n019",
+      "parent_plantuml_id": "n018",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:16><b>c6i.2xlarge</b></size>",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.workspaces_np.node2",
+      "parent_d2_id": "aws.region.vpc.eks.workspaces_np",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "r7i.xlarge",
+      "translated_label": "r7i.xlarge",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "r7i.xlarge"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#e1bee7"
+          },
+          "strokeWidth": {
+            "value": "0"
+          },
+          "fontSize": {
+            "value": "16"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n020",
+      "parent_plantuml_id": "n018",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:16><b>r7i.xlarge</b></size>",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.workspaces_np",
+      "parent_d2_id": "aws.region.vpc.eks",
+      "parent_mermaid_id": "n011",
+      "kind": "group",
+      "source_label": "Workspace NodePool(s)\n(Karpenter, scale-to-zero)",
+      "translated_label": "Workspace NodePool(s)\n(Karpenter, scale-to-zero)",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Workspace NodePool(s)\n(Karpenter, scale-to-zero)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#8e24aa"
+          },
+          "fill": {
+            "value": "#e1bee7"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n018",
+      "parent_plantuml_id": "n011",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:18><b>Workspace NodePool(s)</b></size>\\n<size:18><b>(Karpenter, scale-to-zero)</b></size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.control_plane.api_server",
+      "parent_d2_id": "aws.region.vpc.eks.control_plane",
+      "parent_mermaid_id": "n021",
+      "kind": "node",
+      "source_label": "API Server",
+      "translated_label": "API Server",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "API Server"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      },
+      "plantuml_id": "n022",
+      "parent_plantuml_id": "n021",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>API Server</b></size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.control_plane.etcd",
+      "parent_d2_id": "aws.region.vpc.eks.control_plane",
+      "parent_mermaid_id": "n021",
+      "kind": "node",
+      "source_label": "etcd",
+      "translated_label": "etcd",
+      "source_shape": "cylinder",
+      "source_attributes": {
+        "label": {
+          "value": "etcd"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "cylinder"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n023",
+      "parent_plantuml_id": "n021",
+      "plantuml_shape": "database",
+      "encoded_label": "<size:20><b>etcd</b></size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.control_plane",
+      "parent_d2_id": "aws.region.vpc.eks",
+      "parent_mermaid_id": "n011",
+      "kind": "group",
+      "source_label": "EKS Control Plane",
+      "translated_label": "EKS Control Plane",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "EKS Control Plane"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n021",
+      "parent_plantuml_id": "n011",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:18><b>EKS Control Plane</b></size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "aws.region.vpc.eks",
+      "parent_d2_id": "aws.region.vpc",
+      "parent_mermaid_id": "n009",
+      "kind": "group",
+      "source_label": "EKS Cluster",
+      "translated_label": "EKS Cluster",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "EKS Cluster"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#e3f2fd"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridColumns": {
+          "value": "2"
+        }
+      },
+      "plantuml_id": "n011",
+      "parent_plantuml_id": "n009",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>EKS Cluster</b></size>",
+      "differences": [
+        "gridColumns layout omitted",
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "aws.region.vpc",
+      "parent_d2_id": "aws.region",
+      "parent_mermaid_id": "n008",
+      "kind": "group",
+      "source_label": "VPC",
+      "translated_label": "VPC",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "VPC"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2e7d32"
+          },
+          "fill": {
+            "value": "#e8f5e9"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n009",
+      "parent_plantuml_id": "n008",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>VPC</b></size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "aws.region",
+      "parent_d2_id": "aws",
+      "parent_mermaid_id": "n000",
+      "kind": "group",
+      "source_label": "Region (e.g. us-east-1)",
+      "translated_label": "Region (e.g. us-east-1)",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Region (e.g. us-east-1)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#e65100"
+          },
+          "fill": {
+            "value": "#fef9e7"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "strokeDash": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n008",
+      "parent_plantuml_id": "n000",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:18><b>Region (e.g. us-east-1)</b></size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "aws",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "AWS Account",
+      "translated_label": "AWS Account",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "AWS Account"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#e65100"
+          },
+          "fill": {
+            "value": "#fff3e0"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridColumns": {
+          "value": "1"
+        }
+      },
+      "plantuml_id": "n000",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>AWS Account</b></size>",
+      "differences": [
+        "gridColumns layout omitted",
+        "stroke width omitted"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "index": 0,
+      "d2_id": "aws.(global.route53.hosted_zone.dns_record -> region.vpc.nlb)[0]",
+      "source_d2_id": "aws.global.route53.hosted_zone.dns_record",
+      "target_d2_id": "aws.region.vpc.nlb",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "resolves to",
+      "translated_label": "resolves to",
+      "source_attributes": {
+        "label": {
+          "value": "resolves to"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "strokeDash": {
+            "value": "5"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n004",
+      "target_plantuml_id": "n010",
+      "plantuml_arrow": "-[#1565c0,dashed,thickness=3]->",
+      "encoded_label": "resolves to"
+    },
+    {
+      "index": 1,
+      "d2_id": "aws.region.vpc.(nlb -> eks.routing_np)[0]",
+      "source_d2_id": "aws.region.vpc.nlb",
+      "target_d2_id": "aws.region.vpc.eks.routing_np",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "routes to",
+      "translated_label": "routes to",
+      "source_attributes": {
+        "label": {
+          "value": "routes to"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n010",
+      "target_plantuml_id": "n015",
+      "plantuml_arrow": "-[#1565c0,thickness=3]->",
+      "encoded_label": "routes to"
+    },
+    {
+      "index": 2,
+      "d2_id": "aws.global.(iam.oidc_provider -> route53.hosted_zone.dns_record)[0]",
+      "source_d2_id": "aws.global.iam.oidc_provider",
+      "target_d2_id": "aws.global.route53.hosted_zone.dns_record",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "references",
+      "translated_label": "references",
+      "source_attributes": {
+        "label": {
+          "value": "references"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "strokeDash": {
+            "value": "5"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n007",
+      "target_plantuml_id": "n004",
+      "plantuml_arrow": "-[#c62828,dashed,thickness=3]->",
+      "encoded_label": "references"
+    },
+    {
+      "index": 3,
+      "d2_id": "aws.(global.iam.oidc_provider -> region.vpc.eks.control_plane.api_server)[0]",
+      "source_d2_id": "aws.global.iam.oidc_provider",
+      "target_d2_id": "aws.region.vpc.eks.control_plane.api_server",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "associate",
+      "translated_label": "associate",
+      "source_attributes": {
+        "label": {
+          "value": "associate"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "strokeDash": {
+            "value": "5"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n007",
+      "target_plantuml_id": "n022",
+      "plantuml_arrow": "-[#c62828,dashed,thickness=3]->",
+      "encoded_label": "associate"
+    }
+  ],
+  "synthetic_objects": 0,
+  "synthetic_edges": 0
+}

@@ -1,0 +1,60 @@
+// Generated from the audited D2 semantic mapping. See TRANSLATION.md.
+digraph diagram {
+  graph [compound="true", rankdir="TB", bgcolor="white", fontname="Helvetica", fontsize="14", pad="0.25"];
+  node [shape="box", fontname="Helvetica", fontsize="14", color="#333333", margin="0.12,0.08"];
+  edge [fontname="Helvetica", fontsize="14", color="#333333"];
+  subgraph cluster_n000 {
+    graph [id="cluster_n000", label="AWS Account", d2_id="aws", semantic_kind="group", color="#e65100", fillcolor="#fff3e0", penwidth="3", fontsize="20", fontname="Helvetica-Bold", style="filled", labelloc="t", labeljust="l", margin="12"];
+    subgraph cluster_n001 {
+      graph [id="cluster_n001", label="", d2_id="aws.global", semantic_kind="group", color="#e65100", fillcolor="transparent", penwidth="2", fontsize="18", fontname="Helvetica-Bold", style="filled,dashed", labelloc="t", labeljust="l", margin="12"];
+      subgraph cluster_n002 {
+        graph [id="cluster_n002", label="Route 53", d2_id="aws.global.route53", semantic_kind="group", color="#f57c00", fillcolor="#ffe0b2", penwidth="3", fontsize="20", fontname="Helvetica-Bold", style="filled", labelloc="t", labeljust="l", margin="12"];
+        subgraph cluster_n003 {
+          graph [id="cluster_n003", label="Hosted Zone", d2_id="aws.global.route53.hosted_zone", semantic_kind="group", color="#f57c00", fillcolor="#ffe0b2", penwidth="2", fontsize="18", fontname="Helvetica-Bold", style="filled,dashed", labelloc="t", labeljust="l", margin="12"];
+          node_n004 [id="node_n004", label="DNS Record", d2_id="aws.global.route53.hosted_zone.dns_record", semantic_kind="node", color="#f57c00", fillcolor="#ffe0b2", penwidth="3", fontsize="20", fontname="Helvetica-Bold", style="filled", shape="box"];
+        }
+      }
+      node_n005 [id="node_n005", label="", d2_id="aws.global.spacer", semantic_kind="node", color="transparent", fillcolor="transparent", style="filled", shape="box"];
+      subgraph cluster_n006 {
+        graph [id="cluster_n006", label="IAM", d2_id="aws.global.iam", semantic_kind="group", color="#c62828", fillcolor="#fce4ec", penwidth="3", fontsize="20", fontname="Helvetica-Bold", style="filled", labelloc="t", labeljust="l", margin="12"];
+        node_n007 [id="node_n007", label="OIDC Provider", d2_id="aws.global.iam.oidc_provider", semantic_kind="node", color="#c62828", fillcolor="#fce4ec", penwidth="3", fontsize="20", fontname="Helvetica-Bold", style="filled", shape="box"];
+      }
+    }
+    subgraph cluster_n008 {
+      graph [id="cluster_n008", label="Region (e.g. us-east-1)", d2_id="aws.region", semantic_kind="group", color="#e65100", fillcolor="#fef9e7", penwidth="2", fontsize="18", fontname="Helvetica-Bold", style="filled,dashed", labelloc="t", labeljust="l", margin="12"];
+      subgraph cluster_n009 {
+        graph [id="cluster_n009", label="VPC", d2_id="aws.region.vpc", semantic_kind="group", color="#2e7d32", fillcolor="#e8f5e9", penwidth="3", fontsize="20", fontname="Helvetica-Bold", style="filled", labelloc="t", labeljust="l", margin="12"];
+        node_n010 [id="node_n010", label="Network\nLoad Balancer", d2_id="aws.region.vpc.nlb", semantic_kind="node", color="#388e3c", fillcolor="#c8e6c9", penwidth="3", fontsize="20", fontname="Helvetica-Bold", style="filled", shape="box"];
+        subgraph cluster_n011 {
+          graph [id="cluster_n011", label="EKS Cluster", d2_id="aws.region.vpc.eks", semantic_kind="group", color="#1565c0", fillcolor="#e3f2fd", penwidth="3", fontsize="20", fontname="Helvetica-Bold", style="filled", labelloc="t", labeljust="l", margin="12"];
+          subgraph cluster_n012 {
+            graph [id="cluster_n012", label="Platform Node Group\n(managed)", d2_id="aws.region.vpc.eks.platform_ng", semantic_kind="group", color="#1565c0", fillcolor="#bbdefb", penwidth="3", fontsize="18", fontname="Helvetica-Bold", style="filled", labelloc="t", labeljust="l", margin="12"];
+            node_n013 [id="node_n013", label="m5.large", d2_id="aws.region.vpc.eks.platform_ng.node1", semantic_kind="node", fillcolor="#bbdefb", penwidth="0", fontsize="16", fontname="Helvetica-Bold", style="filled", shape="box"];
+            node_n014 [id="node_n014", label="m5.large", d2_id="aws.region.vpc.eks.platform_ng.node2", semantic_kind="node", fillcolor="#bbdefb", penwidth="0", fontsize="16", fontname="Helvetica-Bold", style="filled", shape="box"];
+          }
+          subgraph cluster_n015 {
+            graph [id="cluster_n015", label="Routing NodePool\n(Karpenter)", d2_id="aws.region.vpc.eks.routing_np", semantic_kind="group", color="#388e3c", fillcolor="#c8e6c9", penwidth="3", fontsize="18", fontname="Helvetica-Bold", style="filled", labelloc="t", labeljust="l", margin="12"];
+            proxy_n015 [id="proxy_n015", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="aws.region.vpc.eks.routing_np"];
+            node_n016 [id="node_n016", label="c6.large", d2_id="aws.region.vpc.eks.routing_np.node1", semantic_kind="node", fillcolor="#c8e6c9", penwidth="0", fontsize="16", fontname="Helvetica-Bold", style="filled", shape="box"];
+            node_n017 [id="node_n017", label="m6.large", d2_id="aws.region.vpc.eks.routing_np.node2", semantic_kind="node", fillcolor="#c8e6c9", penwidth="0", fontsize="16", fontname="Helvetica-Bold", style="filled", shape="box"];
+          }
+          subgraph cluster_n018 {
+            graph [id="cluster_n018", label="Workspace NodePool(s)\n(Karpenter, scale-to-zero)", d2_id="aws.region.vpc.eks.workspaces_np", semantic_kind="group", color="#8e24aa", fillcolor="#e1bee7", penwidth="3", fontsize="18", fontname="Helvetica-Bold", style="filled", labelloc="t", labeljust="l", margin="12"];
+            node_n019 [id="node_n019", label="c6i.2xlarge", d2_id="aws.region.vpc.eks.workspaces_np.node1", semantic_kind="node", fillcolor="#e1bee7", penwidth="0", fontsize="16", fontname="Helvetica-Bold", style="filled", shape="box"];
+            node_n020 [id="node_n020", label="r7i.xlarge", d2_id="aws.region.vpc.eks.workspaces_np.node2", semantic_kind="node", fillcolor="#e1bee7", penwidth="0", fontsize="16", fontname="Helvetica-Bold", style="filled", shape="box"];
+          }
+          subgraph cluster_n021 {
+            graph [id="cluster_n021", label="EKS Control Plane", d2_id="aws.region.vpc.eks.control_plane", semantic_kind="group", color="#1565c0", fillcolor="#bbdefb", penwidth="2", fontsize="18", fontname="Helvetica-Bold", style="filled,dashed", labelloc="t", labeljust="l", margin="12"];
+            node_n022 [id="node_n022", label="API Server", d2_id="aws.region.vpc.eks.control_plane.api_server", semantic_kind="node", color="#1565c0", fillcolor="#bbdefb", penwidth="3", fontsize="20", fontname="Helvetica-Bold", style="filled", shape="box"];
+            node_n023 [id="node_n023", label="etcd", d2_id="aws.region.vpc.eks.control_plane.etcd", semantic_kind="node", color="#1565c0", fillcolor="#bbdefb", penwidth="3", fontsize="20", fontname="Helvetica-Bold", style="filled", shape="cylinder"];
+          }
+        }
+      }
+    }
+  }
+  // Exactly one DOT edge per compiled D2 edge, preserving order and multiplicity.
+  node_n004 -> node_n010 [id="edge000", d2_id="aws.(global.route53.hosted_zone.dns_record -> region.vpc.nlb)[0]", label="resolves to", dir="forward", arrowtail="none", arrowhead="normal", color="#1565c0", penwidth="3", style="dashed"];
+  node_n010 -> proxy_n015 [id="edge001", d2_id="aws.region.vpc.(nlb -> eks.routing_np)[0]", label="routes to", dir="forward", arrowtail="none", arrowhead="normal", color="#1565c0", penwidth="3", lhead="cluster_n015"];
+  node_n007 -> node_n004 [id="edge002", d2_id="aws.global.(iam.oidc_provider -> route53.hosted_zone.dns_record)[0]", label="references", dir="forward", arrowtail="none", arrowhead="normal", color="#c62828", penwidth="3", style="dashed"];
+  node_n007 -> node_n022 [id="edge003", d2_id="aws.(global.iam.oidc_provider -> region.vpc.eks.control_plane.api_server)[0]", label="associate", dir="forward", arrowtail="none", arrowhead="normal", color="#c62828", penwidth="3", style="dashed"];
+}

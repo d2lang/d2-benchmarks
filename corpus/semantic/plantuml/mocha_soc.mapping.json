@@ -1,0 +1,2613 @@
+{
+  "fixture": "mocha_soc",
+  "counts": {
+    "objects": 38,
+    "leaf_nodes": 34,
+    "groups": 4,
+    "edges": 18
+  },
+  "source_sha256": "86374bc7322825942ae81f60b159f8533938e6921012269d98bad41ec3ebbe46",
+  "semantic_mapping_sha256": "8fd2af8958da876675debe1f0ad2cd6f58c7c749441d8a549770ce39232c6b96",
+  "plantuml_sha256": "60ba3b5e64ba00c5bea1bdbeb13b917d4496532665f4004dc475658b1d011702",
+  "layout": "Graphviz dot (PlantUML default)",
+  "root_attributes": {
+    "label": {
+      "value": ""
+    },
+    "labelDimensions": {
+      "width": 0,
+      "height": 0
+    },
+    "style": {},
+    "iconStyle": {},
+    "near_key": null,
+    "shape": {
+      "value": ""
+    },
+    "direction": {
+      "value": ""
+    },
+    "constraint": null
+  },
+  "source_config": {
+    "sketch": null,
+    "themeID": 7,
+    "darkThemeID": null,
+    "pad": null,
+    "center": null,
+    "layoutEngine": "elk"
+  },
+  "limitations": {
+    "stroke width omitted": 36,
+    "dash pattern approximated by dashed line": 22,
+    "markdown formatted as validated plain multiline text": 10
+  },
+  "objects": [
+    {
+      "d2_id": "dram",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "#### DRAM\n\n1 GiB of DDR3",
+      "translated_label": "DRAM\n\n1 GiB of DDR3",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "#### DRAM\n\n1 GiB of DDR3"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n000",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>DRAM</size>\\n<size:50>&#160;</size>\\n<size:50>1 GiB of DDR3</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line",
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "Mocha.CVA6-CHERI.Frontend",
+      "parent_d2_id": "Mocha.CVA6-CHERI",
+      "parent_mermaid_id": "n002",
+      "kind": "node",
+      "source_label": "Frontend",
+      "translated_label": "Frontend",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Frontend"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n003",
+      "parent_plantuml_id": "n002",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>Frontend</size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "Mocha.CVA6-CHERI.ID stage",
+      "parent_d2_id": "Mocha.CVA6-CHERI",
+      "parent_mermaid_id": "n002",
+      "kind": "node",
+      "source_label": "ID stage",
+      "translated_label": "ID stage",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "ID stage"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n004",
+      "parent_plantuml_id": "n002",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>ID stage</size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "Mocha.CVA6-CHERI.Issue stage",
+      "parent_d2_id": "Mocha.CVA6-CHERI",
+      "parent_mermaid_id": "n002",
+      "kind": "node",
+      "source_label": "Issue stage",
+      "translated_label": "Issue stage",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Issue stage"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n005",
+      "parent_plantuml_id": "n002",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>Issue stage</size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "Mocha.CVA6-CHERI.EX stage",
+      "parent_d2_id": "Mocha.CVA6-CHERI",
+      "parent_mermaid_id": "n002",
+      "kind": "node",
+      "source_label": "EX stage",
+      "translated_label": "EX stage",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "EX stage"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n006",
+      "parent_plantuml_id": "n002",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>EX stage</size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "Mocha.CVA6-CHERI.Commit stage",
+      "parent_d2_id": "Mocha.CVA6-CHERI",
+      "parent_mermaid_id": "n002",
+      "kind": "node",
+      "source_label": "Commit stage",
+      "translated_label": "Commit stage",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Commit stage"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n007",
+      "parent_plantuml_id": "n002",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>Commit stage</size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "Mocha.CVA6-CHERI.Cache subsystem",
+      "parent_d2_id": "Mocha.CVA6-CHERI",
+      "parent_mermaid_id": "n002",
+      "kind": "node",
+      "source_label": "Cache subsystem",
+      "translated_label": "Cache subsystem",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Cache subsystem"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n008",
+      "parent_plantuml_id": "n002",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>Cache subsystem</size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "Mocha.CVA6-CHERI",
+      "parent_d2_id": "Mocha",
+      "parent_mermaid_id": "n001",
+      "kind": "group",
+      "source_label": "CVA6-CHERI",
+      "translated_label": "CVA6-CHERI",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "CVA6-CHERI"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n002",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>CVA6-CHERI</size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "Mocha.axi",
+      "parent_d2_id": "Mocha",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "#### AXI crossbar\n\n64-bit width",
+      "translated_label": "AXI crossbar\n\n64-bit width",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "#### AXI crossbar\n\n64-bit width"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n009",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>AXI crossbar</size>\\n<size:50>&#160;</size>\\n<size:50>64-bit width</size>",
+      "differences": [
+        "stroke width omitted",
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "Mocha.tlul",
+      "parent_d2_id": "Mocha",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "#### TileLink crossbar\n\n32-bit width",
+      "translated_label": "TileLink crossbar\n\n32-bit width",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "#### TileLink crossbar\n\n32-bit width"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n010",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>TileLink crossbar</size>\\n<size:50>&#160;</size>\\n<size:50>32-bit width</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line",
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "Mocha.Tag control",
+      "parent_d2_id": "Mocha",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Tag control",
+      "translated_label": "Tag control",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Tag control"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n011",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>Tag control</size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "Mocha.Debug",
+      "parent_d2_id": "Mocha",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Debug",
+      "translated_label": "Debug",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Debug"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n012",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>Debug</size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "Mocha.SRAM",
+      "parent_d2_id": "Mocha",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "SRAM",
+      "translated_label": "SRAM",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "SRAM"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n013",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>SRAM</size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "Mocha.Mailbox",
+      "parent_d2_id": "Mocha",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Mailbox",
+      "translated_label": "Mailbox",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Mailbox"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n014",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>Mailbox</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "Mocha.Peripherals.rom",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "#### ROM\n\n32 KiB",
+      "translated_label": "ROM\n\n32 KiB",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "#### ROM\n\n32 KiB"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n016",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>ROM</size>\\n<size:40>&#160;</size>\\n<size:40>32 KiB</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line",
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "Mocha.Peripherals.entropy",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "#### Entropy\n\nSource",
+      "translated_label": "Entropy\n\nSource",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "#### Entropy\n\nSource"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n017",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>Entropy</size>\\n<size:40>&#160;</size>\\n<size:40>Source</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line",
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "Mocha.Peripherals.kmac",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "#### KMAC\n\nSHA3",
+      "translated_label": "KMAC\n\nSHA3",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "#### KMAC\n\nSHA3"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n018",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>KMAC</size>\\n<size:40>&#160;</size>\\n<size:40>SHA3</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line",
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "Mocha.Peripherals.PLIC",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "PLIC",
+      "translated_label": "PLIC",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "PLIC"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n019",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>PLIC</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "Mocha.Peripherals.Timer",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "Timer",
+      "translated_label": "Timer",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Timer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n020",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>Timer</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "Mocha.Peripherals.GPIO",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "GPIO",
+      "translated_label": "GPIO",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "GPIO"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n021",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>GPIO</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "Mocha.Peripherals.I2C",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "I2C",
+      "translated_label": "I2C",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "I2C"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n022",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>I2C</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "Mocha.Peripherals.spi_dev",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "#### SPI\n\nDevice",
+      "translated_label": "SPI\n\nDevice",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "#### SPI\n\nDevice"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n023",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>SPI</size>\\n<size:40>&#160;</size>\\n<size:40>Device</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line",
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "Mocha.Peripherals.spi_host",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "#### SPI\n\nHost",
+      "translated_label": "SPI\n\nHost",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "#### SPI\n\nHost"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n024",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>SPI</size>\\n<size:40>&#160;</size>\\n<size:40>Host</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line",
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "Mocha.Peripherals.UART",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "UART",
+      "translated_label": "UART",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "UART"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n025",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>UART</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "Mocha.Peripherals.managers",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "#### Managers\n\n- Clock\n- Reset\n- Power",
+      "translated_label": "Managers\n\n- Clock\n- Reset\n- Power",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "#### Managers\n\n- Clock\n- Reset\n- Power"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n026",
+      "parent_plantuml_id": "n015",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:40>Managers</size>\\n<size:40>&#160;</size>\\n<size:40>- Clock</size>\\n<size:40>- Reset</size>\\n<size:40>- Power</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line",
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "Mocha.Peripherals",
+      "parent_d2_id": "Mocha",
+      "parent_mermaid_id": "n001",
+      "kind": "group",
+      "source_label": "Peripherals",
+      "translated_label": "Peripherals",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Peripherals"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n015",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>Peripherals</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "Mocha",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Mocha",
+      "translated_label": "Mocha",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Mocha"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n001",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>Mocha</size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "chip",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "#### Rest of chip\n\n64-bit bus",
+      "translated_label": "Rest of chip\n\n64-bit bus",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "#### Rest of chip\n\n64-bit bus"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n027",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>Rest of chip</size>\\n<size:50>&#160;</size>\\n<size:50>64-bit bus</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line",
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "Flash",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "Flash",
+      "translated_label": "Flash",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Flash"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n028",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>Flash</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "I2C",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "I2C",
+      "translated_label": "I2C",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "I2C"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n029",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>I2C</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "SPI",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "SPI",
+      "translated_label": "SPI",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "SPI"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n030",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>SPI</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "UART",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "UART",
+      "translated_label": "UART",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "UART"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n031",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>UART</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "GPIO",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "GPIO",
+      "translated_label": "GPIO",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "GPIO"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n032",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>GPIO</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "Legend.Cached",
+      "parent_d2_id": "Legend",
+      "parent_mermaid_id": "n033",
+      "kind": "node",
+      "source_label": "Cached",
+      "translated_label": "Cached",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Cached"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "0"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n034",
+      "parent_plantuml_id": "n033",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>Cached</size>",
+      "differences": []
+    },
+    {
+      "d2_id": "Legend.Uncached",
+      "parent_d2_id": "Legend",
+      "parent_mermaid_id": "n033",
+      "kind": "node",
+      "source_label": "Uncached",
+      "translated_label": "Uncached",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Uncached"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "0"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n035",
+      "parent_plantuml_id": "n033",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>Uncached</size>",
+      "differences": []
+    },
+    {
+      "d2_id": "Legend.Tag aware",
+      "parent_d2_id": "Legend",
+      "parent_mermaid_id": "n033",
+      "kind": "node",
+      "source_label": "Tag aware",
+      "translated_label": "Tag aware",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Tag aware"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n036",
+      "parent_plantuml_id": "n033",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>Tag aware</size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "Legend.Tag oblivious",
+      "parent_d2_id": "Legend",
+      "parent_mermaid_id": "n033",
+      "kind": "node",
+      "source_label": "Tag oblivious",
+      "translated_label": "Tag oblivious",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Tag oblivious"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n037",
+      "parent_plantuml_id": "n033",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>Tag oblivious</size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "Legend",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Legend",
+      "translated_label": "Legend",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Legend"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "transparent"
+          },
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n033",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:50>Legend</size>",
+      "differences": [
+        "stroke width omitted"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "index": 0,
+      "d2_id": "Mocha.CVA6-CHERI.(Frontend <- Cache subsystem)[0]",
+      "source_d2_id": "Mocha.CVA6-CHERI.Frontend",
+      "target_d2_id": "Mocha.CVA6-CHERI.Cache subsystem",
+      "source_arrow_token": true,
+      "target_arrow_token": false,
+      "source_visible_arrow": true,
+      "target_visible_arrow": false,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n003",
+      "target_plantuml_id": "n008",
+      "plantuml_arrow": "<--",
+      "encoded_label": ""
+    },
+    {
+      "index": 1,
+      "d2_id": "Mocha.CVA6-CHERI.(EX stage <-> Cache subsystem)[0]",
+      "source_d2_id": "Mocha.CVA6-CHERI.EX stage",
+      "target_d2_id": "Mocha.CVA6-CHERI.Cache subsystem",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n006",
+      "target_plantuml_id": "n008",
+      "plantuml_arrow": "<-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 2,
+      "d2_id": "Mocha.(CVA6-CHERI.Cache subsystem <-> axi)[0]",
+      "source_d2_id": "Mocha.CVA6-CHERI.Cache subsystem",
+      "target_d2_id": "Mocha.axi",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n008",
+      "target_plantuml_id": "n009",
+      "plantuml_arrow": "<-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 3,
+      "d2_id": "Mocha.(CVA6-CHERI.Cache subsystem <-> tlul)[0]",
+      "source_d2_id": "Mocha.CVA6-CHERI.Cache subsystem",
+      "target_d2_id": "Mocha.tlul",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n008",
+      "target_plantuml_id": "n010",
+      "plantuml_arrow": "<-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 4,
+      "d2_id": "Mocha.(axi <-> Tag control)[0]",
+      "source_d2_id": "Mocha.axi",
+      "target_d2_id": "Mocha.Tag control",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n009",
+      "target_plantuml_id": "n011",
+      "plantuml_arrow": "<-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 5,
+      "d2_id": "Mocha.(axi <-> Debug)[0]",
+      "source_d2_id": "Mocha.axi",
+      "target_d2_id": "Mocha.Debug",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n009",
+      "target_plantuml_id": "n012",
+      "plantuml_arrow": "<-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 6,
+      "d2_id": "Mocha.(axi <-> SRAM)[0]",
+      "source_d2_id": "Mocha.axi",
+      "target_d2_id": "Mocha.SRAM",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n009",
+      "target_plantuml_id": "n013",
+      "plantuml_arrow": "<-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 7,
+      "d2_id": "Mocha.(axi <-> Mailbox)[0]",
+      "source_d2_id": "Mocha.axi",
+      "target_d2_id": "Mocha.Mailbox",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n009",
+      "target_plantuml_id": "n014",
+      "plantuml_arrow": "<-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 8,
+      "d2_id": "Mocha.(tlul <-> Peripherals)[0]",
+      "source_d2_id": "Mocha.tlul",
+      "target_d2_id": "Mocha.Peripherals",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n010",
+      "target_plantuml_id": "n015",
+      "plantuml_arrow": "<-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 9,
+      "d2_id": "(Mocha.Peripherals.spi_host <-> Flash)[0]",
+      "source_d2_id": "Mocha.Peripherals.spi_host",
+      "target_d2_id": "Flash",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n024",
+      "target_plantuml_id": "n028",
+      "plantuml_arrow": "<-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 10,
+      "d2_id": "(Mocha.Tag control <-> dram)[0]",
+      "source_d2_id": "Mocha.Tag control",
+      "target_d2_id": "dram",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n011",
+      "target_plantuml_id": "n000",
+      "plantuml_arrow": "<-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 11,
+      "d2_id": "(Mocha.axi <-> chip)[0]",
+      "source_d2_id": "Mocha.axi",
+      "target_d2_id": "chip",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n009",
+      "target_plantuml_id": "n027",
+      "plantuml_arrow": "<-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 12,
+      "d2_id": "(Mocha.Mailbox <-> chip)[0]",
+      "source_d2_id": "Mocha.Mailbox",
+      "target_d2_id": "chip",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n014",
+      "target_plantuml_id": "n027",
+      "plantuml_arrow": "<-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 13,
+      "d2_id": "(Mocha.Peripherals.I2C <-> I2C)[0]",
+      "source_d2_id": "Mocha.Peripherals.I2C",
+      "target_d2_id": "I2C",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n022",
+      "target_plantuml_id": "n029",
+      "plantuml_arrow": "<-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 14,
+      "d2_id": "(Mocha.Peripherals.spi_dev <-> SPI)[0]",
+      "source_d2_id": "Mocha.Peripherals.spi_dev",
+      "target_d2_id": "SPI",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n023",
+      "target_plantuml_id": "n030",
+      "plantuml_arrow": "<-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 15,
+      "d2_id": "(Mocha.Peripherals.UART <-> UART)[0]",
+      "source_d2_id": "Mocha.Peripherals.UART",
+      "target_d2_id": "UART",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n025",
+      "target_plantuml_id": "n031",
+      "plantuml_arrow": "<-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 16,
+      "d2_id": "(Mocha.Peripherals.GPIO <-> GPIO)[0]",
+      "source_d2_id": "Mocha.Peripherals.GPIO",
+      "target_d2_id": "GPIO",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n021",
+      "target_plantuml_id": "n032",
+      "plantuml_arrow": "<-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 17,
+      "d2_id": "(Legend <-> Mocha.CVA6-CHERI)[0]",
+      "source_d2_id": "Legend",
+      "target_d2_id": "Mocha.CVA6-CHERI",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "transparent"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n033",
+      "target_plantuml_id": "n002",
+      "plantuml_arrow": "<-[#transparent]->",
+      "encoded_label": ""
+    }
+  ],
+  "synthetic_objects": 0,
+  "synthetic_edges": 0
+}

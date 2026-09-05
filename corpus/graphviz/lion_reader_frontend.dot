@@ -1,0 +1,65 @@
+// Generated from the audited D2 semantic mapping. See TRANSLATION.md.
+digraph diagram {
+  graph [compound="true", rankdir="TB", bgcolor="white", fontname="Helvetica", fontsize="14", pad="0.25"];
+  node [shape="box", fontname="Helvetica", fontsize="14", color="#333333", margin="0.12,0.08"];
+  edge [fontname="Helvetica", fontsize="14", color="#333333"];
+  node_n000 [id="node_n000", label="Frontend Data Flow", d2_id="title", semantic_kind="node", fontsize="24", fontname="Helvetica-Bold", shape="plaintext", color="transparent", fillcolor="transparent"];
+  subgraph cluster_n001 {
+    graph [id="cluster_n001", label="Server", d2_id="server", semantic_kind="group", fillcolor="#e3f2fd", style="filled", labelloc="t", labeljust="l", margin="12"];
+    node_n002 [id="node_n002", label="tRPC API", d2_id="server.api", semantic_kind="node", shape="box"];
+    node_n003 [id="node_n003", label="SSE Endpoint", d2_id="server.sse", semantic_kind="node", shape="box"];
+  }
+  subgraph cluster_n004 {
+    graph [id="cluster_n004", label="Client State", d2_id="client", semantic_kind="group", fillcolor="#fff3e0", style="filled", labelloc="t", labeljust="l", margin="12"];
+    subgraph cluster_n005 {
+      graph [id="cluster_n005", label="React Query Cache", d2_id="client.react_query", semantic_kind="group", fillcolor="#ffcc80", style="filled", labelloc="t", labeljust="l", margin="12"];
+      proxy_n005 [id="proxy_n005", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="client.react_query"];
+      node_n006 [id="node_n006", label="Server state cache\n- entries.list (infinite)\n- entries.get\n- entries.count\n- subscriptions.list\n- tags.list", d2_id="client.react_query.description", semantic_kind="node", shape="plaintext", color="transparent", fillcolor="transparent"];
+    }
+    subgraph cluster_n007 {
+      graph [id="cluster_n007", label="Cache Helpers", d2_id="client.cache_helpers", semantic_kind="group", fillcolor="#a5d6a7", style="filled", labelloc="t", labeljust="l", margin="12"];
+      proxy_n007 [id="proxy_n007", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="client.cache_helpers"];
+      node_n008 [id="node_n008", label="src/lib/cache/\n- adjustSubscriptionUnreadCounts\n- adjustTagUnreadCounts\n- addSubscriptionToCache\n- updateEntriesReadStatus", d2_id="client.cache_helpers.description", semantic_kind="node", shape="plaintext", color="transparent", fillcolor="transparent"];
+    }
+  }
+  subgraph cluster_n009 {
+    graph [id="cluster_n009", label="Custom Hooks", d2_id="hooks", semantic_kind="group", fillcolor="#f3e5f5", style="filled", labelloc="t", labeljust="l", margin="12"];
+    node_n010 [id="node_n010", label="useRealtimeUpdates", d2_id="hooks.useRealtimeUpdates", semantic_kind="node", shape="box"];
+    node_n011 [id="node_n011", label="useEntryMutations", d2_id="hooks.useEntryMutations", semantic_kind="node", shape="box"];
+    node_n012 [id="node_n012", label="useKeyboardShortcuts", d2_id="hooks.useKeyboardShortcuts", semantic_kind="node", shape="box"];
+  }
+  subgraph cluster_n013 {
+    graph [id="cluster_n013", label="UI Components", d2_id="ui", semantic_kind="group", fillcolor="#e8f5e9", style="filled", labelloc="t", labeljust="l", margin="12"];
+    node_n014 [id="node_n014", label="Sidebar", d2_id="ui.sidebar", semantic_kind="node", shape="box"];
+    node_n015 [id="node_n015", label="UnifiedEntriesContent", d2_id="ui.unified_entries", semantic_kind="node", shape="box"];
+    node_n016 [id="node_n016", label="EntryListContainer", d2_id="ui.suspending_list", semantic_kind="node", shape="box"];
+    node_n017 [id="node_n017", label="EntryList", d2_id="ui.entry_list", semantic_kind="node", shape="box"];
+    node_n018 [id="node_n018", label="EntryContent", d2_id="ui.entry_content", semantic_kind="node", shape="box"];
+  }
+  subgraph cluster_n019 {
+    graph [id="cluster_n019", label="Legend", d2_id="legend", semantic_kind="group", color="#e0e0e0", fillcolor="#fafafa", style="filled", labelloc="t", labeljust="l", margin="12"];
+    node_n020 [id="node_n020", label="Blue: Initial data fetch", d2_id="legend.initial", semantic_kind="node", shape="box"];
+    node_n021 [id="node_n021", label="Green: Real-time updates (SSE)", d2_id="legend.realtime", semantic_kind="node", shape="box"];
+    node_n022 [id="node_n022", label="Purple: Query data flow", d2_id="legend.query", semantic_kind="node", shape="box"];
+    node_n023 [id="node_n023", label="Orange: User mutations", d2_id="legend.mutation", semantic_kind="node", shape="box"];
+    node_n024 [id="node_n024", label="Teal: Direct cache updates", d2_id="legend.cache", semantic_kind="node", shape="box"];
+    node_n025 [id="node_n025", label="Dashed: Invalidation", d2_id="legend.dashed", semantic_kind="node", shape="box"];
+  }
+  // Exactly one DOT edge per compiled D2 edge, preserving order and multiplicity.
+  node_n002 -> proxy_n005 [id="edge000", d2_id="(server.api -> client.react_query)[0]", label="Initial fetch", dir="forward", arrowtail="none", arrowhead="normal", color="#1976d2", penwidth="2", lhead="cluster_n005"];
+  node_n003 -> node_n010 [id="edge001", d2_id="(server.sse -> hooks.useRealtimeUpdates)[0]", label="SSE events\n(new_entry, subscription_*)", dir="forward", arrowtail="none", arrowhead="normal", color="#388e3c", penwidth="2"];
+  node_n010 -> proxy_n007 [id="edge002", d2_id="(hooks.useRealtimeUpdates -> client.cache_helpers)[0]", label="subscription_created\nsubscription_deleted", dir="forward", arrowtail="none", arrowhead="normal", color="#388e3c", lhead="cluster_n007"];
+  node_n010 -> proxy_n007 [id="edge003", d2_id="(hooks.useRealtimeUpdates -> client.cache_helpers)[1]", label="insert entry + set counts\n(new_entry)", dir="forward", arrowtail="none", arrowhead="normal", color="#388e3c", lhead="cluster_n007"];
+  proxy_n007 -> proxy_n005 [id="edge004", d2_id="client.(cache_helpers -> react_query)[0]", label="Direct cache updates", dir="forward", arrowtail="none", arrowhead="normal", color="#00796b", penwidth="2", ltail="cluster_n007", lhead="cluster_n005"];
+  proxy_n005 -> node_n015 [id="edge005", d2_id="(client.react_query -> ui.unified_entries)[0]", label="Paginated entries\n(non-suspending)", dir="forward", arrowtail="none", arrowhead="normal", color="#7b1fa2", ltail="cluster_n005"];
+  proxy_n005 -> node_n016 [id="edge006", d2_id="(client.react_query -> ui.suspending_list)[0]", label="Paginated entries\n(suspending)", dir="forward", arrowtail="none", arrowhead="normal", color="#7b1fa2", ltail="cluster_n005"];
+  node_n016 -> node_n017 [id="edge007", d2_id="ui.(suspending_list -> entry_list)[0]", label="Entries with\nread/starred state", dir="forward", arrowtail="none", arrowhead="normal", color="#7b1fa2", penwidth="2"];
+  proxy_n005 -> node_n014 [id="edge008", d2_id="(client.react_query -> ui.sidebar)[0]", label="Subscriptions/tags\nwith counts", dir="forward", arrowtail="none", arrowhead="normal", color="#7b1fa2", ltail="cluster_n005"];
+  node_n017 -> node_n011 [id="edge009", d2_id="(ui.entry_list -> hooks.useEntryMutations)[0]", label="User action\n(toggle read)", dir="forward", arrowtail="none", arrowhead="normal", color="#f57c00"];
+  node_n011 -> node_n002 [id="edge010", d2_id="(hooks.useEntryMutations -> server.api)[0]", label="1. Server mutation", dir="forward", arrowtail="none", arrowhead="normal", color="#f57c00"];
+  node_n002 -> node_n011 [id="edge011", d2_id="(server.api -> hooks.useEntryMutations)[0]", label="2. Response with\nsubscription context", dir="forward", arrowtail="none", arrowhead="normal", color="#f57c00", style="dashed"];
+  node_n011 -> proxy_n007 [id="edge012", d2_id="(hooks.useEntryMutations -> client.cache_helpers)[0]", label="3. Update counts\n(instant)", dir="forward", arrowtail="none", arrowhead="normal", color="#f57c00", penwidth="2", lhead="cluster_n007"];
+  node_n011 -> proxy_n005 [id="edge013", d2_id="(hooks.useEntryMutations -> client.react_query)[0]", label="4. Invalidate\nentry lists", dir="forward", arrowtail="none", arrowhead="normal", color="#f57c00", style="dashed", lhead="cluster_n005"];
+  node_n016 -> node_n012 [id="edge014", d2_id="(ui.suspending_list -> hooks.useKeyboardShortcuts)[0]", label="Keyboard navigation", dir="forward", arrowtail="none", arrowhead="normal", color="#9e9e9e", style="dashed"];
+  node_n015 -> node_n018 [id="edge015", d2_id="ui.(unified_entries -> entry_content)[0]", label="Entry view with\nswipe navigation", dir="forward", arrowtail="none", arrowhead="normal", color="#9e9e9e", style="dashed"];
+}

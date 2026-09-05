@@ -1,0 +1,2671 @@
+{
+  "fixture": "jupyter_k8s_oidc",
+  "counts": {
+    "objects": 33,
+    "leaf_nodes": 23,
+    "groups": 10,
+    "edges": 17
+  },
+  "source_sha256": "7f051c2b20e73488453e7a9cf224f09a5e6ae7ac428ffe6cebf4d1b281e7d9b1",
+  "semantic_mapping_sha256": "6f164494800d298c3c3754ccec596dbeacad5d3bd0c3939a31b164754c741037",
+  "plantuml_sha256": "b0d3b2eac6b6e7419d7fed4aaea5bdc9d14a43827ea654ec064b0465c47d688c",
+  "layout": "Graphviz dot (PlantUML default)",
+  "root_attributes": {
+    "label": {
+      "value": ""
+    },
+    "labelDimensions": {
+      "width": 0,
+      "height": 0
+    },
+    "style": {},
+    "iconStyle": {},
+    "near_key": null,
+    "shape": {
+      "value": ""
+    },
+    "direction": {
+      "value": ""
+    },
+    "constraint": null,
+    "gridRows": {
+      "value": "1"
+    },
+    "gridColumns": {
+      "value": "2"
+    }
+  },
+  "source_config": {
+    "sketch": null,
+    "themeID": null,
+    "darkThemeID": null,
+    "pad": null,
+    "center": null,
+    "layoutEngine": "elk"
+  },
+  "limitations": {
+    "stroke width omitted": 14,
+    "borderRadius style omitted": 9,
+    "width placement/sizing omitted": 5,
+    "height placement/sizing omitted": 5,
+    "square aspect ratio not forced": 5,
+    "gridColumns layout omitted": 8,
+    "labelPosition placement/sizing omitted": 2,
+    "gridRows layout omitted": 3,
+    "dash pattern approximated by dashed line": 3
+  },
+  "objects": [
+    {
+      "d2_id": "laptop.s1",
+      "parent_d2_id": "laptop",
+      "parent_mermaid_id": "n000",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      },
+      "plantuml_id": "n001",
+      "parent_plantuml_id": "n000",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": []
+    },
+    {
+      "d2_id": "laptop.kubectl",
+      "parent_d2_id": "laptop",
+      "parent_mermaid_id": "n000",
+      "kind": "node",
+      "source_label": "kubectl",
+      "translated_label": "kubectl",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "kubectl"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#388e3c"
+          },
+          "fill": {
+            "value": "#c8e6c9"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      },
+      "plantuml_id": "n002",
+      "parent_plantuml_id": "n000",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>kubectl</b></size>",
+      "differences": [
+        "stroke width omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "laptop.s2",
+      "parent_d2_id": "laptop",
+      "parent_mermaid_id": "n000",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      },
+      "plantuml_id": "n003",
+      "parent_plantuml_id": "n000",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": []
+    },
+    {
+      "d2_id": "laptop.browser",
+      "parent_d2_id": "laptop",
+      "parent_mermaid_id": "n000",
+      "kind": "node",
+      "source_label": "Browser",
+      "translated_label": "Browser",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Browser"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#388e3c"
+          },
+          "fill": {
+            "value": "#c8e6c9"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      },
+      "plantuml_id": "n004",
+      "parent_plantuml_id": "n000",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>Browser</b></size>",
+      "differences": [
+        "stroke width omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "laptop.s3",
+      "parent_d2_id": "laptop",
+      "parent_mermaid_id": "n000",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      },
+      "plantuml_id": "n005",
+      "parent_plantuml_id": "n000",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": []
+    },
+    {
+      "d2_id": "laptop.cookie_relay",
+      "parent_d2_id": "laptop",
+      "parent_mermaid_id": "n000",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "square",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "1"
+        },
+        "height": {
+          "value": "1"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "square"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "flow_relay"
+        ]
+      },
+      "plantuml_id": "n006",
+      "parent_plantuml_id": "n000",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted",
+        "square aspect ratio not forced"
+      ]
+    },
+    {
+      "d2_id": "laptop",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "User Laptop",
+      "translated_label": "User Laptop",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "User Laptop"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2e7d32"
+          },
+          "fill": {
+            "value": "#e8f5e9"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridColumns": {
+          "value": "1"
+        },
+        "labelPosition": {
+          "value": "top-right"
+        },
+        "classes": [
+          "icon_labeled_block"
+        ]
+      },
+      "plantuml_id": "n000",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>User Laptop</b></size>",
+      "differences": [
+        "gridColumns layout omitted",
+        "labelPosition placement/sizing omitted",
+        "stroke width omitted"
+      ]
+    },
+    {
+      "d2_id": "cluster.left_column.api_row.api_server",
+      "parent_d2_id": "cluster.left_column.api_row",
+      "parent_mermaid_id": "n009",
+      "kind": "node",
+      "source_label": "API Server",
+      "translated_label": "API Server",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "API Server"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      },
+      "plantuml_id": "n010",
+      "parent_plantuml_id": "n009",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>API Server</b></size>",
+      "differences": [
+        "stroke width omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "cluster.left_column.api_row.s1",
+      "parent_d2_id": "cluster.left_column.api_row",
+      "parent_mermaid_id": "n009",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      },
+      "plantuml_id": "n011",
+      "parent_plantuml_id": "n009",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": []
+    },
+    {
+      "d2_id": "cluster.left_column.api_row.etcd",
+      "parent_d2_id": "cluster.left_column.api_row",
+      "parent_mermaid_id": "n009",
+      "kind": "node",
+      "source_label": "etcd",
+      "translated_label": "etcd",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "etcd"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      },
+      "plantuml_id": "n012",
+      "parent_plantuml_id": "n009",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>etcd</b></size>",
+      "differences": [
+        "stroke width omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "cluster.left_column.api_row",
+      "parent_d2_id": "cluster.left_column",
+      "parent_mermaid_id": "n008",
+      "kind": "group",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "3"
+        }
+      },
+      "plantuml_id": "n009",
+      "parent_plantuml_id": "n008",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted"
+      ]
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.oidc_auth.idp",
+      "parent_d2_id": "cluster.left_column.router-namespace.oidc_auth",
+      "parent_mermaid_id": "n014",
+      "kind": "node",
+      "source_label": "OIDC Provider",
+      "translated_label": "OIDC Provider",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "OIDC Provider"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "fill": {
+            "value": "#ffe0b2"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      },
+      "plantuml_id": "n015",
+      "parent_plantuml_id": "n014",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>OIDC Provider</b></size>",
+      "differences": [
+        "stroke width omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.oidc_auth.s1",
+      "parent_d2_id": "cluster.left_column.router-namespace.oidc_auth",
+      "parent_mermaid_id": "n014",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      },
+      "plantuml_id": "n016",
+      "parent_plantuml_id": "n014",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": []
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.oidc_auth.authmiddleware",
+      "parent_d2_id": "cluster.left_column.router-namespace.oidc_auth",
+      "parent_mermaid_id": "n014",
+      "kind": "node",
+      "source_label": "Auth Middleware",
+      "translated_label": "Auth Middleware",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Auth Middleware"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "fill": {
+            "value": "#ffe0b2"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      },
+      "plantuml_id": "n017",
+      "parent_plantuml_id": "n014",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>Auth Middleware</b></size>",
+      "differences": [
+        "stroke width omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.oidc_auth",
+      "parent_d2_id": "cluster.left_column.router-namespace",
+      "parent_mermaid_id": "n013",
+      "kind": "group",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "3"
+        }
+      },
+      "plantuml_id": "n014",
+      "parent_plantuml_id": "n013",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted"
+      ]
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.forward_auth_relays.s1",
+      "parent_d2_id": "cluster.left_column.router-namespace.forward_auth_relays",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      },
+      "plantuml_id": "n019",
+      "parent_plantuml_id": "n018",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": []
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_oidc_down",
+      "parent_d2_id": "cluster.left_column.router-namespace.forward_auth_relays",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "square",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "1"
+        },
+        "height": {
+          "value": "1"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "square"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "flow_relay"
+        ]
+      },
+      "plantuml_id": "n020",
+      "parent_plantuml_id": "n018",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted",
+        "square aspect ratio not forced"
+      ]
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.forward_auth_relays.s2",
+      "parent_d2_id": "cluster.left_column.router-namespace.forward_auth_relays",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      },
+      "plantuml_id": "n021",
+      "parent_plantuml_id": "n018",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": []
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_oidc_up",
+      "parent_d2_id": "cluster.left_column.router-namespace.forward_auth_relays",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "square",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "1"
+        },
+        "height": {
+          "value": "1"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "square"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "flow_relay"
+        ]
+      },
+      "plantuml_id": "n022",
+      "parent_plantuml_id": "n018",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted",
+        "square aspect ratio not forced"
+      ]
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_auth_down",
+      "parent_d2_id": "cluster.left_column.router-namespace.forward_auth_relays",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "square",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "1"
+        },
+        "height": {
+          "value": "1"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "square"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "flow_relay"
+        ]
+      },
+      "plantuml_id": "n023",
+      "parent_plantuml_id": "n018",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted",
+        "square aspect ratio not forced"
+      ]
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.forward_auth_relays.s3",
+      "parent_d2_id": "cluster.left_column.router-namespace.forward_auth_relays",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      },
+      "plantuml_id": "n024",
+      "parent_plantuml_id": "n018",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": []
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_auth_up",
+      "parent_d2_id": "cluster.left_column.router-namespace.forward_auth_relays",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "square",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "1"
+        },
+        "height": {
+          "value": "1"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "square"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "flow_relay"
+        ]
+      },
+      "plantuml_id": "n025",
+      "parent_plantuml_id": "n018",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted",
+        "square aspect ratio not forced"
+      ]
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.forward_auth_relays",
+      "parent_d2_id": "cluster.left_column.router-namespace",
+      "parent_mermaid_id": "n013",
+      "kind": "group",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "7"
+        }
+      },
+      "plantuml_id": "n018",
+      "parent_plantuml_id": "n013",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted"
+      ]
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.router",
+      "parent_d2_id": "cluster.left_column.router-namespace",
+      "parent_mermaid_id": "n013",
+      "kind": "node",
+      "source_label": "Router",
+      "translated_label": "Router",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Router"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "fill": {
+            "value": "#ffe0b2"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      },
+      "plantuml_id": "n026",
+      "parent_plantuml_id": "n013",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>Router</b></size>",
+      "differences": [
+        "stroke width omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace",
+      "parent_d2_id": "cluster.left_column",
+      "parent_mermaid_id": "n008",
+      "kind": "group",
+      "source_label": "Router Namespace",
+      "translated_label": "Router Namespace",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Router Namespace"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "fill": {
+            "value": "#ffe0b2"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "strokeDash": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridColumns": {
+          "value": "1"
+        },
+        "classes": [
+          "namespace"
+        ]
+      },
+      "plantuml_id": "n013",
+      "parent_plantuml_id": "n008",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:18><b>Router Namespace</b></size>",
+      "differences": [
+        "gridColumns layout omitted",
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "cluster.left_column",
+      "parent_d2_id": "cluster",
+      "parent_mermaid_id": "n007",
+      "kind": "group",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridColumns": {
+          "value": "1"
+        },
+        "classes": [
+          "column_container"
+        ]
+      },
+      "plantuml_id": "n008",
+      "parent_plantuml_id": "n007",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": [
+        "gridColumns layout omitted"
+      ]
+    },
+    {
+      "d2_id": "cluster.right_column.operator-namespace.extensionapi",
+      "parent_d2_id": "cluster.right_column.operator-namespace",
+      "parent_mermaid_id": "n028",
+      "kind": "node",
+      "source_label": "Extension API",
+      "translated_label": "Extension API",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Extension API"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      },
+      "plantuml_id": "n029",
+      "parent_plantuml_id": "n028",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>Extension API</b></size>",
+      "differences": [
+        "stroke width omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "cluster.right_column.operator-namespace",
+      "parent_d2_id": "cluster.right_column",
+      "parent_mermaid_id": "n027",
+      "kind": "group",
+      "source_label": "Operator Namespace",
+      "translated_label": "Operator Namespace",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Operator Namespace"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "strokeDash": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "namespace"
+        ]
+      },
+      "plantuml_id": "n028",
+      "parent_plantuml_id": "n027",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:18><b>Operator Namespace</b></size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "cluster.right_column.s1",
+      "parent_d2_id": "cluster.right_column",
+      "parent_mermaid_id": "n027",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      },
+      "plantuml_id": "n030",
+      "parent_plantuml_id": "n027",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": []
+    },
+    {
+      "d2_id": "cluster.right_column.workspace-namespace.workspace",
+      "parent_d2_id": "cluster.right_column.workspace-namespace",
+      "parent_mermaid_id": "n031",
+      "kind": "node",
+      "source_label": "Workspace",
+      "translated_label": "Workspace",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Workspace"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#8e24aa"
+          },
+          "fill": {
+            "value": "#e1bee7"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      },
+      "plantuml_id": "n032",
+      "parent_plantuml_id": "n031",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>Workspace</b></size>",
+      "differences": [
+        "stroke width omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "cluster.right_column.workspace-namespace",
+      "parent_d2_id": "cluster.right_column",
+      "parent_mermaid_id": "n027",
+      "kind": "group",
+      "source_label": "Workspace Namespace",
+      "translated_label": "Workspace Namespace",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Workspace Namespace"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#8e24aa"
+          },
+          "fill": {
+            "value": "#e1bee7"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "strokeDash": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "namespace"
+        ]
+      },
+      "plantuml_id": "n031",
+      "parent_plantuml_id": "n027",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:18><b>Workspace Namespace</b></size>",
+      "differences": [
+        "stroke width omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "cluster.right_column",
+      "parent_d2_id": "cluster",
+      "parent_mermaid_id": "n007",
+      "kind": "group",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridColumns": {
+          "value": "1"
+        },
+        "classes": [
+          "column_container"
+        ]
+      },
+      "plantuml_id": "n027",
+      "parent_plantuml_id": "n007",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "&#160;",
+      "differences": [
+        "gridColumns layout omitted"
+      ]
+    },
+    {
+      "d2_id": "cluster",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Kubernetes Cluster",
+      "translated_label": "Kubernetes Cluster",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Kubernetes Cluster"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#e3f2fd"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridColumns": {
+          "value": "2"
+        },
+        "labelPosition": {
+          "value": "top-right"
+        },
+        "classes": [
+          "icon_labeled_block"
+        ]
+      },
+      "plantuml_id": "n007",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><b>Kubernetes Cluster</b></size>",
+      "differences": [
+        "gridColumns layout omitted",
+        "labelPosition placement/sizing omitted",
+        "stroke width omitted"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "index": 0,
+      "d2_id": "(laptop.kubectl -> cluster.left_column.api_row.api_server)[0]",
+      "source_d2_id": "laptop.kubectl",
+      "target_d2_id": "cluster.left_column.api_row.api_server",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "1. Get Workspace",
+      "translated_label": "1. Get Workspace",
+      "source_attributes": {
+        "label": {
+          "value": "1. Get Workspace"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2e7d32"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "green_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n002",
+      "target_plantuml_id": "n010",
+      "plantuml_arrow": "-[#2e7d32,thickness=3]->",
+      "encoded_label": "1. Get Workspace"
+    },
+    {
+      "index": 1,
+      "d2_id": "cluster.left_column.api_row.(api_server -> etcd)[0]",
+      "source_d2_id": "cluster.left_column.api_row.api_server",
+      "target_d2_id": "cluster.left_column.api_row.etcd",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2e7d32"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "green_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n010",
+      "target_plantuml_id": "n012",
+      "plantuml_arrow": "-[#2e7d32,thickness=3]->",
+      "encoded_label": ""
+    },
+    {
+      "index": 2,
+      "d2_id": "(laptop.browser -> cluster.left_column.router-namespace.router)[0]",
+      "source_d2_id": "laptop.browser",
+      "target_d2_id": "cluster.left_column.router-namespace.router",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "2. Navigate to\nworkspace URL",
+      "translated_label": "2. Navigate to\nworkspace URL",
+      "source_attributes": {
+        "label": {
+          "value": "2. Navigate to\nworkspace URL"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n004",
+      "target_plantuml_id": "n026",
+      "plantuml_arrow": "-[#c62828,thickness=3]->",
+      "encoded_label": "2. Navigate to\\nworkspace URL"
+    },
+    {
+      "index": 3,
+      "d2_id": "cluster.left_column.router-namespace.(router -> forward_auth_relays.relay_oidc_down)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.router",
+      "target_d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_oidc_down",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": false,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "none"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_plantuml_id": "n026",
+      "target_plantuml_id": "n020",
+      "plantuml_arrow": "-[#c62828,thickness=3]-",
+      "encoded_label": ""
+    },
+    {
+      "index": 4,
+      "d2_id": "cluster.left_column.router-namespace.(forward_auth_relays.relay_oidc_down -> oidc_auth.idp)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_oidc_down",
+      "target_d2_id": "cluster.left_column.router-namespace.oidc_auth.idp",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "3. Redirect to IdP",
+      "translated_label": "3. Redirect to IdP",
+      "source_attributes": {
+        "label": {
+          "value": "3. Redirect to IdP"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n020",
+      "target_plantuml_id": "n015",
+      "plantuml_arrow": "-[#c62828,thickness=3]->",
+      "encoded_label": "3. Redirect to IdP"
+    },
+    {
+      "index": 5,
+      "d2_id": "(cluster.left_column.router-namespace.oidc_auth.idp <-> laptop.browser)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.oidc_auth.idp",
+      "target_d2_id": "laptop.browser",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "4. OAuth2 login",
+      "translated_label": "4. OAuth2 login",
+      "source_attributes": {
+        "label": {
+          "value": "4. OAuth2 login"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n015",
+      "target_plantuml_id": "n004",
+      "plantuml_arrow": "<-[#c62828,thickness=3]->",
+      "encoded_label": "4. OAuth2 login"
+    },
+    {
+      "index": 6,
+      "d2_id": "cluster.left_column.router-namespace.(oidc_auth.idp -> forward_auth_relays.relay_oidc_up)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.oidc_auth.idp",
+      "target_d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_oidc_up",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": false,
+      "source_label": "5. Callback\n(auth code)",
+      "translated_label": "5. Callback\n(auth code)",
+      "source_attributes": {
+        "label": {
+          "value": "5. Callback\n(auth code)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "none"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_plantuml_id": "n015",
+      "target_plantuml_id": "n022",
+      "plantuml_arrow": "-[#c62828,thickness=3]-",
+      "encoded_label": "5. Callback\\n(auth code)"
+    },
+    {
+      "index": 7,
+      "d2_id": "cluster.left_column.router-namespace.(forward_auth_relays.relay_oidc_up -> router)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_oidc_up",
+      "target_d2_id": "cluster.left_column.router-namespace.router",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n022",
+      "target_plantuml_id": "n026",
+      "plantuml_arrow": "-[#c62828,thickness=3]->",
+      "encoded_label": ""
+    },
+    {
+      "index": 8,
+      "d2_id": "cluster.left_column.router-namespace.(router -> forward_auth_relays.relay_auth_down)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.router",
+      "target_d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_auth_down",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": false,
+      "source_label": "/auth",
+      "translated_label": "/auth",
+      "source_attributes": {
+        "label": {
+          "value": "/auth"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "none"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_plantuml_id": "n026",
+      "target_plantuml_id": "n023",
+      "plantuml_arrow": "-[#c62828,thickness=3]-",
+      "encoded_label": "/auth"
+    },
+    {
+      "index": 9,
+      "d2_id": "cluster.left_column.router-namespace.(forward_auth_relays.relay_auth_down -> oidc_auth.authmiddleware)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_auth_down",
+      "target_d2_id": "cluster.left_column.router-namespace.oidc_auth.authmiddleware",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "6. Forward auth\n(ID token)",
+      "translated_label": "6. Forward auth\n(ID token)",
+      "source_attributes": {
+        "label": {
+          "value": "6. Forward auth\n(ID token)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n023",
+      "target_plantuml_id": "n017",
+      "plantuml_arrow": "-[#c62828,thickness=3]->",
+      "encoded_label": "6. Forward auth\\n(ID token)"
+    },
+    {
+      "index": 10,
+      "d2_id": "cluster.left_column.router-namespace.oidc_auth.(authmiddleware -> idp)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.oidc_auth.authmiddleware",
+      "target_d2_id": "cluster.left_column.router-namespace.oidc_auth.idp",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "7. Verify token",
+      "translated_label": "7. Verify token",
+      "source_attributes": {
+        "label": {
+          "value": "7. Verify token"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n017",
+      "target_plantuml_id": "n015",
+      "plantuml_arrow": "-[#c62828,thickness=3]->",
+      "encoded_label": "7. Verify token"
+    },
+    {
+      "index": 11,
+      "d2_id": "cluster.(left_column.router-namespace.oidc_auth.authmiddleware -> right_column.operator-namespace.extensionapi)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.oidc_auth.authmiddleware",
+      "target_d2_id": "cluster.right_column.operator-namespace.extensionapi",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "8. ConnectionAccessReview\n(authorize user)",
+      "translated_label": "8. ConnectionAccessReview\n(authorize user)",
+      "source_attributes": {
+        "label": {
+          "value": "8. ConnectionAccessReview\n(authorize user)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n017",
+      "target_plantuml_id": "n029",
+      "plantuml_arrow": "-[#c62828,thickness=3]->",
+      "encoded_label": "8. ConnectionAccessReview\\n(authorize user)"
+    },
+    {
+      "index": 12,
+      "d2_id": "cluster.left_column.router-namespace.(oidc_auth.authmiddleware -> forward_auth_relays.relay_auth_up)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.oidc_auth.authmiddleware",
+      "target_d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_auth_up",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": false,
+      "source_label": "200",
+      "translated_label": "200",
+      "source_attributes": {
+        "label": {
+          "value": "200"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "none"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_plantuml_id": "n017",
+      "target_plantuml_id": "n025",
+      "plantuml_arrow": "-[#c62828,thickness=3]-",
+      "encoded_label": "200"
+    },
+    {
+      "index": 13,
+      "d2_id": "cluster.left_column.router-namespace.(forward_auth_relays.relay_auth_up -> router)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_auth_up",
+      "target_d2_id": "cluster.left_column.router-namespace.router",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "JWT cookie",
+      "translated_label": "JWT cookie",
+      "source_attributes": {
+        "label": {
+          "value": "JWT cookie"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n025",
+      "target_plantuml_id": "n026",
+      "plantuml_arrow": "-[#c62828,thickness=3]->",
+      "encoded_label": "JWT cookie"
+    },
+    {
+      "index": 14,
+      "d2_id": "cluster.(left_column.router-namespace.router -> right_column.workspace-namespace.workspace)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.router",
+      "target_d2_id": "cluster.right_column.workspace-namespace.workspace",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "9. Proxy to\nworkspace",
+      "translated_label": "9. Proxy to\nworkspace",
+      "source_attributes": {
+        "label": {
+          "value": "9. Proxy to\nworkspace"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n026",
+      "target_plantuml_id": "n032",
+      "plantuml_arrow": "-[#c62828,thickness=3]->",
+      "encoded_label": "9. Proxy to\\nworkspace"
+    },
+    {
+      "index": 15,
+      "d2_id": "(cluster.left_column.router-namespace.router -> laptop.cookie_relay)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.router",
+      "target_d2_id": "laptop.cookie_relay",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": false,
+      "source_label": "10. Set JWT cookie",
+      "translated_label": "10. Set JWT cookie",
+      "source_attributes": {
+        "label": {
+          "value": "10. Set JWT cookie"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "none"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_plantuml_id": "n026",
+      "target_plantuml_id": "n006",
+      "plantuml_arrow": "-[#c62828,thickness=3]-",
+      "encoded_label": "10. Set JWT cookie"
+    },
+    {
+      "index": 16,
+      "d2_id": "laptop.(cookie_relay -> browser)[0]",
+      "source_d2_id": "laptop.cookie_relay",
+      "target_d2_id": "laptop.browser",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n006",
+      "target_plantuml_id": "n004",
+      "plantuml_arrow": "-[#c62828,thickness=3]->",
+      "encoded_label": ""
+    }
+  ],
+  "synthetic_objects": 0,
+  "synthetic_edges": 0
+}

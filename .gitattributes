@@ -1,0 +1,2 @@
+# Frozen D2 Markdown labels use two trailing spaces for intentional line breaks.
+corpus/d2/*.d2 whitespace=-blank-at-eol

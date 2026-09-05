@@ -1,0 +1,85 @@
+%% Generated from the compiled D2 graph; see matching .mapping.json and TRANSLATION.md.
+flowchart TB
+  n000["Frontend Data Flow"]
+  subgraph n001["Server"]
+    direction TB
+    n002["tRPC API"]
+    n003["SSE Endpoint"]
+  end
+  subgraph n004["Client State"]
+    direction TB
+    subgraph n005["React Query Cache"]
+      direction TB
+      n006["Server state cache<br/>- entries.list (infinite)<br/>- entries.get<br/>- entries.count<br/>- subscriptions.list<br/>- tags.list"]
+    end
+    subgraph n007["Cache Helpers"]
+      direction TB
+      n008["src/lib/cache/<br/>- adjustSubscriptionUnreadCounts<br/>- adjustTagUnreadCounts<br/>- addSubscriptionToCache<br/>- updateEntriesReadStatus"]
+    end
+  end
+  subgraph n009["Custom Hooks"]
+    direction TB
+    n010["useRealtimeUpdates"]
+    n011["useEntryMutations"]
+    n012["useKeyboardShortcuts"]
+  end
+  subgraph n013["UI Components"]
+    direction TB
+    n014["Sidebar"]
+    n015["UnifiedEntriesContent"]
+    n016["EntryListContainer"]
+    n017["EntryList"]
+    n018["EntryContent"]
+  end
+  subgraph n019["Legend"]
+    direction TB
+    n020["Blue: Initial data fetch"]
+    n021["Green: Real-time updates (SSE)"]
+    n022["Purple: Query data flow"]
+    n023["Orange: User mutations"]
+    n024["Teal: Direct cache updates"]
+    n025["Dashed: Invalidation"]
+  end
+  %% Edges in original compiler order; one line per compiled edge.
+  n002 -->|"Initial fetch"| n005
+  n003 -->|"SSE events<br/>(new_entry, subscription_*)"| n010
+  n010 -->|"subscription_created<br/>subscription_deleted"| n007
+  n010 -->|"insert entry + set counts<br/>(new_entry)"| n007
+  n007 -->|"Direct cache updates"| n005
+  n005 -->|"Paginated entries<br/>(non-suspending)"| n015
+  n005 -->|"Paginated entries<br/>(suspending)"| n016
+  n016 -->|"Entries with<br/>read/starred state"| n017
+  n005 -->|"Subscriptions/tags<br/>with counts"| n014
+  n017 -->|"User action<br/>(toggle read)"| n011
+  n011 -->|"1. Server mutation"| n002
+  n002 -->|"2. Response with<br/>subscription context"| n011
+  n011 -->|"3. Update counts<br/>(instant)"| n007
+  n011 -->|"4. Invalidate<br/>entry lists"| n005
+  n016 -->|"Keyboard navigation"| n012
+  n015 -->|"Entry view with<br/>swipe navigation"| n018
+  style n000 font-size:24px,font-weight:bold,fill:transparent,stroke:transparent
+  style n001 fill:#e3f2fd
+  style n004 fill:#fff3e0
+  style n005 fill:#ffcc80
+  style n006 fill:transparent,stroke:transparent
+  style n007 fill:#a5d6a7
+  style n008 fill:transparent,stroke:transparent
+  style n009 fill:#f3e5f5
+  style n013 fill:#e8f5e9
+  style n019 fill:#fafafa,stroke:#e0e0e0
+  linkStyle 0 stroke:#1976d2,stroke-width:2px
+  linkStyle 1 stroke:#388e3c,stroke-width:2px
+  linkStyle 2 stroke:#388e3c
+  linkStyle 3 stroke:#388e3c
+  linkStyle 4 stroke:#00796b,stroke-width:2px
+  linkStyle 5 stroke:#7b1fa2
+  linkStyle 6 stroke:#7b1fa2
+  linkStyle 7 stroke:#7b1fa2,stroke-width:2px
+  linkStyle 8 stroke:#7b1fa2
+  linkStyle 9 stroke:#f57c00
+  linkStyle 10 stroke:#f57c00
+  linkStyle 11 stroke:#f57c00,stroke-dasharray:5 5
+  linkStyle 12 stroke:#f57c00,stroke-width:2px
+  linkStyle 13 stroke:#f57c00,stroke-dasharray:5 5
+  linkStyle 14 stroke:#9e9e9e,stroke-dasharray:5 5
+  linkStyle 15 stroke:#9e9e9e,stroke-dasharray:5 5

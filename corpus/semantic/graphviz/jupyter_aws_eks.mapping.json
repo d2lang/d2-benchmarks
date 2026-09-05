@@ -1,0 +1,364 @@
+{
+  "fixture": "jupyter_aws_eks",
+  "source_mapping_file": "jupyter_aws_eks.mapping.json",
+  "source_mapping_sha256": "849eb31bdc68c0ac8fcc7e810986dda8ae25b66894e454cb0406df7d4b3251f1",
+  "source_d2_sha256": "d0ad1e2d69568d0daf0de87c2d6c0c889c5a2f6e9ac5eaa26c8597debef6617e",
+  "dot_sha256": "3894b7030d03153d48fa24d2ccf06b2fd59f899faa54c0aa3319060cea8f809b",
+  "counts": {
+    "objects": 24,
+    "leaf_nodes": 12,
+    "groups": 12,
+    "edges": 4
+  },
+  "rankdir": "TB",
+  "objects": [
+    {
+      "d2_id": "aws.global.route53.hosted_zone.dns_record",
+      "dot_id": "node_n004",
+      "parent_d2_id": "aws.global.route53.hosted_zone",
+      "parent_dot_id": "cluster_n003",
+      "kind": "node",
+      "label": "DNS Record",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.global.route53.hosted_zone",
+      "dot_id": "cluster_n003",
+      "parent_d2_id": "aws.global.route53",
+      "parent_dot_id": "cluster_n002",
+      "kind": "group",
+      "label": "Hosted Zone",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.global.route53",
+      "dot_id": "cluster_n002",
+      "parent_d2_id": "aws.global",
+      "parent_dot_id": "cluster_n001",
+      "kind": "group",
+      "label": "Route 53",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.global.spacer",
+      "dot_id": "node_n005",
+      "parent_d2_id": "aws.global",
+      "parent_dot_id": "cluster_n001",
+      "kind": "node",
+      "label": "",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.global.iam.oidc_provider",
+      "dot_id": "node_n007",
+      "parent_d2_id": "aws.global.iam",
+      "parent_dot_id": "cluster_n006",
+      "kind": "node",
+      "label": "OIDC Provider",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.global.iam",
+      "dot_id": "cluster_n006",
+      "parent_d2_id": "aws.global",
+      "parent_dot_id": "cluster_n001",
+      "kind": "group",
+      "label": "IAM",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.global",
+      "dot_id": "cluster_n001",
+      "parent_d2_id": "aws",
+      "parent_dot_id": "cluster_n000",
+      "kind": "group",
+      "label": "",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted"
+      ]
+    },
+    {
+      "d2_id": "aws.region.vpc.nlb",
+      "dot_id": "node_n010",
+      "parent_d2_id": "aws.region.vpc",
+      "parent_dot_id": "cluster_n009",
+      "kind": "node",
+      "label": "Network\nLoad Balancer",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.platform_ng.node1",
+      "dot_id": "node_n013",
+      "parent_d2_id": "aws.region.vpc.eks.platform_ng",
+      "parent_dot_id": "cluster_n012",
+      "kind": "node",
+      "label": "m5.large",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.platform_ng.node2",
+      "dot_id": "node_n014",
+      "parent_d2_id": "aws.region.vpc.eks.platform_ng",
+      "parent_dot_id": "cluster_n012",
+      "kind": "node",
+      "label": "m5.large",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.platform_ng",
+      "dot_id": "cluster_n012",
+      "parent_d2_id": "aws.region.vpc.eks",
+      "parent_dot_id": "cluster_n011",
+      "kind": "group",
+      "label": "Platform Node Group\n(managed)",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.routing_np.node1",
+      "dot_id": "node_n016",
+      "parent_d2_id": "aws.region.vpc.eks.routing_np",
+      "parent_dot_id": "cluster_n015",
+      "kind": "node",
+      "label": "c6.large",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.routing_np.node2",
+      "dot_id": "node_n017",
+      "parent_d2_id": "aws.region.vpc.eks.routing_np",
+      "parent_dot_id": "cluster_n015",
+      "kind": "node",
+      "label": "m6.large",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.routing_np",
+      "dot_id": "cluster_n015",
+      "parent_d2_id": "aws.region.vpc.eks",
+      "parent_dot_id": "cluster_n011",
+      "kind": "group",
+      "label": "Routing NodePool\n(Karpenter)",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "invisible endpoint representative inside cluster"
+      ]
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.workspaces_np.node1",
+      "dot_id": "node_n019",
+      "parent_d2_id": "aws.region.vpc.eks.workspaces_np",
+      "parent_dot_id": "cluster_n018",
+      "kind": "node",
+      "label": "c6i.2xlarge",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.workspaces_np.node2",
+      "dot_id": "node_n020",
+      "parent_d2_id": "aws.region.vpc.eks.workspaces_np",
+      "parent_dot_id": "cluster_n018",
+      "kind": "node",
+      "label": "r7i.xlarge",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.workspaces_np",
+      "dot_id": "cluster_n018",
+      "parent_d2_id": "aws.region.vpc.eks",
+      "parent_dot_id": "cluster_n011",
+      "kind": "group",
+      "label": "Workspace NodePool(s)\n(Karpenter, scale-to-zero)",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.control_plane.api_server",
+      "dot_id": "node_n022",
+      "parent_d2_id": "aws.region.vpc.eks.control_plane",
+      "parent_dot_id": "cluster_n021",
+      "kind": "node",
+      "label": "API Server",
+      "source_shape": "rectangle",
+      "dot_shape": "box",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.control_plane.etcd",
+      "dot_id": "node_n023",
+      "parent_d2_id": "aws.region.vpc.eks.control_plane",
+      "parent_dot_id": "cluster_n021",
+      "kind": "node",
+      "label": "etcd",
+      "source_shape": "cylinder",
+      "dot_shape": "cylinder",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks.control_plane",
+      "dot_id": "cluster_n021",
+      "parent_d2_id": "aws.region.vpc.eks",
+      "parent_dot_id": "cluster_n011",
+      "kind": "group",
+      "label": "EKS Control Plane",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region.vpc.eks",
+      "dot_id": "cluster_n011",
+      "parent_d2_id": "aws.region.vpc",
+      "parent_dot_id": "cluster_n009",
+      "kind": "group",
+      "label": "EKS Cluster",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted"
+      ]
+    },
+    {
+      "d2_id": "aws.region.vpc",
+      "dot_id": "cluster_n009",
+      "parent_d2_id": "aws.region",
+      "parent_dot_id": "cluster_n008",
+      "kind": "group",
+      "label": "VPC",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": []
+    },
+    {
+      "d2_id": "aws.region",
+      "dot_id": "cluster_n008",
+      "parent_d2_id": "aws",
+      "parent_dot_id": "cluster_n000",
+      "kind": "group",
+      "label": "Region (e.g. us-east-1)",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": []
+    },
+    {
+      "d2_id": "aws",
+      "dot_id": "cluster_n000",
+      "parent_d2_id": "",
+      "parent_dot_id": null,
+      "kind": "group",
+      "label": "AWS Account",
+      "source_shape": "rectangle",
+      "dot_shape": "cluster",
+      "differences": [
+        "grid layout constraint omitted"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "index": 0,
+      "dot_id": "edge000",
+      "d2_id": "aws.(global.route53.hosted_zone.dns_record -> region.vpc.nlb)[0]",
+      "source_d2_id": "aws.global.route53.hosted_zone.dns_record",
+      "target_d2_id": "aws.region.vpc.nlb",
+      "actual_source": "node_n004",
+      "actual_target": "node_n010",
+      "ltail": null,
+      "lhead": null,
+      "label": "resolves to",
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "differences": []
+    },
+    {
+      "index": 1,
+      "dot_id": "edge001",
+      "d2_id": "aws.region.vpc.(nlb -> eks.routing_np)[0]",
+      "source_d2_id": "aws.region.vpc.nlb",
+      "target_d2_id": "aws.region.vpc.eks.routing_np",
+      "actual_source": "node_n010",
+      "actual_target": "proxy_n015",
+      "ltail": null,
+      "lhead": "cluster_n015",
+      "label": "routes to",
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "differences": []
+    },
+    {
+      "index": 2,
+      "dot_id": "edge002",
+      "d2_id": "aws.global.(iam.oidc_provider -> route53.hosted_zone.dns_record)[0]",
+      "source_d2_id": "aws.global.iam.oidc_provider",
+      "target_d2_id": "aws.global.route53.hosted_zone.dns_record",
+      "actual_source": "node_n007",
+      "actual_target": "node_n004",
+      "ltail": null,
+      "lhead": null,
+      "label": "references",
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "differences": []
+    },
+    {
+      "index": 3,
+      "dot_id": "edge003",
+      "d2_id": "aws.(global.iam.oidc_provider -> region.vpc.eks.control_plane.api_server)[0]",
+      "source_d2_id": "aws.global.iam.oidc_provider",
+      "target_d2_id": "aws.region.vpc.eks.control_plane.api_server",
+      "actual_source": "node_n007",
+      "actual_target": "node_n022",
+      "ltail": null,
+      "lhead": null,
+      "label": "associate",
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "differences": []
+    }
+  ],
+  "synthetic_nodes": [
+    {
+      "dot_id": "proxy_n015",
+      "represents_d2_group": "aws.region.vpc.eks.routing_np",
+      "parent_dot_id": "cluster_n015",
+      "visible": false,
+      "role": "cluster endpoint representative"
+    }
+  ],
+  "synthetic_edges": 0,
+  "limitations": {
+    "grid layout constraint omitted": 3,
+    "invisible endpoint representative inside cluster": 1
+  }
+}

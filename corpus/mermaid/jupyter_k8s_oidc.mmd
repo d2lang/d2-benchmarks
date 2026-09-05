@@ -1,0 +1,123 @@
+%% Generated from the compiled D2 graph; see matching .mapping.json and TRANSLATION.md.
+flowchart LR
+  subgraph n000["User Laptop"]
+    direction TB
+    n001["#160;"]
+    n002["kubectl"]
+    n003["#160;"]
+    n004["Browser"]
+    n005["#160;"]
+    n006["#160;"]
+  end
+  subgraph n007["Kubernetes Cluster"]
+    direction LR
+    subgraph n008["#160;"]
+      direction TB
+      subgraph n009["#160;"]
+        direction LR
+        n010["API Server"]
+        n011["#160;"]
+        n012["etcd"]
+      end
+      subgraph n013["Router Namespace"]
+        direction TB
+        subgraph n014["#160;"]
+          direction LR
+          n015["OIDC Provider"]
+          n016["#160;"]
+          n017["Auth Middleware"]
+        end
+        subgraph n018["#160;"]
+          direction LR
+          n019["#160;"]
+          n020["#160;"]
+          n021["#160;"]
+          n022["#160;"]
+          n023["#160;"]
+          n024["#160;"]
+          n025["#160;"]
+        end
+        n026["Router"]
+      end
+    end
+    subgraph n027["#160;"]
+      direction TB
+      subgraph n028["Operator Namespace"]
+        direction TB
+        n029["Extension API"]
+      end
+      n030["#160;"]
+      subgraph n031["Workspace Namespace"]
+        direction TB
+        n032["Workspace"]
+      end
+    end
+  end
+  %% Edges in original compiler order; one line per compiled edge.
+  n002 -->|"1. Get Workspace"| n010
+  n010 --> n012
+  n004 -->|"2. Navigate to<br/>workspace URL"| n026
+  n026 --- n020
+  n020 -->|"3. Redirect to IdP"| n015
+  n015 <-->|"4. OAuth2 login"| n004
+  n015 ---|"5. Callback<br/>(auth code)"| n022
+  n022 --> n026
+  n026 ---|"/auth"| n023
+  n023 -->|"6. Forward auth<br/>(ID token)"| n017
+  n017 -->|"7. Verify token"| n015
+  n017 -->|"8. ConnectionAccessReview<br/>(authorize user)"| n029
+  n017 ---|"200"| n025
+  n025 -->|"JWT cookie"| n026
+  n026 -->|"9. Proxy to<br/>workspace"| n032
+  n026 ---|"10. Set JWT cookie"| n006
+  n006 --> n004
+  style n000 fill:#e8f5e9,stroke:#2e7d32,stroke-width:3px
+  style n001 stroke-width:0px,opacity:0
+  style n002 fill:#c8e6c9,stroke:#388e3c,stroke-width:3px,font-size:20px,font-weight:bold,rx:8,ry:8
+  style n003 stroke-width:0px,opacity:0
+  style n004 fill:#c8e6c9,stroke:#388e3c,stroke-width:3px,font-size:20px,font-weight:bold,rx:8,ry:8
+  style n005 stroke-width:0px,opacity:0
+  style n006 fill:transparent,stroke-width:0px
+  style n007 fill:#e3f2fd,stroke:#1565c0,stroke-width:3px
+  style n008 fill:transparent,stroke-width:0px
+  style n009 fill:transparent,stroke-width:0px
+  style n010 fill:#bbdefb,stroke:#1565c0,stroke-width:3px,font-size:20px,font-weight:bold,rx:8,ry:8
+  style n011 stroke-width:0px,opacity:0
+  style n012 fill:#bbdefb,stroke:#1565c0,stroke-width:3px,font-size:20px,font-weight:bold,rx:8,ry:8
+  style n013 fill:#ffe0b2,stroke:#f57c00,stroke-width:2px,stroke-dasharray:5 5
+  style n014 fill:transparent,stroke-width:0px
+  style n015 fill:#ffe0b2,stroke:#f57c00,stroke-width:3px,font-size:20px,font-weight:bold,rx:8,ry:8
+  style n016 stroke-width:0px,opacity:0
+  style n017 fill:#ffe0b2,stroke:#f57c00,stroke-width:3px,font-size:20px,font-weight:bold,rx:8,ry:8
+  style n018 fill:transparent,stroke-width:0px
+  style n019 stroke-width:0px,opacity:0
+  style n020 fill:transparent,stroke-width:0px
+  style n021 stroke-width:0px,opacity:0
+  style n022 fill:transparent,stroke-width:0px
+  style n023 fill:transparent,stroke-width:0px
+  style n024 stroke-width:0px,opacity:0
+  style n025 fill:transparent,stroke-width:0px
+  style n026 fill:#ffe0b2,stroke:#f57c00,stroke-width:3px,font-size:20px,font-weight:bold,rx:8,ry:8
+  style n027 fill:transparent,stroke-width:0px
+  style n028 fill:#bbdefb,stroke:#1565c0,stroke-width:2px,stroke-dasharray:5 5
+  style n029 fill:#bbdefb,stroke:#1565c0,stroke-width:3px,font-size:20px,font-weight:bold,rx:8,ry:8
+  style n030 stroke-width:0px,opacity:0
+  style n031 fill:#e1bee7,stroke:#8e24aa,stroke-width:2px,stroke-dasharray:5 5
+  style n032 fill:#e1bee7,stroke:#8e24aa,stroke-width:3px,font-size:20px,font-weight:bold,rx:8,ry:8
+  linkStyle 0 stroke:#2e7d32,stroke-width:3px
+  linkStyle 1 stroke:#2e7d32,stroke-width:3px
+  linkStyle 2 stroke:#c62828,stroke-width:3px
+  linkStyle 3 stroke:#c62828,stroke-width:3px
+  linkStyle 4 stroke:#c62828,stroke-width:3px
+  linkStyle 5 stroke:#c62828,stroke-width:3px
+  linkStyle 6 stroke:#c62828,stroke-width:3px
+  linkStyle 7 stroke:#c62828,stroke-width:3px
+  linkStyle 8 stroke:#c62828,stroke-width:3px
+  linkStyle 9 stroke:#c62828,stroke-width:3px
+  linkStyle 10 stroke:#c62828,stroke-width:3px
+  linkStyle 11 stroke:#c62828,stroke-width:3px
+  linkStyle 12 stroke:#c62828,stroke-width:3px
+  linkStyle 13 stroke:#c62828,stroke-width:3px
+  linkStyle 14 stroke:#c62828,stroke-width:3px
+  linkStyle 15 stroke:#c62828,stroke-width:3px
+  linkStyle 16 stroke:#c62828,stroke-width:3px

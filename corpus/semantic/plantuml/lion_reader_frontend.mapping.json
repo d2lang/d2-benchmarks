@@ -1,0 +1,1703 @@
+{
+  "fixture": "lion_reader_frontend",
+  "counts": {
+    "objects": 26,
+    "leaf_nodes": 19,
+    "groups": 7,
+    "edges": 16
+  },
+  "source_sha256": "06ad0692bcdf4e3a380d3dcf62b974151f7a5991febd2cbb88ee7d8c1fa59e62",
+  "semantic_mapping_sha256": "0a36eede774f4a4c7e9aa5b7cdf6c9fd60b0b2da6bb012c80bbebd92c0958419",
+  "plantuml_sha256": "11530004965a1f9cd487282a61f62234d0231b855660cb5b5e9cd3b35cc73f34",
+  "layout": "Graphviz dot (PlantUML default)",
+  "root_attributes": {
+    "label": {
+      "value": ""
+    },
+    "labelDimensions": {
+      "width": 0,
+      "height": 0
+    },
+    "style": {},
+    "iconStyle": {},
+    "near_key": null,
+    "shape": {
+      "value": ""
+    },
+    "direction": {
+      "value": "down"
+    },
+    "constraint": null
+  },
+  "source_config": null,
+  "limitations": {
+    "near positioning omitted": 2,
+    "markdown formatted as validated plain multiline text": 2,
+    "link/tooltip metadata retained only in manifest": 8
+  },
+  "objects": [
+    {
+      "d2_id": "title",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "Frontend Data Flow",
+      "translated_label": "Frontend Data Flow",
+      "source_shape": "text",
+      "source_attributes": {
+        "label": {
+          "value": "Frontend Data Flow"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "24"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": {
+          "range": "lion_reader_frontend.d2,10:8:389-10:18:399",
+          "path": [
+            {
+              "unquoted_string": {
+                "range": ",0:0:0-0:10:10",
+                "value": [
+                  {
+                    "string": "top-center",
+                    "raw_string": "top-center"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "shape": {
+          "value": "text"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n000",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:24><b>Frontend Data Flow</b></size>",
+      "differences": [
+        "near positioning omitted"
+      ]
+    },
+    {
+      "d2_id": "server.api",
+      "parent_d2_id": "server",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "tRPC API",
+      "translated_label": "tRPC API",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "tRPC API"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n002",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "tRPC API",
+      "differences": []
+    },
+    {
+      "d2_id": "server.sse",
+      "parent_d2_id": "server",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "SSE Endpoint",
+      "translated_label": "SSE Endpoint",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "SSE Endpoint"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n003",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "SSE Endpoint",
+      "differences": []
+    },
+    {
+      "d2_id": "server",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Server",
+      "translated_label": "Server",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Server"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#e3f2fd"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n001",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Server",
+      "differences": []
+    },
+    {
+      "d2_id": "client.react_query.description",
+      "parent_d2_id": "client.react_query",
+      "parent_mermaid_id": "n005",
+      "kind": "node",
+      "source_label": "**Server state cache**\n- entries.list (infinite)\n- entries.get\n- entries.count\n- subscriptions.list\n- tags.list",
+      "translated_label": "Server state cache\n- entries.list (infinite)\n- entries.get\n- entries.count\n- subscriptions.list\n- tags.list",
+      "source_shape": "text",
+      "source_attributes": {
+        "label": {
+          "value": "**Server state cache**\n- entries.list (infinite)\n- entries.get\n- entries.count\n- subscriptions.list\n- tags.list"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "text"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n006",
+      "parent_plantuml_id": "n005",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Server state cache\\n- entries.list (infinite)\\n- entries.get\\n- entries.count\\n- subscriptions.list\\n- tags.list",
+      "differences": [
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "client.react_query",
+      "parent_d2_id": "client",
+      "parent_mermaid_id": "n004",
+      "kind": "group",
+      "source_label": "React Query Cache",
+      "translated_label": "React Query Cache",
+      "source_shape": "cylinder",
+      "source_attributes": {
+        "label": {
+          "value": "React Query Cache"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#ffcc80"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "cylinder"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n005",
+      "parent_plantuml_id": "n004",
+      "plantuml_shape": "database",
+      "encoded_label": "React Query Cache",
+      "differences": []
+    },
+    {
+      "d2_id": "client.cache_helpers.description",
+      "parent_d2_id": "client.cache_helpers",
+      "parent_mermaid_id": "n007",
+      "kind": "node",
+      "source_label": "**src/lib/cache/**\n- adjustSubscriptionUnreadCounts\n- adjustTagUnreadCounts\n- addSubscriptionToCache\n- updateEntriesReadStatus",
+      "translated_label": "src/lib/cache/\n- adjustSubscriptionUnreadCounts\n- adjustTagUnreadCounts\n- addSubscriptionToCache\n- updateEntriesReadStatus",
+      "source_shape": "text",
+      "source_attributes": {
+        "label": {
+          "value": "**src/lib/cache/**\n- adjustSubscriptionUnreadCounts\n- adjustTagUnreadCounts\n- addSubscriptionToCache\n- updateEntriesReadStatus"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "text"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n008",
+      "parent_plantuml_id": "n007",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "src/lib/cache/\\n- adjustSubscriptionUnreadCounts\\n- adjustTagUnreadCounts\\n- addSubscriptionToCache\\n- updateEntriesReadStatus",
+      "differences": [
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "client.cache_helpers",
+      "parent_d2_id": "client",
+      "parent_mermaid_id": "n004",
+      "kind": "group",
+      "source_label": "Cache Helpers",
+      "translated_label": "Cache Helpers",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Cache Helpers"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#a5d6a7"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n007",
+      "parent_plantuml_id": "n004",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Cache Helpers",
+      "differences": []
+    },
+    {
+      "d2_id": "client",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Client State",
+      "translated_label": "Client State",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Client State"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#fff3e0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n004",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Client State",
+      "differences": []
+    },
+    {
+      "d2_id": "hooks.useRealtimeUpdates",
+      "parent_d2_id": "hooks",
+      "parent_mermaid_id": "n009",
+      "kind": "node",
+      "source_label": "useRealtimeUpdates",
+      "translated_label": "useRealtimeUpdates",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "useRealtimeUpdates"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Manages SSE connection with polling fallback"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n010",
+      "parent_plantuml_id": "n009",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "useRealtimeUpdates",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "hooks.useEntryMutations",
+      "parent_d2_id": "hooks",
+      "parent_mermaid_id": "n009",
+      "kind": "node",
+      "source_label": "useEntryMutations",
+      "translated_label": "useEntryMutations",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "useEntryMutations"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Mutations with direct cache updates"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n011",
+      "parent_plantuml_id": "n009",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "useEntryMutations",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "hooks.useKeyboardShortcuts",
+      "parent_d2_id": "hooks",
+      "parent_mermaid_id": "n009",
+      "kind": "node",
+      "source_label": "useKeyboardShortcuts",
+      "translated_label": "useKeyboardShortcuts",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "useKeyboardShortcuts"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Keyboard navigation and entry selection"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n012",
+      "parent_plantuml_id": "n009",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "useKeyboardShortcuts",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "hooks",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Custom Hooks",
+      "translated_label": "Custom Hooks",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Custom Hooks"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#f3e5f5"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n009",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Custom Hooks",
+      "differences": []
+    },
+    {
+      "d2_id": "ui.sidebar",
+      "parent_d2_id": "ui",
+      "parent_mermaid_id": "n013",
+      "kind": "node",
+      "source_label": "Sidebar",
+      "translated_label": "Sidebar",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Sidebar"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Subscription list with unread counts"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n014",
+      "parent_plantuml_id": "n013",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Sidebar",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "ui.unified_entries",
+      "parent_d2_id": "ui",
+      "parent_mermaid_id": "n013",
+      "kind": "node",
+      "source_label": "UnifiedEntriesContent",
+      "translated_label": "UnifiedEntriesContent",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "UnifiedEntriesContent"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Unified entry page with navigation and swipe support"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n015",
+      "parent_plantuml_id": "n013",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "UnifiedEntriesContent",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "ui.suspending_list",
+      "parent_d2_id": "ui",
+      "parent_mermaid_id": "n013",
+      "kind": "node",
+      "source_label": "EntryListContainer",
+      "translated_label": "EntryListContainer",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "EntryListContainer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Entry list container with inline loading and keyboard navigation"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n016",
+      "parent_plantuml_id": "n013",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "EntryListContainer",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "ui.entry_list",
+      "parent_d2_id": "ui",
+      "parent_mermaid_id": "n013",
+      "kind": "node",
+      "source_label": "EntryList",
+      "translated_label": "EntryList",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "EntryList"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "tooltip": {
+          "value": "List of entries with read/starred state"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n017",
+      "parent_plantuml_id": "n013",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "EntryList",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "ui.entry_content",
+      "parent_d2_id": "ui",
+      "parent_mermaid_id": "n013",
+      "kind": "node",
+      "source_label": "EntryContent",
+      "translated_label": "EntryContent",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "EntryContent"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Full article view"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n018",
+      "parent_plantuml_id": "n013",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "EntryContent",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "ui",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "UI Components",
+      "translated_label": "UI Components",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "UI Components"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "#e8f5e9"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n013",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "UI Components",
+      "differences": []
+    },
+    {
+      "d2_id": "legend.initial",
+      "parent_d2_id": "legend",
+      "parent_mermaid_id": "n019",
+      "kind": "node",
+      "source_label": "Blue: Initial data fetch",
+      "translated_label": "Blue: Initial data fetch",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Blue: Initial data fetch"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n020",
+      "parent_plantuml_id": "n019",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Blue: Initial data fetch",
+      "differences": []
+    },
+    {
+      "d2_id": "legend.realtime",
+      "parent_d2_id": "legend",
+      "parent_mermaid_id": "n019",
+      "kind": "node",
+      "source_label": "Green: Real-time updates (SSE)",
+      "translated_label": "Green: Real-time updates (SSE)",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Green: Real-time updates (SSE)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n021",
+      "parent_plantuml_id": "n019",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Green: Real-time updates (SSE)",
+      "differences": []
+    },
+    {
+      "d2_id": "legend.query",
+      "parent_d2_id": "legend",
+      "parent_mermaid_id": "n019",
+      "kind": "node",
+      "source_label": "Purple: Query data flow",
+      "translated_label": "Purple: Query data flow",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Purple: Query data flow"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n022",
+      "parent_plantuml_id": "n019",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Purple: Query data flow",
+      "differences": []
+    },
+    {
+      "d2_id": "legend.mutation",
+      "parent_d2_id": "legend",
+      "parent_mermaid_id": "n019",
+      "kind": "node",
+      "source_label": "Orange: User mutations",
+      "translated_label": "Orange: User mutations",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Orange: User mutations"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n023",
+      "parent_plantuml_id": "n019",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Orange: User mutations",
+      "differences": []
+    },
+    {
+      "d2_id": "legend.cache",
+      "parent_d2_id": "legend",
+      "parent_mermaid_id": "n019",
+      "kind": "node",
+      "source_label": "Teal: Direct cache updates",
+      "translated_label": "Teal: Direct cache updates",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Teal: Direct cache updates"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n024",
+      "parent_plantuml_id": "n019",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Teal: Direct cache updates",
+      "differences": []
+    },
+    {
+      "d2_id": "legend.dashed",
+      "parent_d2_id": "legend",
+      "parent_mermaid_id": "n019",
+      "kind": "node",
+      "source_label": "Dashed: Invalidation",
+      "translated_label": "Dashed: Invalidation",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Dashed: Invalidation"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n025",
+      "parent_plantuml_id": "n019",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Dashed: Invalidation",
+      "differences": []
+    },
+    {
+      "d2_id": "legend",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Legend",
+      "translated_label": "Legend",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Legend"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#e0e0e0"
+          },
+          "fill": {
+            "value": "#fafafa"
+          }
+        },
+        "iconStyle": {},
+        "near_key": {
+          "range": "lion_reader_frontend.d2,238:8:6199-238:20:6211",
+          "path": [
+            {
+              "unquoted_string": {
+                "range": ",0:0:0-0:12:12",
+                "value": [
+                  {
+                    "string": "bottom-right",
+                    "raw_string": "bottom-right"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n019",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Legend",
+      "differences": [
+        "near positioning omitted"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "index": 0,
+      "d2_id": "(server.api -> client.react_query)[0]",
+      "source_d2_id": "server.api",
+      "target_d2_id": "client.react_query",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Initial fetch",
+      "translated_label": "Initial fetch",
+      "source_attributes": {
+        "label": {
+          "value": "Initial fetch"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1976d2"
+          },
+          "strokeWidth": {
+            "value": "2"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n002",
+      "target_plantuml_id": "n005",
+      "plantuml_arrow": "-[#1976d2,thickness=2]->",
+      "encoded_label": "Initial fetch"
+    },
+    {
+      "index": 1,
+      "d2_id": "(server.sse -> hooks.useRealtimeUpdates)[0]",
+      "source_d2_id": "server.sse",
+      "target_d2_id": "hooks.useRealtimeUpdates",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "SSE events\n(new_entry, subscription_*)",
+      "translated_label": "SSE events\n(new_entry, subscription_*)",
+      "source_attributes": {
+        "label": {
+          "value": "SSE events\n(new_entry, subscription_*)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#388e3c"
+          },
+          "strokeWidth": {
+            "value": "2"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n003",
+      "target_plantuml_id": "n010",
+      "plantuml_arrow": "-[#388e3c,thickness=2]->",
+      "encoded_label": "SSE events\\n(new&#95;entry, subscription&#95;&#42;)"
+    },
+    {
+      "index": 2,
+      "d2_id": "(hooks.useRealtimeUpdates -> client.cache_helpers)[0]",
+      "source_d2_id": "hooks.useRealtimeUpdates",
+      "target_d2_id": "client.cache_helpers",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "subscription_created\nsubscription_deleted",
+      "translated_label": "subscription_created\nsubscription_deleted",
+      "source_attributes": {
+        "label": {
+          "value": "subscription_created\nsubscription_deleted"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#388e3c"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n010",
+      "target_plantuml_id": "n007",
+      "plantuml_arrow": "-[#388e3c]->",
+      "encoded_label": "subscription&#95;created\\nsubscription&#95;deleted"
+    },
+    {
+      "index": 3,
+      "d2_id": "(hooks.useRealtimeUpdates -> client.cache_helpers)[1]",
+      "source_d2_id": "hooks.useRealtimeUpdates",
+      "target_d2_id": "client.cache_helpers",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "insert entry + set counts\n(new_entry)",
+      "translated_label": "insert entry + set counts\n(new_entry)",
+      "source_attributes": {
+        "label": {
+          "value": "insert entry + set counts\n(new_entry)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#388e3c"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n010",
+      "target_plantuml_id": "n007",
+      "plantuml_arrow": "-[#388e3c]->",
+      "encoded_label": "insert entry + set counts\\n(new&#95;entry)"
+    },
+    {
+      "index": 4,
+      "d2_id": "client.(cache_helpers -> react_query)[0]",
+      "source_d2_id": "client.cache_helpers",
+      "target_d2_id": "client.react_query",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Direct cache updates",
+      "translated_label": "Direct cache updates",
+      "source_attributes": {
+        "label": {
+          "value": "Direct cache updates"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#00796b"
+          },
+          "strokeWidth": {
+            "value": "2"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n007",
+      "target_plantuml_id": "n005",
+      "plantuml_arrow": "-[#00796b,thickness=2]->",
+      "encoded_label": "Direct cache updates"
+    },
+    {
+      "index": 5,
+      "d2_id": "(client.react_query -> ui.unified_entries)[0]",
+      "source_d2_id": "client.react_query",
+      "target_d2_id": "ui.unified_entries",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Paginated entries\n(non-suspending)",
+      "translated_label": "Paginated entries\n(non-suspending)",
+      "source_attributes": {
+        "label": {
+          "value": "Paginated entries\n(non-suspending)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#7b1fa2"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n005",
+      "target_plantuml_id": "n015",
+      "plantuml_arrow": "-[#7b1fa2]->",
+      "encoded_label": "Paginated entries\\n(non-suspending)"
+    },
+    {
+      "index": 6,
+      "d2_id": "(client.react_query -> ui.suspending_list)[0]",
+      "source_d2_id": "client.react_query",
+      "target_d2_id": "ui.suspending_list",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Paginated entries\n(suspending)",
+      "translated_label": "Paginated entries\n(suspending)",
+      "source_attributes": {
+        "label": {
+          "value": "Paginated entries\n(suspending)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#7b1fa2"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n005",
+      "target_plantuml_id": "n016",
+      "plantuml_arrow": "-[#7b1fa2]->",
+      "encoded_label": "Paginated entries\\n(suspending)"
+    },
+    {
+      "index": 7,
+      "d2_id": "ui.(suspending_list -> entry_list)[0]",
+      "source_d2_id": "ui.suspending_list",
+      "target_d2_id": "ui.entry_list",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Entries with\nread/starred state",
+      "translated_label": "Entries with\nread/starred state",
+      "source_attributes": {
+        "label": {
+          "value": "Entries with\nread/starred state"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#7b1fa2"
+          },
+          "strokeWidth": {
+            "value": "2"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n016",
+      "target_plantuml_id": "n017",
+      "plantuml_arrow": "-[#7b1fa2,thickness=2]->",
+      "encoded_label": "Entries with\\nread/starred state"
+    },
+    {
+      "index": 8,
+      "d2_id": "(client.react_query -> ui.sidebar)[0]",
+      "source_d2_id": "client.react_query",
+      "target_d2_id": "ui.sidebar",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Subscriptions/tags\nwith counts",
+      "translated_label": "Subscriptions/tags\nwith counts",
+      "source_attributes": {
+        "label": {
+          "value": "Subscriptions/tags\nwith counts"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#7b1fa2"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n005",
+      "target_plantuml_id": "n014",
+      "plantuml_arrow": "-[#7b1fa2]->",
+      "encoded_label": "Subscriptions/tags\\nwith counts"
+    },
+    {
+      "index": 9,
+      "d2_id": "(ui.entry_list -> hooks.useEntryMutations)[0]",
+      "source_d2_id": "ui.entry_list",
+      "target_d2_id": "hooks.useEntryMutations",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "User action\n(toggle read)",
+      "translated_label": "User action\n(toggle read)",
+      "source_attributes": {
+        "label": {
+          "value": "User action\n(toggle read)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n017",
+      "target_plantuml_id": "n011",
+      "plantuml_arrow": "-[#f57c00]->",
+      "encoded_label": "User action\\n(toggle read)"
+    },
+    {
+      "index": 10,
+      "d2_id": "(hooks.useEntryMutations -> server.api)[0]",
+      "source_d2_id": "hooks.useEntryMutations",
+      "target_d2_id": "server.api",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "1. Server mutation",
+      "translated_label": "1. Server mutation",
+      "source_attributes": {
+        "label": {
+          "value": "1. Server mutation"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n011",
+      "target_plantuml_id": "n002",
+      "plantuml_arrow": "-[#f57c00]->",
+      "encoded_label": "1. Server mutation"
+    },
+    {
+      "index": 11,
+      "d2_id": "(server.api -> hooks.useEntryMutations)[0]",
+      "source_d2_id": "server.api",
+      "target_d2_id": "hooks.useEntryMutations",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "2. Response with\nsubscription context",
+      "translated_label": "2. Response with\nsubscription context",
+      "source_attributes": {
+        "label": {
+          "value": "2. Response with\nsubscription context"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "strokeDash": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n002",
+      "target_plantuml_id": "n011",
+      "plantuml_arrow": "-[#f57c00,dashed]->",
+      "encoded_label": "2. Response with\\nsubscription context"
+    },
+    {
+      "index": 12,
+      "d2_id": "(hooks.useEntryMutations -> client.cache_helpers)[0]",
+      "source_d2_id": "hooks.useEntryMutations",
+      "target_d2_id": "client.cache_helpers",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "3. Update counts\n(instant)",
+      "translated_label": "3. Update counts\n(instant)",
+      "source_attributes": {
+        "label": {
+          "value": "3. Update counts\n(instant)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "strokeWidth": {
+            "value": "2"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n011",
+      "target_plantuml_id": "n007",
+      "plantuml_arrow": "-[#f57c00,thickness=2]->",
+      "encoded_label": "3. Update counts\\n(instant)"
+    },
+    {
+      "index": 13,
+      "d2_id": "(hooks.useEntryMutations -> client.react_query)[0]",
+      "source_d2_id": "hooks.useEntryMutations",
+      "target_d2_id": "client.react_query",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "4. Invalidate\nentry lists",
+      "translated_label": "4. Invalidate\nentry lists",
+      "source_attributes": {
+        "label": {
+          "value": "4. Invalidate\nentry lists"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "strokeDash": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n011",
+      "target_plantuml_id": "n005",
+      "plantuml_arrow": "-[#f57c00,dashed]->",
+      "encoded_label": "4. Invalidate\\nentry lists"
+    },
+    {
+      "index": 14,
+      "d2_id": "(ui.suspending_list -> hooks.useKeyboardShortcuts)[0]",
+      "source_d2_id": "ui.suspending_list",
+      "target_d2_id": "hooks.useKeyboardShortcuts",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Keyboard navigation",
+      "translated_label": "Keyboard navigation",
+      "source_attributes": {
+        "label": {
+          "value": "Keyboard navigation"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#9e9e9e"
+          },
+          "strokeDash": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n016",
+      "target_plantuml_id": "n012",
+      "plantuml_arrow": "-[#9e9e9e,dashed]->",
+      "encoded_label": "Keyboard navigation"
+    },
+    {
+      "index": 15,
+      "d2_id": "ui.(unified_entries -> entry_content)[0]",
+      "source_d2_id": "ui.unified_entries",
+      "target_d2_id": "ui.entry_content",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "Entry view with\nswipe navigation",
+      "translated_label": "Entry view with\nswipe navigation",
+      "source_attributes": {
+        "label": {
+          "value": "Entry view with\nswipe navigation"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#9e9e9e"
+          },
+          "strokeDash": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n015",
+      "target_plantuml_id": "n018",
+      "plantuml_arrow": "-[#9e9e9e,dashed]->",
+      "encoded_label": "Entry view with\\nswipe navigation"
+    }
+  ],
+  "synthetic_objects": 0,
+  "synthetic_edges": 0
+}

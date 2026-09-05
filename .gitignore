@@ -1,0 +1,8 @@
+.tools/
+.tools-*/
+.benchmark-cache/
+results/
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/

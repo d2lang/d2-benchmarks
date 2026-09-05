@@ -1,0 +1,1845 @@
+{
+  "fixture": "ross_overview",
+  "counts": {
+    "objects": 27,
+    "leaf_nodes": 24,
+    "groups": 3,
+    "edges": 14
+  },
+  "source_sha256": "89b7bfbc5809836ff2f82fb025e1bf8316ecfac74969e0216903be88ea87c4cd",
+  "semantic_mapping_sha256": "e359fa032132bd8e1b71dbe5c012abcbf8aa38984a70d35867f4bc1057ad402e",
+  "plantuml_sha256": "f0b150bfe70ccb07b743bfe0013bfb4e9ac749915eee412f759bd7bbba067627",
+  "layout": "Graphviz dot (PlantUML default)",
+  "root_attributes": {
+    "label": {
+      "value": ""
+    },
+    "labelDimensions": {
+      "width": 0,
+      "height": 0
+    },
+    "style": {},
+    "iconStyle": {},
+    "near_key": null,
+    "shape": {
+      "value": ""
+    },
+    "direction": {
+      "value": "down"
+    },
+    "constraint": null
+  },
+  "source_config": null,
+  "limitations": {
+    "near positioning omitted": 1,
+    "link/tooltip metadata retained only in manifest": 25,
+    "borderRadius style omitted": 5
+  },
+  "objects": [
+    {
+      "d2_id": "title",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "ROSS - Workflow",
+      "translated_label": "ROSS - Workflow",
+      "source_shape": "text",
+      "source_attributes": {
+        "label": {
+          "value": "ROSS - Workflow"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fontSize": {
+            "value": "28"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": {
+          "range": "ross_overview.d2,8:8:328-8:18:338",
+          "path": [
+            {
+              "unquoted_string": {
+                "range": ",0:0:0-0:10:10",
+                "value": [
+                  {
+                    "string": "top-center",
+                    "raw_string": "top-center"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "shape": {
+          "value": "text"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n000",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:28><b>ROSS - Workflow</b></size>",
+      "differences": [
+        "near positioning omitted"
+      ]
+    },
+    {
+      "d2_id": "elementos.material",
+      "parent_d2_id": "elementos",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Material",
+      "translated_label": "Material",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Material"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#82b366"
+          },
+          "fill": {
+            "value": "#d5e8d4"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Mechanical properties: E, G, ρ, ν"
+        },
+        "link": {
+          "value": "https://raw.githubusercontent.com/petrobras/ross/631a249adbae414d5f5f986479b58f1a4c47935e/docs/_static/diagrams/material.svg"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n002",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Material",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "elementos.shaft",
+      "parent_d2_id": "elementos",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "ShaftElement",
+      "translated_label": "ShaftElement",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "ShaftElement"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#6c8ebf"
+          },
+          "fill": {
+            "value": "#dae8fc"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Shaft elements (Timoshenko)\nCylindrical or tapered"
+        },
+        "link": {
+          "value": "https://raw.githubusercontent.com/petrobras/ross/631a249adbae414d5f5f986479b58f1a4c47935e/docs/_static/diagrams/shaft-element.svg"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n003",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "ShaftElement",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "elementos.disk",
+      "parent_d2_id": "elementos",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "DiskElement",
+      "translated_label": "DiskElement",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "DiskElement"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#6c8ebf"
+          },
+          "fill": {
+            "value": "#dae8fc"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Rigid disks\nMass and moments of inertia"
+        },
+        "link": {
+          "value": "https://raw.githubusercontent.com/petrobras/ross/631a249adbae414d5f5f986479b58f1a4c47935e/docs/_static/diagrams/disk-element.svg"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n004",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "DiskElement",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "elementos.bearing",
+      "parent_d2_id": "elementos",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "BearingElement",
+      "translated_label": "BearingElement",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "BearingElement"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#d6b656"
+          },
+          "fill": {
+            "value": "#fff2cc"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Bearings: isotropic, anisotropic\nBall, Roller, Magnetic, PlainJournal, TiltingPad"
+        },
+        "link": {
+          "value": "https://raw.githubusercontent.com/petrobras/ross/631a249adbae414d5f5f986479b58f1a4c47935e/docs/_static/diagrams/bearing-element.svg"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n005",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "BearingElement",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "elementos.seal",
+      "parent_d2_id": "elementos",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "SealElement",
+      "translated_label": "SealElement",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "SealElement"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#d6b656"
+          },
+          "fill": {
+            "value": "#fff2cc"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Seals: Labyrinth, HolePattern, Hybrid"
+        },
+        "link": {
+          "value": "https://raw.githubusercontent.com/petrobras/ross/631a249adbae414d5f5f986479b58f1a4c47935e/docs/_static/diagrams/seal-element.svg"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n006",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "SealElement",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "elementos.pointmass",
+      "parent_d2_id": "elementos",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "PointMass",
+      "translated_label": "PointMass",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "PointMass"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#6c8ebf"
+          },
+          "fill": {
+            "value": "#dae8fc"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Concentrated masses"
+        },
+        "link": {
+          "value": "https://raw.githubusercontent.com/petrobras/ross/631a249adbae414d5f5f986479b58f1a4c47935e/docs/_static/diagrams/point-mass.svg"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n007",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "PointMass",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "elementos.coupling",
+      "parent_d2_id": "elementos",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "CouplingElement",
+      "translated_label": "CouplingElement",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "CouplingElement"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#6c8ebf"
+          },
+          "fill": {
+            "value": "#dae8fc"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Coupling between shafts"
+        },
+        "link": {
+          "value": "https://raw.githubusercontent.com/petrobras/ross/631a249adbae414d5f5f986479b58f1a4c47935e/docs/_static/diagrams/coupling-element.svg"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n008",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "CouplingElement",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "elementos.gear",
+      "parent_d2_id": "elementos",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "GearElement",
+      "translated_label": "GearElement",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "GearElement"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#6c8ebf"
+          },
+          "fill": {
+            "value": "#dae8fc"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Gears with mesh forces"
+        },
+        "link": {
+          "value": "https://raw.githubusercontent.com/petrobras/ross/631a249adbae414d5f5f986479b58f1a4c47935e/docs/_static/diagrams/gear-element.svg"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n009",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "GearElement",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "elementos",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Element Definition",
+      "translated_label": "Element Definition",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Element Definition"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2980b9"
+          },
+          "fill": {
+            "value": "#e8f4f8"
+          },
+          "borderRadius": {
+            "value": "10"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n001",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Element Definition",
+      "differences": [
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "rotor",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "Rotor",
+      "translated_label": "Rotor",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Rotor"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#b85450"
+          },
+          "fill": {
+            "value": "#f8cecc"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Assembly: shaft + disks + bearings + seals"
+        },
+        "link": {
+          "value": "https://raw.githubusercontent.com/petrobras/ross/631a249adbae414d5f5f986479b58f1a4c47935e/docs/_static/diagrams/rotor.svg"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n010",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:18><b>Rotor</b></size>",
+      "differences": [
+        "borderRadius style omitted",
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "multirotor",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "MultiRotor",
+      "translated_label": "MultiRotor",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "MultiRotor"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#b85450"
+          },
+          "fill": {
+            "value": "#f8cecc"
+          },
+          "borderRadius": {
+            "value": "10"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Multiple rotors coupled\nby gears or couplings"
+        },
+        "link": {
+          "value": "https://raw.githubusercontent.com/petrobras/ross/631a249adbae414d5f5f986479b58f1a4c47935e/docs/_static/diagrams/multirotor.svg"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n011",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "MultiRotor",
+      "differences": [
+        "borderRadius style omitted",
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "analises.estatica",
+      "parent_d2_id": "analises",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "run_static()",
+      "translated_label": "run_static()",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "run_static()"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#9673a6"
+          },
+          "fill": {
+            "value": "#f3e5f5"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Static analysis\nDeformation, reactions, internal forces"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n013",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "run&#95;static()",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "analises.modal",
+      "parent_d2_id": "analises",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "run_modal()",
+      "translated_label": "run_modal()",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "run_modal()"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#9673a6"
+          },
+          "fill": {
+            "value": "#f3e5f5"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Modal analysis\nNatural frequencies, mode shapes\nDamping, logarithmic decrement"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n014",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "run&#95;modal()",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "analises.campbell",
+      "parent_d2_id": "analises",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "run_campbell()",
+      "translated_label": "run_campbell()",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "run_campbell()"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#9673a6"
+          },
+          "fill": {
+            "value": "#f3e5f5"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Campbell diagram\nNatural frequencies vs. speed\nCritical speed identification"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n015",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "run&#95;campbell()",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "analises.critica",
+      "parent_d2_id": "analises",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "run_critical_speed()",
+      "translated_label": "run_critical_speed()",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "run_critical_speed()"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#9673a6"
+          },
+          "fill": {
+            "value": "#f3e5f5"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Critical speeds\nSynchronous resonance speeds"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n016",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "run&#95;critical&#95;speed()",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "analises.ucs",
+      "parent_d2_id": "analises",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "run_ucs()",
+      "translated_label": "run_ucs()",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "run_ucs()"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#9673a6"
+          },
+          "fill": {
+            "value": "#f3e5f5"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Undamped critical speed map\nCritical speeds vs. bearing stiffness"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n017",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "run&#95;ucs()",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "analises.level1",
+      "parent_d2_id": "analises",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "run_level1()",
+      "translated_label": "run_level1()",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "run_level1()"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#9673a6"
+          },
+          "fill": {
+            "value": "#f3e5f5"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "API 617 Level 1 stability analysis"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n018",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "run&#95;level1()",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "analises.freq",
+      "parent_d2_id": "analises",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "run_freq_response()",
+      "translated_label": "run_freq_response()",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "run_freq_response()"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#9673a6"
+          },
+          "fill": {
+            "value": "#f3e5f5"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Frequency response function (FRF)"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n019",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "run&#95;freq&#95;response()",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "analises.unbalance",
+      "parent_d2_id": "analises",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "run_unbalance_response()",
+      "translated_label": "run_unbalance_response()",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "run_unbalance_response()"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#9673a6"
+          },
+          "fill": {
+            "value": "#f3e5f5"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Unbalance response\nBode, deflected shape, orbits"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n020",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "run&#95;unbalance&#95;response()",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "analises.tempo",
+      "parent_d2_id": "analises",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "run_time_response()",
+      "translated_label": "run_time_response()",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "run_time_response()"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#9673a6"
+          },
+          "fill": {
+            "value": "#f3e5f5"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Time response\nTransient, run-up, coast-down\nState-space or Newmark"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n021",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "run&#95;time&#95;response()",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "analises.hbm",
+      "parent_d2_id": "analises",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "run_harmonic_balance()",
+      "translated_label": "run_harmonic_balance()",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "run_harmonic_balance()"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#9673a6"
+          },
+          "fill": {
+            "value": "#f3e5f5"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Harmonic balance method\nPeriodic steady-state response"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n022",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "run&#95;harmonic&#95;balance()",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "analises.falhas",
+      "parent_d2_id": "analises",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "Fault Analysis",
+      "translated_label": "Fault Analysis",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Fault Analysis"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#9673a6"
+          },
+          "fill": {
+            "value": "#f3e5f5"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "run_rubbing() - Rotor-stator contact\nrun_crack() - Transverse crack\nrun_misalignment() - Misalignment"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n023",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Fault Analysis",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "analises",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Analyses",
+      "translated_label": "Analyses",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Analyses"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#9673a6"
+          },
+          "fill": {
+            "value": "#e1d5e7"
+          },
+          "borderRadius": {
+            "value": "10"
+          }
+        },
+        "iconStyle": {},
+        "link": {
+          "value": "https://raw.githubusercontent.com/petrobras/ross/631a249adbae414d5f5f986479b58f1a4c47935e/docs/_static/diagrams/analises.svg"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n012",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Analyses",
+      "differences": [
+        "borderRadius style omitted",
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "resultados.graficos",
+      "parent_d2_id": "resultados",
+      "parent_mermaid_id": "n024",
+      "kind": "node",
+      "source_label": "Interactive Plots (Plotly)",
+      "translated_label": "Interactive Plots (Plotly)",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Interactive Plots (Plotly)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#27ae60"
+          },
+          "fill": {
+            "value": "#e8f8f5"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Bode diagrams, Campbell, UCS\n2D/3D mode shapes, orbits\nDeflected shape, FFT"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n025",
+      "parent_plantuml_id": "n024",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Interactive Plots (Plotly)",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "resultados.dados",
+      "parent_d2_id": "resultados",
+      "parent_mermaid_id": "n024",
+      "kind": "node",
+      "source_label": "Numerical Data",
+      "translated_label": "Numerical Data",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Numerical Data"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#27ae60"
+          },
+          "fill": {
+            "value": "#e8f8f5"
+          }
+        },
+        "iconStyle": {},
+        "tooltip": {
+          "value": "Natural frequencies, damping ratios\nDisplacements, forces, moments\nNumPy arrays for post-processing"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n026",
+      "parent_plantuml_id": "n024",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Numerical Data",
+      "differences": [
+        "link/tooltip metadata retained only in manifest"
+      ]
+    },
+    {
+      "d2_id": "resultados",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Results and Visualization",
+      "translated_label": "Results and Visualization",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Results and Visualization"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#27ae60"
+          },
+          "fill": {
+            "value": "#d5f5e3"
+          },
+          "borderRadius": {
+            "value": "10"
+          }
+        },
+        "iconStyle": {},
+        "link": {
+          "value": "https://raw.githubusercontent.com/petrobras/ross/631a249adbae414d5f5f986479b58f1a4c47935e/docs/_static/diagrams/resultados.svg"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n024",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Results and Visualization",
+      "differences": [
+        "borderRadius style omitted",
+        "link/tooltip metadata retained only in manifest"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "index": 0,
+      "d2_id": "elementos.(material -> shaft)[0]",
+      "source_d2_id": "elementos.material",
+      "target_d2_id": "elementos.shaft",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n002",
+      "target_plantuml_id": "n003",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 1,
+      "d2_id": "elementos.(material -> disk)[0]",
+      "source_d2_id": "elementos.material",
+      "target_d2_id": "elementos.disk",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n002",
+      "target_plantuml_id": "n004",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 2,
+      "d2_id": "(elementos.shaft -> rotor)[0]",
+      "source_d2_id": "elementos.shaft",
+      "target_d2_id": "rotor",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n003",
+      "target_plantuml_id": "n010",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 3,
+      "d2_id": "(elementos.disk -> rotor)[0]",
+      "source_d2_id": "elementos.disk",
+      "target_d2_id": "rotor",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n004",
+      "target_plantuml_id": "n010",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 4,
+      "d2_id": "(elementos.bearing -> rotor)[0]",
+      "source_d2_id": "elementos.bearing",
+      "target_d2_id": "rotor",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n005",
+      "target_plantuml_id": "n010",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 5,
+      "d2_id": "(elementos.seal -> rotor)[0]",
+      "source_d2_id": "elementos.seal",
+      "target_d2_id": "rotor",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n006",
+      "target_plantuml_id": "n010",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 6,
+      "d2_id": "(elementos.pointmass -> rotor)[0]",
+      "source_d2_id": "elementos.pointmass",
+      "target_d2_id": "rotor",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n007",
+      "target_plantuml_id": "n010",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 7,
+      "d2_id": "(elementos.coupling -> rotor)[0]",
+      "source_d2_id": "elementos.coupling",
+      "target_d2_id": "rotor",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n008",
+      "target_plantuml_id": "n010",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 8,
+      "d2_id": "(elementos.coupling -> multirotor)[0]",
+      "source_d2_id": "elementos.coupling",
+      "target_d2_id": "multirotor",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n008",
+      "target_plantuml_id": "n011",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 9,
+      "d2_id": "(elementos.gear -> multirotor)[0]",
+      "source_d2_id": "elementos.gear",
+      "target_d2_id": "multirotor",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n009",
+      "target_plantuml_id": "n011",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 10,
+      "d2_id": "(rotor -> multirotor)[0]",
+      "source_d2_id": "rotor",
+      "target_d2_id": "multirotor",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "coupling",
+      "translated_label": "coupling",
+      "source_attributes": {
+        "label": {
+          "value": "coupling"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "strokeDash": {
+            "value": "5"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n010",
+      "target_plantuml_id": "n011",
+      "plantuml_arrow": "-[dashed]->",
+      "encoded_label": "coupling"
+    },
+    {
+      "index": 11,
+      "d2_id": "(rotor -> analises)[0]",
+      "source_d2_id": "rotor",
+      "target_d2_id": "analises",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n010",
+      "target_plantuml_id": "n012",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 12,
+      "d2_id": "(multirotor -> analises)[0]",
+      "source_d2_id": "multirotor",
+      "target_d2_id": "analises",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n011",
+      "target_plantuml_id": "n012",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 13,
+      "d2_id": "(analises -> resultados)[0]",
+      "source_d2_id": "analises",
+      "target_d2_id": "resultados",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n012",
+      "target_plantuml_id": "n024",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    }
+  ],
+  "synthetic_objects": 0,
+  "synthetic_edges": 0
+}

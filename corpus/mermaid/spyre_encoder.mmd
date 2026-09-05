@@ -1,0 +1,213 @@
+%% Generated from the compiled D2 graph; see matching .mapping.json and TRANSLATION.md.
+flowchart TB
+  subgraph n000[" "]
+    direction LR
+    subgraph n001["Per-step serving path"]
+      direction TB
+      subgraph n002["vLLM Scheduler, used as-is"]
+        direction TB
+        n003["batches S requests carrying T tokens in total · chunked prefill off<br/>never subclassed, its output never mutated"]
+      end
+      subgraph n004["Token-count bucket dispatch"]
+        direction TB
+        n005["round T up to the next compiled bucket, giving T_padded<br/>upstream this hook pads to a captured CUDA graph; here to a compiled shape<br/>pad rows zeroed · also cuts torch-spyre per-op recompiles"]
+      end
+      subgraph n006["Compiled model body: one graph per token bucket  (fullgraph, dynamic=False)"]
+        direction TB
+        n007["sees only the flat token list [T_padded, hidden], with no request boundaries<br/>all layers share op shapes, so cost scales with distinct T, not with depth"]
+        subgraph n008["Embeddings → N × [ Q · K · V projections (un-fused) · output projection · FFN ×2 · LayerNorm ×2 ]"]
+          direction TB
+          n009["N = 24 for multilingual-e5-large · 6 matrix multiplies per layer, 5 of them outside attention"]
+        end
+        subgraph n010["torch.ops.vllm.unified_attention_with_output  ·  opaque boundary"]
+          direction TB
+          n011["Dynamo does not trace inside. Selected by the platform's opaque_attention_op() → True,<br/>which TorchSpyrePlatform inherits from CpuPlatform"]
+        end
+      end
+      subgraph n012["Encoder attention: the only request-aware stage"]
+        direction TB
+        n013["dense-grid strategy, compared with the planned flash variant below<br/>rounds up its own grid: S to a power of two, L already 64-aligned"]
+        subgraph n014["Batch-shape tables, built once per step and carried on the attention metadata"]
+          direction TB
+          n015["additive mask + three gather index lists · derived from S and the per-request lengths, so identical for every layer"]
+        end
+        subgraph n016[" "]
+          direction LR
+          subgraph n017["gather_pack"]
+            direction TB
+            n018["[T, H, D] → [S, H, L, D]<br/>pad slots point at a zero row"]
+          end
+          subgraph n019["SDPA on device"]
+            direction TB
+            n020["bidirectional, additive mask<br/>one fused kernel per (S, L)"]
+          end
+          subgraph n021["gather_unpack"]
+            direction TB
+            n022["[S, H, L, D] → [T, H, D]<br/>single bulk output copy"]
+          end
+        end
+        n023["tables on the metadata instead of rebuilt per layer ⇒ roughly 4 host/device barriers per pass, not one set per layer"]
+      end
+      subgraph n024["Pooler on device: CLS / LAST / MEAN"]
+        direction TB
+        n025["row gather via index_select · L2 normalize via rsqrt · reads only real rows, using the per-request offsets<br/>eager today · compiling the pooler is its own work item, not a warmup"]
+      end
+      n026["MEAN copies packed [T, H] as fp16 and reduces with MeanPool on the host.<br/>Destagger of a device fp32 sum (to(fp16) then convert) is garbage (torch-spyre#35;2971). index_add_ (#35;3507) would let the reduce stay on the card."]
+      subgraph n027["Pooled vectors → host"]
+        direction TB
+        n028["only [num_reqs, hidden] crosses the boundary · padded rows are discarded, never pooled"]
+      end
+    end
+    subgraph n029[" "]
+      direction TB
+      subgraph n030["Shape vocabulary"]
+        direction TB
+        subgraph n031["T · tokens in the step"]
+          direction TB
+          n032["sum of the batched prompt lengths · bucketed to 64 / 128 / 256 / 512 tokens"]
+        end
+        subgraph n033["S · requests in the step"]
+          direction TB
+          n034["how many prompts are batched together · bucketed to 1 / 2 / 4 / 8 …"]
+        end
+        subgraph n035["L · the width of attention's grid"]
+          direction TB
+          n036["every request gets one row of L columns; L = align_up(longest prompt, 64)<br/>short requests leave their remaining columns as padding"]
+        end
+        subgraph n037["Worked example, prompts of 40, 12 and 58 tokens"]
+          direction TB
+          n038["T = 110 → T_padded = 128 · S = 3 → 4 · L = 64 · grid = 4 × 64. Note S × L ≠ T."]
+        end
+      end
+      subgraph n039["Compilation mode"]
+        direction TB
+        subgraph n040["CompilationMode.STOCK_TORCH_COMPILE"]
+          direction TB
+          n041["torch.compile(model, backend='inductor',<br/>fullgraph=True, dynamic=False)"]
+        end
+        n042["dynamic=False → sizes are baked in as constants.  <br/>A graph built for 128 tokens works only for 128.  <br/>A new count means a new compile."]
+      end
+      subgraph n043["Startup: warmup walks both sets of buckets"]
+        direction TB
+        subgraph n044["for T in token buckets: _dummy_run(T)"]
+          direction TB
+          n045["one compiled body graph per bucket"]
+        end
+        subgraph n046["for (S, L): _dummy_run(force_attention=True)"]
+          direction TB
+          n047["without the flag no attention metadata is built,<br/>so the attention path is never traced or compiled"]
+        end
+        subgraph n048["_dummy_pooler_run(hidden_states)"]
+          direction TB
+          n049["warms pooler shapes · upstream's version is only a memory probe"]
+        end
+      end
+      subgraph n050["Design invariants"]
+        direction TB
+        n051["· The metadata always describes the real batch, so no  <br/>padded row is ever pooled.<br/><br/>· Padding the body is safe: each layer treats every  <br/>token row on its own."]
+      end
+    end
+  end
+  subgraph n052["Attention shape strategy: dense grid today, and planned flash attention"]
+    direction TB
+    subgraph n053[" "]
+      direction LR
+      subgraph n054["A · Dense grid, the strategy shown above"]
+        direction TB
+        n055["Pack the ragged flat list into a rectangle, so every  <br/>shape is fixed at compile time.  <br/>Needed because an offset computed from data does not  <br/>lower under compilation (torch-spyre#35;3508) — exactly  <br/>the arithmetic that flash relies on.  <br/>Eager tolerates it; compiled mode, our target, does not.<br/><br/>· build an additive mask [S, 1, L, L] marking padding  <br/>and cross-request slots  <br/>· build three index lists, then gather Q / K / V into  <br/>[S, H, L, D]  <br/>· one fused SDPA kernel per (S, L), then gather the  <br/>results back out<br/><br/>**Shape axes: T for the body, (S, L) for attention.  <br/>Two sets of buckets to warm.**<br/><br/>Costs: the mask grows with L², plus index lists and a  <br/>barrier per gather.  <br/>Works today. This is the current implementation."]
+      end
+      subgraph n056["B · Flash-style attention, planned"]
+        direction TB
+        n057["Never materialise the rectangle.  <br/>Each block of queries reads its request's offset from  <br/>the metadata at runtime, and works directly on the flat  <br/>list, carrying a running softmax maximum and sum.  <br/>That is the online-softmax structure the Spyre decoder  <br/>already uses over KV pages.<br/><br/>· no [S, 1, L, L] mask; request boundaries are the offsets  <br/>· no gather_pack / gather_unpack; the kernel reads the  <br/>flat list directly  <br/>· no per-layer index lists, so no per-gather barriers<br/><br/>**Shape axis: block count, bucketed like the decoder's  <br/>page loop. L disappears.**<br/><br/>Both upstream backends already work this way, neither  <br/>padding into a rectangle.  <br/>Flash attention consumes the flat list with  <br/>cu_seqlens_q = query_start_loc, and the CPU backend  <br/>passes query[:num_actual_tokens] to a C++ kernel."]
+      end
+    end
+    subgraph n058[" "]
+      direction LR
+      subgraph n059["If flash attention lands, the design converges on upstream"]
+        direction TB
+        n060["· the second shape axis collapses; bucket T and a block count,  <br/>much closer to upstream's single axis  <br/>· the batch-shape tables box disappears, and with it the  <br/>per-layer rebuild problem and its barriers  <br/>· gather_pack / SDPA / gather_unpack collapse into one  <br/>blocked-attention kernel  <br/>· the mask's L² growth at long prompts disappears, today's  <br/>largest untested risk<br/><br/>Open question: whether a Spyre kernel can do the runtime  <br/>offset arithmetic this depends on. If it cannot, the block  <br/>count stays bucketed.  <br/>Everything else holds either way: padding seam, unpadded  <br/>metadata, warmup, compilation mode."]
+      end
+      subgraph n061["Legend"]
+        direction TB
+        n062["Upstream vLLM, used as-is"]
+        n063["spyre-inference component"]
+        n064["Internal step · dense-grid path"]
+        n065["Planned flash-attention path"]
+        n066["Note or upstream dependency"]
+      end
+    end
+  end
+  %% Edges in original compiler order; one line per compiled edge.
+  n002 --> n004
+  n004 --> n006
+  n006 --> n012
+  n012 --> n024
+  n024 --> n026
+  n026 --> n027
+  style n000 fill:#FFFFFF,stroke:#FFFFFF
+  style n001 fill:#EEF1F8,stroke:#CFD2DD,color:#212121,rx:10,ry:10
+  style n002 fill:#37474f,stroke:#263238,color:#ffffff,rx:8,ry:8
+  style n003 fill:#37474f,stroke:#37474f,color:#CFD2DD,font-size:13px
+  style n004 fill:#1565c0,stroke:#0d47a1,color:#ffffff,rx:8,ry:8
+  style n005 fill:#1565c0,stroke:#1565c0,color:#D6E4F7,font-size:13px
+  style n006 fill:#1565c0,stroke:#0d47a1,color:#ffffff,rx:8,ry:8
+  style n007 fill:#1565c0,stroke:#1565c0,color:#D6E4F7,font-size:13px,rx:6,ry:6
+  style n008 fill:#E3E9FD,stroke:#0d47a1,color:#0A0F25,rx:6,ry:6
+  style n009 fill:#E3E9FD,stroke:#E3E9FD,color:#37474f,font-size:12px
+  style n010 fill:#E3E9FD,stroke:#0d47a1,color:#0A0F25,stroke-dasharray:5 5,rx:6,ry:6
+  style n011 fill:#E3E9FD,stroke:#E3E9FD,color:#5c6bc0,font-size:12px
+  style n012 fill:#1565c0,stroke:#0d47a1,color:#ffffff,rx:8,ry:8
+  style n013 fill:#1565c0,stroke:#1565c0,color:#D6E4F7,font-size:13px,rx:6,ry:6
+  style n014 fill:#E3E9FD,stroke:#0d47a1,color:#0A0F25,rx:6,ry:6
+  style n015 fill:#E3E9FD,stroke:#E3E9FD,color:#37474f,font-size:12px
+  style n016 fill:#1565c0,stroke:#1565c0
+  style n017 fill:#E3E9FD,stroke:#0d47a1,color:#0A0F25,rx:6,ry:6
+  style n018 fill:#E3E9FD,stroke:#E3E9FD,color:#37474f,font-size:12px
+  style n019 fill:#E3E9FD,stroke:#0d47a1,color:#0A0F25,rx:6,ry:6
+  style n020 fill:#E3E9FD,stroke:#E3E9FD,color:#37474f,font-size:12px
+  style n021 fill:#E3E9FD,stroke:#0d47a1,color:#0A0F25,rx:6,ry:6
+  style n022 fill:#E3E9FD,stroke:#E3E9FD,color:#37474f,font-size:12px
+  style n023 fill:#1565c0,stroke:#1565c0,color:#D6E4F7,font-size:13px,rx:6,ry:6
+  style n024 fill:#1565c0,stroke:#0d47a1,color:#ffffff,rx:8,ry:8
+  style n025 fill:#1565c0,stroke:#1565c0,color:#D6E4F7,font-size:13px
+  style n026 fill:#FFF8E1,stroke:#F9A825,color:#5d4037,font-size:13px,rx:6,ry:6
+  style n027 fill:#37474f,stroke:#263238,color:#ffffff,rx:8,ry:8
+  style n028 fill:#37474f,stroke:#37474f,color:#CFD2DD,font-size:13px
+  style n029 fill:#FFFFFF,stroke:#FFFFFF
+  style n030 fill:#EEF1F8,stroke:#CFD2DD,color:#212121,rx:10,ry:10
+  style n031 fill:#E3E9FD,stroke:#0d47a1,color:#0A0F25,rx:8,ry:8
+  style n032 fill:#E3E9FD,stroke:#E3E9FD,color:#37474f,font-size:12px
+  style n033 fill:#E3E9FD,stroke:#0d47a1,color:#0A0F25,rx:8,ry:8
+  style n034 fill:#E3E9FD,stroke:#E3E9FD,color:#37474f,font-size:12px
+  style n035 fill:#E3E9FD,stroke:#0d47a1,color:#0A0F25,rx:8,ry:8
+  style n036 fill:#E3E9FD,stroke:#E3E9FD,color:#37474f,font-size:12px
+  style n037 fill:#FFF8E1,stroke:#F9A825,color:#5d4037,rx:6,ry:6
+  style n038 fill:#FFF8E1,stroke:#FFF8E1,color:#5d4037,font-size:12px
+  style n039 fill:#EEF1F8,stroke:#CFD2DD,color:#212121,rx:10,ry:10
+  style n040 fill:#1565c0,stroke:#0d47a1,color:#ffffff,rx:8,ry:8
+  style n041 fill:#1565c0,stroke:#1565c0,color:#D6E4F7,font-size:12px
+  style n042 fill:#EEF1F8,stroke:#CFD2DD,color:#37474f,font-size:14px,rx:6,ry:6,fill:transparent,stroke:transparent
+  style n043 fill:#EEF1F8,stroke:#CFD2DD,color:#212121,rx:10,ry:10
+  style n044 fill:#1565c0,stroke:#0d47a1,color:#ffffff,rx:8,ry:8
+  style n045 fill:#1565c0,stroke:#1565c0,color:#D6E4F7,font-size:12px
+  style n046 fill:#1565c0,stroke:#0d47a1,color:#ffffff,rx:8,ry:8
+  style n047 fill:#1565c0,stroke:#1565c0,color:#D6E4F7,font-size:12px
+  style n048 fill:#1565c0,stroke:#0d47a1,color:#ffffff,rx:8,ry:8
+  style n049 fill:#1565c0,stroke:#1565c0,color:#D6E4F7,font-size:12px
+  style n050 fill:#EEF1F8,stroke:#CFD2DD,color:#212121,rx:10,ry:10
+  style n051 fill:#EEF1F8,stroke:#EEF1F8,color:#37474f,font-size:14px,fill:transparent,stroke:transparent
+  style n052 fill:#EEF1F8,stroke:#CFD2DD,color:#212121,rx:10,ry:10
+  style n053 fill:#EEF1F8,stroke:#EEF1F8
+  style n054 fill:#E3E9FD,stroke:#0d47a1,stroke-width:2px,color:#0A0F25,rx:8,ry:8
+  style n055 fill:#E3E9FD,stroke:#E3E9FD,color:#0A0F25,font-size:14px,fill:transparent,stroke:transparent
+  style n056 fill:#E8F5E9,stroke:#2e7d32,stroke-width:2px,color:#0A0F25,rx:8,ry:8
+  style n057 fill:#E8F5E9,stroke:#E8F5E9,color:#0A0F25,font-size:14px,fill:transparent,stroke:transparent
+  style n058 fill:#EEF1F8,stroke:#EEF1F8
+  style n059 fill:#FFF8E1,stroke:#F9A825,stroke-width:2px,color:#5d4037,rx:8,ry:8
+  style n060 fill:#FFF8E1,stroke:#FFF8E1,color:#5d4037,font-size:14px,fill:transparent,stroke:transparent
+  style n061 fill:#FFFFFF,stroke:#CFD2DD,color:#212121,rx:10,ry:10
+  style n062 fill:#37474f,stroke:#263238,color:#ffffff,font-size:14px,rx:6,ry:6
+  style n063 fill:#1565c0,stroke:#0d47a1,color:#ffffff,font-size:14px,rx:6,ry:6
+  style n064 fill:#E3E9FD,stroke:#0d47a1,color:#0A0F25,font-size:14px,rx:6,ry:6
+  style n065 fill:#E8F5E9,stroke:#2e7d32,color:#0A0F25,font-size:14px,rx:6,ry:6
+  style n066 fill:#FFF8E1,stroke:#F9A825,color:#5d4037,font-size:14px,rx:6,ry:6

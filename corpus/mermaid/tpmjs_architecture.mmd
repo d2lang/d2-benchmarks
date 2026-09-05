@@ -1,0 +1,370 @@
+%% Generated from the compiled D2 graph; see matching .mapping.json and TRANSLATION.md.
+flowchart TB
+  subgraph n000["External Clients"]
+    direction TB
+    n001["Web App<br/>(Next.js 16)"]
+    n002["TPMJS CLI<br/>(@tpmjs/cli)"]
+    n003["AI Clients<br/>(Claude Desktop, GPT, etc.)"]
+    n004["Bridge CLI<br/>(@tpmjs/bridge)"]
+  end
+  subgraph n005["API Gateway"]
+    direction TB
+    subgraph n006["Authentication"]
+      direction TB
+      n007["Better Auth<br/>(email/password, OAuth)"]
+      n008["TPMJS API Keys<br/>(scoped permissions)"]
+      n009["Session Tokens"]
+    end
+    subgraph n010["Rate Limiting"]
+      direction TB
+      n011["Per-endpoint limits"]
+      n012["User tier-based<br/>(FREE, PRO, ENTERPRISE)"]
+    end
+  end
+  subgraph n013["API Endpoints"]
+    direction TB
+    subgraph n014["Tool Discovery"]
+      direction TB
+      n015["GET /api/tools"]
+      n016["GET /api/tools/search"]
+      n017["GET /api/tools/[id]"]
+    end
+    subgraph n018["Execution"]
+      direction TB
+      n019["POST /api/tools/execute/[slug]"]
+      n020["(SSE streaming)"]
+    end
+    subgraph n021["MCP Protocol"]
+      direction TB
+      n022["/api/mcp/[user]/[slug]/[transport]"]
+      n023["(JSON-RPC 2.0)"]
+    end
+    subgraph n024["Agents #38; Collections"]
+      direction TB
+      n025["/api/agents/*"]
+      n026["/api/collections/*"]
+      n027["/api/chat/*"]
+    end
+    subgraph n028["Bridge"]
+      direction TB
+      n029["POST /api/bridge"]
+      n030["GET /api/bridge"]
+      n031["(polling + results)"]
+    end
+    subgraph n032["Scenarios"]
+      direction TB
+      n033["/api/scenarios/*"]
+      n034["/api/use-cases/*"]
+    end
+    subgraph n035["Sync (Cron)"]
+      direction TB
+      n036["/api/sync/changes"]
+      n037["/api/sync/keyword"]
+      n038["/api/sync/metrics"]
+    end
+    subgraph n039["Stats #38; Health"]
+      direction TB
+      n040["GET /api/stats"]
+      n041["GET /api/health"]
+      n042["POST /api/health/report"]
+    end
+  end
+  subgraph n043["Execution Flows"]
+    direction TB
+    subgraph n044["Path A: Playground Flow<br/>(Web UI)"]
+      direction TB
+      n045["1. User Prompt"]
+      n046["2. POST /api/tools/execute/[slug]"]
+      n047["3. AI Agent (AI SDK v6)<br/>GPT-4 / Claude / etc."]
+      n048["4. Tool Schema (Zod)"]
+      n049["5. Executor Resolution<br/>Agent -#62; Collection -#62; Default"]
+      n050["6. EXECUTOR (Railway)<br/>POST /execute-tool"]
+      n051["7. SSE Stream Response<br/>(chunk, tokens, complete)"]
+    end
+    subgraph n052["Path B: MCP Flow<br/>(External AI Client)"]
+      direction TB
+      n053["1. External AI Client"]
+      n054["2. JSON-RPC 2.0"]
+      n055["3. /api/mcp/[user]/[slug]/[transport]"]
+      n056["4. MCP Handler<br/>tools/list, tools/call"]
+      n057["5. Tool Name Resolution<br/>Registry + Bridge tools"]
+      n058["6. Same Executor"]
+      n059["7. JSON-RPC Response"]
+    end
+  end
+  subgraph n060["Schema Extraction Pipeline"]
+    direction TB
+    n061["NPM Registry<br/>packages with 'tpmjs' keyword"]
+    subgraph n062["Sync Workers (Actions + on-box timers)"]
+      direction TB
+      n063["/api/sync/changes (every 2 min)<br/>npm _changes feed"]
+      n064["/api/sync/keyword (every 15 min)<br/>keyword search"]
+      n065["/api/sync/metrics (every hour)<br/>downloads, stars"]
+    end
+    subgraph n066["Schema Extraction"]
+      direction TB
+      n067["1. Fetch package from npm"]
+      n068["2. Import via esm.sh (dynamic)"]
+      n069["3. listToolExports() - discover exports"]
+      n070["4. extractToolSchema() - analyze signatures"]
+      n071["5. AI extraction (if needed)"]
+      n072["6. validateTpmjsField()"]
+      n073["7. Store in database (inputSchema)"]
+    end
+    subgraph n074["Zod / AI SDK Conversion"]
+      direction TB
+      n075["TPMJS Parameters"]
+      n076["convertToZodSchema()"]
+      n077["Zod Schema<br/>z.object({ ... })"]
+      n078["AI SDK inputSchema"]
+      n079["LLM Tool Definition<br/>(OpenAI/Anthropic format)"]
+    end
+  end
+  subgraph n080["Executor Architecture"]
+    direction TB
+    subgraph n081["Executor Contract"]
+      direction TB
+      n082["POST /execute-tool<br/>{ packageName, name, version, params, env }"]
+      n083["Response: { success, output, error, executionTimeMs }"]
+      n084["GET /health"]
+    end
+    subgraph n085["Implementations"]
+      direction TB
+      n086["Railway (Default)<br/>- Sandboxed Node.js<br/>- Dynamic imports from esm.sh<br/>- Runs untrusted npm code safely"]
+      n087["Vercel Template<br/>- Serverless functions<br/>- One-click deploy"]
+      n088["Future Options<br/>- AWS Lambda<br/>- Docker<br/>- Custom HTTP service"]
+    end
+  end
+  subgraph n089["Database (Neon PostgreSQL)"]
+    direction TB
+    subgraph n090["PACKAGES"]
+      direction TB
+      n091["Package"]
+      n092["Tool"]
+      n093["HealthCheck"]
+    end
+    subgraph n094["USERS"]
+      direction TB
+      n095["User"]
+      n096["Session"]
+      n097["Account"]
+      n098["Verification"]
+      n099["UserApiKey"]
+      n100["TpmjsApiKey"]
+    end
+    subgraph n101["EXECUTION"]
+      direction TB
+      n102["Simulation"]
+      n103["TokenUsage"]
+      n104["ExecutionLog"]
+      n105["ApiUsageRecord"]
+      n106["ApiUsageSummary"]
+    end
+    subgraph n107["COLLECTIONS"]
+      direction TB
+      n108["Collection"]
+      n109["CollectionTool"]
+      n110["CollectionLike"]
+      n111["CollectionBridgeTool"]
+    end
+    subgraph n112["AGENTS"]
+      direction TB
+      n113["Agent"]
+      n114["AgentCollection"]
+      n115["AgentTool"]
+      n116["AgentLike"]
+      n117["Conversation"]
+      n118["Message"]
+    end
+    subgraph n119["SYNC"]
+      direction TB
+      n120["SyncCheckpoint"]
+      n121["SyncLog"]
+      n122["StatsSnapshot"]
+      n123["EndpointHealthReport"]
+    end
+    subgraph n124["SCENARIOS"]
+      direction TB
+      n125["Scenario"]
+      n126["ScenarioRun"]
+      n127["ScenarioEmbedding"]
+      n128["ScenarioQuota"]
+    end
+    subgraph n129["USE_CASES"]
+      direction TB
+      n130["UseCase"]
+      n131["Persona"]
+      n132["Industry"]
+      n133["Category"]
+      n134["SocialProof"]
+    end
+    subgraph n135["ENGAGEMENT"]
+      direction TB
+      n136["ToolLike"]
+      n137["ToolRating"]
+      n138["ToolReview"]
+      n139["UserActivity"]
+    end
+    subgraph n140["BRIDGE"]
+      direction TB
+      n141["BridgeConnection"]
+    end
+  end
+  subgraph n142["Background Workers (Self-hosted schedules)"]
+    direction TB
+    subgraph n143["Sync Jobs"]
+      direction TB
+      n144["Every 2 min: /api/sync/changes<br/>(npm changes feed)"]
+      n145["Every 15 min: /api/sync/keyword<br/>(keyword search)"]
+      n146["Every hour: /api/sync/metrics<br/>(downloads, stars)"]
+    end
+    subgraph n147["Daily Jobs"]
+      direction TB
+      n148["Daily: /api/sync/stats-snapshot"]
+      n149["Daily 3am: /api/sync/cleanup-activity"]
+      n150["Daily 9am: /api/cron/discord-summary"]
+      n151["Daily: /api/cron/use-cases<br/>(AI generation)"]
+    end
+  end
+  subgraph n152["External Services"]
+    direction TB
+    subgraph n153["Package Sources"]
+      direction TB
+      n154["npm Registry<br/>Metadata, changes feed"]
+      n155["GitHub API<br/>Stars, repo metadata"]
+      n156["Bundlephobia<br/>Package size analysis"]
+    end
+    subgraph n157["Runtime"]
+      direction TB
+      n158["esm.sh<br/>Dynamic ESM imports"]
+      n159["Vercel<br/>Hosting, Edge, Cron"]
+      n160["Railway<br/>Default executor hosting"]
+    end
+    subgraph n161["Data"]
+      direction TB
+      n162["Neon<br/>PostgreSQL database"]
+    end
+    subgraph n163["AI Providers"]
+      direction TB
+      n164["OpenAI<br/>GPT-4, embeddings"]
+      n165["Anthropic<br/>Claude"]
+      n166["Google<br/>Gemini"]
+      n167["Groq"]
+      n168["Mistral"]
+    end
+    subgraph n169["Notifications"]
+      direction TB
+      n170["Discord<br/>Daily summaries"]
+    end
+  end
+  subgraph n171["Bridge System (WIP)"]
+    direction TB
+    n172["Local MCP Server<br/>(Blender, etc.)"]
+    n173["Bridge CLI<br/>(@tpmjs/bridge)"]
+    n174["POST /api/bridge<br/>{ type: 'register', tools: [...] }"]
+    n175["BridgeConnection record"]
+    n176["Tool calls via polling:<br/>GET /api/bridge -#62; pending calls<br/>POST /api/bridge -#62; tool results"]
+  end
+  subgraph n177["AI Integration Points"]
+    direction TB
+    subgraph n178["User-Provided Keys"]
+      direction TB
+      n179["Agent chats<br/>(users bring their own API keys)"]
+      n180["Custom collections<br/>with API key storage"]
+    end
+    subgraph n181["Internal Keys (TPMJS)"]
+      direction TB
+      n182["Schema extraction<br/>(analyze tool signatures)"]
+      n183["Use case generation<br/>(marketing content)"]
+      n184["Scenario evaluation<br/>(pass/fail determination)"]
+      n185["Discord summaries"]
+    end
+    subgraph n186["Supported Providers"]
+      direction TB
+      n187["OpenAI (GPT-4, GPT-4 Turbo)<br/>Anthropic (Claude)<br/>Google (Gemini)<br/>Groq<br/>Mistral"]
+    end
+  end
+  %% Edges in original compiler order; one line per compiled edge.
+  n045 --> n046
+  n046 --> n047
+  n047 --> n048
+  n048 --> n049
+  n049 --> n050
+  n050 --> n051
+  n053 --> n054
+  n054 --> n055
+  n055 --> n056
+  n056 --> n057
+  n057 --> n058
+  n058 --> n059
+  n075 --> n076
+  n076 --> n077
+  n077 --> n078
+  n078 --> n079
+  n061 --> n062
+  n062 --> n066
+  n066 --> n074
+  n081 --> n085
+  n092 --> n109
+  n092 --> n115
+  n092 --> n136
+  n092 -->|"via Collection"| n125
+  n095 --> n108
+  n095 --> n113
+  n095 --> n141
+  n108 --> n114
+  n108 --> n125
+  n125 --> n130
+  n172 --> n173
+  n173 --> n174
+  n174 --> n175
+  n175 --> n176
+  n001 --> n006
+  n002 --> n006
+  n003 --> n006
+  n004 --> n006
+  n005 --> n013
+  n014 --> n046
+  n018 --> n046
+  n021 --> n055
+  n050 --> n081
+  n058 --> n081
+  n086 --> n160
+  n073 --> n092
+  n061 --> n154
+  n068 --> n158
+  n071 --> n163
+  n143 --> n035
+  n147 --> n032
+  n014 --> n090
+  n024 --> n112
+  n024 --> n107
+  n032 --> n124
+  n032 --> n129
+  n039 --> n119
+  n162 --> n089
+  n178 --> n163
+  n181 --> n163
+  n004 --> n173
+  n171 --> n028
+  n175 --> n140
+  style n000 fill:#e0f7fa,stroke:#00838f
+  style n004 opacity:0.7,stroke-dasharray:5 5
+  style n005 fill:#e3f2fd,stroke:#1976d2
+  style n013 fill:#e3f2fd,stroke:#1976d2
+  style n028 opacity:0.7,stroke-dasharray:5 5
+  style n044 fill:#fce4ec,stroke:#c2185b
+  style n052 fill:#fce4ec,stroke:#c2185b
+  style n060 fill:#f3e5f5,stroke:#7b1fa2
+  style n061 fill:#fff3e0,stroke:#f57c00
+  style n080 fill:#fce4ec,stroke:#c2185b
+  style n089 fill:#e8f5e9,stroke:#388e3c
+  style n140 opacity:0.7,stroke-dasharray:5 5
+  style n142 fill:#fff3e0,stroke:#f57c00
+  style n152 fill:#fff3e0,stroke:#f57c00
+  style n171 opacity:0.7,stroke-dasharray:5 5
+  style n177 fill:#f3e5f5,stroke:#7b1fa2
+  linkStyle 37 stroke-dasharray:5 5
+  linkStyle 60 stroke-dasharray:5 5
+  linkStyle 61 stroke-dasharray:5 5
+  linkStyle 62 stroke-dasharray:5 5

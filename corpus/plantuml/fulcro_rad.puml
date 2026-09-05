@@ -1,0 +1,55 @@
+@startuml
+' Generated from the compiled D2 semantic mapping; see TRANSLATION.md.
+' Graphviz is PlantUML's default deployment-diagram layout; GRAPHVIZ_DOT pins it.
+skinparam shadowing false
+skinparam defaultTextAlignment center
+top to bottom direction
+rectangle "<size:28>Fulcro RAD Architecture</size>" as n000 #back:transparent;line:transparent
+rectangle "<size:22><b>Attributes</b></size>" as n001 #back:e8f4f8;line:2980b9 {
+  rectangle "key, type, target\ncardinality, identities" as n002 #back:transparent;line:transparent
+  rectangle "fo/&#42; Context" as n003 #back:fff3cd
+  rectangle "ro/&#42; Context" as n004 #back:fff3cd
+  rectangle "Resolver Metadata" as n005 #back:fff3cd
+  rectangle "Any NS Key..." as n006 #back:f0e6ff;line.dashed
+}
+rectangle "Forms" as n007 #back:fef9e7;line:e67e22 {
+  rectangle "Pluggable UI" as n008 #back:fdebd0
+  rectangle "State Machine" as n009 #back:fadbd8
+}
+rectangle "Reports" as n010 #back:eaf2f8;line:2471a3 {
+  rectangle "Pluggable UI" as n011 #back:d6eaf8
+  rectangle "State Machine" as n012 #back:d4e6f1
+}
+rectangle "Minimum Form Delta" as n013 #back:f5eef8;line:8e44ad {
+  rectangle "<size:14>{ident {attr {:before v :after v}}}</size>" as n014 #back:ebdef0
+}
+rectangle "Save Middleware" as n015 #back:fdedec;line:c0392b {
+  rectangle "Rewrite Values" as n016 #back:fadbd8
+  rectangle "Validate" as n017 #back:fadbd8
+  rectangle "GC Orphans" as n018 #back:fadbd8
+  rectangle "Conflict Detection" as n019 #back:fadbd8
+}
+rectangle "Resolvers" as n020 #back:e8f8f5;line:1abc9c {
+  rectangle "Auto-Generated" as n021 #back:d1f2eb
+  rectangle "DB Adapter Plugins" as n022 #back:a9dfbf
+  rectangle "Pathom EQL Graph" as n023 #back:abebc6
+}
+rectangle "Database" as n024 #back:f2f3f4;line:7f8c8d
+' One link per D2 edge, in compiler order; no synthetic layout links.
+n008 <--> n009 : events
+n011 <--> n012 : events
+n016 --> n017 : pipeline
+n017 --> n018 : pipeline
+n018 --> n019 : pipeline
+n021 --> n023
+n022 --> n023
+n001 -[#e67e22,thickness=2]-> n007 : fo/ keys
+n001 -[#2471a3,thickness=2]-> n010 : ro/ keys
+n001 -[#1abc9c,thickness=2]-> n020 : schema metadata
+n007 -[#8e44ad,thickness=2]-> n013 : dirty-fields
+n013 -[#c0392b,thickness=2]-> n015 : delta
+n015 -[#c0392b,thickness=2]-> n024 : save
+n020 -[#1abc9c,thickness=2]-> n024 : read
+n020 -[#e67e22,dashed,thickness=2]-> n007 : EQL load
+n020 -[#2471a3,dashed,thickness=2]-> n010 : EQL load
+@enduml

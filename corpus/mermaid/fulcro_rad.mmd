@@ -1,0 +1,90 @@
+%% Generated from the compiled D2 graph; see matching .mapping.json and TRANSLATION.md.
+flowchart TB
+  n000["Fulcro RAD Architecture"]
+  subgraph n001["Attributes"]
+    direction TB
+    n002["key, type, target<br/>cardinality, identities"]
+    n003["fo/* Context"]
+    n004["ro/* Context"]
+    n005["Resolver Metadata"]
+    n006["Any NS Key..."]
+  end
+  subgraph n007["Forms"]
+    direction TB
+    n008["Pluggable UI"]
+    n009["State Machine"]
+  end
+  subgraph n010["Reports"]
+    direction TB
+    n011["Pluggable UI"]
+    n012["State Machine"]
+  end
+  subgraph n013["Minimum Form Delta"]
+    direction TB
+    n014["{ident {attr {:before v :after v}}}"]
+  end
+  subgraph n015["Save Middleware"]
+    direction TB
+    n016["Rewrite Values"]
+    n017["Validate"]
+    n018["GC Orphans"]
+    n019["Conflict Detection"]
+  end
+  subgraph n020["Resolvers"]
+    direction TB
+    n021["Auto-Generated"]
+    n022["DB Adapter Plugins"]
+    n023["Pathom EQL Graph"]
+  end
+  n024["Database"]
+  %% Edges in original compiler order; one line per compiled edge.
+  n008 <-->|"events"| n009
+  n011 <-->|"events"| n012
+  n016 -->|"pipeline"| n017
+  n017 -->|"pipeline"| n018
+  n018 -->|"pipeline"| n019
+  n021 --> n023
+  n022 --> n023
+  n001 -->|"fo/ keys"| n007
+  n001 -->|"ro/ keys"| n010
+  n001 -->|"schema metadata"| n020
+  n007 -->|"dirty-fields"| n013
+  n013 -->|"delta"| n015
+  n015 -->|"save"| n024
+  n020 -->|"read"| n024
+  n020 -->|"EQL load"| n007
+  n020 -->|"EQL load"| n010
+  style n000 font-size:28px,fill:transparent,stroke:transparent
+  style n001 fill:#e8f4f8,stroke:#2980b9,rx:12,ry:12
+  style n002 fill:#d4edda,rx:8,ry:8,fill:transparent,stroke:transparent
+  style n003 fill:#fff3cd,rx:8,ry:8
+  style n004 fill:#fff3cd,rx:8,ry:8
+  style n005 fill:#fff3cd,rx:8,ry:8
+  style n006 fill:#f0e6ff,stroke-dasharray:5 5,rx:8,ry:8
+  style n007 fill:#fef9e7,stroke:#e67e22,rx:12,ry:12
+  style n008 fill:#fdebd0,rx:8,ry:8
+  style n009 fill:#fadbd8,rx:8,ry:8
+  style n010 fill:#eaf2f8,stroke:#2471a3,rx:12,ry:12
+  style n011 fill:#d6eaf8,rx:8,ry:8
+  style n012 fill:#d4e6f1,rx:8,ry:8
+  style n013 fill:#f5eef8,stroke:#8e44ad,rx:12,ry:12
+  style n014 fill:#ebdef0,font-size:14px,rx:8,ry:8
+  style n015 fill:#fdedec,stroke:#c0392b,rx:12,ry:12
+  style n016 fill:#fadbd8,rx:8,ry:8
+  style n017 fill:#fadbd8,rx:8,ry:8
+  style n018 fill:#fadbd8,rx:8,ry:8
+  style n019 fill:#fadbd8,rx:8,ry:8
+  style n020 fill:#e8f8f5,stroke:#1abc9c,rx:12,ry:12
+  style n021 fill:#d1f2eb,rx:8,ry:8
+  style n022 fill:#a9dfbf,rx:8,ry:8
+  style n023 fill:#abebc6,rx:8,ry:8
+  style n024 fill:#f2f3f4,stroke:#7f8c8d,rx:12,ry:12
+  linkStyle 7 stroke:#e67e22,stroke-width:2px
+  linkStyle 8 stroke:#2471a3,stroke-width:2px
+  linkStyle 9 stroke:#1abc9c,stroke-width:2px
+  linkStyle 10 stroke:#8e44ad,stroke-width:2px
+  linkStyle 11 stroke:#c0392b,stroke-width:2px
+  linkStyle 12 stroke:#c0392b,stroke-width:2px
+  linkStyle 13 stroke:#1abc9c,stroke-width:2px
+  linkStyle 14 stroke:#e67e22,stroke-width:2px,stroke-dasharray:5 5
+  linkStyle 15 stroke:#2471a3,stroke-width:2px,stroke-dasharray:5 5

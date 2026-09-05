@@ -1,0 +1,156 @@
+// Generated from the audited D2 semantic mapping. See TRANSLATION.md.
+digraph diagram {
+  graph [compound="true", rankdir="TB", bgcolor="white", fontname="Helvetica", fontsize="14", pad="0.25"];
+  node [shape="box", fontname="Helvetica", fontsize="14", color="#333333", margin="0.12,0.08"];
+  edge [fontname="Helvetica", fontsize="14", color="#333333"];
+  subgraph cluster_n000 {
+    graph [id="cluster_n000", label=" ", d2_id="upper", semantic_kind="group", color="#FFFFFF", fillcolor="#FFFFFF", style="filled", labelloc="t", labeljust="l", margin="12"];
+    subgraph cluster_n001 {
+      graph [id="cluster_n001", label="Per-step serving path", d2_id="upper.serving", semantic_kind="group", color="#CFD2DD", fillcolor="#EEF1F8", fontsize="20", fontcolor="#212121", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+      subgraph cluster_n002 {
+        graph [id="cluster_n002", label="vLLM Scheduler, used as-is", d2_id="upper.serving.sched", semantic_kind="group", color="#263238", fillcolor="#37474f", fontsize="15", fontcolor="#ffffff", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+        proxy_n002 [id="proxy_n002", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="upper.serving.sched"];
+        node_n003 [id="node_n003", label="batches S requests carrying T tokens in total · chunked prefill off\nnever subclassed, its output never mutated", d2_id="upper.serving.sched.sched_d", semantic_kind="node", color="#37474f", fillcolor="#37474f", fontsize="13", fontcolor="#CFD2DD", style="filled", shape="box"];
+      }
+      subgraph cluster_n004 {
+        graph [id="cluster_n004", label="Token-count bucket dispatch", d2_id="upper.serving.dispatch", semantic_kind="group", color="#0d47a1", fillcolor="#1565c0", fontsize="15", fontcolor="#ffffff", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+        proxy_n004 [id="proxy_n004", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="upper.serving.dispatch"];
+        node_n005 [id="node_n005", label="round T up to the next compiled bucket, giving T_padded\nupstream this hook pads to a captured CUDA graph; here to a compiled shape\npad rows zeroed · also cuts torch-spyre per-op recompiles", d2_id="upper.serving.dispatch.dispatch_d", semantic_kind="node", color="#1565c0", fillcolor="#1565c0", fontsize="13", fontcolor="#D6E4F7", style="filled", shape="box"];
+      }
+      subgraph cluster_n006 {
+        graph [id="cluster_n006", label="Compiled model body: one graph per token bucket  (fullgraph, dynamic=False)", d2_id="upper.serving.body", semantic_kind="group", color="#0d47a1", fillcolor="#1565c0", fontsize="16", fontcolor="#ffffff", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+        proxy_n006 [id="proxy_n006", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="upper.serving.body"];
+        node_n007 [id="node_n007", label="sees only the flat token list [T_padded, hidden], with no request boundaries\nall layers share op shapes, so cost scales with distinct T, not with depth", d2_id="upper.serving.body.body_note", semantic_kind="node", color="#1565c0", fillcolor="#1565c0", fontsize="13", fontcolor="#D6E4F7", style="filled,rounded", shape="box"];
+        subgraph cluster_n008 {
+          graph [id="cluster_n008", label="Embeddings → N × [ Q · K · V projections (un-fused) · output projection · FFN ×2 · LayerNorm ×2 ]", d2_id="upper.serving.body.layer_stack", semantic_kind="group", color="#0d47a1", fillcolor="#E3E9FD", fontsize="14", fontcolor="#0A0F25", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+          node_n009 [id="node_n009", label="N = 24 for multilingual-e5-large · 6 matrix multiplies per layer, 5 of them outside attention", d2_id="upper.serving.body.layer_stack.layer_stack_d", semantic_kind="node", color="#E3E9FD", fillcolor="#E3E9FD", fontsize="12", fontcolor="#37474f", style="filled", shape="box"];
+        }
+        subgraph cluster_n010 {
+          graph [id="cluster_n010", label="torch.ops.vllm.unified_attention_with_output  ·  opaque boundary", d2_id="upper.serving.body.boundary", semantic_kind="group", color="#0d47a1", fillcolor="#E3E9FD", fontsize="14", fontcolor="#0A0F25", fontname="Helvetica-Bold", style="filled,dashed,rounded", labelloc="t", labeljust="l", margin="12"];
+          node_n011 [id="node_n011", label="Dynamo does not trace inside. Selected by the platform's opaque_attention_op() → True,\nwhich TorchSpyrePlatform inherits from CpuPlatform", d2_id="upper.serving.body.boundary.boundary_d", semantic_kind="node", color="#E3E9FD", fillcolor="#E3E9FD", fontsize="12", fontcolor="#5c6bc0", style="filled", shape="box"];
+        }
+      }
+      subgraph cluster_n012 {
+        graph [id="cluster_n012", label="Encoder attention: the only request-aware stage", d2_id="upper.serving.attention", semantic_kind="group", color="#0d47a1", fillcolor="#1565c0", fontsize="16", fontcolor="#ffffff", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+        proxy_n012 [id="proxy_n012", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="upper.serving.attention"];
+        node_n013 [id="node_n013", label="dense-grid strategy, compared with the planned flash variant below\nrounds up its own grid: S to a power of two, L already 64-aligned", d2_id="upper.serving.attention.attn_note", semantic_kind="node", color="#1565c0", fillcolor="#1565c0", fontsize="13", fontcolor="#D6E4F7", style="filled,rounded", shape="box"];
+        subgraph cluster_n014 {
+          graph [id="cluster_n014", label="Batch-shape tables, built once per step and carried on the attention metadata", d2_id="upper.serving.attention.tables", semantic_kind="group", color="#0d47a1", fillcolor="#E3E9FD", fontsize="14", fontcolor="#0A0F25", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+          node_n015 [id="node_n015", label="additive mask + three gather index lists · derived from S and the per-request lengths, so identical for every layer", d2_id="upper.serving.attention.tables.tables_d", semantic_kind="node", color="#E3E9FD", fillcolor="#E3E9FD", fontsize="12", fontcolor="#37474f", style="filled", shape="box"];
+        }
+        subgraph cluster_n016 {
+          graph [id="cluster_n016", label=" ", d2_id="upper.serving.attention.gathers", semantic_kind="group", color="#1565c0", fillcolor="#1565c0", style="filled", labelloc="t", labeljust="l", margin="12"];
+          subgraph cluster_n017 {
+            graph [id="cluster_n017", label="gather_pack", d2_id="upper.serving.attention.gathers.pack", semantic_kind="group", color="#0d47a1", fillcolor="#E3E9FD", fontsize="14", fontcolor="#0A0F25", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+            node_n018 [id="node_n018", label="[T, H, D] → [S, H, L, D]\npad slots point at a zero row", d2_id="upper.serving.attention.gathers.pack.pack_d", semantic_kind="node", color="#E3E9FD", fillcolor="#E3E9FD", fontsize="12", fontcolor="#37474f", style="filled", shape="box"];
+          }
+          subgraph cluster_n019 {
+            graph [id="cluster_n019", label="SDPA on device", d2_id="upper.serving.attention.gathers.sdpa", semantic_kind="group", color="#0d47a1", fillcolor="#E3E9FD", fontsize="14", fontcolor="#0A0F25", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+            node_n020 [id="node_n020", label="bidirectional, additive mask\none fused kernel per (S, L)", d2_id="upper.serving.attention.gathers.sdpa.sdpa_d", semantic_kind="node", color="#E3E9FD", fillcolor="#E3E9FD", fontsize="12", fontcolor="#37474f", style="filled", shape="box"];
+          }
+          subgraph cluster_n021 {
+            graph [id="cluster_n021", label="gather_unpack", d2_id="upper.serving.attention.gathers.unpack", semantic_kind="group", color="#0d47a1", fillcolor="#E3E9FD", fontsize="14", fontcolor="#0A0F25", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+            node_n022 [id="node_n022", label="[S, H, L, D] → [T, H, D]\nsingle bulk output copy", d2_id="upper.serving.attention.gathers.unpack.unpack_d", semantic_kind="node", color="#E3E9FD", fillcolor="#E3E9FD", fontsize="12", fontcolor="#37474f", style="filled", shape="box"];
+          }
+        }
+        node_n023 [id="node_n023", label="tables on the metadata instead of rebuilt per layer ⇒ roughly 4 host/device barriers per pass, not one set per layer", d2_id="upper.serving.attention.barriers", semantic_kind="node", color="#1565c0", fillcolor="#1565c0", fontsize="13", fontcolor="#D6E4F7", style="filled,rounded", shape="box"];
+      }
+      subgraph cluster_n024 {
+        graph [id="cluster_n024", label="Pooler on device: CLS / LAST / MEAN", d2_id="upper.serving.pooler", semantic_kind="group", color="#0d47a1", fillcolor="#1565c0", fontsize="15", fontcolor="#ffffff", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+        proxy_n024 [id="proxy_n024", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="upper.serving.pooler"];
+        node_n025 [id="node_n025", label="row gather via index_select · L2 normalize via rsqrt · reads only real rows, using the per-request offsets\neager today · compiling the pooler is its own work item, not a warmup", d2_id="upper.serving.pooler.pooler_d", semantic_kind="node", color="#1565c0", fillcolor="#1565c0", fontsize="13", fontcolor="#D6E4F7", style="filled", shape="box"];
+      }
+      node_n026 [id="node_n026", label="MEAN copies packed [T, H] as fp16 and reduces with MeanPool on the host.\nDestagger of a device fp32 sum (to(fp16) then convert) is garbage (torch-spyre#2971). index_add_ (#3507) would let the reduce stay on the card.", d2_id="upper.serving.mean_dep", semantic_kind="node", color="#F9A825", fillcolor="#FFF8E1", fontsize="13", fontcolor="#5d4037", style="filled,rounded", shape="box"];
+      subgraph cluster_n027 {
+        graph [id="cluster_n027", label="Pooled vectors → host", d2_id="upper.serving.output", semantic_kind="group", color="#263238", fillcolor="#37474f", fontsize="15", fontcolor="#ffffff", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+        proxy_n027 [id="proxy_n027", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="upper.serving.output"];
+        node_n028 [id="node_n028", label="only [num_reqs, hidden] crosses the boundary · padded rows are discarded, never pooled", d2_id="upper.serving.output.output_d", semantic_kind="node", color="#37474f", fillcolor="#37474f", fontsize="13", fontcolor="#CFD2DD", style="filled", shape="box"];
+      }
+    }
+    subgraph cluster_n029 {
+      graph [id="cluster_n029", label=" ", d2_id="upper.sidebar", semantic_kind="group", color="#FFFFFF", fillcolor="#FFFFFF", style="filled", labelloc="t", labeljust="l", margin="12"];
+      subgraph cluster_n030 {
+        graph [id="cluster_n030", label="Shape vocabulary", d2_id="upper.sidebar.shapes", semantic_kind="group", color="#CFD2DD", fillcolor="#EEF1F8", fontsize="20", fontcolor="#212121", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+        subgraph cluster_n031 {
+          graph [id="cluster_n031", label="T · tokens in the step", d2_id="upper.sidebar.shapes.T_tokens", semantic_kind="group", color="#0d47a1", fillcolor="#E3E9FD", fontsize="14", fontcolor="#0A0F25", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+          node_n032 [id="node_n032", label="sum of the batched prompt lengths · bucketed to 64 / 128 / 256 / 512 tokens", d2_id="upper.sidebar.shapes.T_tokens.T_tokens_d", semantic_kind="node", color="#E3E9FD", fillcolor="#E3E9FD", fontsize="12", fontcolor="#37474f", style="filled", shape="box"];
+        }
+        subgraph cluster_n033 {
+          graph [id="cluster_n033", label="S · requests in the step", d2_id="upper.sidebar.shapes.S_reqs", semantic_kind="group", color="#0d47a1", fillcolor="#E3E9FD", fontsize="14", fontcolor="#0A0F25", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+          node_n034 [id="node_n034", label="how many prompts are batched together · bucketed to 1 / 2 / 4 / 8 …", d2_id="upper.sidebar.shapes.S_reqs.S_reqs_d", semantic_kind="node", color="#E3E9FD", fillcolor="#E3E9FD", fontsize="12", fontcolor="#37474f", style="filled", shape="box"];
+        }
+        subgraph cluster_n035 {
+          graph [id="cluster_n035", label="L · the width of attention's grid", d2_id="upper.sidebar.shapes.L_width", semantic_kind="group", color="#0d47a1", fillcolor="#E3E9FD", fontsize="14", fontcolor="#0A0F25", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+          node_n036 [id="node_n036", label="every request gets one row of L columns; L = align_up(longest prompt, 64)\nshort requests leave their remaining columns as padding", d2_id="upper.sidebar.shapes.L_width.L_width_d", semantic_kind="node", color="#E3E9FD", fillcolor="#E3E9FD", fontsize="12", fontcolor="#37474f", style="filled", shape="box"];
+        }
+        subgraph cluster_n037 {
+          graph [id="cluster_n037", label="Worked example, prompts of 40, 12 and 58 tokens", d2_id="upper.sidebar.shapes.example", semantic_kind="group", color="#F9A825", fillcolor="#FFF8E1", fontsize="14", fontcolor="#5d4037", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+          node_n038 [id="node_n038", label="T = 110 → T_padded = 128 · S = 3 → 4 · L = 64 · grid = 4 × 64. Note S × L ≠ T.", d2_id="upper.sidebar.shapes.example.example_d", semantic_kind="node", color="#FFF8E1", fillcolor="#FFF8E1", fontsize="12", fontcolor="#5d4037", style="filled", shape="box"];
+        }
+      }
+      subgraph cluster_n039 {
+        graph [id="cluster_n039", label="Compilation mode", d2_id="upper.sidebar.compile_mode", semantic_kind="group", color="#CFD2DD", fillcolor="#EEF1F8", fontsize="20", fontcolor="#212121", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+        subgraph cluster_n040 {
+          graph [id="cluster_n040", label="CompilationMode.STOCK_TORCH_COMPILE", d2_id="upper.sidebar.compile_mode.mode", semantic_kind="group", color="#0d47a1", fillcolor="#1565c0", fontsize="14", fontcolor="#ffffff", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+          node_n041 [id="node_n041", label="torch.compile(model, backend='inductor',\nfullgraph=True, dynamic=False)", d2_id="upper.sidebar.compile_mode.mode.mode_d", semantic_kind="node", color="#1565c0", fillcolor="#1565c0", fontsize="12", fontcolor="#D6E4F7", style="filled", shape="box"];
+        }
+        node_n042 [id="node_n042", label="dynamic=False → sizes are baked in as constants.  \nA graph built for 128 tokens works only for 128.  \nA new count means a new compile.", d2_id="upper.sidebar.compile_mode.static_shapes", semantic_kind="node", color="transparent", fillcolor="transparent", fontsize="14", fontcolor="#37474f", shape="plaintext"];
+      }
+      subgraph cluster_n043 {
+        graph [id="cluster_n043", label="Startup: warmup walks both sets of buckets", d2_id="upper.sidebar.warmup", semantic_kind="group", color="#CFD2DD", fillcolor="#EEF1F8", fontsize="20", fontcolor="#212121", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+        subgraph cluster_n044 {
+          graph [id="cluster_n044", label="for T in token buckets: _dummy_run(T)", d2_id="upper.sidebar.warmup.bodies", semantic_kind="group", color="#0d47a1", fillcolor="#1565c0", fontsize="14", fontcolor="#ffffff", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+          node_n045 [id="node_n045", label="one compiled body graph per bucket", d2_id="upper.sidebar.warmup.bodies.bodies_d", semantic_kind="node", color="#1565c0", fillcolor="#1565c0", fontsize="12", fontcolor="#D6E4F7", style="filled", shape="box"];
+        }
+        subgraph cluster_n046 {
+          graph [id="cluster_n046", label="for (S, L): _dummy_run(force_attention=True)", d2_id="upper.sidebar.warmup.attn", semantic_kind="group", color="#0d47a1", fillcolor="#1565c0", fontsize="14", fontcolor="#ffffff", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+          node_n047 [id="node_n047", label="without the flag no attention metadata is built,\nso the attention path is never traced or compiled", d2_id="upper.sidebar.warmup.attn.attn_d", semantic_kind="node", color="#1565c0", fillcolor="#1565c0", fontsize="12", fontcolor="#D6E4F7", style="filled", shape="box"];
+        }
+        subgraph cluster_n048 {
+          graph [id="cluster_n048", label="_dummy_pooler_run(hidden_states)", d2_id="upper.sidebar.warmup.pool", semantic_kind="group", color="#0d47a1", fillcolor="#1565c0", fontsize="14", fontcolor="#ffffff", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+          node_n049 [id="node_n049", label="warms pooler shapes · upstream's version is only a memory probe", d2_id="upper.sidebar.warmup.pool.pool_d", semantic_kind="node", color="#1565c0", fillcolor="#1565c0", fontsize="12", fontcolor="#D6E4F7", style="filled", shape="box"];
+        }
+      }
+      subgraph cluster_n050 {
+        graph [id="cluster_n050", label="Design invariants", d2_id="upper.sidebar.invariants", semantic_kind="group", color="#CFD2DD", fillcolor="#EEF1F8", fontsize="20", fontcolor="#212121", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+        node_n051 [id="node_n051", label="· The metadata always describes the real batch, so no  \npadded row is ever pooled.\n\n· Padding the body is safe: each layer treats every  \ntoken row on its own.", d2_id="upper.sidebar.invariants.rules", semantic_kind="node", color="transparent", fillcolor="transparent", fontsize="14", fontcolor="#37474f", shape="plaintext"];
+      }
+    }
+  }
+  subgraph cluster_n052 {
+    graph [id="cluster_n052", label="Attention shape strategy: dense grid today, and planned flash attention", d2_id="lower", semantic_kind="group", color="#CFD2DD", fillcolor="#EEF1F8", fontsize="20", fontcolor="#212121", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+    subgraph cluster_n053 {
+      graph [id="cluster_n053", label=" ", d2_id="lower.strategies", semantic_kind="group", color="#EEF1F8", fillcolor="#EEF1F8", style="filled", labelloc="t", labeljust="l", margin="12"];
+      subgraph cluster_n054 {
+        graph [id="cluster_n054", label="A · Dense grid, the strategy shown above", d2_id="lower.strategies.dense", semantic_kind="group", color="#0d47a1", fillcolor="#E3E9FD", penwidth="2", fontsize="15", fontcolor="#0A0F25", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+        node_n055 [id="node_n055", label="Pack the ragged flat list into a rectangle, so every  \nshape is fixed at compile time.  \nNeeded because an offset computed from data does not  \nlower under compilation (torch-spyre#3508) — exactly  \nthe arithmetic that flash relies on.  \nEager tolerates it; compiled mode, our target, does not.\n\n· build an additive mask [S, 1, L, L] marking padding  \nand cross-request slots  \n· build three index lists, then gather Q / K / V into  \n[S, H, L, D]  \n· one fused SDPA kernel per (S, L), then gather the  \nresults back out\n\n**Shape axes: T for the body, (S, L) for attention.  \nTwo sets of buckets to warm.**\n\nCosts: the mask grows with L², plus index lists and a  \nbarrier per gather.  \nWorks today. This is the current implementation.", d2_id="lower.strategies.dense.dense_body", semantic_kind="node", color="transparent", fillcolor="transparent", fontsize="14", fontcolor="#0A0F25", shape="plaintext"];
+      }
+      subgraph cluster_n056 {
+        graph [id="cluster_n056", label="B · Flash-style attention, planned", d2_id="lower.strategies.flash", semantic_kind="group", color="#2e7d32", fillcolor="#E8F5E9", penwidth="2", fontsize="15", fontcolor="#0A0F25", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+        node_n057 [id="node_n057", label="Never materialise the rectangle.  \nEach block of queries reads its request's offset from  \nthe metadata at runtime, and works directly on the flat  \nlist, carrying a running softmax maximum and sum.  \nThat is the online-softmax structure the Spyre decoder  \nalready uses over KV pages.\n\n· no [S, 1, L, L] mask; request boundaries are the offsets  \n· no gather_pack / gather_unpack; the kernel reads the  \nflat list directly  \n· no per-layer index lists, so no per-gather barriers\n\n**Shape axis: block count, bucketed like the decoder's  \npage loop. L disappears.**\n\nBoth upstream backends already work this way, neither  \npadding into a rectangle.  \nFlash attention consumes the flat list with  \ncu_seqlens_q = query_start_loc, and the CPU backend  \npasses query[:num_actual_tokens] to a C++ kernel.", d2_id="lower.strategies.flash.flash_body", semantic_kind="node", color="transparent", fillcolor="transparent", fontsize="14", fontcolor="#0A0F25", shape="plaintext"];
+      }
+    }
+    subgraph cluster_n058 {
+      graph [id="cluster_n058", label=" ", d2_id="lower.footer", semantic_kind="group", color="#EEF1F8", fillcolor="#EEF1F8", style="filled", labelloc="t", labeljust="l", margin="12"];
+      subgraph cluster_n059 {
+        graph [id="cluster_n059", label="If flash attention lands, the design converges on upstream", d2_id="lower.footer.simplifies", semantic_kind="group", color="#F9A825", fillcolor="#FFF8E1", penwidth="2", fontsize="15", fontcolor="#5d4037", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+        node_n060 [id="node_n060", label="· the second shape axis collapses; bucket T and a block count,  \nmuch closer to upstream's single axis  \n· the batch-shape tables box disappears, and with it the  \nper-layer rebuild problem and its barriers  \n· gather_pack / SDPA / gather_unpack collapse into one  \nblocked-attention kernel  \n· the mask's L² growth at long prompts disappears, today's  \nlargest untested risk\n\nOpen question: whether a Spyre kernel can do the runtime  \noffset arithmetic this depends on. If it cannot, the block  \ncount stays bucketed.  \nEverything else holds either way: padding seam, unpadded  \nmetadata, warmup, compilation mode.", d2_id="lower.footer.simplifies.simplifies_body", semantic_kind="node", color="transparent", fillcolor="transparent", fontsize="14", fontcolor="#5d4037", shape="plaintext"];
+      }
+      subgraph cluster_n061 {
+        graph [id="cluster_n061", label="Legend", d2_id="lower.footer.legend", semantic_kind="group", color="#CFD2DD", fillcolor="#FFFFFF", fontsize="20", fontcolor="#212121", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+        node_n062 [id="node_n062", label="Upstream vLLM, used as-is", d2_id="lower.footer.legend.L1", semantic_kind="node", color="#263238", fillcolor="#37474f", fontsize="14", fontcolor="#ffffff", style="filled,rounded", shape="box"];
+        node_n063 [id="node_n063", label="spyre-inference component", d2_id="lower.footer.legend.L2", semantic_kind="node", color="#0d47a1", fillcolor="#1565c0", fontsize="14", fontcolor="#ffffff", style="filled,rounded", shape="box"];
+        node_n064 [id="node_n064", label="Internal step · dense-grid path", d2_id="lower.footer.legend.L3", semantic_kind="node", color="#0d47a1", fillcolor="#E3E9FD", fontsize="14", fontcolor="#0A0F25", style="filled,rounded", shape="box"];
+        node_n065 [id="node_n065", label="Planned flash-attention path", d2_id="lower.footer.legend.L4", semantic_kind="node", color="#2e7d32", fillcolor="#E8F5E9", fontsize="14", fontcolor="#0A0F25", style="filled,rounded", shape="box"];
+        node_n066 [id="node_n066", label="Note or upstream dependency", d2_id="lower.footer.legend.L5", semantic_kind="node", color="#F9A825", fillcolor="#FFF8E1", fontsize="14", fontcolor="#5d4037", style="filled,rounded", shape="box"];
+      }
+    }
+  }
+  // Exactly one DOT edge per compiled D2 edge, preserving order and multiplicity.
+  proxy_n002 -> proxy_n004 [id="edge000", d2_id="upper.serving.(sched -> dispatch)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n002", lhead="cluster_n004"];
+  proxy_n004 -> proxy_n006 [id="edge001", d2_id="upper.serving.(dispatch -> body)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n004", lhead="cluster_n006"];
+  proxy_n006 -> proxy_n012 [id="edge002", d2_id="upper.serving.(body -> attention)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n006", lhead="cluster_n012"];
+  proxy_n012 -> proxy_n024 [id="edge003", d2_id="upper.serving.(attention -> pooler)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n012", lhead="cluster_n024"];
+  proxy_n024 -> node_n026 [id="edge004", d2_id="upper.serving.(pooler -> mean_dep)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n024"];
+  node_n026 -> proxy_n027 [id="edge005", d2_id="upper.serving.(mean_dep -> output)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", lhead="cluster_n027"];
+}

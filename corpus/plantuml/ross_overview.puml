@@ -1,0 +1,52 @@
+@startuml
+' Generated from the compiled D2 semantic mapping; see TRANSLATION.md.
+' Graphviz is PlantUML's default deployment-diagram layout; GRAPHVIZ_DOT pins it.
+skinparam shadowing false
+skinparam defaultTextAlignment center
+top to bottom direction
+rectangle "<size:28><b>ROSS - Workflow</b></size>" as n000 #back:transparent;line:transparent
+rectangle "Element Definition" as n001 #back:e8f4f8;line:2980b9 {
+  rectangle "Material" as n002 #back:d5e8d4;line:82b366
+  rectangle "ShaftElement" as n003 #back:dae8fc;line:6c8ebf
+  rectangle "DiskElement" as n004 #back:dae8fc;line:6c8ebf
+  rectangle "BearingElement" as n005 #back:fff2cc;line:d6b656
+  rectangle "SealElement" as n006 #back:fff2cc;line:d6b656
+  rectangle "PointMass" as n007 #back:dae8fc;line:6c8ebf
+  rectangle "CouplingElement" as n008 #back:dae8fc;line:6c8ebf
+  rectangle "GearElement" as n009 #back:dae8fc;line:6c8ebf
+}
+rectangle "<size:18><b>Rotor</b></size>" as n010 #back:f8cecc;line:b85450
+rectangle "MultiRotor" as n011 #back:f8cecc;line:b85450
+rectangle "Analyses" as n012 #back:e1d5e7;line:9673a6 {
+  rectangle "run&#95;static()" as n013 #back:f3e5f5;line:9673a6
+  rectangle "run&#95;modal()" as n014 #back:f3e5f5;line:9673a6
+  rectangle "run&#95;campbell()" as n015 #back:f3e5f5;line:9673a6
+  rectangle "run&#95;critical&#95;speed()" as n016 #back:f3e5f5;line:9673a6
+  rectangle "run&#95;ucs()" as n017 #back:f3e5f5;line:9673a6
+  rectangle "run&#95;level1()" as n018 #back:f3e5f5;line:9673a6
+  rectangle "run&#95;freq&#95;response()" as n019 #back:f3e5f5;line:9673a6
+  rectangle "run&#95;unbalance&#95;response()" as n020 #back:f3e5f5;line:9673a6
+  rectangle "run&#95;time&#95;response()" as n021 #back:f3e5f5;line:9673a6
+  rectangle "run&#95;harmonic&#95;balance()" as n022 #back:f3e5f5;line:9673a6
+  rectangle "Fault Analysis" as n023 #back:f3e5f5;line:9673a6
+}
+rectangle "Results and Visualization" as n024 #back:d5f5e3;line:27ae60 {
+  rectangle "Interactive Plots (Plotly)" as n025 #back:e8f8f5;line:27ae60
+  rectangle "Numerical Data" as n026 #back:e8f8f5;line:27ae60
+}
+' One link per D2 edge, in compiler order; no synthetic layout links.
+n002 --> n003
+n002 --> n004
+n003 --> n010
+n004 --> n010
+n005 --> n010
+n006 --> n010
+n007 --> n010
+n008 --> n010
+n008 --> n011
+n009 --> n011
+n010 -[dashed]-> n011 : coupling
+n010 --> n012
+n011 --> n012
+n012 --> n024
+@enduml

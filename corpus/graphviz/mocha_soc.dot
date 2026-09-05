@@ -1,0 +1,74 @@
+// Generated from the audited D2 semantic mapping. See TRANSLATION.md.
+digraph diagram {
+  graph [compound="true", rankdir="TB", bgcolor="white", fontname="Helvetica", fontsize="14", pad="0.25"];
+  node [shape="box", fontname="Helvetica", fontsize="14", color="#333333", margin="0.12,0.08"];
+  edge [fontname="Helvetica", fontsize="14", color="#333333"];
+  node_n000 [id="node_n000", label="DRAM\n\n1 GiB of DDR3", d2_id="dram", semantic_kind="node", color="black", penwidth="5", fontsize="50", style="dashed", shape="box"];
+  subgraph cluster_n001 {
+    graph [id="cluster_n001", label="Mocha", d2_id="Mocha", semantic_kind="group", color="transparent", penwidth="5", fontsize="50", labelloc="t", labeljust="l", margin="12"];
+    subgraph cluster_n002 {
+      graph [id="cluster_n002", label="CVA6-CHERI", d2_id="Mocha.CVA6-CHERI", semantic_kind="group", color="black", penwidth="5", fontsize="50", labelloc="t", labeljust="l", margin="12"];
+      proxy_n002 [id="proxy_n002", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="Mocha.CVA6-CHERI"];
+      node_n003 [id="node_n003", label="Frontend", d2_id="Mocha.CVA6-CHERI.Frontend", semantic_kind="node", color="black", penwidth="5", fontsize="40", shape="box"];
+      node_n004 [id="node_n004", label="ID stage", d2_id="Mocha.CVA6-CHERI.ID stage", semantic_kind="node", color="black", penwidth="5", fontsize="40", shape="box"];
+      node_n005 [id="node_n005", label="Issue stage", d2_id="Mocha.CVA6-CHERI.Issue stage", semantic_kind="node", color="black", penwidth="5", fontsize="40", shape="box"];
+      node_n006 [id="node_n006", label="EX stage", d2_id="Mocha.CVA6-CHERI.EX stage", semantic_kind="node", color="black", penwidth="5", fontsize="40", shape="box"];
+      node_n007 [id="node_n007", label="Commit stage", d2_id="Mocha.CVA6-CHERI.Commit stage", semantic_kind="node", color="black", penwidth="5", fontsize="40", shape="box"];
+      node_n008 [id="node_n008", label="Cache subsystem", d2_id="Mocha.CVA6-CHERI.Cache subsystem", semantic_kind="node", color="black", penwidth="5", fontsize="40", shape="box"];
+    }
+    node_n009 [id="node_n009", label="AXI crossbar\n\n64-bit width", d2_id="Mocha.axi", semantic_kind="node", color="black", penwidth="5", fontsize="50", shape="box"];
+    node_n010 [id="node_n010", label="TileLink crossbar\n\n32-bit width", d2_id="Mocha.tlul", semantic_kind="node", color="black", fillcolor="hotpink", penwidth="5", fontsize="50", style="filled,dashed", shape="box"];
+    node_n011 [id="node_n011", label="Tag control", d2_id="Mocha.Tag control", semantic_kind="node", color="black", penwidth="5", fontsize="50", shape="box"];
+    node_n012 [id="node_n012", label="Debug", d2_id="Mocha.Debug", semantic_kind="node", color="black", fillcolor="hotpink", penwidth="5", fontsize="50", style="filled", shape="box"];
+    node_n013 [id="node_n013", label="SRAM", d2_id="Mocha.SRAM", semantic_kind="node", color="black", fillcolor="hotpink", penwidth="5", fontsize="50", style="filled", shape="box"];
+    node_n014 [id="node_n014", label="Mailbox", d2_id="Mocha.Mailbox", semantic_kind="node", color="black", fillcolor="hotpink", penwidth="5", fontsize="50", style="filled,dashed", shape="box"];
+    subgraph cluster_n015 {
+      graph [id="cluster_n015", label="Peripherals", d2_id="Mocha.Peripherals", semantic_kind="group", color="black", fillcolor="hotpink", penwidth="5", fontsize="50", style="filled,dashed", labelloc="t", labeljust="l", margin="12"];
+      proxy_n015 [id="proxy_n015", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="Mocha.Peripherals"];
+      node_n016 [id="node_n016", label="ROM\n\n32 KiB", d2_id="Mocha.Peripherals.rom", semantic_kind="node", color="black", fillcolor="lightpink", penwidth="5", fontsize="40", style="filled,dashed", shape="box"];
+      node_n017 [id="node_n017", label="Entropy\n\nSource", d2_id="Mocha.Peripherals.entropy", semantic_kind="node", color="black", fillcolor="lightpink", penwidth="5", fontsize="40", style="filled,dashed", shape="box"];
+      node_n018 [id="node_n018", label="KMAC\n\nSHA3", d2_id="Mocha.Peripherals.kmac", semantic_kind="node", color="black", fillcolor="lightpink", penwidth="5", fontsize="40", style="filled,dashed", shape="box"];
+      node_n019 [id="node_n019", label="PLIC", d2_id="Mocha.Peripherals.PLIC", semantic_kind="node", color="black", fillcolor="lightpink", penwidth="5", fontsize="40", style="filled,dashed", shape="box"];
+      node_n020 [id="node_n020", label="Timer", d2_id="Mocha.Peripherals.Timer", semantic_kind="node", color="black", fillcolor="lightpink", penwidth="5", fontsize="40", style="filled,dashed", shape="box"];
+      node_n021 [id="node_n021", label="GPIO", d2_id="Mocha.Peripherals.GPIO", semantic_kind="node", color="black", fillcolor="lightpink", penwidth="5", fontsize="40", style="filled,dashed", shape="box"];
+      node_n022 [id="node_n022", label="I2C", d2_id="Mocha.Peripherals.I2C", semantic_kind="node", color="black", fillcolor="lightpink", penwidth="5", fontsize="40", style="filled,dashed", shape="box"];
+      node_n023 [id="node_n023", label="SPI\n\nDevice", d2_id="Mocha.Peripherals.spi_dev", semantic_kind="node", color="black", fillcolor="lightpink", penwidth="5", fontsize="40", style="filled,dashed", shape="box"];
+      node_n024 [id="node_n024", label="SPI\n\nHost", d2_id="Mocha.Peripherals.spi_host", semantic_kind="node", color="black", fillcolor="lightpink", penwidth="5", fontsize="40", style="filled,dashed", shape="box"];
+      node_n025 [id="node_n025", label="UART", d2_id="Mocha.Peripherals.UART", semantic_kind="node", color="black", fillcolor="lightpink", penwidth="5", fontsize="40", style="filled,dashed", shape="box"];
+      node_n026 [id="node_n026", label="Managers\n\n- Clock\n- Reset\n- Power", d2_id="Mocha.Peripherals.managers", semantic_kind="node", color="black", fillcolor="lightpink", penwidth="5", fontsize="40", style="filled,dashed", shape="box"];
+    }
+  }
+  node_n027 [id="node_n027", label="Rest of chip\n\n64-bit bus", d2_id="chip", semantic_kind="node", color="black", fillcolor="hotpink", penwidth="5", fontsize="50", style="filled,dashed", shape="box"];
+  node_n028 [id="node_n028", label="Flash", d2_id="Flash", semantic_kind="node", color="black", fillcolor="hotpink", penwidth="5", fontsize="50", style="filled,dashed", shape="box"];
+  node_n029 [id="node_n029", label="I2C", d2_id="I2C", semantic_kind="node", color="black", fillcolor="hotpink", penwidth="5", fontsize="50", style="filled,dashed", shape="box"];
+  node_n030 [id="node_n030", label="SPI", d2_id="SPI", semantic_kind="node", color="black", fillcolor="hotpink", penwidth="5", fontsize="50", style="filled,dashed", shape="box"];
+  node_n031 [id="node_n031", label="UART", d2_id="UART", semantic_kind="node", color="black", fillcolor="hotpink", penwidth="5", fontsize="50", style="filled,dashed", shape="box"];
+  node_n032 [id="node_n032", label="GPIO", d2_id="GPIO", semantic_kind="node", color="black", fillcolor="hotpink", penwidth="5", fontsize="50", style="filled,dashed", shape="box"];
+  subgraph cluster_n033 {
+    graph [id="cluster_n033", label="Legend", d2_id="Legend", semantic_kind="group", color="transparent", fillcolor="transparent", penwidth="5", fontsize="50", style="filled", labelloc="t", labeljust="l", margin="12"];
+    proxy_n033 [id="proxy_n033", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="Legend"];
+    node_n034 [id="node_n034", label="Cached", d2_id="Legend.Cached", semantic_kind="node", color="black", penwidth="0", fontsize="50", shape="box"];
+    node_n035 [id="node_n035", label="Uncached", d2_id="Legend.Uncached", semantic_kind="node", color="black", fillcolor="hotpink", penwidth="0", fontsize="50", style="filled", shape="box"];
+    node_n036 [id="node_n036", label="Tag aware", d2_id="Legend.Tag aware", semantic_kind="node", color="black", fillcolor="transparent", penwidth="5", fontsize="50", style="filled", shape="box"];
+    node_n037 [id="node_n037", label="Tag oblivious", d2_id="Legend.Tag oblivious", semantic_kind="node", color="black", fillcolor="transparent", penwidth="5", fontsize="50", style="filled,dashed", shape="box"];
+  }
+  // Exactly one DOT edge per compiled D2 edge, preserving order and multiplicity.
+  node_n003 -> node_n008 [id="edge000", d2_id="Mocha.CVA6-CHERI.(Frontend <- Cache subsystem)[0]", label="", dir="back", arrowtail="normal", arrowhead="none"];
+  node_n006 -> node_n008 [id="edge001", d2_id="Mocha.CVA6-CHERI.(EX stage <-> Cache subsystem)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal"];
+  node_n008 -> node_n009 [id="edge002", d2_id="Mocha.(CVA6-CHERI.Cache subsystem <-> axi)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal"];
+  node_n008 -> node_n010 [id="edge003", d2_id="Mocha.(CVA6-CHERI.Cache subsystem <-> tlul)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal"];
+  node_n009 -> node_n011 [id="edge004", d2_id="Mocha.(axi <-> Tag control)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal"];
+  node_n009 -> node_n012 [id="edge005", d2_id="Mocha.(axi <-> Debug)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal"];
+  node_n009 -> node_n013 [id="edge006", d2_id="Mocha.(axi <-> SRAM)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal"];
+  node_n009 -> node_n014 [id="edge007", d2_id="Mocha.(axi <-> Mailbox)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal"];
+  node_n010 -> proxy_n015 [id="edge008", d2_id="Mocha.(tlul <-> Peripherals)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal", lhead="cluster_n015"];
+  node_n024 -> node_n028 [id="edge009", d2_id="(Mocha.Peripherals.spi_host <-> Flash)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal"];
+  node_n011 -> node_n000 [id="edge010", d2_id="(Mocha.Tag control <-> dram)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal"];
+  node_n009 -> node_n027 [id="edge011", d2_id="(Mocha.axi <-> chip)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal"];
+  node_n014 -> node_n027 [id="edge012", d2_id="(Mocha.Mailbox <-> chip)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal"];
+  node_n022 -> node_n029 [id="edge013", d2_id="(Mocha.Peripherals.I2C <-> I2C)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal"];
+  node_n023 -> node_n030 [id="edge014", d2_id="(Mocha.Peripherals.spi_dev <-> SPI)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal"];
+  node_n025 -> node_n031 [id="edge015", d2_id="(Mocha.Peripherals.UART <-> UART)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal"];
+  node_n021 -> node_n032 [id="edge016", d2_id="(Mocha.Peripherals.GPIO <-> GPIO)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal"];
+  proxy_n033 -> proxy_n002 [id="edge017", d2_id="(Legend <-> Mocha.CVA6-CHERI)[0]", label="", dir="both", arrowtail="normal", arrowhead="normal", color="transparent", ltail="cluster_n033", lhead="cluster_n002"];
+}

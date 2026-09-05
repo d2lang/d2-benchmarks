@@ -1,0 +1,11 @@
+{
+  "layout": "dagre",
+  "theme": "default",
+  "flowchart": {
+    "useMaxWidth": false,
+    "htmlLabels": true,
+    "defaultRenderer": "dagre-wrapper"
+  },
+  "maxTextSize": 1000000,
+  "maxEdges": 10000
+}

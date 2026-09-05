@@ -1,0 +1,57 @@
+@startuml
+' Generated from the compiled D2 semantic mapping; see TRANSLATION.md.
+' Graphviz is PlantUML's default deployment-diagram layout; GRAPHVIZ_DOT pins it.
+skinparam shadowing false
+skinparam defaultTextAlignment center
+top to bottom direction
+rectangle "<size:24><b>Frontend Data Flow</b></size>" as n000 #back:transparent;line:transparent
+rectangle "Server" as n001 #back:e3f2fd {
+  rectangle "tRPC API" as n002
+  rectangle "SSE Endpoint" as n003
+}
+rectangle "Client State" as n004 #back:fff3e0 {
+  database "React Query Cache" as n005 #back:ffcc80 {
+    rectangle "Server state cache\n- entries.list (infinite)\n- entries.get\n- entries.count\n- subscriptions.list\n- tags.list" as n006 #back:transparent;line:transparent
+  }
+  rectangle "Cache Helpers" as n007 #back:a5d6a7 {
+    rectangle "src/lib/cache/\n- adjustSubscriptionUnreadCounts\n- adjustTagUnreadCounts\n- addSubscriptionToCache\n- updateEntriesReadStatus" as n008 #back:transparent;line:transparent
+  }
+}
+rectangle "Custom Hooks" as n009 #back:f3e5f5 {
+  rectangle "useRealtimeUpdates" as n010
+  rectangle "useEntryMutations" as n011
+  rectangle "useKeyboardShortcuts" as n012
+}
+rectangle "UI Components" as n013 #back:e8f5e9 {
+  rectangle "Sidebar" as n014
+  rectangle "UnifiedEntriesContent" as n015
+  rectangle "EntryListContainer" as n016
+  rectangle "EntryList" as n017
+  rectangle "EntryContent" as n018
+}
+rectangle "Legend" as n019 #back:fafafa;line:e0e0e0 {
+  rectangle "Blue: Initial data fetch" as n020
+  rectangle "Green: Real-time updates (SSE)" as n021
+  rectangle "Purple: Query data flow" as n022
+  rectangle "Orange: User mutations" as n023
+  rectangle "Teal: Direct cache updates" as n024
+  rectangle "Dashed: Invalidation" as n025
+}
+' One link per D2 edge, in compiler order; no synthetic layout links.
+n002 -[#1976d2,thickness=2]-> n005 : Initial fetch
+n003 -[#388e3c,thickness=2]-> n010 : SSE events\n(new&#95;entry, subscription&#95;&#42;)
+n010 -[#388e3c]-> n007 : subscription&#95;created\nsubscription&#95;deleted
+n010 -[#388e3c]-> n007 : insert entry + set counts\n(new&#95;entry)
+n007 -[#00796b,thickness=2]-> n005 : Direct cache updates
+n005 -[#7b1fa2]-> n015 : Paginated entries\n(non-suspending)
+n005 -[#7b1fa2]-> n016 : Paginated entries\n(suspending)
+n016 -[#7b1fa2,thickness=2]-> n017 : Entries with\nread/starred state
+n005 -[#7b1fa2]-> n014 : Subscriptions/tags\nwith counts
+n017 -[#f57c00]-> n011 : User action\n(toggle read)
+n011 -[#f57c00]-> n002 : 1. Server mutation
+n002 -[#f57c00,dashed]-> n011 : 2. Response with\nsubscription context
+n011 -[#f57c00,thickness=2]-> n007 : 3. Update counts\n(instant)
+n011 -[#f57c00,dashed]-> n005 : 4. Invalidate\nentry lists
+n016 -[#9e9e9e,dashed]-> n012 : Keyboard navigation
+n015 -[#9e9e9e,dashed]-> n018 : Entry view with\nswipe navigation
+@enduml

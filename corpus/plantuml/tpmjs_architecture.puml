@@ -1,0 +1,307 @@
+@startuml
+' Generated from the compiled D2 semantic mapping; see TRANSLATION.md.
+' Graphviz is PlantUML's default deployment-diagram layout; GRAPHVIZ_DOT pins it.
+skinparam shadowing false
+skinparam defaultTextAlignment center
+top to bottom direction
+rectangle "External Clients" as n000 #back:e0f7fa;line:00838f {
+  rectangle "Web App\n(Next.js 16)" as n001
+  rectangle "TPMJS CLI\n(@tpmjs/cli)" as n002
+  rectangle "AI Clients\n(Claude Desktop, GPT, etc.)" as n003
+  rectangle "Bridge CLI\n(@tpmjs/bridge)" as n004 #line.dashed
+}
+rectangle "API Gateway" as n005 #back:e3f2fd;line:1976d2 {
+  rectangle "Authentication" as n006 {
+    rectangle "Better Auth\n(email/password, OAuth)" as n007
+    rectangle "TPMJS API Keys\n(scoped permissions)" as n008
+    rectangle "Session Tokens" as n009
+  }
+  rectangle "Rate Limiting" as n010 {
+    rectangle "Per-endpoint limits" as n011
+    rectangle "User tier-based\n(FREE, PRO, ENTERPRISE)" as n012
+  }
+}
+rectangle "API Endpoints" as n013 #back:e3f2fd;line:1976d2 {
+  rectangle "Tool Discovery" as n014 {
+    rectangle "GET /api/tools" as n015
+    rectangle "GET /api/tools/search" as n016
+    rectangle "GET /api/tools/&#91;id&#93;" as n017
+  }
+  rectangle "Execution" as n018 {
+    rectangle "POST /api/tools/execute/&#91;slug&#93;" as n019
+    rectangle "(SSE streaming)" as n020
+  }
+  rectangle "MCP Protocol" as n021 {
+    rectangle "/api/mcp/&#91;user&#93;/&#91;slug&#93;/&#91;transport&#93;" as n022
+    rectangle "(JSON-RPC 2.0)" as n023
+  }
+  rectangle "Agents &#38; Collections" as n024 {
+    rectangle "/api/agents/&#42;" as n025
+    rectangle "/api/collections/&#42;" as n026
+    rectangle "/api/chat/&#42;" as n027
+  }
+  rectangle "Bridge" as n028 #line.dashed {
+    rectangle "POST /api/bridge" as n029
+    rectangle "GET /api/bridge" as n030
+    rectangle "(polling + results)" as n031
+  }
+  rectangle "Scenarios" as n032 {
+    rectangle "/api/scenarios/&#42;" as n033
+    rectangle "/api/use-cases/&#42;" as n034
+  }
+  rectangle "Sync (Cron)" as n035 {
+    rectangle "/api/sync/changes" as n036
+    rectangle "/api/sync/keyword" as n037
+    rectangle "/api/sync/metrics" as n038
+  }
+  rectangle "Stats &#38; Health" as n039 {
+    rectangle "GET /api/stats" as n040
+    rectangle "GET /api/health" as n041
+    rectangle "POST /api/health/report" as n042
+  }
+}
+rectangle "Execution Flows" as n043 {
+  rectangle "Path A: Playground Flow\n(Web UI)" as n044 #back:fce4ec;line:c2185b {
+    rectangle "1. User Prompt" as n045
+    rectangle "2. POST /api/tools/execute/&#91;slug&#93;" as n046
+    rectangle "3. AI Agent (AI SDK v6)\nGPT-4 / Claude / etc." as n047
+    rectangle "4. Tool Schema (Zod)" as n048
+    rectangle "5. Executor Resolution\nAgent -&#62; Collection -&#62; Default" as n049
+    rectangle "6. EXECUTOR (Railway)\nPOST /execute-tool" as n050
+    rectangle "7. SSE Stream Response\n(chunk, tokens, complete)" as n051
+  }
+  rectangle "Path B: MCP Flow\n(External AI Client)" as n052 #back:fce4ec;line:c2185b {
+    rectangle "1. External AI Client" as n053
+    rectangle "2. JSON-RPC 2.0" as n054
+    rectangle "3. /api/mcp/&#91;user&#93;/&#91;slug&#93;/&#91;transport&#93;" as n055
+    rectangle "4. MCP Handler\ntools/list, tools/call" as n056
+    rectangle "5. Tool Name Resolution\nRegistry + Bridge tools" as n057
+    rectangle "6. Same Executor" as n058
+    rectangle "7. JSON-RPC Response" as n059
+  }
+}
+rectangle "Schema Extraction Pipeline" as n060 #back:f3e5f5;line:7b1fa2 {
+  rectangle "NPM Registry\npackages with 'tpmjs' keyword" as n061 #back:fff3e0;line:f57c00
+  rectangle "Sync Workers (Actions + on-box timers)" as n062 {
+    rectangle "/api/sync/changes (every 2 min)\nnpm &#95;changes feed" as n063
+    rectangle "/api/sync/keyword (every 15 min)\nkeyword search" as n064
+    rectangle "/api/sync/metrics (every hour)\ndownloads, stars" as n065
+  }
+  rectangle "Schema Extraction" as n066 {
+    rectangle "1. Fetch package from npm" as n067
+    rectangle "2. Import via esm.sh (dynamic)" as n068
+    rectangle "3. listToolExports() - discover exports" as n069
+    rectangle "4. extractToolSchema() - analyze signatures" as n070
+    rectangle "5. AI extraction (if needed)" as n071
+    rectangle "6. validateTpmjsField()" as n072
+    rectangle "7. Store in database (inputSchema)" as n073
+  }
+  rectangle "Zod / AI SDK Conversion" as n074 {
+    rectangle "TPMJS Parameters" as n075
+    rectangle "convertToZodSchema()" as n076
+    rectangle "Zod Schema\nz.object({ ... })" as n077
+    rectangle "AI SDK inputSchema" as n078
+    rectangle "LLM Tool Definition\n(OpenAI/Anthropic format)" as n079
+  }
+}
+rectangle "Executor Architecture" as n080 #back:fce4ec;line:c2185b {
+  rectangle "Executor Contract" as n081 {
+    rectangle "POST /execute-tool\n{ packageName, name, version, params, env }" as n082
+    rectangle "Response: { success, output, error, executionTimeMs }" as n083
+    rectangle "GET /health" as n084
+  }
+  rectangle "Implementations" as n085 {
+    rectangle "Railway (Default)\n- Sandboxed Node.js\n- Dynamic imports from esm.sh\n- Runs untrusted npm code safely" as n086
+    rectangle "Vercel Template\n- Serverless functions\n- One-click deploy" as n087
+    rectangle "Future Options\n- AWS Lambda\n- Docker\n- Custom HTTP service" as n088
+  }
+}
+rectangle "Database (Neon PostgreSQL)" as n089 #back:e8f5e9;line:388e3c {
+  rectangle "PACKAGES" as n090 {
+    rectangle "Package" as n091
+    rectangle "Tool" as n092
+    rectangle "HealthCheck" as n093
+  }
+  rectangle "USERS" as n094 {
+    rectangle "User" as n095
+    rectangle "Session" as n096
+    rectangle "Account" as n097
+    rectangle "Verification" as n098
+    rectangle "UserApiKey" as n099
+    rectangle "TpmjsApiKey" as n100
+  }
+  rectangle "EXECUTION" as n101 {
+    rectangle "Simulation" as n102
+    rectangle "TokenUsage" as n103
+    rectangle "ExecutionLog" as n104
+    rectangle "ApiUsageRecord" as n105
+    rectangle "ApiUsageSummary" as n106
+  }
+  rectangle "COLLECTIONS" as n107 {
+    rectangle "Collection" as n108
+    rectangle "CollectionTool" as n109
+    rectangle "CollectionLike" as n110
+    rectangle "CollectionBridgeTool" as n111
+  }
+  rectangle "AGENTS" as n112 {
+    rectangle "Agent" as n113
+    rectangle "AgentCollection" as n114
+    rectangle "AgentTool" as n115
+    rectangle "AgentLike" as n116
+    rectangle "Conversation" as n117
+    rectangle "Message" as n118
+  }
+  rectangle "SYNC" as n119 {
+    rectangle "SyncCheckpoint" as n120
+    rectangle "SyncLog" as n121
+    rectangle "StatsSnapshot" as n122
+    rectangle "EndpointHealthReport" as n123
+  }
+  rectangle "SCENARIOS" as n124 {
+    rectangle "Scenario" as n125
+    rectangle "ScenarioRun" as n126
+    rectangle "ScenarioEmbedding" as n127
+    rectangle "ScenarioQuota" as n128
+  }
+  rectangle "USE&#95;CASES" as n129 {
+    rectangle "UseCase" as n130
+    rectangle "Persona" as n131
+    rectangle "Industry" as n132
+    rectangle "Category" as n133
+    rectangle "SocialProof" as n134
+  }
+  rectangle "ENGAGEMENT" as n135 {
+    rectangle "ToolLike" as n136
+    rectangle "ToolRating" as n137
+    rectangle "ToolReview" as n138
+    rectangle "UserActivity" as n139
+  }
+  rectangle "BRIDGE" as n140 #line.dashed {
+    rectangle "BridgeConnection" as n141
+  }
+}
+rectangle "Background Workers (Self-hosted schedules)" as n142 #back:fff3e0;line:f57c00 {
+  rectangle "Sync Jobs" as n143 {
+    rectangle "Every 2 min: /api/sync/changes\n(npm changes feed)" as n144
+    rectangle "Every 15 min: /api/sync/keyword\n(keyword search)" as n145
+    rectangle "Every hour: /api/sync/metrics\n(downloads, stars)" as n146
+  }
+  rectangle "Daily Jobs" as n147 {
+    rectangle "Daily: /api/sync/stats-snapshot" as n148
+    rectangle "Daily 3am: /api/sync/cleanup-activity" as n149
+    rectangle "Daily 9am: /api/cron/discord-summary" as n150
+    rectangle "Daily: /api/cron/use-cases\n(AI generation)" as n151
+  }
+}
+rectangle "External Services" as n152 #back:fff3e0;line:f57c00 {
+  rectangle "Package Sources" as n153 {
+    rectangle "npm Registry\nMetadata, changes feed" as n154
+    rectangle "GitHub API\nStars, repo metadata" as n155
+    rectangle "Bundlephobia\nPackage size analysis" as n156
+  }
+  rectangle "Runtime" as n157 {
+    rectangle "esm.sh\nDynamic ESM imports" as n158
+    rectangle "Vercel\nHosting, Edge, Cron" as n159
+    rectangle "Railway\nDefault executor hosting" as n160
+  }
+  rectangle "Data" as n161 {
+    rectangle "Neon\nPostgreSQL database" as n162
+  }
+  rectangle "AI Providers" as n163 {
+    rectangle "OpenAI\nGPT-4, embeddings" as n164
+    rectangle "Anthropic\nClaude" as n165
+    rectangle "Google\nGemini" as n166
+    rectangle "Groq" as n167
+    rectangle "Mistral" as n168
+  }
+  rectangle "Notifications" as n169 {
+    rectangle "Discord\nDaily summaries" as n170
+  }
+}
+rectangle "Bridge System (WIP)" as n171 #line.dashed {
+  rectangle "Local MCP Server\n(Blender, etc.)" as n172
+  rectangle "Bridge CLI\n(@tpmjs/bridge)" as n173
+  rectangle "POST /api/bridge\n{ type: 'register', tools: &#91;...&#93; }" as n174
+  rectangle "BridgeConnection record" as n175
+  rectangle "Tool calls via polling:\nGET /api/bridge -&#62; pending calls\nPOST /api/bridge -&#62; tool results" as n176
+}
+rectangle "AI Integration Points" as n177 #back:f3e5f5;line:7b1fa2 {
+  rectangle "User-Provided Keys" as n178 {
+    rectangle "Agent chats\n(users bring their own API keys)" as n179
+    rectangle "Custom collections\nwith API key storage" as n180
+  }
+  rectangle "Internal Keys (TPMJS)" as n181 {
+    rectangle "Schema extraction\n(analyze tool signatures)" as n182
+    rectangle "Use case generation\n(marketing content)" as n183
+    rectangle "Scenario evaluation\n(pass/fail determination)" as n184
+    rectangle "Discord summaries" as n185
+  }
+  rectangle "Supported Providers" as n186 {
+    rectangle "OpenAI (GPT-4, GPT-4 Turbo)\nAnthropic (Claude)\nGoogle (Gemini)\nGroq\nMistral" as n187
+  }
+}
+' One link per D2 edge, in compiler order; no synthetic layout links.
+n045 --> n046
+n046 --> n047
+n047 --> n048
+n048 --> n049
+n049 --> n050
+n050 --> n051
+n053 --> n054
+n054 --> n055
+n055 --> n056
+n056 --> n057
+n057 --> n058
+n058 --> n059
+n075 --> n076
+n076 --> n077
+n077 --> n078
+n078 --> n079
+n061 --> n062
+n062 --> n066
+n066 --> n074
+n081 --> n085
+n092 --> n109
+n092 --> n115
+n092 --> n136
+n092 --> n125 : via Collection
+n095 --> n108
+n095 --> n113
+n095 --> n141
+n108 --> n114
+n108 --> n125
+n125 --> n130
+n172 --> n173
+n173 --> n174
+n174 --> n175
+n175 --> n176
+n001 --> n006
+n002 --> n006
+n003 --> n006
+n004 -[dashed]-> n006
+n005 --> n013
+n014 --> n046
+n018 --> n046
+n021 --> n055
+n050 --> n081
+n058 --> n081
+n086 --> n160
+n073 --> n092
+n061 --> n154
+n068 --> n158
+n071 --> n163
+n143 --> n035
+n147 --> n032
+n014 --> n090
+n024 --> n112
+n024 --> n107
+n032 --> n124
+n032 --> n129
+n039 --> n119
+n162 --> n089
+n178 --> n163
+n181 --> n163
+n004 -[dashed]-> n173
+n171 -[dashed]-> n028
+n175 -[dashed]-> n140
+@enduml

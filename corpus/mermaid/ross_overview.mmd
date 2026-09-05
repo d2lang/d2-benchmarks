@@ -1,0 +1,78 @@
+%% Generated from the compiled D2 graph; see matching .mapping.json and TRANSLATION.md.
+flowchart TB
+  n000["ROSS - Workflow"]
+  subgraph n001["Element Definition"]
+    direction TB
+    n002["Material"]
+    n003["ShaftElement"]
+    n004["DiskElement"]
+    n005["BearingElement"]
+    n006["SealElement"]
+    n007["PointMass"]
+    n008["CouplingElement"]
+    n009["GearElement"]
+  end
+  n010["Rotor"]
+  n011["MultiRotor"]
+  subgraph n012["Analyses"]
+    direction TB
+    n013["run_static()"]
+    n014["run_modal()"]
+    n015["run_campbell()"]
+    n016["run_critical_speed()"]
+    n017["run_ucs()"]
+    n018["run_level1()"]
+    n019["run_freq_response()"]
+    n020["run_unbalance_response()"]
+    n021["run_time_response()"]
+    n022["run_harmonic_balance()"]
+    n023["Fault Analysis"]
+  end
+  subgraph n024["Results and Visualization"]
+    direction TB
+    n025["Interactive Plots (Plotly)"]
+    n026["Numerical Data"]
+  end
+  %% Edges in original compiler order; one line per compiled edge.
+  n002 --> n003
+  n002 --> n004
+  n003 --> n010
+  n004 --> n010
+  n005 --> n010
+  n006 --> n010
+  n007 --> n010
+  n008 --> n010
+  n008 --> n011
+  n009 --> n011
+  n010 -->|"coupling"| n011
+  n010 --> n012
+  n011 --> n012
+  n012 --> n024
+  style n000 font-size:28px,font-weight:bold,fill:transparent,stroke:transparent
+  style n001 fill:#e8f4f8,stroke:#2980b9,rx:10,ry:10
+  style n002 fill:#d5e8d4,stroke:#82b366
+  style n003 fill:#dae8fc,stroke:#6c8ebf
+  style n004 fill:#dae8fc,stroke:#6c8ebf
+  style n005 fill:#fff2cc,stroke:#d6b656
+  style n006 fill:#fff2cc,stroke:#d6b656
+  style n007 fill:#dae8fc,stroke:#6c8ebf
+  style n008 fill:#dae8fc,stroke:#6c8ebf
+  style n009 fill:#dae8fc,stroke:#6c8ebf
+  style n010 fill:#f8cecc,stroke:#b85450,font-size:18px,font-weight:bold,rx:10,ry:10
+  style n011 fill:#f8cecc,stroke:#b85450,rx:10,ry:10
+  style n012 fill:#e1d5e7,stroke:#9673a6,rx:10,ry:10
+  style n013 fill:#f3e5f5,stroke:#9673a6
+  style n014 fill:#f3e5f5,stroke:#9673a6
+  style n015 fill:#f3e5f5,stroke:#9673a6
+  style n016 fill:#f3e5f5,stroke:#9673a6
+  style n017 fill:#f3e5f5,stroke:#9673a6
+  style n018 fill:#f3e5f5,stroke:#9673a6
+  style n019 fill:#f3e5f5,stroke:#9673a6
+  style n020 fill:#f3e5f5,stroke:#9673a6
+  style n021 fill:#f3e5f5,stroke:#9673a6
+  style n022 fill:#f3e5f5,stroke:#9673a6
+  style n023 fill:#f3e5f5,stroke:#9673a6
+  style n024 fill:#d5f5e3,stroke:#27ae60,rx:10,ry:10
+  style n025 fill:#e8f8f5,stroke:#27ae60
+  style n026 fill:#e8f8f5,stroke:#27ae60
+  linkStyle 10 stroke-dasharray:5 5

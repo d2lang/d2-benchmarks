@@ -1,0 +1,68 @@
+@startuml
+' Generated from the compiled D2 semantic mapping; see TRANSLATION.md.
+' Graphviz is PlantUML's default deployment-diagram layout; GRAPHVIZ_DOT pins it.
+skinparam shadowing false
+skinparam defaultTextAlignment center
+top to bottom direction
+rectangle "<size:50>DRAM</size>\n<size:50>&#160;</size>\n<size:50>1 GiB of DDR3</size>" as n000 #line:black;line.dashed
+rectangle "<size:50>Mocha</size>" as n001 #line:transparent {
+  rectangle "<size:50>CVA6-CHERI</size>" as n002 #line:black {
+    rectangle "<size:40>Frontend</size>" as n003 #line:black
+    rectangle "<size:40>ID stage</size>" as n004 #line:black
+    rectangle "<size:40>Issue stage</size>" as n005 #line:black
+    rectangle "<size:40>EX stage</size>" as n006 #line:black
+    rectangle "<size:40>Commit stage</size>" as n007 #line:black
+    rectangle "<size:40>Cache subsystem</size>" as n008 #line:black
+  }
+  rectangle "<size:50>AXI crossbar</size>\n<size:50>&#160;</size>\n<size:50>64-bit width</size>" as n009 #line:black
+  rectangle "<size:50>TileLink crossbar</size>\n<size:50>&#160;</size>\n<size:50>32-bit width</size>" as n010 #back:hotpink;line:black;line.dashed
+  rectangle "<size:50>Tag control</size>" as n011 #line:black
+  rectangle "<size:50>Debug</size>" as n012 #back:hotpink;line:black
+  rectangle "<size:50>SRAM</size>" as n013 #back:hotpink;line:black
+  rectangle "<size:50>Mailbox</size>" as n014 #back:hotpink;line:black;line.dashed
+  rectangle "<size:50>Peripherals</size>" as n015 #back:hotpink;line:black;line.dashed {
+    rectangle "<size:40>ROM</size>\n<size:40>&#160;</size>\n<size:40>32 KiB</size>" as n016 #back:lightpink;line:black;line.dashed
+    rectangle "<size:40>Entropy</size>\n<size:40>&#160;</size>\n<size:40>Source</size>" as n017 #back:lightpink;line:black;line.dashed
+    rectangle "<size:40>KMAC</size>\n<size:40>&#160;</size>\n<size:40>SHA3</size>" as n018 #back:lightpink;line:black;line.dashed
+    rectangle "<size:40>PLIC</size>" as n019 #back:lightpink;line:black;line.dashed
+    rectangle "<size:40>Timer</size>" as n020 #back:lightpink;line:black;line.dashed
+    rectangle "<size:40>GPIO</size>" as n021 #back:lightpink;line:black;line.dashed
+    rectangle "<size:40>I2C</size>" as n022 #back:lightpink;line:black;line.dashed
+    rectangle "<size:40>SPI</size>\n<size:40>&#160;</size>\n<size:40>Device</size>" as n023 #back:lightpink;line:black;line.dashed
+    rectangle "<size:40>SPI</size>\n<size:40>&#160;</size>\n<size:40>Host</size>" as n024 #back:lightpink;line:black;line.dashed
+    rectangle "<size:40>UART</size>" as n025 #back:lightpink;line:black;line.dashed
+    rectangle "<size:40>Managers</size>\n<size:40>&#160;</size>\n<size:40>- Clock</size>\n<size:40>- Reset</size>\n<size:40>- Power</size>" as n026 #back:lightpink;line:black;line.dashed
+  }
+}
+rectangle "<size:50>Rest of chip</size>\n<size:50>&#160;</size>\n<size:50>64-bit bus</size>" as n027 #back:hotpink;line:black;line.dashed
+rectangle "<size:50>Flash</size>" as n028 #back:hotpink;line:black;line.dashed
+rectangle "<size:50>I2C</size>" as n029 #back:hotpink;line:black;line.dashed
+rectangle "<size:50>SPI</size>" as n030 #back:hotpink;line:black;line.dashed
+rectangle "<size:50>UART</size>" as n031 #back:hotpink;line:black;line.dashed
+rectangle "<size:50>GPIO</size>" as n032 #back:hotpink;line:black;line.dashed
+rectangle "<size:50>Legend</size>" as n033 #back:transparent;line:transparent {
+  rectangle "<size:50>Cached</size>" as n034 #line:transparent
+  rectangle "<size:50>Uncached</size>" as n035 #back:hotpink;line:transparent
+  rectangle "<size:50>Tag aware</size>" as n036 #back:transparent;line:black
+  rectangle "<size:50>Tag oblivious</size>" as n037 #back:transparent;line:black;line.dashed
+}
+' One link per D2 edge, in compiler order; no synthetic layout links.
+n003 <-- n008
+n006 <--> n008
+n008 <--> n009
+n008 <--> n010
+n009 <--> n011
+n009 <--> n012
+n009 <--> n013
+n009 <--> n014
+n010 <--> n015
+n024 <--> n028
+n011 <--> n000
+n009 <--> n027
+n014 <--> n027
+n022 <--> n029
+n023 <--> n030
+n025 <--> n031
+n021 <--> n032
+n033 <-[#transparent]-> n002
+@enduml

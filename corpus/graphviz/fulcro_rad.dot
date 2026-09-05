@@ -1,0 +1,66 @@
+// Generated from the audited D2 semantic mapping. See TRANSLATION.md.
+digraph diagram {
+  graph [compound="true", rankdir="TB", bgcolor="white", fontname="Helvetica", fontsize="14", pad="0.25"];
+  node [shape="box", fontname="Helvetica", fontsize="14", color="#333333", margin="0.12,0.08"];
+  edge [fontname="Helvetica", fontsize="14", color="#333333"];
+  node_n000 [id="node_n000", label="Fulcro RAD Architecture", d2_id="title", semantic_kind="node", fontsize="28", shape="plaintext", color="transparent", fillcolor="transparent"];
+  subgraph cluster_n001 {
+    graph [id="cluster_n001", label="Attributes", d2_id="attributes", semantic_kind="group", color="#2980b9", fillcolor="#e8f4f8", fontsize="22", fontname="Helvetica-Bold", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+    proxy_n001 [id="proxy_n001", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="attributes"];
+    node_n002 [id="node_n002", label="key, type, target\ncardinality, identities", d2_id="attributes.core", semantic_kind="node", fillcolor="transparent", shape="plaintext", color="transparent"];
+    node_n003 [id="node_n003", label="fo/* Context", d2_id="attributes.form-ctx", semantic_kind="node", fillcolor="#fff3cd", style="filled,rounded", shape="box"];
+    node_n004 [id="node_n004", label="ro/* Context", d2_id="attributes.report-ctx", semantic_kind="node", fillcolor="#fff3cd", style="filled,rounded", shape="box"];
+    node_n005 [id="node_n005", label="Resolver Metadata", d2_id="attributes.resolver-ctx", semantic_kind="node", fillcolor="#fff3cd", style="filled,rounded", shape="box"];
+    node_n006 [id="node_n006", label="Any NS Key...", d2_id="attributes.ext", semantic_kind="node", fillcolor="#f0e6ff", style="filled,dashed,rounded", shape="box"];
+  }
+  subgraph cluster_n007 {
+    graph [id="cluster_n007", label="Forms", d2_id="forms", semantic_kind="group", color="#e67e22", fillcolor="#fef9e7", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+    proxy_n007 [id="proxy_n007", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="forms"];
+    node_n008 [id="node_n008", label="Pluggable UI", d2_id="forms.ui", semantic_kind="node", fillcolor="#fdebd0", style="filled,rounded", shape="box"];
+    node_n009 [id="node_n009", label="State Machine", d2_id="forms.sm", semantic_kind="node", fillcolor="#fadbd8", style="filled,rounded", shape="box"];
+  }
+  subgraph cluster_n010 {
+    graph [id="cluster_n010", label="Reports", d2_id="reports", semantic_kind="group", color="#2471a3", fillcolor="#eaf2f8", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+    proxy_n010 [id="proxy_n010", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="reports"];
+    node_n011 [id="node_n011", label="Pluggable UI", d2_id="reports.rui", semantic_kind="node", fillcolor="#d6eaf8", style="filled,rounded", shape="box"];
+    node_n012 [id="node_n012", label="State Machine", d2_id="reports.rsm", semantic_kind="node", fillcolor="#d4e6f1", style="filled,rounded", shape="box"];
+  }
+  subgraph cluster_n013 {
+    graph [id="cluster_n013", label="Minimum Form Delta", d2_id="delta", semantic_kind="group", color="#8e44ad", fillcolor="#f5eef8", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+    proxy_n013 [id="proxy_n013", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="delta"];
+    node_n014 [id="node_n014", label="{ident {attr {:before v :after v}}}", d2_id="delta.format", semantic_kind="node", fillcolor="#ebdef0", fontsize="14", style="filled,rounded", shape="box"];
+  }
+  subgraph cluster_n015 {
+    graph [id="cluster_n015", label="Save Middleware", d2_id="middleware", semantic_kind="group", color="#c0392b", fillcolor="#fdedec", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+    proxy_n015 [id="proxy_n015", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="middleware"];
+    node_n016 [id="node_n016", label="Rewrite Values", d2_id="middleware.rewrite", semantic_kind="node", fillcolor="#fadbd8", style="filled,rounded", shape="box"];
+    node_n017 [id="node_n017", label="Validate", d2_id="middleware.validate", semantic_kind="node", fillcolor="#fadbd8", style="filled,rounded", shape="box"];
+    node_n018 [id="node_n018", label="GC Orphans", d2_id="middleware.gc", semantic_kind="node", fillcolor="#fadbd8", style="filled,rounded", shape="box"];
+    node_n019 [id="node_n019", label="Conflict Detection", d2_id="middleware.conflict", semantic_kind="node", fillcolor="#fadbd8", style="filled,rounded", shape="box"];
+  }
+  subgraph cluster_n020 {
+    graph [id="cluster_n020", label="Resolvers", d2_id="resolvers", semantic_kind="group", color="#1abc9c", fillcolor="#e8f8f5", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+    proxy_n020 [id="proxy_n020", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="resolvers"];
+    node_n021 [id="node_n021", label="Auto-Generated", d2_id="resolvers.gen", semantic_kind="node", fillcolor="#d1f2eb", style="filled,rounded", shape="box"];
+    node_n022 [id="node_n022", label="DB Adapter Plugins", d2_id="resolvers.adapter", semantic_kind="node", fillcolor="#a9dfbf", style="filled,rounded", shape="box"];
+    node_n023 [id="node_n023", label="Pathom EQL Graph", d2_id="resolvers.pathom", semantic_kind="node", fillcolor="#abebc6", style="filled,rounded", shape="box"];
+  }
+  node_n024 [id="node_n024", label="Database", d2_id="db", semantic_kind="node", color="#7f8c8d", fillcolor="#f2f3f4", style="filled,rounded", shape="box"];
+  // Exactly one DOT edge per compiled D2 edge, preserving order and multiplicity.
+  node_n008 -> node_n009 [id="edge000", d2_id="forms.(ui <-> sm)[0]", label="events", dir="both", arrowtail="normal", arrowhead="normal"];
+  node_n011 -> node_n012 [id="edge001", d2_id="reports.(rui <-> rsm)[0]", label="events", dir="both", arrowtail="normal", arrowhead="normal"];
+  node_n016 -> node_n017 [id="edge002", d2_id="middleware.(rewrite -> validate)[0]", label="pipeline", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n017 -> node_n018 [id="edge003", d2_id="middleware.(validate -> gc)[0]", label="pipeline", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n018 -> node_n019 [id="edge004", d2_id="middleware.(gc -> conflict)[0]", label="pipeline", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n021 -> node_n023 [id="edge005", d2_id="resolvers.(gen -> pathom)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n022 -> node_n023 [id="edge006", d2_id="resolvers.(adapter -> pathom)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  proxy_n001 -> proxy_n007 [id="edge007", d2_id="(attributes -> forms)[0]", label="fo/ keys", dir="forward", arrowtail="none", arrowhead="normal", color="#e67e22", penwidth="2", ltail="cluster_n001", lhead="cluster_n007"];
+  proxy_n001 -> proxy_n010 [id="edge008", d2_id="(attributes -> reports)[0]", label="ro/ keys", dir="forward", arrowtail="none", arrowhead="normal", color="#2471a3", penwidth="2", ltail="cluster_n001", lhead="cluster_n010"];
+  proxy_n001 -> proxy_n020 [id="edge009", d2_id="(attributes -> resolvers)[0]", label="schema metadata", dir="forward", arrowtail="none", arrowhead="normal", color="#1abc9c", penwidth="2", ltail="cluster_n001", lhead="cluster_n020"];
+  proxy_n007 -> proxy_n013 [id="edge010", d2_id="(forms -> delta)[0]", label="dirty-fields", dir="forward", arrowtail="none", arrowhead="normal", color="#8e44ad", penwidth="2", ltail="cluster_n007", lhead="cluster_n013"];
+  proxy_n013 -> proxy_n015 [id="edge011", d2_id="(delta -> middleware)[0]", label="delta", dir="forward", arrowtail="none", arrowhead="normal", color="#c0392b", penwidth="2", ltail="cluster_n013", lhead="cluster_n015"];
+  proxy_n015 -> node_n024 [id="edge012", d2_id="(middleware -> db)[0]", label="save", dir="forward", arrowtail="none", arrowhead="normal", color="#c0392b", penwidth="2", ltail="cluster_n015"];
+  proxy_n020 -> node_n024 [id="edge013", d2_id="(resolvers -> db)[0]", label="read", dir="forward", arrowtail="none", arrowhead="normal", color="#1abc9c", penwidth="2", ltail="cluster_n020"];
+  proxy_n020 -> proxy_n007 [id="edge014", d2_id="(resolvers -> forms)[0]", label="EQL load", dir="forward", arrowtail="none", arrowhead="normal", color="#e67e22", penwidth="2", style="dashed", ltail="cluster_n020", lhead="cluster_n007"];
+  proxy_n020 -> proxy_n010 [id="edge015", d2_id="(resolvers -> reports)[0]", label="EQL load", dir="forward", arrowtail="none", arrowhead="normal", color="#2471a3", penwidth="2", style="dashed", ltail="cluster_n020", lhead="cluster_n010"];
+}

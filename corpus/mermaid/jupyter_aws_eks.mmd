@@ -1,0 +1,83 @@
+%% Generated from the compiled D2 graph; see matching .mapping.json and TRANSLATION.md.
+flowchart TB
+  subgraph n000["AWS Account"]
+    direction TB
+    subgraph n001["#160;"]
+      direction TB
+      subgraph n002["Route 53"]
+        direction TB
+        subgraph n003["Hosted Zone"]
+          direction TB
+          n004["DNS Record"]
+        end
+      end
+      n005["#160;"]
+      subgraph n006["IAM"]
+        direction TB
+        n007["OIDC Provider"]
+      end
+    end
+    subgraph n008["Region (e.g. us-east-1)"]
+      direction TB
+      subgraph n009["VPC"]
+        direction TB
+        n010["Network<br/>Load Balancer"]
+        subgraph n011["EKS Cluster"]
+          direction TB
+          subgraph n012["Platform Node Group<br/>(managed)"]
+            direction TB
+            n013["m5.large"]
+            n014["m5.large"]
+          end
+          subgraph n015["Routing NodePool<br/>(Karpenter)"]
+            direction TB
+            n016["c6.large"]
+            n017["m6.large"]
+          end
+          subgraph n018["Workspace NodePool(s)<br/>(Karpenter, scale-to-zero)"]
+            direction TB
+            n019["c6i.2xlarge"]
+            n020["r7i.xlarge"]
+          end
+          subgraph n021["EKS Control Plane"]
+            direction TB
+            n022["API Server"]
+            n023[("etcd")]
+          end
+        end
+      end
+    end
+  end
+  %% Edges in original compiler order; one line per compiled edge.
+  n004 -->|"resolves to"| n010
+  n010 -->|"routes to"| n015
+  n007 -->|"references"| n004
+  n007 -->|"associate"| n022
+  style n000 fill:#fff3e0,stroke:#e65100,stroke-width:3px
+  style n001 fill:transparent,stroke:#e65100,stroke-width:2px,stroke-dasharray:5 5
+  style n002 fill:#ffe0b2,stroke:#f57c00,stroke-width:3px
+  style n003 fill:#ffe0b2,stroke:#f57c00,stroke-width:2px,stroke-dasharray:5 5
+  style n004 fill:#ffe0b2,stroke:#f57c00,stroke-width:3px,font-size:20px,font-weight:bold
+  style n005 fill:transparent,stroke:transparent
+  style n006 fill:#fce4ec,stroke:#c62828,stroke-width:3px
+  style n007 fill:#fce4ec,stroke:#c62828,stroke-width:3px,font-size:20px,font-weight:bold
+  style n008 fill:#fef9e7,stroke:#e65100,stroke-width:2px,stroke-dasharray:5 5
+  style n009 fill:#e8f5e9,stroke:#2e7d32,stroke-width:3px
+  style n010 fill:#c8e6c9,stroke:#388e3c,stroke-width:3px,font-size:20px,font-weight:bold
+  style n011 fill:#e3f2fd,stroke:#1565c0,stroke-width:3px
+  style n012 fill:#bbdefb,stroke:#1565c0,stroke-width:3px
+  style n013 fill:#bbdefb,stroke-width:0px,font-size:16px,font-weight:bold
+  style n014 fill:#bbdefb,stroke-width:0px,font-size:16px,font-weight:bold
+  style n015 fill:#c8e6c9,stroke:#388e3c,stroke-width:3px
+  style n016 fill:#c8e6c9,stroke-width:0px,font-size:16px,font-weight:bold
+  style n017 fill:#c8e6c9,stroke-width:0px,font-size:16px,font-weight:bold
+  style n018 fill:#e1bee7,stroke:#8e24aa,stroke-width:3px
+  style n019 fill:#e1bee7,stroke-width:0px,font-size:16px,font-weight:bold
+  style n020 fill:#e1bee7,stroke-width:0px,font-size:16px,font-weight:bold
+  style n021 fill:#bbdefb,stroke:#1565c0,stroke-width:2px,stroke-dasharray:5 5
+  style n022 fill:#bbdefb,stroke:#1565c0,stroke-width:3px,font-size:20px,font-weight:bold
+  style n023 fill:#bbdefb,stroke:#1565c0,stroke-width:3px,font-size:20px,font-weight:bold
+  linkStyle 0 stroke:#1565c0,stroke-width:3px,stroke-dasharray:5 5
+  linkStyle 1 stroke:#1565c0,stroke-width:3px
+  linkStyle 2 stroke:#c62828,stroke-width:3px,stroke-dasharray:5 5
+  linkStyle 3 stroke:#c62828,stroke-width:3px,stroke-dasharray:5 5

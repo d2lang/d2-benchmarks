@@ -1,0 +1,68 @@
+@startuml
+' Generated from the compiled D2 semantic mapping; see TRANSLATION.md.
+' Graphviz is PlantUML's default deployment-diagram layout; GRAPHVIZ_DOT pins it.
+skinparam shadowing false
+skinparam defaultTextAlignment center
+top to bottom direction
+rectangle "<size:20><b>User Laptop</b></size>" as n000 #back:e8f5e9;line:2e7d32 {
+  rectangle "&#160;" as n001 #back:transparent;line:transparent
+  rectangle "<size:20><b>kubectl</b></size>" as n002 #back:c8e6c9;line:388e3c
+  rectangle "&#160;" as n003 #back:transparent;line:transparent
+  rectangle "<size:20><b>Browser</b></size>" as n004 #back:c8e6c9;line:388e3c
+  rectangle "&#160;" as n005 #back:transparent;line:transparent
+  rectangle "&#160;" as n006 #back:transparent;line:transparent
+}
+rectangle "<size:20><b>Kubernetes Cluster</b></size>" as n007 #back:e3f2fd;line:1565c0 {
+  rectangle "&#160;" as n008 #back:transparent;line:transparent {
+    rectangle "&#160;" as n009 #back:transparent;line:transparent {
+      rectangle "<size:20><b>API Server</b></size>" as n010 #back:bbdefb;line:1565c0
+      rectangle "&#160;" as n011 #back:transparent;line:transparent
+      rectangle "<size:20><b>etcd</b></size>" as n012 #back:bbdefb;line:1565c0
+    }
+    rectangle "<size:18><b>Router Namespace</b></size>" as n013 #back:ffe0b2;line:f57c00;line.dashed {
+      rectangle "&#160;" as n014 #back:transparent;line:transparent {
+        rectangle "<size:20><b>OIDC Provider</b></size>" as n015 #back:ffe0b2;line:f57c00
+        rectangle "&#160;" as n016 #back:transparent;line:transparent
+        rectangle "<size:20><b>Auth Middleware</b></size>" as n017 #back:ffe0b2;line:f57c00
+      }
+      rectangle "&#160;" as n018 #back:transparent;line:transparent {
+        rectangle "&#160;" as n019 #back:transparent;line:transparent
+        rectangle "&#160;" as n020 #back:transparent;line:transparent
+        rectangle "&#160;" as n021 #back:transparent;line:transparent
+        rectangle "&#160;" as n022 #back:transparent;line:transparent
+        rectangle "&#160;" as n023 #back:transparent;line:transparent
+        rectangle "&#160;" as n024 #back:transparent;line:transparent
+        rectangle "&#160;" as n025 #back:transparent;line:transparent
+      }
+      rectangle "<size:20><b>Router</b></size>" as n026 #back:ffe0b2;line:f57c00
+    }
+  }
+  rectangle "&#160;" as n027 #back:transparent;line:transparent {
+    rectangle "<size:18><b>Operator Namespace</b></size>" as n028 #back:bbdefb;line:1565c0;line.dashed {
+      rectangle "<size:20><b>Extension API</b></size>" as n029 #back:bbdefb;line:1565c0
+    }
+    rectangle "&#160;" as n030 #back:transparent;line:transparent
+    rectangle "<size:18><b>Workspace Namespace</b></size>" as n031 #back:e1bee7;line:8e24aa;line.dashed {
+      rectangle "<size:20><b>Workspace</b></size>" as n032 #back:e1bee7;line:8e24aa
+    }
+  }
+}
+' One link per D2 edge, in compiler order; no synthetic layout links.
+n002 -[#2e7d32,thickness=3]-> n010 : 1. Get Workspace
+n010 -[#2e7d32,thickness=3]-> n012
+n004 -[#c62828,thickness=3]-> n026 : 2. Navigate to\nworkspace URL
+n026 -[#c62828,thickness=3]- n020
+n020 -[#c62828,thickness=3]-> n015 : 3. Redirect to IdP
+n015 <-[#c62828,thickness=3]-> n004 : 4. OAuth2 login
+n015 -[#c62828,thickness=3]- n022 : 5. Callback\n(auth code)
+n022 -[#c62828,thickness=3]-> n026
+n026 -[#c62828,thickness=3]- n023 : /auth
+n023 -[#c62828,thickness=3]-> n017 : 6. Forward auth\n(ID token)
+n017 -[#c62828,thickness=3]-> n015 : 7. Verify token
+n017 -[#c62828,thickness=3]-> n029 : 8. ConnectionAccessReview\n(authorize user)
+n017 -[#c62828,thickness=3]- n025 : 200
+n025 -[#c62828,thickness=3]-> n026 : JWT cookie
+n026 -[#c62828,thickness=3]-> n032 : 9. Proxy to\nworkspace
+n026 -[#c62828,thickness=3]- n006 : 10. Set JWT cookie
+n006 -[#c62828,thickness=3]-> n004
+@enduml

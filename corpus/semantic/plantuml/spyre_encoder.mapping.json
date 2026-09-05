@@ -1,0 +1,4568 @@
+{
+  "fixture": "spyre_encoder",
+  "counts": {
+    "objects": 67,
+    "leaf_nodes": 32,
+    "groups": 35,
+    "edges": 6
+  },
+  "source_sha256": "be33eacb33a62e972f5b7f498ced3e21e80855693560121d26bf7cbadce5bebf",
+  "semantic_mapping_sha256": "782082efb3c86740504bd952e00783cd44ea22245790381c92663c30badfe759",
+  "plantuml_sha256": "e005f5326c61ec30b67c61df5e44f6c987e1829071e152b8f36d0282abf01a7c",
+  "layout": "Graphviz dot (PlantUML default)",
+  "root_attributes": {
+    "label": {
+      "value": ""
+    },
+    "labelDimensions": {
+      "width": 0,
+      "height": 0
+    },
+    "style": {},
+    "iconStyle": {},
+    "near_key": null,
+    "shape": {
+      "value": ""
+    },
+    "direction": {
+      "value": ""
+    },
+    "constraint": null,
+    "gridRows": {
+      "value": "2"
+    },
+    "gridColumns": {
+      "value": "1"
+    },
+    "gridGap": {
+      "value": "50"
+    }
+  },
+  "source_config": null,
+  "limitations": {
+    "width placement/sizing omitted": 55,
+    "height placement/sizing omitted": 18,
+    "gridRows layout omitted": 33,
+    "gridColumns layout omitted": 33,
+    "gridGap layout omitted": 33,
+    "labelPosition placement/sizing omitted": 30,
+    "borderRadius style omitted": 40,
+    "dash pattern approximated by dashed line": 1,
+    "per-container direction omitted": 1,
+    "markdown formatted as validated plain multiline text": 5,
+    "stroke width omitted": 3
+  },
+  "objects": [
+    {
+      "d2_id": "upper.serving.sched.sched_d",
+      "parent_d2_id": "upper.serving.sched",
+      "parent_mermaid_id": "n002",
+      "kind": "node",
+      "source_label": "batches S requests carrying T tokens in total · chunked prefill off\nnever subclassed, its output never mutated",
+      "translated_label": "batches S requests carrying T tokens in total · chunked prefill off\nnever subclassed, its output never mutated",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "batches S requests carrying T tokens in total · chunked prefill off\nnever subclassed, its output never mutated"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#37474f"
+          },
+          "fill": {
+            "value": "#37474f"
+          },
+          "fontSize": {
+            "value": "13"
+          },
+          "fontColor": {
+            "value": "#CFD2DD"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "790"
+        },
+        "height": {
+          "value": "56"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n003",
+      "parent_plantuml_id": "n002",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:13><color:#CFD2DD><plain>batches S requests carrying T tokens in total · chunked prefill off</plain></color></size>\\n<size:13><color:#CFD2DD><plain>never subclassed, its output never mutated</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.sched",
+      "parent_d2_id": "upper.serving",
+      "parent_mermaid_id": "n001",
+      "kind": "group",
+      "source_label": "vLLM Scheduler, used as-is",
+      "translated_label": "vLLM Scheduler, used as-is",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "vLLM Scheduler, used as-is"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#263238"
+          },
+          "fill": {
+            "value": "#37474f"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "15"
+          },
+          "fontColor": {
+            "value": "#ffffff"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "920"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n002",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:15><color:#ffffff><b>vLLM Scheduler, used as-is</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.dispatch.dispatch_d",
+      "parent_d2_id": "upper.serving.dispatch",
+      "parent_mermaid_id": "n004",
+      "kind": "node",
+      "source_label": "round T up to the next compiled bucket, giving T_padded\nupstream this hook pads to a captured CUDA graph; here to a compiled shape\npad rows zeroed · also cuts torch-spyre per-op recompiles",
+      "translated_label": "round T up to the next compiled bucket, giving T_padded\nupstream this hook pads to a captured CUDA graph; here to a compiled shape\npad rows zeroed · also cuts torch-spyre per-op recompiles",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "round T up to the next compiled bucket, giving T_padded\nupstream this hook pads to a captured CUDA graph; here to a compiled shape\npad rows zeroed · also cuts torch-spyre per-op recompiles"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "fontSize": {
+            "value": "13"
+          },
+          "fontColor": {
+            "value": "#D6E4F7"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "790"
+        },
+        "height": {
+          "value": "74"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n005",
+      "parent_plantuml_id": "n004",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:13><color:#D6E4F7><plain>round T up to the next compiled bucket, giving T&#95;padded</plain></color></size>\\n<size:13><color:#D6E4F7><plain>upstream this hook pads to a captured CUDA graph; here to a compiled shape</plain></color></size>\\n<size:13><color:#D6E4F7><plain>pad rows zeroed · also cuts torch-spyre per-op recompiles</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.dispatch",
+      "parent_d2_id": "upper.serving",
+      "parent_mermaid_id": "n001",
+      "kind": "group",
+      "source_label": "Token-count bucket dispatch",
+      "translated_label": "Token-count bucket dispatch",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Token-count bucket dispatch"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "15"
+          },
+          "fontColor": {
+            "value": "#ffffff"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "920"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n004",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:15><color:#ffffff><b>Token-count bucket dispatch</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.body.body_note",
+      "parent_d2_id": "upper.serving.body",
+      "parent_mermaid_id": "n006",
+      "kind": "node",
+      "source_label": "sees only the flat token list [T_padded, hidden], with no request boundaries\nall layers share op shapes, so cost scales with distinct T, not with depth",
+      "translated_label": "sees only the flat token list [T_padded, hidden], with no request boundaries\nall layers share op shapes, so cost scales with distinct T, not with depth",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "sees only the flat token list [T_padded, hidden], with no request boundaries\nall layers share op shapes, so cost scales with distinct T, not with depth"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "13"
+          },
+          "fontColor": {
+            "value": "#D6E4F7"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "870"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n007",
+      "parent_plantuml_id": "n006",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:13><color:#D6E4F7><plain>sees only the flat token list &#91;T&#95;padded, hidden&#93;, with no request boundaries</plain></color></size>\\n<size:13><color:#D6E4F7><plain>all layers share op shapes, so cost scales with distinct T, not with depth</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.body.layer_stack.layer_stack_d",
+      "parent_d2_id": "upper.serving.body.layer_stack",
+      "parent_mermaid_id": "n008",
+      "kind": "node",
+      "source_label": "N = 24 for multilingual-e5-large · 6 matrix multiplies per layer, 5 of them outside attention",
+      "translated_label": "N = 24 for multilingual-e5-large · 6 matrix multiplies per layer, 5 of them outside attention",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "N = 24 for multilingual-e5-large · 6 matrix multiplies per layer, 5 of them outside attention"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#E3E9FD"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "fontSize": {
+            "value": "12"
+          },
+          "fontColor": {
+            "value": "#37474f"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "740"
+        },
+        "height": {
+          "value": "38"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n009",
+      "parent_plantuml_id": "n008",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:12><color:#37474f><plain>N = 24 for multilingual-e5-large · 6 matrix multiplies per layer, 5 of them outside attention</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.body.layer_stack",
+      "parent_d2_id": "upper.serving.body",
+      "parent_mermaid_id": "n006",
+      "kind": "group",
+      "source_label": "Embeddings → N × [ Q · K · V projections (un-fused) · output projection · FFN ×2 · LayerNorm ×2 ]",
+      "translated_label": "Embeddings → N × [ Q · K · V projections (un-fused) · output projection · FFN ×2 · LayerNorm ×2 ]",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Embeddings → N × [ Q · K · V projections (un-fused) · output projection · FFN ×2 · LayerNorm ×2 ]"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#0A0F25"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "870"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n008",
+      "parent_plantuml_id": "n006",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#0A0F25><b>Embeddings → N × &#91; Q · K · V projections (un-fused) · output projection · FFN ×2 · LayerNorm ×2 &#93;</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.body.boundary.boundary_d",
+      "parent_d2_id": "upper.serving.body.boundary",
+      "parent_mermaid_id": "n010",
+      "kind": "node",
+      "source_label": "Dynamo does not trace inside. Selected by the platform's opaque_attention_op() → True,\nwhich TorchSpyrePlatform inherits from CpuPlatform",
+      "translated_label": "Dynamo does not trace inside. Selected by the platform's opaque_attention_op() → True,\nwhich TorchSpyrePlatform inherits from CpuPlatform",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Dynamo does not trace inside. Selected by the platform's opaque_attention_op() → True,\nwhich TorchSpyrePlatform inherits from CpuPlatform"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#E3E9FD"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "fontSize": {
+            "value": "12"
+          },
+          "fontColor": {
+            "value": "#5c6bc0"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "740"
+        },
+        "height": {
+          "value": "56"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n011",
+      "parent_plantuml_id": "n010",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:12><color:#5c6bc0><plain>Dynamo does not trace inside. Selected by the platform's opaque&#95;attention&#95;op() → True,</plain></color></size>\\n<size:12><color:#5c6bc0><plain>which TorchSpyrePlatform inherits from CpuPlatform</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.body.boundary",
+      "parent_d2_id": "upper.serving.body",
+      "parent_mermaid_id": "n006",
+      "kind": "group",
+      "source_label": "torch.ops.vllm.unified_attention_with_output  ·  opaque boundary",
+      "translated_label": "torch.ops.vllm.unified_attention_with_output  ·  opaque boundary",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "torch.ops.vllm.unified_attention_with_output  ·  opaque boundary"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "strokeDash": {
+            "value": "4"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#0A0F25"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "870"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n010",
+      "parent_plantuml_id": "n006",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#0A0F25><b>torch.ops.vllm.unified&#95;attention&#95;with&#95;output  ·  opaque boundary</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted",
+        "dash pattern approximated by dashed line"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.body",
+      "parent_d2_id": "upper.serving",
+      "parent_mermaid_id": "n001",
+      "kind": "group",
+      "source_label": "Compiled model body: one graph per token bucket  (fullgraph, dynamic=False)",
+      "translated_label": "Compiled model body: one graph per token bucket  (fullgraph, dynamic=False)",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Compiled model body: one graph per token bucket  (fullgraph, dynamic=False)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "16"
+          },
+          "fontColor": {
+            "value": "#ffffff"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "920"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "3"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "10"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n006",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:16><color:#ffffff><b>Compiled model body: one graph per token bucket  (fullgraph, dynamic=False)</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.attn_note",
+      "parent_d2_id": "upper.serving.attention",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "dense-grid strategy, compared with the planned flash variant below\nrounds up its own grid: S to a power of two, L already 64-aligned",
+      "translated_label": "dense-grid strategy, compared with the planned flash variant below\nrounds up its own grid: S to a power of two, L already 64-aligned",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "dense-grid strategy, compared with the planned flash variant below\nrounds up its own grid: S to a power of two, L already 64-aligned"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "13"
+          },
+          "fontColor": {
+            "value": "#D6E4F7"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "870"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n013",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:13><color:#D6E4F7><plain>dense-grid strategy, compared with the planned flash variant below</plain></color></size>\\n<size:13><color:#D6E4F7><plain>rounds up its own grid: S to a power of two, L already 64-aligned</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.tables.tables_d",
+      "parent_d2_id": "upper.serving.attention.tables",
+      "parent_mermaid_id": "n014",
+      "kind": "node",
+      "source_label": "additive mask + three gather index lists · derived from S and the per-request lengths, so identical for every layer",
+      "translated_label": "additive mask + three gather index lists · derived from S and the per-request lengths, so identical for every layer",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "additive mask + three gather index lists · derived from S and the per-request lengths, so identical for every layer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#E3E9FD"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "fontSize": {
+            "value": "12"
+          },
+          "fontColor": {
+            "value": "#37474f"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "740"
+        },
+        "height": {
+          "value": "38"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n015",
+      "parent_plantuml_id": "n014",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:12><color:#37474f><plain>additive mask + three gather index lists · derived from S and the per-request lengths, so identical for every layer</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.tables",
+      "parent_d2_id": "upper.serving.attention",
+      "parent_mermaid_id": "n012",
+      "kind": "group",
+      "source_label": "Batch-shape tables, built once per step and carried on the attention metadata",
+      "translated_label": "Batch-shape tables, built once per step and carried on the attention metadata",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Batch-shape tables, built once per step and carried on the attention metadata"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#0A0F25"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "870"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n014",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#0A0F25><b>Batch-shape tables, built once per step and carried on the attention metadata</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.gathers.pack.pack_d",
+      "parent_d2_id": "upper.serving.attention.gathers.pack",
+      "parent_mermaid_id": "n017",
+      "kind": "node",
+      "source_label": "[T, H, D] → [S, H, L, D]\npad slots point at a zero row",
+      "translated_label": "[T, H, D] → [S, H, L, D]\npad slots point at a zero row",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "[T, H, D] → [S, H, L, D]\npad slots point at a zero row"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#E3E9FD"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "fontSize": {
+            "value": "12"
+          },
+          "fontColor": {
+            "value": "#37474f"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "210"
+        },
+        "height": {
+          "value": "56"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n018",
+      "parent_plantuml_id": "n017",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:12><color:#37474f><plain>&#91;T, H, D&#93; → &#91;S, H, L, D&#93;</plain></color></size>\\n<size:12><color:#37474f><plain>pad slots point at a zero row</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.gathers.pack",
+      "parent_d2_id": "upper.serving.attention.gathers",
+      "parent_mermaid_id": "n016",
+      "kind": "group",
+      "source_label": "gather_pack",
+      "translated_label": "gather_pack",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "gather_pack"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#0A0F25"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "280"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n017",
+      "parent_plantuml_id": "n016",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#0A0F25><b>gather&#95;pack</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.gathers.sdpa.sdpa_d",
+      "parent_d2_id": "upper.serving.attention.gathers.sdpa",
+      "parent_mermaid_id": "n019",
+      "kind": "node",
+      "source_label": "bidirectional, additive mask\none fused kernel per (S, L)",
+      "translated_label": "bidirectional, additive mask\none fused kernel per (S, L)",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "bidirectional, additive mask\none fused kernel per (S, L)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#E3E9FD"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "fontSize": {
+            "value": "12"
+          },
+          "fontColor": {
+            "value": "#37474f"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "210"
+        },
+        "height": {
+          "value": "56"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n020",
+      "parent_plantuml_id": "n019",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:12><color:#37474f><plain>bidirectional, additive mask</plain></color></size>\\n<size:12><color:#37474f><plain>one fused kernel per (S, L)</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.gathers.sdpa",
+      "parent_d2_id": "upper.serving.attention.gathers",
+      "parent_mermaid_id": "n016",
+      "kind": "group",
+      "source_label": "SDPA on device",
+      "translated_label": "SDPA on device",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "SDPA on device"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#0A0F25"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "280"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n019",
+      "parent_plantuml_id": "n016",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#0A0F25><b>SDPA on device</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.gathers.unpack.unpack_d",
+      "parent_d2_id": "upper.serving.attention.gathers.unpack",
+      "parent_mermaid_id": "n021",
+      "kind": "node",
+      "source_label": "[S, H, L, D] → [T, H, D]\nsingle bulk output copy",
+      "translated_label": "[S, H, L, D] → [T, H, D]\nsingle bulk output copy",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "[S, H, L, D] → [T, H, D]\nsingle bulk output copy"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#E3E9FD"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "fontSize": {
+            "value": "12"
+          },
+          "fontColor": {
+            "value": "#37474f"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "210"
+        },
+        "height": {
+          "value": "56"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n022",
+      "parent_plantuml_id": "n021",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:12><color:#37474f><plain>&#91;S, H, L, D&#93; → &#91;T, H, D&#93;</plain></color></size>\\n<size:12><color:#37474f><plain>single bulk output copy</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.gathers.unpack",
+      "parent_d2_id": "upper.serving.attention.gathers",
+      "parent_mermaid_id": "n016",
+      "kind": "group",
+      "source_label": "gather_unpack",
+      "translated_label": "gather_unpack",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "gather_unpack"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#0A0F25"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "280"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n021",
+      "parent_plantuml_id": "n016",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#0A0F25><b>gather&#95;unpack</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.gathers",
+      "parent_d2_id": "upper.serving.attention",
+      "parent_mermaid_id": "n012",
+      "kind": "group",
+      "source_label": " ",
+      "translated_label": " ",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": " "
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#1565c0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "3"
+        },
+        "gridGap": {
+          "value": "15"
+        }
+      },
+      "plantuml_id": "n016",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": " ",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention.barriers",
+      "parent_d2_id": "upper.serving.attention",
+      "parent_mermaid_id": "n012",
+      "kind": "node",
+      "source_label": "tables on the metadata instead of rebuilt per layer ⇒ roughly 4 host/device barriers per pass, not one set per layer",
+      "translated_label": "tables on the metadata instead of rebuilt per layer ⇒ roughly 4 host/device barriers per pass, not one set per layer",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "tables on the metadata instead of rebuilt per layer ⇒ roughly 4 host/device barriers per pass, not one set per layer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "13"
+          },
+          "fontColor": {
+            "value": "#D6E4F7"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "870"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n023",
+      "parent_plantuml_id": "n012",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:13><color:#D6E4F7><plain>tables on the metadata instead of rebuilt per layer ⇒ roughly 4 host/device barriers per pass, not one set per layer</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.attention",
+      "parent_d2_id": "upper.serving",
+      "parent_mermaid_id": "n001",
+      "kind": "group",
+      "source_label": "Encoder attention: the only request-aware stage",
+      "translated_label": "Encoder attention: the only request-aware stage",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Encoder attention: the only request-aware stage"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "16"
+          },
+          "fontColor": {
+            "value": "#ffffff"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "920"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "4"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "10"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n012",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:16><color:#ffffff><b>Encoder attention: the only request-aware stage</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.pooler.pooler_d",
+      "parent_d2_id": "upper.serving.pooler",
+      "parent_mermaid_id": "n024",
+      "kind": "node",
+      "source_label": "row gather via index_select · L2 normalize via rsqrt · reads only real rows, using the per-request offsets\neager today · compiling the pooler is its own work item, not a warmup",
+      "translated_label": "row gather via index_select · L2 normalize via rsqrt · reads only real rows, using the per-request offsets\neager today · compiling the pooler is its own work item, not a warmup",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "row gather via index_select · L2 normalize via rsqrt · reads only real rows, using the per-request offsets\neager today · compiling the pooler is its own work item, not a warmup"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "fontSize": {
+            "value": "13"
+          },
+          "fontColor": {
+            "value": "#D6E4F7"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "790"
+        },
+        "height": {
+          "value": "56"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n025",
+      "parent_plantuml_id": "n024",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:13><color:#D6E4F7><plain>row gather via index&#95;select · L2 normalize via rsqrt · reads only real rows, using the per-request offsets</plain></color></size>\\n<size:13><color:#D6E4F7><plain>eager today · compiling the pooler is its own work item, not a warmup</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.pooler",
+      "parent_d2_id": "upper.serving",
+      "parent_mermaid_id": "n001",
+      "kind": "group",
+      "source_label": "Pooler on device: CLS / LAST / MEAN",
+      "translated_label": "Pooler on device: CLS / LAST / MEAN",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Pooler on device: CLS / LAST / MEAN"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "15"
+          },
+          "fontColor": {
+            "value": "#ffffff"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "920"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n024",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:15><color:#ffffff><b>Pooler on device: CLS / LAST / MEAN</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.mean_dep",
+      "parent_d2_id": "upper.serving",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "MEAN copies packed [T, H] as fp16 and reduces with MeanPool on the host.\nDestagger of a device fp32 sum (to(fp16) then convert) is garbage (torch-spyre#2971). index_add_ (#3507) would let the reduce stay on the card.",
+      "translated_label": "MEAN copies packed [T, H] as fp16 and reduces with MeanPool on the host.\nDestagger of a device fp32 sum (to(fp16) then convert) is garbage (torch-spyre#2971). index_add_ (#3507) would let the reduce stay on the card.",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "MEAN copies packed [T, H] as fp16 and reduces with MeanPool on the host.\nDestagger of a device fp32 sum (to(fp16) then convert) is garbage (torch-spyre#2971). index_add_ (#3507) would let the reduce stay on the card."
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#F9A825"
+          },
+          "fill": {
+            "value": "#FFF8E1"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "13"
+          },
+          "fontColor": {
+            "value": "#5d4037"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "920"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n026",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:13><color:#5d4037><plain>MEAN copies packed &#91;T, H&#93; as fp16 and reduces with MeanPool on the host.</plain></color></size>\\n<size:13><color:#5d4037><plain>Destagger of a device fp32 sum (to(fp16) then convert) is garbage (torch-spyre&#35;2971). index&#95;add&#95; (&#35;3507) would let the reduce stay on the card.</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.output.output_d",
+      "parent_d2_id": "upper.serving.output",
+      "parent_mermaid_id": "n027",
+      "kind": "node",
+      "source_label": "only [num_reqs, hidden] crosses the boundary · padded rows are discarded, never pooled",
+      "translated_label": "only [num_reqs, hidden] crosses the boundary · padded rows are discarded, never pooled",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "only [num_reqs, hidden] crosses the boundary · padded rows are discarded, never pooled"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#37474f"
+          },
+          "fill": {
+            "value": "#37474f"
+          },
+          "fontSize": {
+            "value": "13"
+          },
+          "fontColor": {
+            "value": "#CFD2DD"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "790"
+        },
+        "height": {
+          "value": "38"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n028",
+      "parent_plantuml_id": "n027",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:13><color:#CFD2DD><plain>only &#91;num&#95;reqs, hidden&#93; crosses the boundary · padded rows are discarded, never pooled</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving.output",
+      "parent_d2_id": "upper.serving",
+      "parent_mermaid_id": "n001",
+      "kind": "group",
+      "source_label": "Pooled vectors → host",
+      "translated_label": "Pooled vectors → host",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Pooled vectors → host"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#263238"
+          },
+          "fill": {
+            "value": "#37474f"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "15"
+          },
+          "fontColor": {
+            "value": "#ffffff"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "920"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n027",
+      "parent_plantuml_id": "n001",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:15><color:#ffffff><b>Pooled vectors → host</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.serving",
+      "parent_d2_id": "upper",
+      "parent_mermaid_id": "n000",
+      "kind": "group",
+      "source_label": "Per-step serving path",
+      "translated_label": "Per-step serving path",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Per-step serving path"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#CFD2DD"
+          },
+          "fill": {
+            "value": "#EEF1F8"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "fontColor": {
+            "value": "#212121"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": "down"
+        },
+        "constraint": null,
+        "labelPosition": {
+          "value": "top-left"
+        }
+      },
+      "plantuml_id": "n001",
+      "parent_plantuml_id": "n000",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><color:#212121><b>Per-step serving path</b></color></size>",
+      "differences": [
+        "per-container direction omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes.T_tokens.T_tokens_d",
+      "parent_d2_id": "upper.sidebar.shapes.T_tokens",
+      "parent_mermaid_id": "n031",
+      "kind": "node",
+      "source_label": "sum of the batched prompt lengths · bucketed to 64 / 128 / 256 / 512 tokens",
+      "translated_label": "sum of the batched prompt lengths · bucketed to 64 / 128 / 256 / 512 tokens",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "sum of the batched prompt lengths · bucketed to 64 / 128 / 256 / 512 tokens"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#E3E9FD"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "fontSize": {
+            "value": "12"
+          },
+          "fontColor": {
+            "value": "#37474f"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "450"
+        },
+        "height": {
+          "value": "38"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n032",
+      "parent_plantuml_id": "n031",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:12><color:#37474f><plain>sum of the batched prompt lengths · bucketed to 64 / 128 / 256 / 512 tokens</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes.T_tokens",
+      "parent_d2_id": "upper.sidebar.shapes",
+      "parent_mermaid_id": "n030",
+      "kind": "group",
+      "source_label": "T · tokens in the step",
+      "translated_label": "T · tokens in the step",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "T · tokens in the step"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#0A0F25"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "580"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n031",
+      "parent_plantuml_id": "n030",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#0A0F25><b>T · tokens in the step</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes.S_reqs.S_reqs_d",
+      "parent_d2_id": "upper.sidebar.shapes.S_reqs",
+      "parent_mermaid_id": "n033",
+      "kind": "node",
+      "source_label": "how many prompts are batched together · bucketed to 1 / 2 / 4 / 8 …",
+      "translated_label": "how many prompts are batched together · bucketed to 1 / 2 / 4 / 8 …",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "how many prompts are batched together · bucketed to 1 / 2 / 4 / 8 …"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#E3E9FD"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "fontSize": {
+            "value": "12"
+          },
+          "fontColor": {
+            "value": "#37474f"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "450"
+        },
+        "height": {
+          "value": "38"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n034",
+      "parent_plantuml_id": "n033",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:12><color:#37474f><plain>how many prompts are batched together · bucketed to 1 / 2 / 4 / 8 …</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes.S_reqs",
+      "parent_d2_id": "upper.sidebar.shapes",
+      "parent_mermaid_id": "n030",
+      "kind": "group",
+      "source_label": "S · requests in the step",
+      "translated_label": "S · requests in the step",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "S · requests in the step"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#0A0F25"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "580"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n033",
+      "parent_plantuml_id": "n030",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#0A0F25><b>S · requests in the step</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes.L_width.L_width_d",
+      "parent_d2_id": "upper.sidebar.shapes.L_width",
+      "parent_mermaid_id": "n035",
+      "kind": "node",
+      "source_label": "every request gets one row of L columns; L = align_up(longest prompt, 64)\nshort requests leave their remaining columns as padding",
+      "translated_label": "every request gets one row of L columns; L = align_up(longest prompt, 64)\nshort requests leave their remaining columns as padding",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "every request gets one row of L columns; L = align_up(longest prompt, 64)\nshort requests leave their remaining columns as padding"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#E3E9FD"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "fontSize": {
+            "value": "12"
+          },
+          "fontColor": {
+            "value": "#37474f"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "450"
+        },
+        "height": {
+          "value": "56"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n036",
+      "parent_plantuml_id": "n035",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:12><color:#37474f><plain>every request gets one row of L columns; L = align&#95;up(longest prompt, 64)</plain></color></size>\\n<size:12><color:#37474f><plain>short requests leave their remaining columns as padding</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes.L_width",
+      "parent_d2_id": "upper.sidebar.shapes",
+      "parent_mermaid_id": "n030",
+      "kind": "group",
+      "source_label": "L · the width of attention's grid",
+      "translated_label": "L · the width of attention's grid",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "L · the width of attention's grid"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#0A0F25"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "580"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n035",
+      "parent_plantuml_id": "n030",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#0A0F25><b>L · the width of attention's grid</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes.example.example_d",
+      "parent_d2_id": "upper.sidebar.shapes.example",
+      "parent_mermaid_id": "n037",
+      "kind": "node",
+      "source_label": "T = 110 → T_padded = 128 · S = 3 → 4 · L = 64 · grid = 4 × 64. Note S × L ≠ T.",
+      "translated_label": "T = 110 → T_padded = 128 · S = 3 → 4 · L = 64 · grid = 4 × 64. Note S × L ≠ T.",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "T = 110 → T_padded = 128 · S = 3 → 4 · L = 64 · grid = 4 × 64. Note S × L ≠ T."
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#FFF8E1"
+          },
+          "fill": {
+            "value": "#FFF8E1"
+          },
+          "fontSize": {
+            "value": "12"
+          },
+          "fontColor": {
+            "value": "#5d4037"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "450"
+        },
+        "height": {
+          "value": "38"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n038",
+      "parent_plantuml_id": "n037",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:12><color:#5d4037><plain>T = 110 → T&#95;padded = 128 · S = 3 → 4 · L = 64 · grid = 4 × 64. Note S × L ≠ T.</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes.example",
+      "parent_d2_id": "upper.sidebar.shapes",
+      "parent_mermaid_id": "n030",
+      "kind": "group",
+      "source_label": "Worked example, prompts of 40, 12 and 58 tokens",
+      "translated_label": "Worked example, prompts of 40, 12 and 58 tokens",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Worked example, prompts of 40, 12 and 58 tokens"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#F9A825"
+          },
+          "fill": {
+            "value": "#FFF8E1"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#5d4037"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "580"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n037",
+      "parent_plantuml_id": "n030",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#5d4037><b>Worked example, prompts of 40, 12 and 58 tokens</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.shapes",
+      "parent_d2_id": "upper.sidebar",
+      "parent_mermaid_id": "n029",
+      "kind": "group",
+      "source_label": "Shape vocabulary",
+      "translated_label": "Shape vocabulary",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Shape vocabulary"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#CFD2DD"
+          },
+          "fill": {
+            "value": "#EEF1F8"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "fontColor": {
+            "value": "#212121"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "4"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "12"
+        },
+        "labelPosition": {
+          "value": "top-left"
+        }
+      },
+      "plantuml_id": "n030",
+      "parent_plantuml_id": "n029",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><color:#212121><b>Shape vocabulary</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.compile_mode.mode.mode_d",
+      "parent_d2_id": "upper.sidebar.compile_mode.mode",
+      "parent_mermaid_id": "n040",
+      "kind": "node",
+      "source_label": "torch.compile(model, backend='inductor',\nfullgraph=True, dynamic=False)",
+      "translated_label": "torch.compile(model, backend='inductor',\nfullgraph=True, dynamic=False)",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "torch.compile(model, backend='inductor',\nfullgraph=True, dynamic=False)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "fontSize": {
+            "value": "12"
+          },
+          "fontColor": {
+            "value": "#D6E4F7"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "450"
+        },
+        "height": {
+          "value": "56"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n041",
+      "parent_plantuml_id": "n040",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:12><color:#D6E4F7><plain>torch.compile(model, backend='inductor',</plain></color></size>\\n<size:12><color:#D6E4F7><plain>fullgraph=True, dynamic=False)</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.compile_mode.mode",
+      "parent_d2_id": "upper.sidebar.compile_mode",
+      "parent_mermaid_id": "n039",
+      "kind": "group",
+      "source_label": "CompilationMode.STOCK_TORCH_COMPILE",
+      "translated_label": "CompilationMode.STOCK_TORCH_COMPILE",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "CompilationMode.STOCK_TORCH_COMPILE"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#ffffff"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "580"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n040",
+      "parent_plantuml_id": "n039",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#ffffff><b>CompilationMode.STOCK&#95;TORCH&#95;COMPILE</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.compile_mode.static_shapes",
+      "parent_d2_id": "upper.sidebar.compile_mode",
+      "parent_mermaid_id": "n039",
+      "kind": "node",
+      "source_label": "dynamic=False → sizes are baked in as constants.  \nA graph built for 128 tokens works only for 128.  \nA new count means a new compile.",
+      "translated_label": "dynamic=False → sizes are baked in as constants.  \nA graph built for 128 tokens works only for 128.  \nA new count means a new compile.",
+      "source_shape": "text",
+      "source_attributes": {
+        "label": {
+          "value": "dynamic=False → sizes are baked in as constants.  \nA graph built for 128 tokens works only for 128.  \nA new count means a new compile."
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#CFD2DD"
+          },
+          "fill": {
+            "value": "#EEF1F8"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#37474f"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "580"
+        },
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "text"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n042",
+      "parent_plantuml_id": "n039",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#37474f>dynamic=False → sizes are baked in as constants.  </color></size>\\n<size:14><color:#37474f>A graph built for 128 tokens works only for 128.  </color></size>\\n<size:14><color:#37474f>A new count means a new compile.</color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "borderRadius style omitted",
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.compile_mode",
+      "parent_d2_id": "upper.sidebar",
+      "parent_mermaid_id": "n029",
+      "kind": "group",
+      "source_label": "Compilation mode",
+      "translated_label": "Compilation mode",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Compilation mode"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#CFD2DD"
+          },
+          "fill": {
+            "value": "#EEF1F8"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "fontColor": {
+            "value": "#212121"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "2"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "12"
+        },
+        "labelPosition": {
+          "value": "top-left"
+        }
+      },
+      "plantuml_id": "n039",
+      "parent_plantuml_id": "n029",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><color:#212121><b>Compilation mode</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.warmup.bodies.bodies_d",
+      "parent_d2_id": "upper.sidebar.warmup.bodies",
+      "parent_mermaid_id": "n044",
+      "kind": "node",
+      "source_label": "one compiled body graph per bucket",
+      "translated_label": "one compiled body graph per bucket",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "one compiled body graph per bucket"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "fontSize": {
+            "value": "12"
+          },
+          "fontColor": {
+            "value": "#D6E4F7"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "450"
+        },
+        "height": {
+          "value": "38"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n045",
+      "parent_plantuml_id": "n044",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:12><color:#D6E4F7><plain>one compiled body graph per bucket</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.warmup.bodies",
+      "parent_d2_id": "upper.sidebar.warmup",
+      "parent_mermaid_id": "n043",
+      "kind": "group",
+      "source_label": "for T in token buckets: _dummy_run(T)",
+      "translated_label": "for T in token buckets: _dummy_run(T)",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "for T in token buckets: _dummy_run(T)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#ffffff"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "580"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n044",
+      "parent_plantuml_id": "n043",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#ffffff><b>for T in token buckets: &#95;dummy&#95;run(T)</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.warmup.attn.attn_d",
+      "parent_d2_id": "upper.sidebar.warmup.attn",
+      "parent_mermaid_id": "n046",
+      "kind": "node",
+      "source_label": "without the flag no attention metadata is built,\nso the attention path is never traced or compiled",
+      "translated_label": "without the flag no attention metadata is built,\nso the attention path is never traced or compiled",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "without the flag no attention metadata is built,\nso the attention path is never traced or compiled"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "fontSize": {
+            "value": "12"
+          },
+          "fontColor": {
+            "value": "#D6E4F7"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "450"
+        },
+        "height": {
+          "value": "56"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n047",
+      "parent_plantuml_id": "n046",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:12><color:#D6E4F7><plain>without the flag no attention metadata is built,</plain></color></size>\\n<size:12><color:#D6E4F7><plain>so the attention path is never traced or compiled</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.warmup.attn",
+      "parent_d2_id": "upper.sidebar.warmup",
+      "parent_mermaid_id": "n043",
+      "kind": "group",
+      "source_label": "for (S, L): _dummy_run(force_attention=True)",
+      "translated_label": "for (S, L): _dummy_run(force_attention=True)",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "for (S, L): _dummy_run(force_attention=True)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#ffffff"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "580"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n046",
+      "parent_plantuml_id": "n043",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#ffffff><b>for (S, L): &#95;dummy&#95;run(force&#95;attention=True)</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.warmup.pool.pool_d",
+      "parent_d2_id": "upper.sidebar.warmup.pool",
+      "parent_mermaid_id": "n048",
+      "kind": "node",
+      "source_label": "warms pooler shapes · upstream's version is only a memory probe",
+      "translated_label": "warms pooler shapes · upstream's version is only a memory probe",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "warms pooler shapes · upstream's version is only a memory probe"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "fontSize": {
+            "value": "12"
+          },
+          "fontColor": {
+            "value": "#D6E4F7"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "450"
+        },
+        "height": {
+          "value": "38"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n049",
+      "parent_plantuml_id": "n048",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:12><color:#D6E4F7><plain>warms pooler shapes · upstream's version is only a memory probe</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.warmup.pool",
+      "parent_d2_id": "upper.sidebar.warmup",
+      "parent_mermaid_id": "n043",
+      "kind": "group",
+      "source_label": "_dummy_pooler_run(hidden_states)",
+      "translated_label": "_dummy_pooler_run(hidden_states)",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "_dummy_pooler_run(hidden_states)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#ffffff"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "580"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-center"
+        }
+      },
+      "plantuml_id": "n048",
+      "parent_plantuml_id": "n043",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#ffffff><b>&#95;dummy&#95;pooler&#95;run(hidden&#95;states)</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.warmup",
+      "parent_d2_id": "upper.sidebar",
+      "parent_mermaid_id": "n029",
+      "kind": "group",
+      "source_label": "Startup: warmup walks both sets of buckets",
+      "translated_label": "Startup: warmup walks both sets of buckets",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Startup: warmup walks both sets of buckets"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#CFD2DD"
+          },
+          "fill": {
+            "value": "#EEF1F8"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "fontColor": {
+            "value": "#212121"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "3"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "12"
+        },
+        "labelPosition": {
+          "value": "top-left"
+        }
+      },
+      "plantuml_id": "n043",
+      "parent_plantuml_id": "n029",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><color:#212121><b>Startup: warmup walks both sets of buckets</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.invariants.rules",
+      "parent_d2_id": "upper.sidebar.invariants",
+      "parent_mermaid_id": "n050",
+      "kind": "node",
+      "source_label": "· The metadata always describes the real batch, so no  \npadded row is ever pooled.\n\n· Padding the body is safe: each layer treats every  \ntoken row on its own.",
+      "translated_label": "· The metadata always describes the real batch, so no  \npadded row is ever pooled.\n\n· Padding the body is safe: each layer treats every  \ntoken row on its own.",
+      "source_shape": "text",
+      "source_attributes": {
+        "label": {
+          "value": "· The metadata always describes the real batch, so no  \npadded row is ever pooled.\n\n· Padding the body is safe: each layer treats every  \ntoken row on its own."
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#EEF1F8"
+          },
+          "fill": {
+            "value": "#EEF1F8"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#37474f"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "580"
+        },
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "text"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n051",
+      "parent_plantuml_id": "n050",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#37474f>· The metadata always describes the real batch, so no  </color></size>\\n<size:14><color:#37474f>padded row is ever pooled.</color></size>\\n<size:14><color:#37474f>&#160;</color></size>\\n<size:14><color:#37474f>· Padding the body is safe: each layer treats every  </color></size>\\n<size:14><color:#37474f>token row on its own.</color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar.invariants",
+      "parent_d2_id": "upper.sidebar",
+      "parent_mermaid_id": "n029",
+      "kind": "group",
+      "source_label": "Design invariants",
+      "translated_label": "Design invariants",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Design invariants"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#CFD2DD"
+          },
+          "fill": {
+            "value": "#EEF1F8"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "fontColor": {
+            "value": "#212121"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "labelPosition": {
+          "value": "top-left"
+        }
+      },
+      "plantuml_id": "n050",
+      "parent_plantuml_id": "n029",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><color:#212121><b>Design invariants</b></color></size>",
+      "differences": [
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "upper.sidebar",
+      "parent_d2_id": "upper",
+      "parent_mermaid_id": "n000",
+      "kind": "group",
+      "source_label": " ",
+      "translated_label": " ",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": " "
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#FFFFFF"
+          },
+          "fill": {
+            "value": "#FFFFFF"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "4"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "26"
+        }
+      },
+      "plantuml_id": "n029",
+      "parent_plantuml_id": "n000",
+      "plantuml_shape": "rectangle",
+      "encoded_label": " ",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted"
+      ]
+    },
+    {
+      "d2_id": "upper",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": " ",
+      "translated_label": " ",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": " "
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#FFFFFF"
+          },
+          "fill": {
+            "value": "#FFFFFF"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "2"
+        },
+        "gridGap": {
+          "value": "40"
+        }
+      },
+      "plantuml_id": "n000",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": " ",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted"
+      ]
+    },
+    {
+      "d2_id": "lower.strategies.dense.dense_body",
+      "parent_d2_id": "lower.strategies.dense",
+      "parent_mermaid_id": "n054",
+      "kind": "node",
+      "source_label": "Pack the ragged flat list into a rectangle, so every  \nshape is fixed at compile time.  \nNeeded because an offset computed from data does not  \nlower under compilation (torch-spyre#3508) — exactly  \nthe arithmetic that flash relies on.  \nEager tolerates it; compiled mode, our target, does not.\n\n· build an additive mask [S, 1, L, L] marking padding  \nand cross-request slots  \n· build three index lists, then gather Q / K / V into  \n[S, H, L, D]  \n· one fused SDPA kernel per (S, L), then gather the  \nresults back out\n\n**Shape axes: T for the body, (S, L) for attention.  \nTwo sets of buckets to warm.**\n\nCosts: the mask grows with L², plus index lists and a  \nbarrier per gather.  \nWorks today. This is the current implementation.",
+      "translated_label": "Pack the ragged flat list into a rectangle, so every  \nshape is fixed at compile time.  \nNeeded because an offset computed from data does not  \nlower under compilation (torch-spyre#3508) — exactly  \nthe arithmetic that flash relies on.  \nEager tolerates it; compiled mode, our target, does not.\n\n· build an additive mask [S, 1, L, L] marking padding  \nand cross-request slots  \n· build three index lists, then gather Q / K / V into  \n[S, H, L, D]  \n· one fused SDPA kernel per (S, L), then gather the  \nresults back out\n\n**Shape axes: T for the body, (S, L) for attention.  \nTwo sets of buckets to warm.**\n\nCosts: the mask grows with L², plus index lists and a  \nbarrier per gather.  \nWorks today. This is the current implementation.",
+      "source_shape": "text",
+      "source_attributes": {
+        "label": {
+          "value": "Pack the ragged flat list into a rectangle, so every  \nshape is fixed at compile time.  \nNeeded because an offset computed from data does not  \nlower under compilation (torch-spyre#3508) — exactly  \nthe arithmetic that flash relies on.  \nEager tolerates it; compiled mode, our target, does not.\n\n· build an additive mask [S, 1, L, L] marking padding  \nand cross-request slots  \n· build three index lists, then gather Q / K / V into  \n[S, H, L, D]  \n· one fused SDPA kernel per (S, L), then gather the  \nresults back out\n\n**Shape axes: T for the body, (S, L) for attention.  \nTwo sets of buckets to warm.**\n\nCosts: the mask grows with L², plus index lists and a  \nbarrier per gather.  \nWorks today. This is the current implementation."
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#E3E9FD"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#0A0F25"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "620"
+        },
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "text"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n055",
+      "parent_plantuml_id": "n054",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#0A0F25>Pack the ragged flat list into a rectangle, so every  </color></size>\\n<size:14><color:#0A0F25>shape is fixed at compile time.  </color></size>\\n<size:14><color:#0A0F25>Needed because an offset computed from data does not  </color></size>\\n<size:14><color:#0A0F25>lower under compilation (torch-spyre&#35;3508) — exactly  </color></size>\\n<size:14><color:#0A0F25>the arithmetic that flash relies on.  </color></size>\\n<size:14><color:#0A0F25>Eager tolerates it; compiled mode, our target, does not.</color></size>\\n<size:14><color:#0A0F25>&#160;</color></size>\\n<size:14><color:#0A0F25>· build an additive mask &#91;S, 1, L, L&#93; marking padding  </color></size>\\n<size:14><color:#0A0F25>and cross-request slots  </color></size>\\n<size:14><color:#0A0F25>· build three index lists, then gather Q / K / V into  </color></size>\\n<size:14><color:#0A0F25>&#91;S, H, L, D&#93;  </color></size>\\n<size:14><color:#0A0F25>· one fused SDPA kernel per (S, L), then gather the  </color></size>\\n<size:14><color:#0A0F25>results back out</color></size>\\n<size:14><color:#0A0F25>&#160;</color></size>\\n<size:14><color:#0A0F25>&#42;&#42;Shape axes: T for the body, (S, L) for attention.  </color></size>\\n<size:14><color:#0A0F25>Two sets of buckets to warm.&#42;&#42;</color></size>\\n<size:14><color:#0A0F25>&#160;</color></size>\\n<size:14><color:#0A0F25>Costs: the mask grows with L², plus index lists and a  </color></size>\\n<size:14><color:#0A0F25>barrier per gather.  </color></size>\\n<size:14><color:#0A0F25>Works today. This is the current implementation.</color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "lower.strategies.dense",
+      "parent_d2_id": "lower.strategies",
+      "parent_mermaid_id": "n053",
+      "kind": "group",
+      "source_label": "A · Dense grid, the strategy shown above",
+      "translated_label": "A · Dense grid, the strategy shown above",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "A · Dense grid, the strategy shown above"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "15"
+          },
+          "fontColor": {
+            "value": "#0A0F25"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "700"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-left"
+        }
+      },
+      "plantuml_id": "n054",
+      "parent_plantuml_id": "n053",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:15><color:#0A0F25><b>A · Dense grid, the strategy shown above</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "stroke width omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "lower.strategies.flash.flash_body",
+      "parent_d2_id": "lower.strategies.flash",
+      "parent_mermaid_id": "n056",
+      "kind": "node",
+      "source_label": "Never materialise the rectangle.  \nEach block of queries reads its request's offset from  \nthe metadata at runtime, and works directly on the flat  \nlist, carrying a running softmax maximum and sum.  \nThat is the online-softmax structure the Spyre decoder  \nalready uses over KV pages.\n\n· no [S, 1, L, L] mask; request boundaries are the offsets  \n· no gather_pack / gather_unpack; the kernel reads the  \nflat list directly  \n· no per-layer index lists, so no per-gather barriers\n\n**Shape axis: block count, bucketed like the decoder's  \npage loop. L disappears.**\n\nBoth upstream backends already work this way, neither  \npadding into a rectangle.  \nFlash attention consumes the flat list with  \ncu_seqlens_q = query_start_loc, and the CPU backend  \npasses query[:num_actual_tokens] to a C++ kernel.",
+      "translated_label": "Never materialise the rectangle.  \nEach block of queries reads its request's offset from  \nthe metadata at runtime, and works directly on the flat  \nlist, carrying a running softmax maximum and sum.  \nThat is the online-softmax structure the Spyre decoder  \nalready uses over KV pages.\n\n· no [S, 1, L, L] mask; request boundaries are the offsets  \n· no gather_pack / gather_unpack; the kernel reads the  \nflat list directly  \n· no per-layer index lists, so no per-gather barriers\n\n**Shape axis: block count, bucketed like the decoder's  \npage loop. L disappears.**\n\nBoth upstream backends already work this way, neither  \npadding into a rectangle.  \nFlash attention consumes the flat list with  \ncu_seqlens_q = query_start_loc, and the CPU backend  \npasses query[:num_actual_tokens] to a C++ kernel.",
+      "source_shape": "text",
+      "source_attributes": {
+        "label": {
+          "value": "Never materialise the rectangle.  \nEach block of queries reads its request's offset from  \nthe metadata at runtime, and works directly on the flat  \nlist, carrying a running softmax maximum and sum.  \nThat is the online-softmax structure the Spyre decoder  \nalready uses over KV pages.\n\n· no [S, 1, L, L] mask; request boundaries are the offsets  \n· no gather_pack / gather_unpack; the kernel reads the  \nflat list directly  \n· no per-layer index lists, so no per-gather barriers\n\n**Shape axis: block count, bucketed like the decoder's  \npage loop. L disappears.**\n\nBoth upstream backends already work this way, neither  \npadding into a rectangle.  \nFlash attention consumes the flat list with  \ncu_seqlens_q = query_start_loc, and the CPU backend  \npasses query[:num_actual_tokens] to a C++ kernel."
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#E8F5E9"
+          },
+          "fill": {
+            "value": "#E8F5E9"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#0A0F25"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "620"
+        },
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "text"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n057",
+      "parent_plantuml_id": "n056",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#0A0F25>Never materialise the rectangle.  </color></size>\\n<size:14><color:#0A0F25>Each block of queries reads its request's offset from  </color></size>\\n<size:14><color:#0A0F25>the metadata at runtime, and works directly on the flat  </color></size>\\n<size:14><color:#0A0F25>list, carrying a running softmax maximum and sum.  </color></size>\\n<size:14><color:#0A0F25>That is the online-softmax structure the Spyre decoder  </color></size>\\n<size:14><color:#0A0F25>already uses over KV pages.</color></size>\\n<size:14><color:#0A0F25>&#160;</color></size>\\n<size:14><color:#0A0F25>· no &#91;S, 1, L, L&#93; mask; request boundaries are the offsets  </color></size>\\n<size:14><color:#0A0F25>· no gather&#95;pack / gather&#95;unpack; the kernel reads the  </color></size>\\n<size:14><color:#0A0F25>flat list directly  </color></size>\\n<size:14><color:#0A0F25>· no per-layer index lists, so no per-gather barriers</color></size>\\n<size:14><color:#0A0F25>&#160;</color></size>\\n<size:14><color:#0A0F25>&#42;&#42;Shape axis: block count, bucketed like the decoder's  </color></size>\\n<size:14><color:#0A0F25>page loop. L disappears.&#42;&#42;</color></size>\\n<size:14><color:#0A0F25>&#160;</color></size>\\n<size:14><color:#0A0F25>Both upstream backends already work this way, neither  </color></size>\\n<size:14><color:#0A0F25>padding into a rectangle.  </color></size>\\n<size:14><color:#0A0F25>Flash attention consumes the flat list with  </color></size>\\n<size:14><color:#0A0F25>cu&#95;seqlens&#95;q = query&#95;start&#95;loc, and the CPU backend  </color></size>\\n<size:14><color:#0A0F25>passes query&#91;:num&#95;actual&#95;tokens&#93; to a C++ kernel.</color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "lower.strategies.flash",
+      "parent_d2_id": "lower.strategies",
+      "parent_mermaid_id": "n053",
+      "kind": "group",
+      "source_label": "B · Flash-style attention, planned",
+      "translated_label": "B · Flash-style attention, planned",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "B · Flash-style attention, planned"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2e7d32"
+          },
+          "fill": {
+            "value": "#E8F5E9"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "15"
+          },
+          "fontColor": {
+            "value": "#0A0F25"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "700"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-left"
+        }
+      },
+      "plantuml_id": "n056",
+      "parent_plantuml_id": "n053",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:15><color:#0A0F25><b>B · Flash-style attention, planned</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "stroke width omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "lower.strategies",
+      "parent_d2_id": "lower",
+      "parent_mermaid_id": "n052",
+      "kind": "group",
+      "source_label": " ",
+      "translated_label": " ",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": " "
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#EEF1F8"
+          },
+          "fill": {
+            "value": "#EEF1F8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "2"
+        },
+        "gridGap": {
+          "value": "26"
+        }
+      },
+      "plantuml_id": "n053",
+      "parent_plantuml_id": "n052",
+      "plantuml_shape": "rectangle",
+      "encoded_label": " ",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted"
+      ]
+    },
+    {
+      "d2_id": "lower.footer.simplifies.simplifies_body",
+      "parent_d2_id": "lower.footer.simplifies",
+      "parent_mermaid_id": "n059",
+      "kind": "node",
+      "source_label": "· the second shape axis collapses; bucket T and a block count,  \nmuch closer to upstream's single axis  \n· the batch-shape tables box disappears, and with it the  \nper-layer rebuild problem and its barriers  \n· gather_pack / SDPA / gather_unpack collapse into one  \nblocked-attention kernel  \n· the mask's L² growth at long prompts disappears, today's  \nlargest untested risk\n\n**Open question:** whether a Spyre kernel can do the runtime  \noffset arithmetic this depends on. If it cannot, the block  \ncount stays bucketed.  \nEverything else holds either way: padding seam, unpadded  \nmetadata, warmup, compilation mode.",
+      "translated_label": "· the second shape axis collapses; bucket T and a block count,  \nmuch closer to upstream's single axis  \n· the batch-shape tables box disappears, and with it the  \nper-layer rebuild problem and its barriers  \n· gather_pack / SDPA / gather_unpack collapse into one  \nblocked-attention kernel  \n· the mask's L² growth at long prompts disappears, today's  \nlargest untested risk\n\nOpen question: whether a Spyre kernel can do the runtime  \noffset arithmetic this depends on. If it cannot, the block  \ncount stays bucketed.  \nEverything else holds either way: padding seam, unpadded  \nmetadata, warmup, compilation mode.",
+      "source_shape": "text",
+      "source_attributes": {
+        "label": {
+          "value": "· the second shape axis collapses; bucket T and a block count,  \nmuch closer to upstream's single axis  \n· the batch-shape tables box disappears, and with it the  \nper-layer rebuild problem and its barriers  \n· gather_pack / SDPA / gather_unpack collapse into one  \nblocked-attention kernel  \n· the mask's L² growth at long prompts disappears, today's  \nlargest untested risk\n\n**Open question:** whether a Spyre kernel can do the runtime  \noffset arithmetic this depends on. If it cannot, the block  \ncount stays bucketed.  \nEverything else holds either way: padding seam, unpadded  \nmetadata, warmup, compilation mode."
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#FFF8E1"
+          },
+          "fill": {
+            "value": "#FFF8E1"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#5d4037"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "920"
+        },
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "text"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n060",
+      "parent_plantuml_id": "n059",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#5d4037>· the second shape axis collapses; bucket T and a block count,  </color></size>\\n<size:14><color:#5d4037>much closer to upstream's single axis  </color></size>\\n<size:14><color:#5d4037>· the batch-shape tables box disappears, and with it the  </color></size>\\n<size:14><color:#5d4037>per-layer rebuild problem and its barriers  </color></size>\\n<size:14><color:#5d4037>· gather&#95;pack / SDPA / gather&#95;unpack collapse into one  </color></size>\\n<size:14><color:#5d4037>blocked-attention kernel  </color></size>\\n<size:14><color:#5d4037>· the mask's L² growth at long prompts disappears, today's  </color></size>\\n<size:14><color:#5d4037>largest untested risk</color></size>\\n<size:14><color:#5d4037>&#160;</color></size>\\n<size:14><color:#5d4037>Open question: whether a Spyre kernel can do the runtime  </color></size>\\n<size:14><color:#5d4037>offset arithmetic this depends on. If it cannot, the block  </color></size>\\n<size:14><color:#5d4037>count stays bucketed.  </color></size>\\n<size:14><color:#5d4037>Everything else holds either way: padding seam, unpadded  </color></size>\\n<size:14><color:#5d4037>metadata, warmup, compilation mode.</color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "markdown formatted as validated plain multiline text"
+      ]
+    },
+    {
+      "d2_id": "lower.footer.simplifies",
+      "parent_d2_id": "lower.footer",
+      "parent_mermaid_id": "n058",
+      "kind": "group",
+      "source_label": "If flash attention lands, the design converges on upstream",
+      "translated_label": "If flash attention lands, the design converges on upstream",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "If flash attention lands, the design converges on upstream"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#F9A825"
+          },
+          "fill": {
+            "value": "#FFF8E1"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "15"
+          },
+          "fontColor": {
+            "value": "#5d4037"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "1000"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "0"
+        },
+        "labelPosition": {
+          "value": "top-left"
+        }
+      },
+      "plantuml_id": "n059",
+      "parent_plantuml_id": "n058",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:15><color:#5d4037><b>If flash attention lands, the design converges on upstream</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "width placement/sizing omitted",
+        "labelPosition placement/sizing omitted",
+        "stroke width omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "lower.footer.legend.L1",
+      "parent_d2_id": "lower.footer.legend",
+      "parent_mermaid_id": "n061",
+      "kind": "node",
+      "source_label": "Upstream vLLM, used as-is",
+      "translated_label": "Upstream vLLM, used as-is",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Upstream vLLM, used as-is"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#263238"
+          },
+          "fill": {
+            "value": "#37474f"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#ffffff"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "340"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n062",
+      "parent_plantuml_id": "n061",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#ffffff><plain>Upstream vLLM, used as-is</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "lower.footer.legend.L2",
+      "parent_d2_id": "lower.footer.legend",
+      "parent_mermaid_id": "n061",
+      "kind": "node",
+      "source_label": "spyre-inference component",
+      "translated_label": "spyre-inference component",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "spyre-inference component"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#1565c0"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#ffffff"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "340"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n063",
+      "parent_plantuml_id": "n061",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#ffffff><plain>spyre-inference component</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "lower.footer.legend.L3",
+      "parent_d2_id": "lower.footer.legend",
+      "parent_mermaid_id": "n061",
+      "kind": "node",
+      "source_label": "Internal step · dense-grid path",
+      "translated_label": "Internal step · dense-grid path",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Internal step · dense-grid path"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#0d47a1"
+          },
+          "fill": {
+            "value": "#E3E9FD"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#0A0F25"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "340"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n064",
+      "parent_plantuml_id": "n061",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#0A0F25><plain>Internal step · dense-grid path</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "lower.footer.legend.L4",
+      "parent_d2_id": "lower.footer.legend",
+      "parent_mermaid_id": "n061",
+      "kind": "node",
+      "source_label": "Planned flash-attention path",
+      "translated_label": "Planned flash-attention path",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Planned flash-attention path"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2e7d32"
+          },
+          "fill": {
+            "value": "#E8F5E9"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#0A0F25"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "340"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n065",
+      "parent_plantuml_id": "n061",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#0A0F25><plain>Planned flash-attention path</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "lower.footer.legend.L5",
+      "parent_d2_id": "lower.footer.legend",
+      "parent_mermaid_id": "n061",
+      "kind": "node",
+      "source_label": "Note or upstream dependency",
+      "translated_label": "Note or upstream dependency",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Note or upstream dependency"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#F9A825"
+          },
+          "fill": {
+            "value": "#FFF8E1"
+          },
+          "borderRadius": {
+            "value": "6"
+          },
+          "fontSize": {
+            "value": "14"
+          },
+          "fontColor": {
+            "value": "#5d4037"
+          },
+          "bold": {
+            "value": "false"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "340"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n066",
+      "parent_plantuml_id": "n061",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:14><color:#5d4037><plain>Note or upstream dependency</plain></color></size>",
+      "differences": [
+        "width placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "lower.footer.legend",
+      "parent_d2_id": "lower.footer",
+      "parent_mermaid_id": "n058",
+      "kind": "group",
+      "source_label": "Legend",
+      "translated_label": "Legend",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Legend"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#CFD2DD"
+          },
+          "fill": {
+            "value": "#FFFFFF"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "fontColor": {
+            "value": "#212121"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "5"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "6"
+        },
+        "labelPosition": {
+          "value": "top-left"
+        }
+      },
+      "plantuml_id": "n061",
+      "parent_plantuml_id": "n058",
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><color:#212121><b>Legend</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    },
+    {
+      "d2_id": "lower.footer",
+      "parent_d2_id": "lower",
+      "parent_mermaid_id": "n052",
+      "kind": "group",
+      "source_label": " ",
+      "translated_label": " ",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": " "
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#EEF1F8"
+          },
+          "fill": {
+            "value": "#EEF1F8"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "2"
+        },
+        "gridGap": {
+          "value": "26"
+        }
+      },
+      "plantuml_id": "n058",
+      "parent_plantuml_id": "n052",
+      "plantuml_shape": "rectangle",
+      "encoded_label": " ",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted"
+      ]
+    },
+    {
+      "d2_id": "lower",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Attention shape strategy: dense grid today, and planned flash attention",
+      "translated_label": "Attention shape strategy: dense grid today, and planned flash attention",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Attention shape strategy: dense grid today, and planned flash attention"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#CFD2DD"
+          },
+          "fill": {
+            "value": "#EEF1F8"
+          },
+          "borderRadius": {
+            "value": "10"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "fontColor": {
+            "value": "#212121"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "2"
+        },
+        "gridColumns": {
+          "value": "1"
+        },
+        "gridGap": {
+          "value": "26"
+        },
+        "labelPosition": {
+          "value": "top-left"
+        }
+      },
+      "plantuml_id": "n052",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "<size:20><color:#212121><b>Attention shape strategy: dense grid today, and planned flash attention</b></color></size>",
+      "differences": [
+        "gridRows layout omitted",
+        "gridColumns layout omitted",
+        "gridGap layout omitted",
+        "labelPosition placement/sizing omitted",
+        "borderRadius style omitted"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "index": 0,
+      "d2_id": "upper.serving.(sched -> dispatch)[0]",
+      "source_d2_id": "upper.serving.sched",
+      "target_d2_id": "upper.serving.dispatch",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n002",
+      "target_plantuml_id": "n004",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 1,
+      "d2_id": "upper.serving.(dispatch -> body)[0]",
+      "source_d2_id": "upper.serving.dispatch",
+      "target_d2_id": "upper.serving.body",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n004",
+      "target_plantuml_id": "n006",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 2,
+      "d2_id": "upper.serving.(body -> attention)[0]",
+      "source_d2_id": "upper.serving.body",
+      "target_d2_id": "upper.serving.attention",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n006",
+      "target_plantuml_id": "n012",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 3,
+      "d2_id": "upper.serving.(attention -> pooler)[0]",
+      "source_d2_id": "upper.serving.attention",
+      "target_d2_id": "upper.serving.pooler",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n012",
+      "target_plantuml_id": "n024",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 4,
+      "d2_id": "upper.serving.(pooler -> mean_dep)[0]",
+      "source_d2_id": "upper.serving.pooler",
+      "target_d2_id": "upper.serving.mean_dep",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n024",
+      "target_plantuml_id": "n026",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    },
+    {
+      "index": 5,
+      "d2_id": "upper.serving.(mean_dep -> output)[0]",
+      "source_d2_id": "upper.serving.mean_dep",
+      "target_d2_id": "upper.serving.output",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n026",
+      "target_plantuml_id": "n027",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    }
+  ],
+  "synthetic_objects": 0,
+  "synthetic_edges": 0
+}

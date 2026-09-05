@@ -1,0 +1,11 @@
+{
+  "name": "d2-benchmarks-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pinned browser renderer dependencies for d2-benchmarks",
+  "dependencies": {
+    "@mermaid-js/mermaid-cli": "11.17.0",
+    "mermaid": "11.17.2",
+    "puppeteer": "25.10.0"
+  }
+}

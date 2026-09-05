@@ -1,0 +1,2591 @@
+{
+  "fixture": "jupyter_k8s_oidc",
+  "source_sha256": "7f051c2b20e73488453e7a9cf224f09a5e6ae7ac428ffe6cebf4d1b281e7d9b1",
+  "mermaid_sha256": "9eb47daf355914a34f042a4ee987012d0830e0f740c8d9f29524dcbd8097f173",
+  "counts": {
+    "objects": 33,
+    "leaf_nodes": 23,
+    "groups": 10,
+    "edges": 17
+  },
+  "root_attributes": {
+    "label": {
+      "value": ""
+    },
+    "labelDimensions": {
+      "width": 0,
+      "height": 0
+    },
+    "style": {},
+    "iconStyle": {},
+    "near_key": null,
+    "shape": {
+      "value": ""
+    },
+    "direction": {
+      "value": ""
+    },
+    "constraint": null,
+    "gridRows": {
+      "value": "1"
+    },
+    "gridColumns": {
+      "value": "2"
+    }
+  },
+  "source_config": {
+    "sketch": null,
+    "themeID": null,
+    "darkThemeID": null,
+    "pad": null,
+    "center": null,
+    "layoutEngine": "elk"
+  },
+  "limitations": {
+    "width placement/sizing omitted": 5,
+    "height placement/sizing omitted": 5,
+    "square aspect ratio not forced": 5,
+    "grid approximated by subgraph direction": 8,
+    "labelPosition placement/sizing omitted": 2,
+    "group fontSize omitted to avoid Mermaid label clipping": 5,
+    "group bold omitted to avoid Mermaid label clipping": 5,
+    "root grid approximated by flowchart direction": 1
+  },
+  "objects": [
+    {
+      "d2_id": "laptop.s1",
+      "mermaid_id": "n001",
+      "parent_d2_id": "laptop",
+      "parent_mermaid_id": "n000",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      }
+    },
+    {
+      "d2_id": "laptop.kubectl",
+      "mermaid_id": "n002",
+      "parent_d2_id": "laptop",
+      "parent_mermaid_id": "n000",
+      "kind": "node",
+      "source_label": "kubectl",
+      "translated_label": "kubectl",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "kubectl"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#388e3c"
+          },
+          "fill": {
+            "value": "#c8e6c9"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      }
+    },
+    {
+      "d2_id": "laptop.s2",
+      "mermaid_id": "n003",
+      "parent_d2_id": "laptop",
+      "parent_mermaid_id": "n000",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      }
+    },
+    {
+      "d2_id": "laptop.browser",
+      "mermaid_id": "n004",
+      "parent_d2_id": "laptop",
+      "parent_mermaid_id": "n000",
+      "kind": "node",
+      "source_label": "Browser",
+      "translated_label": "Browser",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Browser"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#388e3c"
+          },
+          "fill": {
+            "value": "#c8e6c9"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      }
+    },
+    {
+      "d2_id": "laptop.s3",
+      "mermaid_id": "n005",
+      "parent_d2_id": "laptop",
+      "parent_mermaid_id": "n000",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      }
+    },
+    {
+      "d2_id": "laptop.cookie_relay",
+      "mermaid_id": "n006",
+      "parent_d2_id": "laptop",
+      "parent_mermaid_id": "n000",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "square",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted",
+        "square aspect ratio not forced"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "1"
+        },
+        "height": {
+          "value": "1"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "square"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "flow_relay"
+        ]
+      }
+    },
+    {
+      "d2_id": "laptop",
+      "mermaid_id": "n000",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "User Laptop",
+      "translated_label": "User Laptop",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "grid approximated by subgraph direction",
+        "labelPosition placement/sizing omitted",
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "User Laptop"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2e7d32"
+          },
+          "fill": {
+            "value": "#e8f5e9"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridColumns": {
+          "value": "1"
+        },
+        "labelPosition": {
+          "value": "top-right"
+        },
+        "classes": [
+          "icon_labeled_block"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.api_row.api_server",
+      "mermaid_id": "n010",
+      "parent_d2_id": "cluster.left_column.api_row",
+      "parent_mermaid_id": "n009",
+      "kind": "node",
+      "source_label": "API Server",
+      "translated_label": "API Server",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "API Server"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.api_row.s1",
+      "mermaid_id": "n011",
+      "parent_d2_id": "cluster.left_column.api_row",
+      "parent_mermaid_id": "n009",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.api_row.etcd",
+      "mermaid_id": "n012",
+      "parent_d2_id": "cluster.left_column.api_row",
+      "parent_mermaid_id": "n009",
+      "kind": "node",
+      "source_label": "etcd",
+      "translated_label": "etcd",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "etcd"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.api_row",
+      "mermaid_id": "n009",
+      "parent_d2_id": "cluster.left_column",
+      "parent_mermaid_id": "n008",
+      "kind": "group",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "grid approximated by subgraph direction"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "3"
+        }
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.oidc_auth.idp",
+      "mermaid_id": "n015",
+      "parent_d2_id": "cluster.left_column.router-namespace.oidc_auth",
+      "parent_mermaid_id": "n014",
+      "kind": "node",
+      "source_label": "OIDC Provider",
+      "translated_label": "OIDC Provider",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "OIDC Provider"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "fill": {
+            "value": "#ffe0b2"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.oidc_auth.s1",
+      "mermaid_id": "n016",
+      "parent_d2_id": "cluster.left_column.router-namespace.oidc_auth",
+      "parent_mermaid_id": "n014",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.oidc_auth.authmiddleware",
+      "mermaid_id": "n017",
+      "parent_d2_id": "cluster.left_column.router-namespace.oidc_auth",
+      "parent_mermaid_id": "n014",
+      "kind": "node",
+      "source_label": "Auth Middleware",
+      "translated_label": "Auth Middleware",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Auth Middleware"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "fill": {
+            "value": "#ffe0b2"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.oidc_auth",
+      "mermaid_id": "n014",
+      "parent_d2_id": "cluster.left_column.router-namespace",
+      "parent_mermaid_id": "n013",
+      "kind": "group",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "grid approximated by subgraph direction"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "3"
+        }
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.forward_auth_relays.s1",
+      "mermaid_id": "n019",
+      "parent_d2_id": "cluster.left_column.router-namespace.forward_auth_relays",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_oidc_down",
+      "mermaid_id": "n020",
+      "parent_d2_id": "cluster.left_column.router-namespace.forward_auth_relays",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "square",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted",
+        "square aspect ratio not forced"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "1"
+        },
+        "height": {
+          "value": "1"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "square"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "flow_relay"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.forward_auth_relays.s2",
+      "mermaid_id": "n021",
+      "parent_d2_id": "cluster.left_column.router-namespace.forward_auth_relays",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_oidc_up",
+      "mermaid_id": "n022",
+      "parent_d2_id": "cluster.left_column.router-namespace.forward_auth_relays",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "square",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted",
+        "square aspect ratio not forced"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "1"
+        },
+        "height": {
+          "value": "1"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "square"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "flow_relay"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_auth_down",
+      "mermaid_id": "n023",
+      "parent_d2_id": "cluster.left_column.router-namespace.forward_auth_relays",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "square",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted",
+        "square aspect ratio not forced"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "1"
+        },
+        "height": {
+          "value": "1"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "square"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "flow_relay"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.forward_auth_relays.s3",
+      "mermaid_id": "n024",
+      "parent_d2_id": "cluster.left_column.router-namespace.forward_auth_relays",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_auth_up",
+      "mermaid_id": "n025",
+      "parent_d2_id": "cluster.left_column.router-namespace.forward_auth_relays",
+      "parent_mermaid_id": "n018",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "square",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "width placement/sizing omitted",
+        "height placement/sizing omitted",
+        "square aspect ratio not forced"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "width": {
+          "value": "1"
+        },
+        "height": {
+          "value": "1"
+        },
+        "near_key": null,
+        "shape": {
+          "value": "square"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "flow_relay"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.forward_auth_relays",
+      "mermaid_id": "n018",
+      "parent_d2_id": "cluster.left_column.router-namespace",
+      "parent_mermaid_id": "n013",
+      "kind": "group",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "grid approximated by subgraph direction"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridRows": {
+          "value": "1"
+        },
+        "gridColumns": {
+          "value": "7"
+        }
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace.router",
+      "mermaid_id": "n026",
+      "parent_d2_id": "cluster.left_column.router-namespace",
+      "parent_mermaid_id": "n013",
+      "kind": "node",
+      "source_label": "Router",
+      "translated_label": "Router",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Router"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "fill": {
+            "value": "#ffe0b2"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.left_column.router-namespace",
+      "mermaid_id": "n013",
+      "parent_d2_id": "cluster.left_column",
+      "parent_mermaid_id": "n008",
+      "kind": "group",
+      "source_label": "Router Namespace",
+      "translated_label": "Router Namespace",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "grid approximated by subgraph direction",
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Router Namespace"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#f57c00"
+          },
+          "fill": {
+            "value": "#ffe0b2"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "strokeDash": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridColumns": {
+          "value": "1"
+        },
+        "classes": [
+          "namespace"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.left_column",
+      "mermaid_id": "n008",
+      "parent_d2_id": "cluster",
+      "parent_mermaid_id": "n007",
+      "kind": "group",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "grid approximated by subgraph direction"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridColumns": {
+          "value": "1"
+        },
+        "classes": [
+          "column_container"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.right_column.operator-namespace.extensionapi",
+      "mermaid_id": "n029",
+      "parent_d2_id": "cluster.right_column.operator-namespace",
+      "parent_mermaid_id": "n028",
+      "kind": "node",
+      "source_label": "Extension API",
+      "translated_label": "Extension API",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Extension API"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.right_column.operator-namespace",
+      "mermaid_id": "n028",
+      "parent_d2_id": "cluster.right_column",
+      "parent_mermaid_id": "n027",
+      "kind": "group",
+      "source_label": "Operator Namespace",
+      "translated_label": "Operator Namespace",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Operator Namespace"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#bbdefb"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "strokeDash": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "namespace"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.right_column.s1",
+      "mermaid_id": "n030",
+      "parent_d2_id": "cluster.right_column",
+      "parent_mermaid_id": "n027",
+      "kind": "node",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "opacity": {
+            "value": "0"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "spacer"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.right_column.workspace-namespace.workspace",
+      "mermaid_id": "n032",
+      "parent_d2_id": "cluster.right_column.workspace-namespace",
+      "parent_mermaid_id": "n031",
+      "kind": "node",
+      "source_label": "Workspace",
+      "translated_label": "Workspace",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Workspace"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#8e24aa"
+          },
+          "fill": {
+            "value": "#e1bee7"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "borderRadius": {
+            "value": "8"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "box"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.right_column.workspace-namespace",
+      "mermaid_id": "n031",
+      "parent_d2_id": "cluster.right_column",
+      "parent_mermaid_id": "n027",
+      "kind": "group",
+      "source_label": "Workspace Namespace",
+      "translated_label": "Workspace Namespace",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Workspace Namespace"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#8e24aa"
+          },
+          "fill": {
+            "value": "#e1bee7"
+          },
+          "strokeWidth": {
+            "value": "2"
+          },
+          "strokeDash": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "18"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "namespace"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster.right_column",
+      "mermaid_id": "n027",
+      "parent_d2_id": "cluster",
+      "parent_mermaid_id": "n007",
+      "kind": "group",
+      "source_label": "",
+      "translated_label": "",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "grid approximated by subgraph direction"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "0"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridColumns": {
+          "value": "1"
+        },
+        "classes": [
+          "column_container"
+        ]
+      }
+    },
+    {
+      "d2_id": "cluster",
+      "mermaid_id": "n007",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Kubernetes Cluster",
+      "translated_label": "Kubernetes Cluster",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "grid approximated by subgraph direction",
+        "labelPosition placement/sizing omitted",
+        "group fontSize omitted to avoid Mermaid label clipping",
+        "group bold omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Kubernetes Cluster"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#1565c0"
+          },
+          "fill": {
+            "value": "#e3f2fd"
+          },
+          "strokeWidth": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "20"
+          },
+          "bold": {
+            "value": "true"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "gridColumns": {
+          "value": "2"
+        },
+        "labelPosition": {
+          "value": "top-right"
+        },
+        "classes": [
+          "icon_labeled_block"
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "index": 0,
+      "d2_id": "(laptop.kubectl -> cluster.left_column.api_row.api_server)[0]",
+      "source_d2_id": "laptop.kubectl",
+      "target_d2_id": "cluster.left_column.api_row.api_server",
+      "source_mermaid_id": "n002",
+      "target_mermaid_id": "n010",
+      "mermaid_start_id": "n002",
+      "mermaid_end_id": "n010",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "1. Get Workspace",
+      "translated_label": "1. Get Workspace",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "1. Get Workspace"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2e7d32"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "green_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 1,
+      "d2_id": "cluster.left_column.api_row.(api_server -> etcd)[0]",
+      "source_d2_id": "cluster.left_column.api_row.api_server",
+      "target_d2_id": "cluster.left_column.api_row.etcd",
+      "source_mermaid_id": "n010",
+      "target_mermaid_id": "n012",
+      "mermaid_start_id": "n010",
+      "mermaid_end_id": "n012",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#2e7d32"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "green_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 2,
+      "d2_id": "(laptop.browser -> cluster.left_column.router-namespace.router)[0]",
+      "source_d2_id": "laptop.browser",
+      "target_d2_id": "cluster.left_column.router-namespace.router",
+      "source_mermaid_id": "n004",
+      "target_mermaid_id": "n026",
+      "mermaid_start_id": "n004",
+      "mermaid_end_id": "n026",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "2. Navigate to\nworkspace URL",
+      "translated_label": "2. Navigate to\nworkspace URL",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "2. Navigate to\nworkspace URL"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 3,
+      "d2_id": "cluster.left_column.router-namespace.(router -> forward_auth_relays.relay_oidc_down)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.router",
+      "target_d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_oidc_down",
+      "source_mermaid_id": "n026",
+      "target_mermaid_id": "n020",
+      "mermaid_start_id": "n026",
+      "mermaid_end_id": "n020",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": false,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "---",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "none"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "index": 4,
+      "d2_id": "cluster.left_column.router-namespace.(forward_auth_relays.relay_oidc_down -> oidc_auth.idp)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_oidc_down",
+      "target_d2_id": "cluster.left_column.router-namespace.oidc_auth.idp",
+      "source_mermaid_id": "n020",
+      "target_mermaid_id": "n015",
+      "mermaid_start_id": "n020",
+      "mermaid_end_id": "n015",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "3. Redirect to IdP",
+      "translated_label": "3. Redirect to IdP",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "3. Redirect to IdP"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 5,
+      "d2_id": "(cluster.left_column.router-namespace.oidc_auth.idp <-> laptop.browser)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.oidc_auth.idp",
+      "target_d2_id": "laptop.browser",
+      "source_mermaid_id": "n015",
+      "target_mermaid_id": "n004",
+      "mermaid_start_id": "n015",
+      "mermaid_end_id": "n004",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "4. OAuth2 login",
+      "translated_label": "4. OAuth2 login",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": "4. OAuth2 login"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 6,
+      "d2_id": "cluster.left_column.router-namespace.(oidc_auth.idp -> forward_auth_relays.relay_oidc_up)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.oidc_auth.idp",
+      "target_d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_oidc_up",
+      "source_mermaid_id": "n015",
+      "target_mermaid_id": "n022",
+      "mermaid_start_id": "n015",
+      "mermaid_end_id": "n022",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": false,
+      "source_label": "5. Callback\n(auth code)",
+      "translated_label": "5. Callback\n(auth code)",
+      "mermaid_arrow": "---",
+      "source_attributes": {
+        "label": {
+          "value": "5. Callback\n(auth code)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "none"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "index": 7,
+      "d2_id": "cluster.left_column.router-namespace.(forward_auth_relays.relay_oidc_up -> router)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_oidc_up",
+      "target_d2_id": "cluster.left_column.router-namespace.router",
+      "source_mermaid_id": "n022",
+      "target_mermaid_id": "n026",
+      "mermaid_start_id": "n022",
+      "mermaid_end_id": "n026",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 8,
+      "d2_id": "cluster.left_column.router-namespace.(router -> forward_auth_relays.relay_auth_down)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.router",
+      "target_d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_auth_down",
+      "source_mermaid_id": "n026",
+      "target_mermaid_id": "n023",
+      "mermaid_start_id": "n026",
+      "mermaid_end_id": "n023",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": false,
+      "source_label": "/auth",
+      "translated_label": "/auth",
+      "mermaid_arrow": "---",
+      "source_attributes": {
+        "label": {
+          "value": "/auth"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "none"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "index": 9,
+      "d2_id": "cluster.left_column.router-namespace.(forward_auth_relays.relay_auth_down -> oidc_auth.authmiddleware)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_auth_down",
+      "target_d2_id": "cluster.left_column.router-namespace.oidc_auth.authmiddleware",
+      "source_mermaid_id": "n023",
+      "target_mermaid_id": "n017",
+      "mermaid_start_id": "n023",
+      "mermaid_end_id": "n017",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "6. Forward auth\n(ID token)",
+      "translated_label": "6. Forward auth\n(ID token)",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "6. Forward auth\n(ID token)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 10,
+      "d2_id": "cluster.left_column.router-namespace.oidc_auth.(authmiddleware -> idp)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.oidc_auth.authmiddleware",
+      "target_d2_id": "cluster.left_column.router-namespace.oidc_auth.idp",
+      "source_mermaid_id": "n017",
+      "target_mermaid_id": "n015",
+      "mermaid_start_id": "n017",
+      "mermaid_end_id": "n015",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "7. Verify token",
+      "translated_label": "7. Verify token",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "7. Verify token"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 11,
+      "d2_id": "cluster.(left_column.router-namespace.oidc_auth.authmiddleware -> right_column.operator-namespace.extensionapi)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.oidc_auth.authmiddleware",
+      "target_d2_id": "cluster.right_column.operator-namespace.extensionapi",
+      "source_mermaid_id": "n017",
+      "target_mermaid_id": "n029",
+      "mermaid_start_id": "n017",
+      "mermaid_end_id": "n029",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "8. ConnectionAccessReview\n(authorize user)",
+      "translated_label": "8. ConnectionAccessReview\n(authorize user)",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "8. ConnectionAccessReview\n(authorize user)"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 12,
+      "d2_id": "cluster.left_column.router-namespace.(oidc_auth.authmiddleware -> forward_auth_relays.relay_auth_up)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.oidc_auth.authmiddleware",
+      "target_d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_auth_up",
+      "source_mermaid_id": "n017",
+      "target_mermaid_id": "n025",
+      "mermaid_start_id": "n017",
+      "mermaid_end_id": "n025",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": false,
+      "source_label": "200",
+      "translated_label": "200",
+      "mermaid_arrow": "---",
+      "source_attributes": {
+        "label": {
+          "value": "200"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "none"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "index": 13,
+      "d2_id": "cluster.left_column.router-namespace.(forward_auth_relays.relay_auth_up -> router)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.forward_auth_relays.relay_auth_up",
+      "target_d2_id": "cluster.left_column.router-namespace.router",
+      "source_mermaid_id": "n025",
+      "target_mermaid_id": "n026",
+      "mermaid_start_id": "n025",
+      "mermaid_end_id": "n026",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "JWT cookie",
+      "translated_label": "JWT cookie",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "JWT cookie"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 14,
+      "d2_id": "cluster.(left_column.router-namespace.router -> right_column.workspace-namespace.workspace)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.router",
+      "target_d2_id": "cluster.right_column.workspace-namespace.workspace",
+      "source_mermaid_id": "n026",
+      "target_mermaid_id": "n032",
+      "mermaid_start_id": "n026",
+      "mermaid_end_id": "n032",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "9. Proxy to\nworkspace",
+      "translated_label": "9. Proxy to\nworkspace",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": "9. Proxy to\nworkspace"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 15,
+      "d2_id": "(cluster.left_column.router-namespace.router -> laptop.cookie_relay)[0]",
+      "source_d2_id": "cluster.left_column.router-namespace.router",
+      "target_d2_id": "laptop.cookie_relay",
+      "source_mermaid_id": "n026",
+      "target_mermaid_id": "n006",
+      "mermaid_start_id": "n026",
+      "mermaid_end_id": "n006",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": false,
+      "source_label": "10. Set JWT cookie",
+      "translated_label": "10. Set JWT cookie",
+      "mermaid_arrow": "---",
+      "source_attributes": {
+        "label": {
+          "value": "10. Set JWT cookie"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "none"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "index": 16,
+      "d2_id": "laptop.(cookie_relay -> browser)[0]",
+      "source_d2_id": "laptop.cookie_relay",
+      "target_d2_id": "laptop.browser",
+      "source_mermaid_id": "n006",
+      "target_mermaid_id": "n004",
+      "mermaid_start_id": "n006",
+      "mermaid_end_id": "n004",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "#c62828"
+          },
+          "strokeWidth": {
+            "value": "3"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null,
+        "classes": [
+          "red_flow"
+        ]
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    }
+  ],
+  "synthetic_objects": 0,
+  "synthetic_edges": 0
+}

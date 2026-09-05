@@ -1,0 +1,609 @@
+{
+  "schema_version": 1,
+  "provenance": "PROVENANCE.md",
+  "license_notice": "LICENSES.md",
+  "source_verification": {
+    "path": "source-verification.json",
+    "sha256": "e04f8518a7c1b421f56e36fb4fa63cb9b608f16c2bc47565aacd5c63ef29137c"
+  },
+  "licenses": [
+    {
+      "path": "licenses/jupyter_aws_eks_LICENSE",
+      "sha256": "cece8af57dcd1e4cdaaca6d44d41d36498caf5812388f7e54612f19f1a713632",
+      "url": "https://github.com/jupyter-infra/jupyter-deploy/blob/7283c07396c3d0126346217089e2527d1ce652f6/LICENSE"
+    },
+    {
+      "path": "licenses/ross_overview_LICENSE.md",
+      "sha256": "d7b9a998022830c169d38c3f679d0f145c8dfd999daede91aa818c4e44887b9e",
+      "url": "https://github.com/petrobras/ross/blob/631a249adbae414d5f5f986479b58f1a4c47935e/LICENSE.md"
+    },
+    {
+      "path": "licenses/queue_workers_LICENSE",
+      "sha256": "499d8418ed5b1360100585463a3bfc8e8033cb5698eb04cba96a8f9196760770",
+      "url": "https://github.com/golang-queue/queue/blob/2a79b8aac36eaca758ff4f5412fcb485b027dd58/LICENSE"
+    },
+    {
+      "path": "licenses/spyre_encoder_LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "url": "https://github.com/torch-spyre/spyre-inference/blob/c81a50ca25c5faf42a5deeeb80654c4b853625a6/LICENSE"
+    },
+    {
+      "path": "licenses/mocha_soc_REUSE.toml",
+      "sha256": "7e0e6d5665e4d94a935eb9b9e27048a900f8d9b4f8790a0d1fdbdd48aa2cd32c",
+      "url": "https://github.com/lowRISC/mocha/blob/b5973217f704923917e7761f73df7dfcb8d0c345/REUSE.toml"
+    },
+    {
+      "path": "licenses/mocha_soc_Apache-2.0.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "url": "https://github.com/lowRISC/mocha/blob/b5973217f704923917e7761f73df7dfcb8d0c345/LICENSES/Apache-2.0.txt"
+    },
+    {
+      "path": "licenses/tpmjs_architecture_LICENSE",
+      "sha256": "6fde4a8df846e402fa6424ded11e8fe5555548f01565b3e64afd547aa34b1d0e",
+      "url": "https://github.com/tpmjs/tpmjs/blob/0564b4b9d1248b4a112508869ff7b17b14f04d7f/LICENSE"
+    },
+    {
+      "path": "licenses/jupyter_k8s_oidc_LICENSE",
+      "sha256": "f1c8df4e6dbc2a1b8411f852311db3a53eb11e239c50548f2c2fe3cabcb02e01",
+      "url": "https://github.com/jupyter-infra/jupyter-k8s/blob/92e2d8e43c94355f999f4d4a46c7a73dfc395f93/LICENSE"
+    },
+    {
+      "path": "licenses/leios_simulator_LICENSE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "url": "https://github.com/input-output-hk/ouroboros-leios/blob/c5c86a28414319eabbda7cf1b27507753cc5a7a1/simulation/LICENSE"
+    },
+    {
+      "path": "licenses/fulcro_rad_LICENSE",
+      "sha256": "2b59cfcb82f3a8d6ddb3fc3b22e56a8b5d10ef715bb0c5b6f8beae22ea3c60fc",
+      "url": "https://github.com/fulcrologic/fulcro-rad/blob/db68b2c8df345284e40d1125cd002a7c74be968b/LICENSE"
+    },
+    {
+      "path": "licenses/lion_reader_frontend_LICENSE",
+      "sha256": "239ec04a831038a10b4bad8c4b603118033b168dfc5783abb2183a3b71c51fd6",
+      "url": "https://github.com/brendanlong/lion-reader/blob/34a5f1fac3503e0df19e6904da44eeb048b76700/LICENSE"
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "fulcro_rad",
+      "title": "Fulcro RAD architecture",
+      "counts": {
+        "leaf_nodes": 19,
+        "groups": 6,
+        "edges": 16
+      },
+      "png_density": 2.0,
+      "primary_png": true,
+      "inputs": {
+        "d2": {
+          "path": "d2/fulcro_rad.d2",
+          "sha256": "c5b0910a00b4bc0ff33a4a232796e8fa9fcddc7b7feb9b718a06a2605cfb4bd4"
+        },
+        "mermaid": {
+          "path": "mermaid/fulcro_rad.mmd",
+          "sha256": "dcd64cf86d4152c823a6101ac3c3b2e9aa4223eddd1846894707c6f9c37cf80b"
+        },
+        "graphviz": {
+          "path": "graphviz/fulcro_rad.dot",
+          "sha256": "f707eefdfc108b4563a785d4708cbaefc07bffd88aa1973f5f61e506b2aae978"
+        },
+        "plantuml": {
+          "path": "plantuml/fulcro_rad.puml",
+          "sha256": "6c33c2c42bc7535dc33448f8335ea601af4f2a269b9e14bcae3e867da76d7b09"
+        }
+      },
+      "semantic": {
+        "path": "semantic/fulcro_rad.mapping.json",
+        "sha256": "84d456cd72ff0e72773f0079a186d77bb54b6a5b3ffffb2a6dc91e43589f7e40"
+      },
+      "translations": {
+        "graphviz": {
+          "path": "semantic/graphviz/fulcro_rad.mapping.json",
+          "sha256": "9de5800d639443dbe684bdbae72c44562784e1f520d9ab50d0f2a409be0e3da9"
+        },
+        "plantuml": {
+          "path": "semantic/plantuml/fulcro_rad.mapping.json",
+          "sha256": "11180871e60bbd0a2d5b49b87990cd5831580be488592bc8b7f478faa9da9a1b"
+        }
+      },
+      "source": {
+        "url": "https://github.com/fulcrologic/fulcro-rad/blob/db68b2c8df345284e40d1125cd002a7c74be968b/docs/architecture.d2",
+        "repository": "https://github.com/fulcrologic/fulcro-rad",
+        "revision": "db68b2c8df345284e40d1125cd002a7c74be968b",
+        "path": "docs/architecture.d2",
+        "original_sha256": "9560570c88e1752be7ee8492f83f43dc17dfc52017caa57fb4f8338552773823",
+        "license": "MIT",
+        "license_files": [
+          "licenses/fulcro_rad_LICENSE"
+        ]
+      }
+    },
+    {
+      "id": "jupyter_aws_eks",
+      "title": "Jupyter AWS EKS infrastructure",
+      "counts": {
+        "leaf_nodes": 12,
+        "groups": 12,
+        "edges": 4
+      },
+      "png_density": 2.0,
+      "primary_png": true,
+      "inputs": {
+        "d2": {
+          "path": "d2/jupyter_aws_eks.d2",
+          "sha256": "d0ad1e2d69568d0daf0de87c2d6c0c889c5a2f6e9ac5eaa26c8597debef6617e"
+        },
+        "mermaid": {
+          "path": "mermaid/jupyter_aws_eks.mmd",
+          "sha256": "5f3f5c0da4a035ce93c7de9b196c299e15ea1d934865402e7d8e0a2e727ca76d"
+        },
+        "graphviz": {
+          "path": "graphviz/jupyter_aws_eks.dot",
+          "sha256": "3894b7030d03153d48fa24d2ccf06b2fd59f899faa54c0aa3319060cea8f809b"
+        },
+        "plantuml": {
+          "path": "plantuml/jupyter_aws_eks.puml",
+          "sha256": "b21e6f58b991977b7b2733dec120a6237e5718fd6b3ad6f7125850b430efcdfe"
+        }
+      },
+      "semantic": {
+        "path": "semantic/jupyter_aws_eks.mapping.json",
+        "sha256": "849eb31bdc68c0ac8fcc7e810986dda8ae25b66894e454cb0406df7d4b3251f1"
+      },
+      "translations": {
+        "graphviz": {
+          "path": "semantic/graphviz/jupyter_aws_eks.mapping.json",
+          "sha256": "cd63c44078381fb43b24d034a51c6806c18da388b48f059ed7c564e861f70158"
+        },
+        "plantuml": {
+          "path": "semantic/plantuml/jupyter_aws_eks.mapping.json",
+          "sha256": "23a86200941b95667995bbb95466ed52301b9d7d7abfb1f442ff3264d72433a2"
+        }
+      },
+      "source": {
+        "url": "https://github.com/jupyter-infra/jupyter-deploy/blob/7283c07396c3d0126346217089e2527d1ce652f6/diagrams/aws-eks-oidc-template/infrastructure.d2",
+        "repository": "https://github.com/jupyter-infra/jupyter-deploy",
+        "revision": "7283c07396c3d0126346217089e2527d1ce652f6",
+        "path": "diagrams/aws-eks-oidc-template/infrastructure.d2",
+        "original_sha256": "18fb06d9c18519c9ce12e71de6717e7854f15882e7c2e79c091b5338b940b245",
+        "license": "MIT",
+        "license_files": [
+          "licenses/jupyter_aws_eks_LICENSE"
+        ]
+      }
+    },
+    {
+      "id": "jupyter_k8s_oidc",
+      "title": "Jupyter Kubernetes OIDC access flow",
+      "counts": {
+        "leaf_nodes": 23,
+        "groups": 10,
+        "edges": 17
+      },
+      "png_density": 2.0,
+      "primary_png": true,
+      "inputs": {
+        "d2": {
+          "path": "d2/jupyter_k8s_oidc.d2",
+          "sha256": "7f051c2b20e73488453e7a9cf224f09a5e6ae7ac428ffe6cebf4d1b281e7d9b1"
+        },
+        "mermaid": {
+          "path": "mermaid/jupyter_k8s_oidc.mmd",
+          "sha256": "9eb47daf355914a34f042a4ee987012d0830e0f740c8d9f29524dcbd8097f173"
+        },
+        "graphviz": {
+          "path": "graphviz/jupyter_k8s_oidc.dot",
+          "sha256": "2510cc5acf69f5a1db366a15248c3dcb1a224b5b0bef7344e5e62e38015676a1"
+        },
+        "plantuml": {
+          "path": "plantuml/jupyter_k8s_oidc.puml",
+          "sha256": "b0d3b2eac6b6e7419d7fed4aaea5bdc9d14a43827ea654ec064b0465c47d688c"
+        }
+      },
+      "semantic": {
+        "path": "semantic/jupyter_k8s_oidc.mapping.json",
+        "sha256": "6f164494800d298c3c3754ccec596dbeacad5d3bd0c3939a31b164754c741037"
+      },
+      "translations": {
+        "graphviz": {
+          "path": "semantic/graphviz/jupyter_k8s_oidc.mapping.json",
+          "sha256": "1e127a714c7e11ab1225ee370c860788fb3e3bbbd294b0c074059e8c4a186c04"
+        },
+        "plantuml": {
+          "path": "semantic/plantuml/jupyter_k8s_oidc.mapping.json",
+          "sha256": "b3ccd96ca64eb7cf4ad760871cf6b5fb9fe1bbcf881fb1dd17c16cdb6385595b"
+        }
+      },
+      "source": {
+        "url": "https://github.com/jupyter-infra/jupyter-k8s/blob/92e2d8e43c94355f999f4d4a46c7a73dfc395f93/diagrams/web-access-oidc.d2",
+        "repository": "https://github.com/jupyter-infra/jupyter-k8s",
+        "revision": "92e2d8e43c94355f999f4d4a46c7a73dfc395f93",
+        "path": "diagrams/web-access-oidc.d2",
+        "original_sha256": "301d5d2847078680cb903cf045835cbf62c9be468a36979f78346c2dc0911c63",
+        "license": "MIT",
+        "license_files": [
+          "licenses/jupyter_k8s_oidc_LICENSE"
+        ]
+      }
+    },
+    {
+      "id": "leios_simulator",
+      "title": "Ouroboros Leios simulator components",
+      "counts": {
+        "leaf_nodes": 20,
+        "groups": 5,
+        "edges": 18
+      },
+      "png_density": 2.0,
+      "primary_png": true,
+      "inputs": {
+        "d2": {
+          "path": "d2/leios_simulator.d2",
+          "sha256": "d7b578a4ca03d271d6c535f3fea9c9c3bc8e772345f25ca83361329c408e446a"
+        },
+        "mermaid": {
+          "path": "mermaid/leios_simulator.mmd",
+          "sha256": "7001f052f4ac52c6a2dd155a26dffe46864783f74481d7d50926cf98ebbfc39b"
+        },
+        "graphviz": {
+          "path": "graphviz/leios_simulator.dot",
+          "sha256": "f3c9ff09c3fcf74ebb30d1697c77999301b00318103b08552e9fd09c31c54b72"
+        },
+        "plantuml": {
+          "path": "plantuml/leios_simulator.puml",
+          "sha256": "3e628455467ad1f4772ff9cc8f356b609e5e880aa1b81d40d96aed1777e65c95"
+        }
+      },
+      "semantic": {
+        "path": "semantic/leios_simulator.mapping.json",
+        "sha256": "e0e1a722ac7da16cfdd9a8ba92ef9bffccced8e2b04616905273e67242c4b9b6"
+      },
+      "translations": {
+        "graphviz": {
+          "path": "semantic/graphviz/leios_simulator.mapping.json",
+          "sha256": "83ce7c965e5883561f282dbf42ac080bfd7d418561ee00e31ed4ad4a21441d4d"
+        },
+        "plantuml": {
+          "path": "semantic/plantuml/leios_simulator.mapping.json",
+          "sha256": "63ae8a79582997e59a28b1275f49b63f3431440b0d3a22733b66fedac39484eb"
+        }
+      },
+      "source": {
+        "url": "https://github.com/input-output-hk/ouroboros-leios/blob/c5c86a28414319eabbda7cf1b27507753cc5a7a1/simulation/docs/component.d2",
+        "repository": "https://github.com/input-output-hk/ouroboros-leios",
+        "revision": "c5c86a28414319eabbda7cf1b27507753cc5a7a1",
+        "path": "simulation/docs/component.d2",
+        "original_sha256": "7849a0924dc44deb0287a17be071fede0dd803c06b3dd744c1a54c560b9bd6fb",
+        "license": "Apache-2.0",
+        "license_files": [
+          "licenses/leios_simulator_LICENSE"
+        ]
+      }
+    },
+    {
+      "id": "lion_reader_frontend",
+      "title": "Lion Reader frontend data flow",
+      "counts": {
+        "leaf_nodes": 19,
+        "groups": 7,
+        "edges": 16
+      },
+      "png_density": 2.0,
+      "primary_png": true,
+      "inputs": {
+        "d2": {
+          "path": "d2/lion_reader_frontend.d2",
+          "sha256": "06ad0692bcdf4e3a380d3dcf62b974151f7a5991febd2cbb88ee7d8c1fa59e62"
+        },
+        "mermaid": {
+          "path": "mermaid/lion_reader_frontend.mmd",
+          "sha256": "f4a3889610f3835eaddd1bda4fb6a70ae05d08d80f90484ea9209d070a90e87c"
+        },
+        "graphviz": {
+          "path": "graphviz/lion_reader_frontend.dot",
+          "sha256": "bbe3e7a66086a42992445ea494408bcc767915d081836213aab1c8c81dde7ae4"
+        },
+        "plantuml": {
+          "path": "plantuml/lion_reader_frontend.puml",
+          "sha256": "11530004965a1f9cd487282a61f62234d0231b855660cb5b5e9cd3b35cc73f34"
+        }
+      },
+      "semantic": {
+        "path": "semantic/lion_reader_frontend.mapping.json",
+        "sha256": "0a36eede774f4a4c7e9aa5b7cdf6c9fd60b0b2da6bb012c80bbebd92c0958419"
+      },
+      "translations": {
+        "graphviz": {
+          "path": "semantic/graphviz/lion_reader_frontend.mapping.json",
+          "sha256": "8ff6184adf96ff4b0e09fba8e2e075b1d18311fc357cea021b4b3efcc65e2382"
+        },
+        "plantuml": {
+          "path": "semantic/plantuml/lion_reader_frontend.mapping.json",
+          "sha256": "c3a440a90326b0b35d7ccb3e5d0f10091db6d36ff6cbef5b112ee8180eaaecbb"
+        }
+      },
+      "source": {
+        "url": "https://github.com/brendanlong/lion-reader/blob/34a5f1fac3503e0df19e6904da44eeb048b76700/docs/diagrams/frontend-data-flow.d2",
+        "repository": "https://github.com/brendanlong/lion-reader",
+        "revision": "34a5f1fac3503e0df19e6904da44eeb048b76700",
+        "path": "docs/diagrams/frontend-data-flow.d2",
+        "original_sha256": "934d5b2fd0f0cab2a4e1de75502f28629533395f27cdc52cf307edbfdb3d6099",
+        "license": "MIT",
+        "license_files": [
+          "licenses/lion_reader_frontend_LICENSE"
+        ]
+      }
+    },
+    {
+      "id": "mocha_soc",
+      "title": "Mocha secure-enclave SoC",
+      "counts": {
+        "leaf_nodes": 34,
+        "groups": 4,
+        "edges": 18
+      },
+      "png_density": 2.0,
+      "primary_png": true,
+      "inputs": {
+        "d2": {
+          "path": "d2/mocha_soc.d2",
+          "sha256": "86374bc7322825942ae81f60b159f8533938e6921012269d98bad41ec3ebbe46"
+        },
+        "mermaid": {
+          "path": "mermaid/mocha_soc.mmd",
+          "sha256": "576a16415e79fb3f7c62bee40b454b56e635a955ba7cbbfbcb3ab383a51dba5a"
+        },
+        "graphviz": {
+          "path": "graphviz/mocha_soc.dot",
+          "sha256": "cd2d6e1585e15833c3a82df4fb59d655c1a8b76a095fc02cafd3d360b9298b86"
+        },
+        "plantuml": {
+          "path": "plantuml/mocha_soc.puml",
+          "sha256": "60ba3b5e64ba00c5bea1bdbeb13b917d4496532665f4004dc475658b1d011702"
+        }
+      },
+      "semantic": {
+        "path": "semantic/mocha_soc.mapping.json",
+        "sha256": "8fd2af8958da876675debe1f0ad2cd6f58c7c749441d8a549770ce39232c6b96"
+      },
+      "translations": {
+        "graphviz": {
+          "path": "semantic/graphviz/mocha_soc.mapping.json",
+          "sha256": "2d9b817d6e7de23a9043d7d0156dd0c2ade01f2b47eafcd4286cc80ae54b2e7e"
+        },
+        "plantuml": {
+          "path": "semantic/plantuml/mocha_soc.mapping.json",
+          "sha256": "87be65823e031aa6353a6f3712662cda49b99a373a5c4ae4dbec5d4f448c8846"
+        }
+      },
+      "source": {
+        "url": "https://github.com/lowRISC/mocha/blob/b5973217f704923917e7761f73df7dfcb8d0c345/doc/img/mocha.d2",
+        "repository": "https://github.com/lowRISC/mocha",
+        "revision": "b5973217f704923917e7761f73df7dfcb8d0c345",
+        "path": "doc/img/mocha.d2",
+        "original_sha256": "74ffb5140e8dd482362a0d785f3d11cafe79ea5ec78838667a736607e13d5f56",
+        "license": "Apache-2.0",
+        "license_files": [
+          "licenses/mocha_soc_REUSE.toml",
+          "licenses/mocha_soc_Apache-2.0.txt"
+        ]
+      }
+    },
+    {
+      "id": "queue_workers",
+      "title": "Go Queue multi-service worker architecture",
+      "counts": {
+        "leaf_nodes": 23,
+        "groups": 10,
+        "edges": 23
+      },
+      "png_density": 2.0,
+      "primary_png": true,
+      "inputs": {
+        "d2": {
+          "path": "d2/queue_workers.d2",
+          "sha256": "11b9f2b73765887e5fe21fb5eda2633f1a96a02926f3100b4966b5897a012085"
+        },
+        "mermaid": {
+          "path": "mermaid/queue_workers.mmd",
+          "sha256": "6f1b2cad31e0107ebaf8c5529a3b512ff1ccb927260d467a4dd5f92d098365f6"
+        },
+        "graphviz": {
+          "path": "graphviz/queue_workers.dot",
+          "sha256": "f0b28588515a43146a2edf66a382c4c5c37be5256cd94fc186e7e57f0cebbe0d"
+        },
+        "plantuml": {
+          "path": "plantuml/queue_workers.puml",
+          "sha256": "937e2ed9f5d53d01f5b92384607ad6e7b2470d9723c95ba322407ab19d0953bb"
+        }
+      },
+      "semantic": {
+        "path": "semantic/queue_workers.mapping.json",
+        "sha256": "10cdf645c00d3d99a7b7b7287138924b6003a89dec9168d59e3183d40a302396"
+      },
+      "translations": {
+        "graphviz": {
+          "path": "semantic/graphviz/queue_workers.mapping.json",
+          "sha256": "9acd038244c069babb7de3e770562b95ebae1fafff9a8c8d8fc27313037c73d4"
+        },
+        "plantuml": {
+          "path": "semantic/plantuml/queue_workers.mapping.json",
+          "sha256": "329419c48b88b2712bc3a6c277e1624f0f5b0ffaa01586ffe4df0f32217fdbb4"
+        }
+      },
+      "source": {
+        "url": "https://github.com/golang-queue/queue/blob/2a79b8aac36eaca758ff4f5412fcb485b027dd58/images/flow-03.d2",
+        "repository": "https://github.com/golang-queue/queue",
+        "revision": "2a79b8aac36eaca758ff4f5412fcb485b027dd58",
+        "path": "images/flow-03.d2",
+        "original_sha256": "f6f604a937a0db36fc78cea511a05e9e9f15b45e3bf0d6b1ed0d56eb27102500",
+        "license": "MIT",
+        "license_files": [
+          "licenses/queue_workers_LICENSE"
+        ]
+      }
+    },
+    {
+      "id": "ross_overview",
+      "title": "ROSS package overview",
+      "counts": {
+        "leaf_nodes": 24,
+        "groups": 3,
+        "edges": 14
+      },
+      "png_density": 2.0,
+      "primary_png": true,
+      "inputs": {
+        "d2": {
+          "path": "d2/ross_overview.d2",
+          "sha256": "89b7bfbc5809836ff2f82fb025e1bf8316ecfac74969e0216903be88ea87c4cd"
+        },
+        "mermaid": {
+          "path": "mermaid/ross_overview.mmd",
+          "sha256": "ddc3215b784ca6adb0b2f1f406f007fadb382bb7f219db2779e993a2cfd96380"
+        },
+        "graphviz": {
+          "path": "graphviz/ross_overview.dot",
+          "sha256": "cf0590b1cb6669da706640fa5a6c54227d6a85a0993e69f88b8a77ad7d8f2ac1"
+        },
+        "plantuml": {
+          "path": "plantuml/ross_overview.puml",
+          "sha256": "f0b150bfe70ccb07b743bfe0013bfb4e9ac749915eee412f759bd7bbba067627"
+        }
+      },
+      "semantic": {
+        "path": "semantic/ross_overview.mapping.json",
+        "sha256": "e359fa032132bd8e1b71dbe5c012abcbf8aa38984a70d35867f4bc1057ad402e"
+      },
+      "translations": {
+        "graphviz": {
+          "path": "semantic/graphviz/ross_overview.mapping.json",
+          "sha256": "a06f97303a865f99ea4f32632a3ca7a3ff817bda0db2d513396cf857fcd88575"
+        },
+        "plantuml": {
+          "path": "semantic/plantuml/ross_overview.mapping.json",
+          "sha256": "9400303c4f182f0e8ac4e6c8bf20e17ca7dd0d7047448acdf88d4f0bbe651a6a"
+        }
+      },
+      "source": {
+        "url": "https://github.com/petrobras/ross/blob/631a249adbae414d5f5f986479b58f1a4c47935e/docs/_static/diagrams/ross-overview.d2",
+        "repository": "https://github.com/petrobras/ross",
+        "revision": "631a249adbae414d5f5f986479b58f1a4c47935e",
+        "path": "docs/_static/diagrams/ross-overview.d2",
+        "original_sha256": "9fd759ba20f4693824eba0d502f1d990af335c36a015da38354a79ac48533bcd",
+        "license": "Apache-2.0",
+        "license_files": [
+          "licenses/ross_overview_LICENSE.md"
+        ]
+      }
+    },
+    {
+      "id": "spyre_encoder",
+      "title": "Spyre encoder inference target design",
+      "counts": {
+        "leaf_nodes": 32,
+        "groups": 35,
+        "edges": 6
+      },
+      "png_density": 2.0,
+      "primary_png": true,
+      "inputs": {
+        "d2": {
+          "path": "d2/spyre_encoder.d2",
+          "sha256": "be33eacb33a62e972f5b7f498ced3e21e80855693560121d26bf7cbadce5bebf"
+        },
+        "mermaid": {
+          "path": "mermaid/spyre_encoder.mmd",
+          "sha256": "040ed87dd3ff8594fa643c510cf54adfd92d5eb6697d33b17ff0e6400bef5999"
+        },
+        "graphviz": {
+          "path": "graphviz/spyre_encoder.dot",
+          "sha256": "543aca4f8acd7efa68b38b774aba41d625d851d50b913c755660e1f67df6835a"
+        },
+        "plantuml": {
+          "path": "plantuml/spyre_encoder.puml",
+          "sha256": "e005f5326c61ec30b67c61df5e44f6c987e1829071e152b8f36d0282abf01a7c"
+        }
+      },
+      "semantic": {
+        "path": "semantic/spyre_encoder.mapping.json",
+        "sha256": "782082efb3c86740504bd952e00783cd44ea22245790381c92663c30badfe759"
+      },
+      "translations": {
+        "graphviz": {
+          "path": "semantic/graphviz/spyre_encoder.mapping.json",
+          "sha256": "b32516b88c0eaf0917363ab9ecb5301fa6beca479b95e997b2b1678c5bc9d92c"
+        },
+        "plantuml": {
+          "path": "semantic/plantuml/spyre_encoder.mapping.json",
+          "sha256": "0b5ae2a44495f85d8431675398a6cc3b2ec23db2b9464da4085b173ae6040e59"
+        }
+      },
+      "source": {
+        "url": "https://github.com/torch-spyre/spyre-inference/blob/c81a50ca25c5faf42a5deeeb80654c4b853625a6/docs/architecture/encoder-ideal-state.d2",
+        "repository": "https://github.com/torch-spyre/spyre-inference",
+        "revision": "c81a50ca25c5faf42a5deeeb80654c4b853625a6",
+        "path": "docs/architecture/encoder-ideal-state.d2",
+        "original_sha256": "02c966aafd4c9f640ee5765cc161d74fc94e7341db4189d85819e1502b60f613",
+        "license": "Apache-2.0",
+        "license_files": [
+          "licenses/spyre_encoder_LICENSE"
+        ]
+      }
+    },
+    {
+      "id": "tpmjs_architecture",
+      "title": "TPMJS platform architecture v1",
+      "counts": {
+        "leaf_nodes": 140,
+        "groups": 48,
+        "edges": 63
+      },
+      "png_density": 0.5,
+      "primary_png": false,
+      "inputs": {
+        "d2": {
+          "path": "d2/tpmjs_architecture.d2",
+          "sha256": "18755cbe22659abdb2812bcb17da0b8d0d1f1007f33bf53f5e97f53f57046599"
+        },
+        "mermaid": {
+          "path": "mermaid/tpmjs_architecture.mmd",
+          "sha256": "11107d9c89f320c1ccf39ac71c8831ec3bb964ccaed0a51074766e531ac385af"
+        },
+        "graphviz": {
+          "path": "graphviz/tpmjs_architecture.dot",
+          "sha256": "35697c97fee1ddb7dae50e7a073d57aa3b0542ddabf1497898d49af7e3b060ce"
+        },
+        "plantuml": {
+          "path": "plantuml/tpmjs_architecture.puml",
+          "sha256": "0d1fa761c3f2c5e4b4011ed80301da729e172f0ea25388eb4568057cb206a113"
+        }
+      },
+      "semantic": {
+        "path": "semantic/tpmjs_architecture.mapping.json",
+        "sha256": "90337c45f3d529f037d8475eab07ffe069b2123ccaa213f0de1dffeaac4e3b30"
+      },
+      "translations": {
+        "graphviz": {
+          "path": "semantic/graphviz/tpmjs_architecture.mapping.json",
+          "sha256": "d41a33a5a887dbfefccba835bec3ee6201407a63702b3a23d4aed30656b79f48"
+        },
+        "plantuml": {
+          "path": "semantic/plantuml/tpmjs_architecture.mapping.json",
+          "sha256": "275525e2da4487319672fc0639b9f7129c7834297c8ddff13b60642fed06287c"
+        }
+      },
+      "source": {
+        "url": "https://github.com/tpmjs/tpmjs/blob/0564b4b9d1248b4a112508869ff7b17b14f04d7f/docs/architecture-v1.d2",
+        "repository": "https://github.com/tpmjs/tpmjs",
+        "revision": "0564b4b9d1248b4a112508869ff7b17b14f04d7f",
+        "path": "docs/architecture-v1.d2",
+        "original_sha256": "81afba25886b60260668411d3c93e8a1d8cbf53c6c9854771d127d2f2d5b4763",
+        "license": "MIT",
+        "license_files": [
+          "licenses/tpmjs_architecture_LICENSE"
+        ]
+      }
+    }
+  ]
+}

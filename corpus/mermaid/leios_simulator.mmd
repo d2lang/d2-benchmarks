@@ -1,0 +1,81 @@
+%% Generated from the compiled D2 graph; see matching .mapping.json and TRANSLATION.md.
+flowchart TB
+  n000["ouroboros-leios-sim - Component Diagram"]
+  subgraph n001["Protocol Engine"]
+    direction TB
+    n002["Praos Protocol<br/><br/>Implements consensus"]
+    n003["Chain-Sync Mini-Protocol<br/><br/>Reconstrucs blockchain of peers"]
+    n004["Block-Fetch Mini-Protocol<br/><br/>Fetches bodies of selected chain"]
+    subgraph n005["Leios Protocol"]
+      direction TB
+      n006["Input Blocks Relay"]
+      n007["Endorse Blocks Relay"]
+      n008["Vote Messages Relay"]
+    end
+    n009["Relay Mini-Protocol<br/><br/>Relays messages<br/>with configurable priority"]
+    n010["Node<br/><br/>Manages node state and<br/>protocol interactions"]
+  end
+  subgraph n011["Channel Layer"]
+    direction TB
+    n012["Generic Channel<br/><br/>Base channel abstraction"]
+    n013["TCP Model<br/><br/>Simulates TCP behavior"]
+    n014["Channel Multiplexer<br/><br/>Multiplexes protocols"]
+  end
+  subgraph n015["Visualization Engine"]
+    direction TB
+    n016["Layout Engine<br/><br/>Handles visualization<br/>layout"]
+    n017["Protocol Renderer<br/><br/>Renders mini-protocol<br/> messages and node state<br/>(made for small sims)"]
+    n018["P2P Renderer<br/><br/>Visualizes P2P<br/>network state<br/>and charts<br/>(made for ~100 nodes sims)"]
+    n019["Frame Output<br/><br/>Outputs animation frames<br/>(on-screen or as PNG files)"]
+  end
+  subgraph n020["Event Consumer"]
+    direction TB
+    n021["Model<br/><br/>Computes state and metrics from trace"]
+    n022["Event Tracer<br/><br/>Collects trace of<br/>node and network events"]
+    n023["IO-Sim library<br/><br/>Simulates threading, clocks, STM, .."]
+    n024["File-System"]
+  end
+  %% Edges in original compiler order; one line per compiled edge.
+  n017 -->|"Assembled with"| n016
+  n018 -->|"Assembled with"| n016
+  n016 -->|"Emits frames"| n019
+  n022 -->|"Uses to run nodes and channels"| n023
+  n021 -->|"Consumes trace"| n022
+  n021 -->|"Outputs metrics"| n024
+  n013 -->|"Implements"| n012
+  n014 -->|"Uses"| n012
+  n001 -->|"Uses for messaging"| n011
+  n002 -->|"Bodies diffusion"| n004
+  n002 -->|"Headers diffusion"| n003
+  n005 -->|"Extends consensus"| n002
+  n005 -->|"Uses for diffusion"| n009
+  n010 -->|"Manages ranking blocks<br/>validation/generation"| n002
+  n010 -->|"Manages ledger state<br/>and validation/generation"| n005
+  n015 -->|"Visualizes state and metrics"| n020
+  n020 -->|"Traces network events"| n011
+  n020 -->|"Traces node events"| n001
+  style n000 font-size:24px,font-weight:bold,fill:transparent,stroke:transparent
+  style n001 fill:#f5f5f5,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n002 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n003 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n004 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n005 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n006 fill:#ffffff,stroke:#666666,color:#2a2a2a,rx:5,ry:5
+  style n007 fill:#ffffff,stroke:#666666,color:#2a2a2a,rx:5,ry:5
+  style n008 fill:#ffffff,stroke:#666666,color:#2a2a2a,rx:5,ry:5
+  style n009 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n010 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n011 fill:#f5f5f5,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n012 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n013 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n014 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n015 fill:#f5f5f5,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n016 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n017 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n018 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n019 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n020 fill:#f5f5f5,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n021 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n022 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,rx:10,ry:10
+  style n023 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,stroke-dasharray:5 5,rx:10,ry:10
+  style n024 fill:#ffffff,stroke:#2a2a2a,color:#2a2a2a,stroke-dasharray:5 5,rx:10,ry:10

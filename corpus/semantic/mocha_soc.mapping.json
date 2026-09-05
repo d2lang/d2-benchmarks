@@ -1,0 +1,2476 @@
+{
+  "fixture": "mocha_soc",
+  "source_sha256": "86374bc7322825942ae81f60b159f8533938e6921012269d98bad41ec3ebbe46",
+  "mermaid_sha256": "576a16415e79fb3f7c62bee40b454b56e635a955ba7cbbfbcb3ab383a51dba5a",
+  "counts": {
+    "objects": 38,
+    "leaf_nodes": 34,
+    "groups": 4,
+    "edges": 18
+  },
+  "root_attributes": {
+    "label": {
+      "value": ""
+    },
+    "labelDimensions": {
+      "width": 0,
+      "height": 0
+    },
+    "style": {},
+    "iconStyle": {},
+    "near_key": null,
+    "shape": {
+      "value": ""
+    },
+    "direction": {
+      "value": ""
+    },
+    "constraint": null
+  },
+  "source_config": {
+    "sketch": null,
+    "themeID": 7,
+    "darkThemeID": null,
+    "pad": null,
+    "center": null,
+    "layoutEngine": "elk"
+  },
+  "limitations": {
+    "markdown formatted as plain multiline text": 10,
+    "group fontSize omitted to avoid Mermaid label clipping": 4
+  },
+  "objects": [
+    {
+      "d2_id": "dram",
+      "mermaid_id": "n000",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "#### DRAM\n\n1 GiB of DDR3",
+      "translated_label": "DRAM\n\n1 GiB of DDR3",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "markdown formatted as plain multiline text"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "#### DRAM\n\n1 GiB of DDR3"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.CVA6-CHERI.Frontend",
+      "mermaid_id": "n003",
+      "parent_d2_id": "Mocha.CVA6-CHERI",
+      "parent_mermaid_id": "n002",
+      "kind": "node",
+      "source_label": "Frontend",
+      "translated_label": "Frontend",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Frontend"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.CVA6-CHERI.ID stage",
+      "mermaid_id": "n004",
+      "parent_d2_id": "Mocha.CVA6-CHERI",
+      "parent_mermaid_id": "n002",
+      "kind": "node",
+      "source_label": "ID stage",
+      "translated_label": "ID stage",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "ID stage"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.CVA6-CHERI.Issue stage",
+      "mermaid_id": "n005",
+      "parent_d2_id": "Mocha.CVA6-CHERI",
+      "parent_mermaid_id": "n002",
+      "kind": "node",
+      "source_label": "Issue stage",
+      "translated_label": "Issue stage",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Issue stage"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.CVA6-CHERI.EX stage",
+      "mermaid_id": "n006",
+      "parent_d2_id": "Mocha.CVA6-CHERI",
+      "parent_mermaid_id": "n002",
+      "kind": "node",
+      "source_label": "EX stage",
+      "translated_label": "EX stage",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "EX stage"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.CVA6-CHERI.Commit stage",
+      "mermaid_id": "n007",
+      "parent_d2_id": "Mocha.CVA6-CHERI",
+      "parent_mermaid_id": "n002",
+      "kind": "node",
+      "source_label": "Commit stage",
+      "translated_label": "Commit stage",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Commit stage"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.CVA6-CHERI.Cache subsystem",
+      "mermaid_id": "n008",
+      "parent_d2_id": "Mocha.CVA6-CHERI",
+      "parent_mermaid_id": "n002",
+      "kind": "node",
+      "source_label": "Cache subsystem",
+      "translated_label": "Cache subsystem",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Cache subsystem"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.CVA6-CHERI",
+      "mermaid_id": "n002",
+      "parent_d2_id": "Mocha",
+      "parent_mermaid_id": "n001",
+      "kind": "group",
+      "source_label": "CVA6-CHERI",
+      "translated_label": "CVA6-CHERI",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "group fontSize omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "CVA6-CHERI"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.axi",
+      "mermaid_id": "n009",
+      "parent_d2_id": "Mocha",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "#### AXI crossbar\n\n64-bit width",
+      "translated_label": "AXI crossbar\n\n64-bit width",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "markdown formatted as plain multiline text"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "#### AXI crossbar\n\n64-bit width"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.tlul",
+      "mermaid_id": "n010",
+      "parent_d2_id": "Mocha",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "#### TileLink crossbar\n\n32-bit width",
+      "translated_label": "TileLink crossbar\n\n32-bit width",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "markdown formatted as plain multiline text"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "#### TileLink crossbar\n\n32-bit width"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.Tag control",
+      "mermaid_id": "n011",
+      "parent_d2_id": "Mocha",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Tag control",
+      "translated_label": "Tag control",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Tag control"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.Debug",
+      "mermaid_id": "n012",
+      "parent_d2_id": "Mocha",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Debug",
+      "translated_label": "Debug",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Debug"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.SRAM",
+      "mermaid_id": "n013",
+      "parent_d2_id": "Mocha",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "SRAM",
+      "translated_label": "SRAM",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "SRAM"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.Mailbox",
+      "mermaid_id": "n014",
+      "parent_d2_id": "Mocha",
+      "parent_mermaid_id": "n001",
+      "kind": "node",
+      "source_label": "Mailbox",
+      "translated_label": "Mailbox",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Mailbox"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.Peripherals.rom",
+      "mermaid_id": "n016",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "#### ROM\n\n32 KiB",
+      "translated_label": "ROM\n\n32 KiB",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "markdown formatted as plain multiline text"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "#### ROM\n\n32 KiB"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.Peripherals.entropy",
+      "mermaid_id": "n017",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "#### Entropy\n\nSource",
+      "translated_label": "Entropy\n\nSource",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "markdown formatted as plain multiline text"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "#### Entropy\n\nSource"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.Peripherals.kmac",
+      "mermaid_id": "n018",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "#### KMAC\n\nSHA3",
+      "translated_label": "KMAC\n\nSHA3",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "markdown formatted as plain multiline text"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "#### KMAC\n\nSHA3"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.Peripherals.PLIC",
+      "mermaid_id": "n019",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "PLIC",
+      "translated_label": "PLIC",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "PLIC"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.Peripherals.Timer",
+      "mermaid_id": "n020",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "Timer",
+      "translated_label": "Timer",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Timer"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.Peripherals.GPIO",
+      "mermaid_id": "n021",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "GPIO",
+      "translated_label": "GPIO",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "GPIO"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.Peripherals.I2C",
+      "mermaid_id": "n022",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "I2C",
+      "translated_label": "I2C",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "I2C"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.Peripherals.spi_dev",
+      "mermaid_id": "n023",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "#### SPI\n\nDevice",
+      "translated_label": "SPI\n\nDevice",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "markdown formatted as plain multiline text"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "#### SPI\n\nDevice"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.Peripherals.spi_host",
+      "mermaid_id": "n024",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "#### SPI\n\nHost",
+      "translated_label": "SPI\n\nHost",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "markdown formatted as plain multiline text"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "#### SPI\n\nHost"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.Peripherals.UART",
+      "mermaid_id": "n025",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "UART",
+      "translated_label": "UART",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "UART"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.Peripherals.managers",
+      "mermaid_id": "n026",
+      "parent_d2_id": "Mocha.Peripherals",
+      "parent_mermaid_id": "n015",
+      "kind": "node",
+      "source_label": "#### Managers\n\n- Clock\n- Reset\n- Power",
+      "translated_label": "Managers\n\n- Clock\n- Reset\n- Power",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "markdown formatted as plain multiline text"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "#### Managers\n\n- Clock\n- Reset\n- Power"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "lightpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "40"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha.Peripherals",
+      "mermaid_id": "n015",
+      "parent_d2_id": "Mocha",
+      "parent_mermaid_id": "n001",
+      "kind": "group",
+      "source_label": "Peripherals",
+      "translated_label": "Peripherals",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "group fontSize omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Peripherals"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Mocha",
+      "mermaid_id": "n001",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Mocha",
+      "translated_label": "Mocha",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "group fontSize omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Mocha"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "chip",
+      "mermaid_id": "n027",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "#### Rest of chip\n\n64-bit bus",
+      "translated_label": "Rest of chip\n\n64-bit bus",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [
+        "markdown formatted as plain multiline text"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "#### Rest of chip\n\n64-bit bus"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "language": "markdown",
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Flash",
+      "mermaid_id": "n028",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "Flash",
+      "translated_label": "Flash",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Flash"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "I2C",
+      "mermaid_id": "n029",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "I2C",
+      "translated_label": "I2C",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "I2C"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "SPI",
+      "mermaid_id": "n030",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "SPI",
+      "translated_label": "SPI",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "SPI"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "UART",
+      "mermaid_id": "n031",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "UART",
+      "translated_label": "UART",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "UART"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "GPIO",
+      "mermaid_id": "n032",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "GPIO",
+      "translated_label": "GPIO",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "GPIO"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Legend.Cached",
+      "mermaid_id": "n034",
+      "parent_d2_id": "Legend",
+      "parent_mermaid_id": "n033",
+      "kind": "node",
+      "source_label": "Cached",
+      "translated_label": "Cached",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Cached"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": "0"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Legend.Uncached",
+      "mermaid_id": "n035",
+      "parent_d2_id": "Legend",
+      "parent_mermaid_id": "n033",
+      "kind": "node",
+      "source_label": "Uncached",
+      "translated_label": "Uncached",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Uncached"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "hotpink"
+          },
+          "strokeWidth": {
+            "value": "0"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Legend.Tag aware",
+      "mermaid_id": "n036",
+      "parent_d2_id": "Legend",
+      "parent_mermaid_id": "n033",
+      "kind": "node",
+      "source_label": "Tag aware",
+      "translated_label": "Tag aware",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Tag aware"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Legend.Tag oblivious",
+      "mermaid_id": "n037",
+      "parent_d2_id": "Legend",
+      "parent_mermaid_id": "n033",
+      "kind": "node",
+      "source_label": "Tag oblivious",
+      "translated_label": "Tag oblivious",
+      "source_shape": "rectangle",
+      "mermaid_shape": "rectangle",
+      "differences": [],
+      "source_attributes": {
+        "label": {
+          "value": "Tag oblivious"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "black"
+          },
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "strokeDash": {
+            "value": "3"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    },
+    {
+      "d2_id": "Legend",
+      "mermaid_id": "n033",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "group",
+      "source_label": "Legend",
+      "translated_label": "Legend",
+      "source_shape": "rectangle",
+      "mermaid_shape": "subgraph",
+      "differences": [
+        "group fontSize omitted to avoid Mermaid label clipping"
+      ],
+      "source_attributes": {
+        "label": {
+          "value": "Legend"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "transparent"
+          },
+          "fill": {
+            "value": "transparent"
+          },
+          "strokeWidth": {
+            "value": "5"
+          },
+          "fontSize": {
+            "value": "50"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      }
+    }
+  ],
+  "edges": [
+    {
+      "index": 0,
+      "d2_id": "Mocha.CVA6-CHERI.(Frontend <- Cache subsystem)[0]",
+      "source_d2_id": "Mocha.CVA6-CHERI.Frontend",
+      "target_d2_id": "Mocha.CVA6-CHERI.Cache subsystem",
+      "source_mermaid_id": "n003",
+      "target_mermaid_id": "n008",
+      "mermaid_start_id": "n008",
+      "mermaid_end_id": "n003",
+      "source_arrow_token": true,
+      "target_arrow_token": false,
+      "source_visible_arrow": true,
+      "target_visible_arrow": false,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 1,
+      "d2_id": "Mocha.CVA6-CHERI.(EX stage <-> Cache subsystem)[0]",
+      "source_d2_id": "Mocha.CVA6-CHERI.EX stage",
+      "target_d2_id": "Mocha.CVA6-CHERI.Cache subsystem",
+      "source_mermaid_id": "n006",
+      "target_mermaid_id": "n008",
+      "mermaid_start_id": "n006",
+      "mermaid_end_id": "n008",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 2,
+      "d2_id": "Mocha.(CVA6-CHERI.Cache subsystem <-> axi)[0]",
+      "source_d2_id": "Mocha.CVA6-CHERI.Cache subsystem",
+      "target_d2_id": "Mocha.axi",
+      "source_mermaid_id": "n008",
+      "target_mermaid_id": "n009",
+      "mermaid_start_id": "n008",
+      "mermaid_end_id": "n009",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 3,
+      "d2_id": "Mocha.(CVA6-CHERI.Cache subsystem <-> tlul)[0]",
+      "source_d2_id": "Mocha.CVA6-CHERI.Cache subsystem",
+      "target_d2_id": "Mocha.tlul",
+      "source_mermaid_id": "n008",
+      "target_mermaid_id": "n010",
+      "mermaid_start_id": "n008",
+      "mermaid_end_id": "n010",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 4,
+      "d2_id": "Mocha.(axi <-> Tag control)[0]",
+      "source_d2_id": "Mocha.axi",
+      "target_d2_id": "Mocha.Tag control",
+      "source_mermaid_id": "n009",
+      "target_mermaid_id": "n011",
+      "mermaid_start_id": "n009",
+      "mermaid_end_id": "n011",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 5,
+      "d2_id": "Mocha.(axi <-> Debug)[0]",
+      "source_d2_id": "Mocha.axi",
+      "target_d2_id": "Mocha.Debug",
+      "source_mermaid_id": "n009",
+      "target_mermaid_id": "n012",
+      "mermaid_start_id": "n009",
+      "mermaid_end_id": "n012",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 6,
+      "d2_id": "Mocha.(axi <-> SRAM)[0]",
+      "source_d2_id": "Mocha.axi",
+      "target_d2_id": "Mocha.SRAM",
+      "source_mermaid_id": "n009",
+      "target_mermaid_id": "n013",
+      "mermaid_start_id": "n009",
+      "mermaid_end_id": "n013",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 7,
+      "d2_id": "Mocha.(axi <-> Mailbox)[0]",
+      "source_d2_id": "Mocha.axi",
+      "target_d2_id": "Mocha.Mailbox",
+      "source_mermaid_id": "n009",
+      "target_mermaid_id": "n014",
+      "mermaid_start_id": "n009",
+      "mermaid_end_id": "n014",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 8,
+      "d2_id": "Mocha.(tlul <-> Peripherals)[0]",
+      "source_d2_id": "Mocha.tlul",
+      "target_d2_id": "Mocha.Peripherals",
+      "source_mermaid_id": "n010",
+      "target_mermaid_id": "n015",
+      "mermaid_start_id": "n010",
+      "mermaid_end_id": "n015",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 9,
+      "d2_id": "(Mocha.Peripherals.spi_host <-> Flash)[0]",
+      "source_d2_id": "Mocha.Peripherals.spi_host",
+      "target_d2_id": "Flash",
+      "source_mermaid_id": "n024",
+      "target_mermaid_id": "n028",
+      "mermaid_start_id": "n024",
+      "mermaid_end_id": "n028",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 10,
+      "d2_id": "(Mocha.Tag control <-> dram)[0]",
+      "source_d2_id": "Mocha.Tag control",
+      "target_d2_id": "dram",
+      "source_mermaid_id": "n011",
+      "target_mermaid_id": "n000",
+      "mermaid_start_id": "n011",
+      "mermaid_end_id": "n000",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 11,
+      "d2_id": "(Mocha.axi <-> chip)[0]",
+      "source_d2_id": "Mocha.axi",
+      "target_d2_id": "chip",
+      "source_mermaid_id": "n009",
+      "target_mermaid_id": "n027",
+      "mermaid_start_id": "n009",
+      "mermaid_end_id": "n027",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 12,
+      "d2_id": "(Mocha.Mailbox <-> chip)[0]",
+      "source_d2_id": "Mocha.Mailbox",
+      "target_d2_id": "chip",
+      "source_mermaid_id": "n014",
+      "target_mermaid_id": "n027",
+      "mermaid_start_id": "n014",
+      "mermaid_end_id": "n027",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 13,
+      "d2_id": "(Mocha.Peripherals.I2C <-> I2C)[0]",
+      "source_d2_id": "Mocha.Peripherals.I2C",
+      "target_d2_id": "I2C",
+      "source_mermaid_id": "n022",
+      "target_mermaid_id": "n029",
+      "mermaid_start_id": "n022",
+      "mermaid_end_id": "n029",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 14,
+      "d2_id": "(Mocha.Peripherals.spi_dev <-> SPI)[0]",
+      "source_d2_id": "Mocha.Peripherals.spi_dev",
+      "target_d2_id": "SPI",
+      "source_mermaid_id": "n023",
+      "target_mermaid_id": "n030",
+      "mermaid_start_id": "n023",
+      "mermaid_end_id": "n030",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 15,
+      "d2_id": "(Mocha.Peripherals.UART <-> UART)[0]",
+      "source_d2_id": "Mocha.Peripherals.UART",
+      "target_d2_id": "UART",
+      "source_mermaid_id": "n025",
+      "target_mermaid_id": "n031",
+      "mermaid_start_id": "n025",
+      "mermaid_end_id": "n031",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 16,
+      "d2_id": "(Mocha.Peripherals.GPIO <-> GPIO)[0]",
+      "source_d2_id": "Mocha.Peripherals.GPIO",
+      "target_d2_id": "GPIO",
+      "source_mermaid_id": "n021",
+      "target_mermaid_id": "n032",
+      "mermaid_start_id": "n021",
+      "mermaid_end_id": "n032",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    },
+    {
+      "index": 17,
+      "d2_id": "(Legend <-> Mocha.CVA6-CHERI)[0]",
+      "source_d2_id": "Legend",
+      "target_d2_id": "Mocha.CVA6-CHERI",
+      "source_mermaid_id": "n033",
+      "target_mermaid_id": "n002",
+      "mermaid_start_id": "n033",
+      "mermaid_end_id": "n002",
+      "source_arrow_token": true,
+      "target_arrow_token": true,
+      "source_visible_arrow": true,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "mermaid_arrow": "<-->",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {
+          "stroke": {
+            "value": "transparent"
+          }
+        },
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null
+    }
+  ],
+  "synthetic_objects": 0,
+  "synthetic_edges": 0
+}

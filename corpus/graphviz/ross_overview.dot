@@ -1,0 +1,56 @@
+// Generated from the audited D2 semantic mapping. See TRANSLATION.md.
+digraph diagram {
+  graph [compound="true", rankdir="TB", bgcolor="white", fontname="Helvetica", fontsize="14", pad="0.25"];
+  node [shape="box", fontname="Helvetica", fontsize="14", color="#333333", margin="0.12,0.08"];
+  edge [fontname="Helvetica", fontsize="14", color="#333333"];
+  node_n000 [id="node_n000", label="ROSS - Workflow", d2_id="title", semantic_kind="node", fontsize="28", fontname="Helvetica-Bold", shape="plaintext", color="transparent", fillcolor="transparent"];
+  subgraph cluster_n001 {
+    graph [id="cluster_n001", label="Element Definition", d2_id="elementos", semantic_kind="group", color="#2980b9", fillcolor="#e8f4f8", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+    node_n002 [id="node_n002", label="Material", d2_id="elementos.material", semantic_kind="node", color="#82b366", fillcolor="#d5e8d4", style="filled", shape="box"];
+    node_n003 [id="node_n003", label="ShaftElement", d2_id="elementos.shaft", semantic_kind="node", color="#6c8ebf", fillcolor="#dae8fc", style="filled", shape="box"];
+    node_n004 [id="node_n004", label="DiskElement", d2_id="elementos.disk", semantic_kind="node", color="#6c8ebf", fillcolor="#dae8fc", style="filled", shape="box"];
+    node_n005 [id="node_n005", label="BearingElement", d2_id="elementos.bearing", semantic_kind="node", color="#d6b656", fillcolor="#fff2cc", style="filled", shape="box"];
+    node_n006 [id="node_n006", label="SealElement", d2_id="elementos.seal", semantic_kind="node", color="#d6b656", fillcolor="#fff2cc", style="filled", shape="box"];
+    node_n007 [id="node_n007", label="PointMass", d2_id="elementos.pointmass", semantic_kind="node", color="#6c8ebf", fillcolor="#dae8fc", style="filled", shape="box"];
+    node_n008 [id="node_n008", label="CouplingElement", d2_id="elementos.coupling", semantic_kind="node", color="#6c8ebf", fillcolor="#dae8fc", style="filled", shape="box"];
+    node_n009 [id="node_n009", label="GearElement", d2_id="elementos.gear", semantic_kind="node", color="#6c8ebf", fillcolor="#dae8fc", style="filled", shape="box"];
+  }
+  node_n010 [id="node_n010", label="Rotor", d2_id="rotor", semantic_kind="node", color="#b85450", fillcolor="#f8cecc", fontsize="18", fontname="Helvetica-Bold", style="filled,rounded", shape="box"];
+  node_n011 [id="node_n011", label="MultiRotor", d2_id="multirotor", semantic_kind="node", color="#b85450", fillcolor="#f8cecc", style="filled,rounded", shape="box"];
+  subgraph cluster_n012 {
+    graph [id="cluster_n012", label="Analyses", d2_id="analises", semantic_kind="group", color="#9673a6", fillcolor="#e1d5e7", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+    proxy_n012 [id="proxy_n012", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="analises"];
+    node_n013 [id="node_n013", label="run_static()", d2_id="analises.estatica", semantic_kind="node", color="#9673a6", fillcolor="#f3e5f5", style="filled", shape="box"];
+    node_n014 [id="node_n014", label="run_modal()", d2_id="analises.modal", semantic_kind="node", color="#9673a6", fillcolor="#f3e5f5", style="filled", shape="box"];
+    node_n015 [id="node_n015", label="run_campbell()", d2_id="analises.campbell", semantic_kind="node", color="#9673a6", fillcolor="#f3e5f5", style="filled", shape="box"];
+    node_n016 [id="node_n016", label="run_critical_speed()", d2_id="analises.critica", semantic_kind="node", color="#9673a6", fillcolor="#f3e5f5", style="filled", shape="box"];
+    node_n017 [id="node_n017", label="run_ucs()", d2_id="analises.ucs", semantic_kind="node", color="#9673a6", fillcolor="#f3e5f5", style="filled", shape="box"];
+    node_n018 [id="node_n018", label="run_level1()", d2_id="analises.level1", semantic_kind="node", color="#9673a6", fillcolor="#f3e5f5", style="filled", shape="box"];
+    node_n019 [id="node_n019", label="run_freq_response()", d2_id="analises.freq", semantic_kind="node", color="#9673a6", fillcolor="#f3e5f5", style="filled", shape="box"];
+    node_n020 [id="node_n020", label="run_unbalance_response()", d2_id="analises.unbalance", semantic_kind="node", color="#9673a6", fillcolor="#f3e5f5", style="filled", shape="box"];
+    node_n021 [id="node_n021", label="run_time_response()", d2_id="analises.tempo", semantic_kind="node", color="#9673a6", fillcolor="#f3e5f5", style="filled", shape="box"];
+    node_n022 [id="node_n022", label="run_harmonic_balance()", d2_id="analises.hbm", semantic_kind="node", color="#9673a6", fillcolor="#f3e5f5", style="filled", shape="box"];
+    node_n023 [id="node_n023", label="Fault Analysis", d2_id="analises.falhas", semantic_kind="node", color="#9673a6", fillcolor="#f3e5f5", style="filled", shape="box"];
+  }
+  subgraph cluster_n024 {
+    graph [id="cluster_n024", label="Results and Visualization", d2_id="resultados", semantic_kind="group", color="#27ae60", fillcolor="#d5f5e3", style="filled,rounded", labelloc="t", labeljust="l", margin="12"];
+    proxy_n024 [id="proxy_n024", shape="point", label="", width="0.01", height="0.01", fixedsize="true", style="invis", synthetic_for="resultados"];
+    node_n025 [id="node_n025", label="Interactive Plots (Plotly)", d2_id="resultados.graficos", semantic_kind="node", color="#27ae60", fillcolor="#e8f8f5", style="filled", shape="box"];
+    node_n026 [id="node_n026", label="Numerical Data", d2_id="resultados.dados", semantic_kind="node", color="#27ae60", fillcolor="#e8f8f5", style="filled", shape="box"];
+  }
+  // Exactly one DOT edge per compiled D2 edge, preserving order and multiplicity.
+  node_n002 -> node_n003 [id="edge000", d2_id="elementos.(material -> shaft)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n002 -> node_n004 [id="edge001", d2_id="elementos.(material -> disk)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n003 -> node_n010 [id="edge002", d2_id="(elementos.shaft -> rotor)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n004 -> node_n010 [id="edge003", d2_id="(elementos.disk -> rotor)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n005 -> node_n010 [id="edge004", d2_id="(elementos.bearing -> rotor)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n006 -> node_n010 [id="edge005", d2_id="(elementos.seal -> rotor)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n007 -> node_n010 [id="edge006", d2_id="(elementos.pointmass -> rotor)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n008 -> node_n010 [id="edge007", d2_id="(elementos.coupling -> rotor)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n008 -> node_n011 [id="edge008", d2_id="(elementos.coupling -> multirotor)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n009 -> node_n011 [id="edge009", d2_id="(elementos.gear -> multirotor)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n010 -> node_n011 [id="edge010", d2_id="(rotor -> multirotor)[0]", label="coupling", dir="forward", arrowtail="none", arrowhead="normal", style="dashed"];
+  node_n010 -> proxy_n012 [id="edge011", d2_id="(rotor -> analises)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", lhead="cluster_n012"];
+  node_n011 -> proxy_n012 [id="edge012", d2_id="(multirotor -> analises)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", lhead="cluster_n012"];
+  proxy_n012 -> proxy_n024 [id="edge013", d2_id="(analises -> resultados)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal", ltail="cluster_n012", lhead="cluster_n024"];
+}
