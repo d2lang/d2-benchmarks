@@ -10,6 +10,7 @@ import json
 import os
 from pathlib import Path
 import platform
+import re
 import shutil
 import stat
 import subprocess
@@ -115,6 +116,19 @@ def run(argv: list[str | Path], *, env: dict, cwd: Path, log: Path) -> str:
     return proc.stdout.strip()
 
 
+def validate_mermaid_browser(source: str, browser_variant: str, executable: Path) -> str:
+    """Match mmdc's actual default launch mode, not merely a Chromium version."""
+    try:
+        section = source.split('let puppeteerConfig =', 1)[1].split('if (puppeteerConfigFile)', 1)[0]
+    except IndexError as exc:
+        raise RuntimeError('Cannot identify the pinned Mermaid CLI launch defaults; review browser selection.') from exc
+    section = re.sub(r'/\*.*?\*/', '', section, flags=re.S)
+    match = re.search(r'headless\s*:\s*(["\'])shell\1\s*[,}]', section)
+    if not match or browser_variant != 'chrome-headless-shell' or executable.name != 'chrome-headless-shell':
+        raise RuntimeError('Mermaid default/browser mismatch: mmdc must use headless="shell" with Chrome Headless Shell.')
+    return 'shell'
+
+
 def install(tools: Path, cache: Path) -> None:
     pins = json.loads((RUNTIME / 'pins.json').read_text())
     target = {('Darwin', 'arm64'): 'osx-arm64', ('Linux', 'x86_64'): 'linux-64'}.get((platform.system(), platform.machine()))
@@ -191,6 +205,9 @@ def install(tools: Path, cache: Path) -> None:
         shutil.copyfile(RUNTIME / name, npm_dir / name)
     run([node, node_root / 'lib/node_modules/npm/bin/npm-cli.js', 'ci', '--ignore-scripts', '--no-audit', '--no-fund'],
         env=env, cwd=npm_dir, log=log)
+    mermaid_browser_mode = validate_mermaid_browser(
+        (npm_dir / 'node_modules/@mermaid-js/mermaid-cli/src/index.js').read_text(),
+        pins['versions']['browser_variant'], chrome)
     source = tools / 'd2_source' / ('d2-' + pins['versions']['d2_revision'])
     binary = tools / 'bin/d2'
     binary.parent.mkdir(exist_ok=True)
@@ -208,6 +225,7 @@ def install(tools: Path, cache: Path) -> None:
                            'provenance': dict(common, node=pins['versions']['node'], mermaid_cli=pins['versions']['mermaid_cli'],
                                               mermaid=pins['versions']['mermaid'], puppeteer=pins['versions']['puppeteer'],
                                               chrome=pins['versions']['chrome'], chrome_archive_sha256=target_pins['chrome']['sha256'],
+                                              browser_variant=pins['versions']['browser_variant'], headless_mode=mermaid_browser_mode,
                                               npm_lock_sha256=digest(RUNTIME / 'package-lock.json'))},
         'graphviz-dot': {'kind': 'graphviz', 'argv': [str(dot), '-Kdot'], 'version_argv': [str(dot), '-V'],
                          'env': {'XDG_CACHE_HOME': str(cache / 'xdg')},
@@ -276,6 +294,8 @@ def install(tools: Path, cache: Path) -> None:
     manifest = {'schema_version': 1, 'completed_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
                 'platform': target, 'pins': pins, 'lock_hashes': lock_hashes, 'versions': versions,
                 'installed_native_packages': installed, 'graphviz_backends': graphviz_backends,
+                'mermaid_browser': {'variant': pins['versions']['browser_variant'], 'headless_mode': mermaid_browser_mode,
+                                    'default_verified_from': '@mermaid-js/mermaid-cli/src/index.js'},
                 'smoke': 'All four tools rendered SVG and PNG successfully.',
                 'font_note': 'Native font and rendering dependencies are pinned in the platform lock. System fonts and macOS CoreText/Linux Fontconfig can still change glyph metrics; record the host OS with each run.',
                 'scope': 'Task-local executables and caches; no shell initialization, sudo, global package install, or user conda environment registration.'}

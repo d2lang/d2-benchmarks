@@ -17,7 +17,7 @@ python3 scripts/setup.py
 python3 -m benchmarks run
 ```
 
-Setup installs checksum-pinned tools into `.tools/`, builds a pinned public D2 revision, and leaves system packages alone. It needs network access; benchmark commands use the local corpus and runtimes. Setup and compilation are outside the measured interval.
+Setup installs checksum-pinned tools into `.tools/`, builds a pinned public D2 revision, and leaves system packages alone. Mermaid uses Chrome Headless Shell 152.0.7977.75, matching the CLI's default `headless: "shell"` mode. Setup needs network access; benchmark commands use the local corpus and runtimes. Setup and compilation are outside the measured interval.
 
 The runner prints the location of `results/<run>/index.html`. Open that file in your browser for timing distributions, uncertainty intervals, asset sizes, and side-by-side diagrams. `report.md`, `summary.csv`, `summary.json`, and `raw.jsonl` are in the same directory. Reports are generated locally and need no server or external assets.
 

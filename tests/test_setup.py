@@ -36,6 +36,23 @@ class SetupTests(unittest.TestCase):
             self.assertEqual(lock['node_modules/' + package]['version'], version)
         self.assertTrue(all(p.get('integrity') for name, p in lock.items() if name))
 
+    def test_browser_variant_matches_mermaid_default(self):
+        source = 'let puppeteerConfig = ({ headless: "shell", }); if (puppeteerConfigFile) {}'
+        self.assertEqual(SETUP['validate_mermaid_browser'](source, 'chrome-headless-shell', Path('/bin/chrome-headless-shell')), 'shell')
+        with self.assertRaises(RuntimeError):
+            SETUP['validate_mermaid_browser'](source, 'chrome', Path('/bin/chrome'))
+        # A stale comment must not conceal a changed active launch mode.
+        changed = 'let puppeteerConfig = ({ /* headless: "shell", */ headless: true, }); if (puppeteerConfigFile) {}'
+        with self.assertRaises(RuntimeError):
+            SETUP['validate_mermaid_browser'](changed, 'chrome-headless-shell', Path('/bin/chrome-headless-shell'))
+
+    def test_browser_archives_are_headless_shell(self):
+        pins = json.loads((ROOT / 'runtime/pins.json').read_text())
+        self.assertEqual(pins['versions']['browser_variant'], 'chrome-headless-shell')
+        for platform in pins['platforms'].values():
+            self.assertIn('/chrome-headless-shell-', platform['chrome']['url'])
+            self.assertEqual(Path(platform['chrome']['executable']).name, 'chrome-headless-shell')
+
     def test_tar_rejects_parent_traversal(self):
         with tempfile.TemporaryDirectory() as folder:
             base = Path(folder); archive = base / 'bad.tar'

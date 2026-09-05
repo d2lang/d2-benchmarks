@@ -8,7 +8,7 @@ python3 -m benchmarks doctor
 python3 -m benchmarks validate
 ```
 
-Setup supports native macOS arm64 and Linux x86_64. Ubuntu 24.04 is the Linux CI target. A Linux host needs the standard desktop libraries required by Chrome for Testing; the GitHub-hosted Ubuntu 24.04 image supplies them. Minimal containers may lack those libraries. Ubuntu 23.10+ may also require an administrator to allow Chrome's sandbox user namespaces through AppArmor; see [Puppeteer's official troubleshooting guide](https://pptr.dev/troubleshooting#issues-with-apparmor-on-ubuntu). Setup reports Chrome launch errors in `.tools/setup.log` and does not install system packages or disable the browser sandbox.
+Setup supports native macOS arm64 and Linux x86_64. Ubuntu 24.04 is the Linux CI target. A Linux host needs the standard desktop libraries required by Chrome Headless Shell; the GitHub-hosted Ubuntu 24.04 image supplies them. Minimal containers may lack those libraries. Ubuntu 23.10+ may also require an administrator to allow Chrome's sandbox user namespaces through AppArmor; see [Puppeteer's official troubleshooting guide](https://pptr.dev/troubleshooting#issues-with-apparmor-on-ubuntu). Setup reports Chrome launch errors in `.tools/setup.log` and does not install system packages or disable the browser sandbox.
 
 The script installs executables and caches under `.tools/`. It does not run sudo, initialize a shell, change PATH permanently, register a user conda environment, or install global npm/pip packages. No Docker image is provided. Allow several gigabytes of free space for the downloaded archives, native libraries, Chromium, npm dependencies, Go modules, and compilation cache.
 
@@ -24,15 +24,15 @@ Setup renders a small graph to both SVG and PNG with all four tools before decla
 | Mermaid CLI | 11.17.0 |
 | Mermaid | 11.17.2 |
 | Puppeteer | 25.10.0 |
-| Chrome for Testing | 152.0.7977.75 |
+| Chrome Headless Shell (Chrome for Testing) | 152.0.7977.75 |
 | Graphviz | 14.1.2 |
 | OpenJDK | 21.0.10 |
 | PlantUML | 1.2026.8 |
 | Micromamba | 2.9.0 |
 
-`runtime/pins.json` contains exact download URLs and SHA-256 checksums for the public D2 source archive, Go, Node, Chrome, PlantUML, and micromamba. Each native package in `runtime/locks/<platform>.json` also has its URL, version, build, SHA-256, and MD5. Setup verifies SHA-256 **before** handing local archives to micromamba. The adjacent explicit lock files are human-readable references to the same packages. The installer uses no dependency solve or floating channel versions.
+`runtime/pins.json` contains exact download URLs and SHA-256 checksums for the public D2 source archive, Go, Node, Chrome Headless Shell, PlantUML, and micromamba. Each native package in `runtime/locks/<platform>.json` also has its URL, version, build, SHA-256, and MD5. Setup verifies SHA-256 **before** handing local archives to micromamba. The adjacent explicit lock files are human-readable references to the same packages. The installer uses no dependency solve or floating channel versions.
 
-`runtime/package-lock.json` freezes npm dependencies and their registry integrity hashes; installation uses `npm ci --ignore-scripts`. Puppeteer uses the separately pinned Chrome executable. It does not download a browser during npm installation. `config/mermaid-dagre.json` explicitly selects Mermaid's Dagre renderer.
+`runtime/package-lock.json` freezes npm dependencies and their registry integrity hashes; installation uses `npm ci --ignore-scripts`. Mermaid CLI 11.17.0 defaults to Puppeteer's `headless: "shell"` mode, so its executable is the separately pinned **Chrome Headless Shell**. The browser variant matters for fresh-process startup time. Setup checks the installed CLI's active launch default against the pinned executable variant and records both in provenance. Puppeteer does not download a browser during npm installation. `config/mermaid-dagre.json` explicitly selects Mermaid's Dagre renderer.
 
 D2 is compiled from the checked source archive using `CGO_ENABLED=0 go build -trimpath -ldflags="-s -w"`. The pinned Go toolchain runs with `GOTOOLCHAIN=local`; downloaded Go modules are verified by the source `go.sum` and Go's public checksum database. Build and installation time are outside measured runs.
 

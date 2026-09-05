@@ -11,7 +11,8 @@
     "graphviz": "14.1.2",
     "java": "21.0.10",
     "plantuml": "1.2026.8",
-    "micromamba": "2.9.0"
+    "micromamba": "2.9.0",
+    "browser_variant": "chrome-headless-shell"
   },
   "common": {
     "d2_source": {
@@ -40,9 +41,9 @@
         "sha256": "500f5074feb8d02c4296ef9921c3650ed2874171805a9fbb8fbb53896433646b"
       },
       "chrome": {
-        "url": "https://storage.googleapis.com/chrome-for-testing-public/152.0.7977.75/mac-arm64/chrome-mac-arm64.zip",
-        "sha256": "9f279f88b20934303003a435b161d4138daaf26bc354ae94c3d6cd68575e600f",
-        "executable": "chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"
+        "url": "https://storage.googleapis.com/chrome-for-testing-public/152.0.7977.75/mac-arm64/chrome-headless-shell-mac-arm64.zip",
+        "sha256": "9f599a775de391846eac644b50ed885474e27769ba73096e15507e732e04edef",
+        "executable": "chrome-headless-shell-mac-arm64/chrome-headless-shell"
       }
     },
     "linux-64": {
@@ -61,9 +62,9 @@
         "sha256": "8761c382127e6363bd9e0a2451aa3ef90d071a79133f736e2f759a3bf13040dd"
       },
       "chrome": {
-        "url": "https://storage.googleapis.com/chrome-for-testing-public/152.0.7977.75/linux64/chrome-linux64.zip",
-        "sha256": "a16d36890636bd72251133b27f05825f7f9269c2425b3408fa3a76e10dccd8f1",
-        "executable": "chrome-linux64/chrome"
+        "url": "https://storage.googleapis.com/chrome-for-testing-public/152.0.7977.75/linux64/chrome-headless-shell-linux64.zip",
+        "sha256": "66ffefd34dc6af6c7d8e6933546c40ed5278fa3d495c3e836895241ba3a3a19f",
+        "executable": "chrome-headless-shell-linux64/chrome-headless-shell"
       }
     }
   }

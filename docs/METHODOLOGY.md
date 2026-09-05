@@ -8,6 +8,8 @@ The timer is Python's monotonic `perf_counter_ns`. Commands are argument arrays 
 
 This is a **warm-filesystem, fresh-process** experiment. Three warm-up invocations precede measurements for each job. They warm operating-system caches. They do not preserve application state, JVM JIT compilation, Chromium processes, or a diagram server across invocations. This workload is distinct from a persistent editor or a batched rendering service.
 
+Mermaid CLI uses its own default `headless: "shell"` setting with the pinned Chrome Headless Shell executable. Setup checks that the browser variant matches that active CLI default. Browser variants can materially affect startup cost even when they report the same Chrome version.
+
 ## Experimental design
 
 A job is one tool configuration × one diagram × one output format. A complete round runs each selected job once, serially. A seeded pseudorandom shuffle changes their order every round. The default is three warm-up rounds followed by twenty measured rounds. Fixed repetitions are chosen before the experiment; execution does not stop early when a desired ranking or confidence interval appears.
