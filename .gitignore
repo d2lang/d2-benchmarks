@@ -2,6 +2,7 @@
 .tools-*/
 .benchmark-cache/
 results/
+artifacts/
 __pycache__/
 *.py[cod]
 .DS_Store

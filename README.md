@@ -1,5 +1,7 @@
 # d2-benchmarks
 
+[![Validation and real-tool smoke tests](https://github.com/d2lang/d2-benchmarks/actions/workflows/ci.yml/badge.svg)](https://github.com/d2lang/d2-benchmarks/actions/workflows/ci.yml)
+
 Reproducible, end-to-end CLI benchmarks for **D2, Mermaid, Graphviz, and PlantUML**, using ten substantial diagrams from real projects.
 
 The suite measures the time to start a CLI, read a diagram, lay it out, render SVG or PNG, write the file, and exit. It also measures asset sizes and provides a gallery of the actual outputs. Every run keeps its raw samples, versions, binary hashes, inputs, and commands.
@@ -28,6 +30,14 @@ python3 -m benchmarks run --fixtures lion_reader_frontend --warmups 1 --repetiti
 ```
 
 Smoke reports are labeled as such and are not performance evidence. Output directories must be new; an existing run is never overwritten.
+
+To share a run, create a portable archive containing its raw records, inputs, rendered assets, integrity manifest, and regenerated reports:
+
+```sh
+python3 scripts/export_run.py results/svg artifacts/svg.tar.gz
+```
+
+Optional `--redact-prefix '/absolute/local/repository=${REPO}'` replaces that host path prefix in metadata while retaining input/output bytes and hashes. Review custom configuration before publishing; prefix replacement does not remove arbitrary secrets. Generated archives belong outside Git history.
 
 ## Choose the workload
 
