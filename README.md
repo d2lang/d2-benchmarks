@@ -6,6 +6,8 @@ Reproducible, end-to-end CLI benchmarks for **D2, Mermaid, Graphviz, and PlantUM
 
 The suite measures the time to start a CLI, read a diagram, lay it out, render SVG or PNG, write the file, and exit. It also measures asset sizes and provides a gallery of the actual outputs. Every run keeps its raw samples, versions, binary hashes, inputs, and commands.
 
+[See a measured reference run and download its complete evidence](examples/2026-09-05-macos-m4-svg/README.md).
+
 ## Run it
 
 Prerequisite: **Python 3.12 or newer** (3.11.9+ also works). The automatic setup supports macOS on Apple silicon and Ubuntu 24.04 on x86-64. See [setup details](docs/SETUP.md) for Linux browser libraries, download sizes, and using existing tools.
