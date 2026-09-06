@@ -1,0 +1,207 @@
+@startuml
+' Generated from the compiled D2 semantic mapping; see TRANSLATION.md.
+' Graphviz is PlantUML's default deployment-diagram layout; GRAPHVIZ_DOT pins it.
+skinparam shadowing false
+skinparam defaultTextAlignment center
+top to bottom direction
+rectangle "Node 000" as n000
+rectangle "Node 001" as n001
+rectangle "Node 002" as n002
+rectangle "Node 003" as n003
+rectangle "Node 004" as n004
+rectangle "Node 005" as n005
+rectangle "Node 006" as n006
+rectangle "Node 007" as n007
+rectangle "Node 008" as n008
+rectangle "Node 009" as n009
+rectangle "Node 010" as n010
+rectangle "Node 011" as n011
+rectangle "Node 012" as n012
+rectangle "Node 013" as n013
+rectangle "Node 014" as n014
+rectangle "Node 015" as n015
+rectangle "Node 016" as n016
+rectangle "Node 017" as n017
+rectangle "Node 018" as n018
+rectangle "Node 019" as n019
+rectangle "Node 020" as n020
+rectangle "Node 021" as n021
+rectangle "Node 022" as n022
+rectangle "Node 023" as n023
+rectangle "Node 024" as n024
+rectangle "Node 025" as n025
+rectangle "Node 026" as n026
+rectangle "Node 027" as n027
+rectangle "Node 028" as n028
+rectangle "Node 029" as n029
+rectangle "Node 030" as n030
+rectangle "Node 031" as n031
+rectangle "Node 032" as n032
+rectangle "Node 033" as n033
+rectangle "Node 034" as n034
+rectangle "Node 035" as n035
+rectangle "Node 036" as n036
+rectangle "Node 037" as n037
+rectangle "Node 038" as n038
+rectangle "Node 039" as n039
+rectangle "Node 040" as n040
+rectangle "Node 041" as n041
+rectangle "Node 042" as n042
+rectangle "Node 043" as n043
+rectangle "Node 044" as n044
+rectangle "Node 045" as n045
+rectangle "Node 046" as n046
+rectangle "Node 047" as n047
+rectangle "Node 048" as n048
+rectangle "Node 049" as n049
+rectangle "Node 050" as n050
+rectangle "Node 051" as n051
+rectangle "Node 052" as n052
+rectangle "Node 053" as n053
+rectangle "Node 054" as n054
+rectangle "Node 055" as n055
+rectangle "Node 056" as n056
+rectangle "Node 057" as n057
+rectangle "Node 058" as n058
+rectangle "Node 059" as n059
+rectangle "Node 060" as n060
+rectangle "Node 061" as n061
+rectangle "Node 062" as n062
+rectangle "Node 063" as n063
+rectangle "Node 064" as n064
+rectangle "Node 065" as n065
+rectangle "Node 066" as n066
+rectangle "Node 067" as n067
+rectangle "Node 068" as n068
+rectangle "Node 069" as n069
+rectangle "Node 070" as n070
+rectangle "Node 071" as n071
+rectangle "Node 072" as n072
+rectangle "Node 073" as n073
+rectangle "Node 074" as n074
+rectangle "Node 075" as n075
+rectangle "Node 076" as n076
+rectangle "Node 077" as n077
+rectangle "Node 078" as n078
+rectangle "Node 079" as n079
+rectangle "Node 080" as n080
+rectangle "Node 081" as n081
+rectangle "Node 082" as n082
+rectangle "Node 083" as n083
+rectangle "Node 084" as n084
+rectangle "Node 085" as n085
+rectangle "Node 086" as n086
+rectangle "Node 087" as n087
+rectangle "Node 088" as n088
+rectangle "Node 089" as n089
+rectangle "Node 090" as n090
+rectangle "Node 091" as n091
+rectangle "Node 092" as n092
+rectangle "Node 093" as n093
+rectangle "Node 094" as n094
+rectangle "Node 095" as n095
+rectangle "Node 096" as n096
+rectangle "Node 097" as n097
+rectangle "Node 098" as n098
+rectangle "Node 099" as n099
+' One link per D2 edge, in compiler order; no synthetic layout links.
+n000 --> n001
+n000 --> n002
+n001 --> n003
+n001 --> n004
+n002 --> n005
+n002 --> n006
+n003 --> n007
+n003 --> n008
+n004 --> n009
+n004 --> n010
+n005 --> n011
+n005 --> n012
+n006 --> n013
+n006 --> n014
+n007 --> n015
+n007 --> n016
+n008 --> n017
+n008 --> n018
+n009 --> n019
+n009 --> n020
+n010 --> n021
+n010 --> n022
+n011 --> n023
+n011 --> n024
+n012 --> n025
+n012 --> n026
+n013 --> n027
+n013 --> n028
+n014 --> n029
+n014 --> n030
+n015 --> n031
+n015 --> n032
+n016 --> n033
+n016 --> n034
+n017 --> n035
+n017 --> n036
+n018 --> n037
+n018 --> n038
+n019 --> n039
+n019 --> n040
+n020 --> n041
+n020 --> n042
+n021 --> n043
+n021 --> n044
+n022 --> n045
+n022 --> n046
+n023 --> n047
+n023 --> n048
+n024 --> n049
+n024 --> n050
+n025 --> n051
+n025 --> n052
+n026 --> n053
+n026 --> n054
+n027 --> n055
+n027 --> n056
+n028 --> n057
+n028 --> n058
+n029 --> n059
+n029 --> n060
+n030 --> n061
+n030 --> n062
+n031 --> n063
+n031 --> n064
+n032 --> n065
+n032 --> n066
+n033 --> n067
+n033 --> n068
+n034 --> n069
+n034 --> n070
+n035 --> n071
+n035 --> n072
+n036 --> n073
+n036 --> n074
+n037 --> n075
+n037 --> n076
+n038 --> n077
+n038 --> n078
+n039 --> n079
+n039 --> n080
+n040 --> n081
+n040 --> n082
+n041 --> n083
+n041 --> n084
+n042 --> n085
+n042 --> n086
+n043 --> n087
+n043 --> n088
+n044 --> n089
+n044 --> n090
+n045 --> n091
+n045 --> n092
+n046 --> n093
+n046 --> n094
+n047 --> n095
+n047 --> n096
+n048 --> n097
+n048 --> n098
+n049 --> n099
+@enduml

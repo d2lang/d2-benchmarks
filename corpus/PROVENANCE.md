@@ -1,5 +1,15 @@
 # Corpus provenance
 
+## Generated basic diagrams
+
+`basic_002`, `basic_010`, and `basic_100` were created for this benchmark by [generators/basic.py](generators/basic.py), under the [MIT license](licenses/basic_MIT_LICENSE). They have no external upstream source or revision and are not part of the downloaded-source verification record. Their manifest source records hash the generator and record the model and node count.
+
+The deterministic graph model is a balanced binary tree with breadth-first node IDs: node `i > 0` receives one edge from node `(i - 1) // 2`. There are exactly N rectangular nodes and N - 1 directed, unlabeled edges. Labels are fixed-width `Node NNN`, and the global direction is down. The topology is defined independently of any renderer. D2 is the first serialization; its actual compiler exports the graph consumed by the existing Mermaid, DOT, and PlantUML translators. Basic semantic maps were exported with the pinned public D2 revision `a825194903523c4409f4df7e7f4385efacb6deeb`. No nodes, edges, groups, or constraints are inserted by these translations.
+
+Generate the three original definitions into a new directory with `python3 corpus/generators/basic.py --output /tmp/d2-bench-basic`. The integrity tests check that regeneration matches the frozen definitions and that the compiler-derived maps match the independently specified tree. [Translation regeneration](TRANSLATIONS.md#regeneration) checks all three other languages. All three basic fixtures render PNG at 2x density.
+
+## Real-world sources
+
 These ten public diagrams document production systems, software packages, hardware, or published target architectures. Their authors, pinned revisions, original source hashes and licenses are preserved below. Inclusion does not assert that a target architecture is deployed or current: Spyre is explicitly a target design and TPMJS is a historical v1 snapshot.
 
 The D2 fixtures are frozen adaptations of public sources. Their leading comments record local changes. Jupyter and Queue decorative third-party icons were replaced with labeled built-in shapes; original icon artwork is not redistributed. ROSS relative links were pinned to its upstream revision. All fixtures carry a source/license header. None imports another file or fetches an image while rendering. Ordinary source links/tooltips are metadata, not runtime resources.

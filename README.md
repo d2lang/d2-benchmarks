@@ -2,20 +2,20 @@
 
 **Results — September 5, 2026 · Apple M4 · SVG**
 
-| Tool | SVG latency | Total SVG bytes | Total SVG gzip-9 bytes |
-|---|---:|---:|---:|
-| D2 / Dagre | 30.6 ms | 571,234 | 201,206 |
-| Graphviz / dot | 77.5 ms | 328,419 | 61,394 |
-| Mermaid / Dagre | 426.8 ms | 656,710 | 94,024 |
-| PlantUML / Graphviz | 932.5 ms | 355,876 | 90,871 |
+| Tool | Real-world SVG latency |
+|---|---:|
+| D2 / Dagre | 30.6 ms |
+| Graphviz / dot | 77.5 ms |
+| Mermaid / Dagre | 426.8 ms |
+| PlantUML / Graphviz | 932.5 ms |
 
-Latency is the geometric mean of ten per-diagram medians, with 20 measurements each. Sizes total ten SVG files, with each file compressed separately for gzip-9. This is one active desktop session with uncontrolled background activity; layouts, fonts, and styling differ. [See the reference run and download its complete evidence](examples/2026-09-05-macos-m4-svg/README.md).
+Latency is the geometric mean of ten per-diagram medians, with 20 measurements each. This previous reference measures real-world SVG only, in one active desktop session with uncontrolled background activity. [See the reference run and download its evidence](examples/2026-09-05-macos-m4-svg/README.md).
 
 [![Validation and real-tool smoke tests](https://github.com/d2lang/d2-benchmarks/actions/workflows/ci.yml/badge.svg)](https://github.com/d2lang/d2-benchmarks/actions/workflows/ci.yml)
 
-Reproducible, end-to-end CLI benchmarks for **D2, Mermaid, Graphviz, and PlantUML**, using ten substantial diagrams from real projects.
+Reproducible, end-to-end CLI rendering benchmarks for **D2, Mermaid, Graphviz, and PlantUML**, covering SVG and PNG, basic diagrams at three sizes, and complex diagrams from real projects.
 
-The suite measures the time to start a CLI, read a diagram, lay it out, render SVG or PNG, write the file, and exit. It also measures asset sizes and provides a gallery of the actual outputs. Every run keeps its raw samples, versions, binary hashes, inputs, and commands.
+The suite measures the time to start a CLI, read a diagram, lay it out, render SVG or PNG, write the file, and exit. Results show latency, variation, and confidence intervals for each workload and format. Every run keeps its raw samples, versions, binary hashes, inputs, commands, and a gallery of actual outputs.
 
 ## Run it
 
@@ -29,12 +29,12 @@ cd d2-benchmarks
 
 On the first run, `./make.sh` installs checksum-pinned tools into `.tools/`, builds a pinned public D2 revision, and leaves system packages alone. Later runs reuse the completed setup when its pins match. Mermaid uses Chrome Headless Shell 152.0.7977.75, matching the CLI's default `headless: "shell"` mode. Setup needs network access; benchmark commands use the local corpus and runtimes. Setup and compilation are outside the measured interval.
 
-The runner prints the location of `results/<run>/index.html`. Open that file in your browser for timing distributions, uncertainty intervals, asset sizes, and side-by-side diagrams. `report.md`, `summary.csv`, `summary.json`, and `raw.jsonl` are in the same directory. Reports are generated locally and need no server or external assets.
+The runner prints the location of `results/<run>/index.html`. Open that file in your browser for the performance matrix, timing distributions, uncertainty intervals, and side-by-side diagrams. `report.md`, `summary.csv`, `summary.json`, and `raw.jsonl` are in the same directory. Reports are generated locally and need no server or external assets.
 
-A complete run measures **SVG and PNG**, with **3 excluded warm-ups and 20 measured repetitions** per tool, diagram, and format. Expect several minutes; the exact duration depends on your machine. Run this quick check first if desired:
+A complete run measures **13 diagrams × 4 tools × 2 formats**, with **3 excluded warm-ups and 20 measured repetitions** per job. Expect several minutes; the exact duration depends on your machine. Run this quick check first if desired:
 
 ```sh
-./make.sh --fixtures lion_reader_frontend --warmups 1 --repetitions 1 --output results/smoke
+./make.sh --nodes 2 --warmups 1 --repetitions 1 --output results/smoke
 ```
 
 Smoke reports are labeled as such and are not performance evidence. Output directories must be new; an existing run is never overwritten.
@@ -49,9 +49,24 @@ Optional `--redact-prefix '/absolute/local/repository=${REPO}'` replaces that ho
 
 ## Choose the workload
 
+| Workload | Nodes and connections | Reported separately |
+|---|---|---|
+| Basic · 2 nodes | 2 nodes, 1 edge | SVG and PNG |
+| Basic · 10 nodes | 10 nodes, 9 edges | SVG and PNG |
+| Basic · 100 nodes | 100 nodes, 99 edges | SVG and PNG |
+| Real-world complex | Ten diagrams with nesting, richer labels, and varied structure | Per-diagram results and SVG/PNG aggregates |
+
+Basic diagrams are generated from the same balanced binary-tree pattern at each size, with plain labels and rectangular nodes. Each size has its own timing; the reports keep all workload families and formats separate.
+
 ```sh
-# SVG only, all four public tools and all ten diagrams
+# SVG only, all four public tools and all 13 diagrams
 ./make.sh --formats svg --output results/svg
+
+# Basic scaling in both formats
+./make.sh --nodes 2 10 100 --output results/basic
+
+# Complex real-world diagrams in both formats
+./make.sh --category real-world --output results/real-world
 
 # Two tools, two diagrams, with more observations
 ./make.sh --tools d2-dagre graphviz-dot \
@@ -70,9 +85,10 @@ Use `./make.sh --help` for toolchain, seed, timeout, baseline, and output option
 - **Serial randomized rounds.** Every selected job runs once per round, in a reproducible shuffled order. No benchmark commands overlap.
 - **Raw observations retained.** No outliers are removed. Reports show medians, spread, confidence intervals, sample counts, failures, and incomplete runs. Aggregate comparisons use the same fixed set of diagrams.
 - **Output checked.** The frozen corpus has source hashes, semantic mappings, provenance, and licenses. SVG identities and geometry are checked after timing; PNG structure and checksums are checked after timing. Invalid output is a failure.
-- **Limits explained.** PNG uses 2× CSS-pixel density for nine diagrams. TPMJS uses a separate 0.5× supplement and is excluded from the primary PNG aggregate. Layouts, font embedding, styling, and resulting pixel counts differ.
+- **Separate workloads.** Basic 2-, 10-, and 100-node timings are separate from each other and from real-world aggregates. SVG and PNG are never combined into one score.
+- **Limits explained.** PNG uses 2× CSS-pixel density for all basic diagrams and nine real-world diagrams. TPMJS uses a separate 0.5× supplement and is excluded from the primary real-world PNG aggregate. Layouts, font embedding, styling, and resulting pixel counts differ.
 
-These are D2-authored diagrams, so the corpus is not an unbiased sample of all graph workloads. PlantUML uses Graphviz internally; the comparison measures complete commands, not isolated layout algorithms. Smaller assets do not imply equal appearance or portability. Read the [methodology](docs/METHODOLOGY.md) before interpreting rankings or publishing results.
+The real-world diagrams originated in D2; the basic diagrams are generated trees. Together they cover specific workloads, not an unbiased sample of all graphs. PlantUML uses Graphviz internally; the comparison measures complete commands, not isolated layout algorithms. Read the [methodology](docs/METHODOLOGY.md) before interpreting rankings or publishing results.
 
 Run on an idle, plugged-in machine with a stable power mode. Record relevant system settings. Repeat the entire experiment in independent sessions before making a performance claim. CI checks correctness with small real-tool renders; it does not gate changes on noisy hosted-runner timings.
 

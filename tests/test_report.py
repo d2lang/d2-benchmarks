@@ -15,10 +15,10 @@ class ReportTest(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.root=Path(self.tmp.name)
 
-    def mock_run(self, values=None, status="completed", formats=("svg",), smoke=False):
+    def mock_run(self, values=None, status="completed", formats=("svg",), smoke=False, fixtures=None):
         values=values or {("a","d2-dagre"):[1,2,3,4,5],("a","graphviz-dot"):[2,4,6,8,10],
                           ("b","d2-dagre"):[10,20,30,40,50],("b","graphviz-dot"):[5,10,15,20,25]}
-        fixtures=[{"id":f,"title":"Fixture "+f,"counts":{"leaf_nodes":2,"groups":0,"edges":1},
+        fixtures=fixtures or [{"id":f,"title":"Fixture "+f,"counts":{"leaf_nodes":2,"groups":0,"edges":1},
                    "png_density":.5 if f=="b" else 2.0,"primary_png":f!="b"} for f in ("a","b")]
         jobs,records=[],[]
         for fixture in fixtures:
@@ -57,6 +57,10 @@ class ReportTest(unittest.TestCase):
         self.assertAlmostEqual(ag["graphviz-dot"]["baseline_over_tool_ratio"],1)
         self.assertEqual(ag["d2-dagre"]["ratio_ci95"],[1,1])
         self.assertEqual(ag["graphviz-dot"]["ratio_ci95"],[1,1])  # joint round resampling preserves known fixed ratios
+        for a in ag.values():
+            lo,hi=a["geomean_median_ci95_ms"]
+            self.assertLessEqual(lo,a["geomean_median_ms"])
+            self.assertGreaterEqual(hi,a["geomean_median_ms"])
         self.assertEqual(s["completeness"]["successes"],40)
         for name in ("report.md","summary.json","summary.csv","index.html"):
             self.assertTrue((self.root/name).is_file())
@@ -112,6 +116,65 @@ class ReportTest(unittest.TestCase):
         self.assertEqual(g["png-primary"]["density"],2)
         self.assertEqual(g["png-supplemental"]["density"],.5)
 
+    def test_graph_sizes_workload_families_and_formats_are_independent(self):
+        fixtures=[{"id":f"basic-{n}","category":"basic","counts":{"leaf_nodes":n},
+                   "png_density":2.,"primary_png":True} for n in (2,10,100)]
+        fixtures += [{"id":f,"category":"real-world","counts":{"leaf_nodes":n},
+                      "png_density":2.,"primary_png":True} for f,n in (("complex-a",10),("complex-b",100))]
+        values={(f["id"],t):[f["counts"]["leaf_nodes"]]*5 for f in fixtures for t in ("d2-dagre","graphviz-dot")}
+        meta,rows=self.mock_run(values=values,fixtures=fixtures,formats=("svg","png"))
+        summary=generate(self.root,bootstrap=40)
+        groups={g["id"]:g for g in summary["groups"]}
+        self.assertEqual(list(groups),["basic-2-svg","basic-2-png-primary","basic-10-svg","basic-10-png-primary",
+                                       "basic-100-svg","basic-100-png-primary","svg","png-primary"])
+        for n in (2,10,100):
+            for suffix in ("svg","png-primary"):
+                group=groups[f"basic-{n}-{suffix}"]
+                self.assertEqual(group["fixtures"],[f"basic-{n}"])
+                self.assertEqual((group["category"],group["node_count"]),("basic",n))
+                for aggregate in group["aggregates"]:
+                    self.assertAlmostEqual(aggregate["geomean_median_ms"],n)
+                    for bound in aggregate["geomean_median_ci95_ms"]:self.assertAlmostEqual(bound,n)
+        for suffix in ("svg","png-primary"):
+            self.assertEqual(groups[suffix]["fixtures"],["complex-a","complex-b"])
+            self.assertIsNone(groups[suffix]["node_count"])
+            self.assertAlmostEqual(groups[suffix]["aggregates"][0]["geomean_median_ms"],math.sqrt(10*100))
+        # A failure suppresses the complete matched comparison for its own group,
+        # while independently measured workloads and the other output stay usable.
+        next(r for r in rows if r["fixture"]=="basic-10" and r["format"]=="png" and r["round"]==1).update(success=False,returncode=2)
+        meta["status"]="failed"  # The real runner finalizes any session with a failed job this way.
+        self.save(meta,rows)
+        failed=generate(self.root,bootstrap=20)
+        self.assertEqual([g["id"] for g in failed["groups"] if not g["ranking_available"]],["basic-10-png-primary"])
+        markdown=(self.root/"report.md").read_text()
+        self.assertLess(markdown.index("## Performance matrix"),markdown.index("## Method and uncertainty"))
+        self.assertIn("| Basic · 10 nodes | PNG 2× | unavailable | unavailable |",markdown)
+        self.assertIn("Real-world complex",markdown)
+
+    def test_fatal_and_integrity_errors_suppress_every_workload(self):
+        for field in ("fatal_error","input_integrity_errors","tool_integrity_errors","config_integrity_errors"):
+            meta,rows=self.mock_run(status="failed",formats=("svg","png"))
+            meta[field]="recorded run-wide failure"
+            self.save(meta,rows)
+            summary=generate(self.root,bootstrap=20)
+            self.assertTrue(all(not g["ranking_available"] for g in summary["groups"]))
+            self.assertTrue(all(any(field in reason for reason in g["ranking_suppression_reasons"]) for g in summary["groups"]))
+
+    def test_performance_reports_omit_file_sizes_and_verify_assets_by_hash(self):
+        meta,rows=self.mock_run(formats=("svg","png"))
+        for row in rows:row["image"].pop("bytes")
+        self.save(meta,rows)
+        summary=generate(self.root,bootstrap=20)
+        self.assertTrue(all(case["asset"]["verified"] for case in summary["cases"]))
+        self.assertTrue(all(group["ranking_available"] for group in summary["groups"]))
+        self.assertTrue(all("pixels" not in a for g in summary["groups"] for a in g["aggregates"]))
+        for filename in ("summary.json","summary.csv","report.md","index.html"):
+            contents=(self.root/filename).read_text().lower()
+            self.assertNotIn("bytes",contents)
+            self.assertNotIn("gzip",contents)
+        # Dimensions survive solely as retained-image metadata for the gallery.
+        self.assertEqual(summary["cases"][0]["asset"]["width"],100)
+
     def test_incomplete_smoke_and_short_status_suppress_ranking(self):
         for mode in ("incomplete","smoke","short"):
             meta,rows=self.mock_run(status="running" if mode=="incomplete" else "completed",smoke=mode=="smoke")
@@ -163,6 +226,7 @@ class ReportTest(unittest.TestCase):
     def test_bootstrap_disabled_and_invalid_argument(self):
         self.mock_run();s=generate(self.root,bootstrap=0)
         self.assertIsNone(s["cases"][0]["timing_ms"]["median_ci95"])
+        self.assertIsNone(s["groups"][0]["aggregates"][0]["geomean_median_ci95_ms"])
         with self.assertRaises(ValueError):generate(self.root,bootstrap=-1)
 
 

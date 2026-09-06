@@ -1,0 +1,11 @@
+@startuml
+' Generated from the compiled D2 semantic mapping; see TRANSLATION.md.
+' Graphviz is PlantUML's default deployment-diagram layout; GRAPHVIZ_DOT pins it.
+skinparam shadowing false
+skinparam defaultTextAlignment center
+top to bottom direction
+rectangle "Node 000" as n000
+rectangle "Node 001" as n001
+' One link per D2 edge, in compiler order; no synthetic layout links.
+n000 --> n001
+@enduml

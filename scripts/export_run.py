@@ -92,7 +92,7 @@ def export(source: Path, destination: Path, prefixes: list[tuple[str, str]], bas
                                 archive.addfile(info, stream)
                         else:
                             archive.addfile(info)
-    return {'archive': str(destination), 'bytes': destination.stat().st_size,
+    return {'archive': str(destination),
             'sha256': hashlib.sha256(destination.read_bytes()).hexdigest(),
             'run_id': summary['run_id'], 'status': summary['status']}
 

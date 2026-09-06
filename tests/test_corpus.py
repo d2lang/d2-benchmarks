@@ -3,6 +3,8 @@ import hashlib
 import json
 from pathlib import Path
 import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -15,8 +17,38 @@ class CorpusTests(unittest.TestCase):
     def test_checked_in_corpus_is_complete(self):
         result=validate_corpus(ROOT)
         self.assertEqual(result['errors'],[])
-        self.assertEqual(result['totals'],{'leaf_nodes':346,'groups':140,'edges':195})
-        self.assertEqual(len(result['fixtures']),10)
+        self.assertEqual(result['totals'],{'leaf_nodes':458,'groups':140,'edges':304})
+        self.assertEqual(len(result['fixtures']),13)
+
+    def test_generated_definitions_match_frozen_graphs(self):
+        manifest=json.loads((ROOT/'corpus/manifest.json').read_text())
+        basics=[f for f in manifest['fixtures'] if f['category']=='basic']
+        self.assertEqual({f['counts']['leaf_nodes'] for f in basics},{2,10,100})
+        with tempfile.TemporaryDirectory() as tmp:
+            output=Path(tmp)/'generated'
+            subprocess.run([sys.executable,str(ROOT/'corpus/generators/basic.py'),
+                            '--output',str(output)],check=True)
+            for fixture in basics:
+                n=fixture['counts']['leaf_nodes']
+                self.assertEqual((output/(fixture['id']+'.d2')).read_bytes(),
+                                 (ROOT/'corpus'/fixture['inputs']['d2']['path']).read_bytes())
+                mapping=json.loads((ROOT/'corpus'/fixture['semantic']['path']).read_text())
+                self.assertEqual(mapping['root_attributes']['direction']['value'],'down')
+                self.assertEqual([(o['d2_id'],o['translated_label'],o['source_shape'],o['parent_d2_id'])
+                                  for o in mapping['objects']],
+                                 [(f'n{i:03d}',f'Node {i:03d}','rectangle','') for i in range(n)])
+                self.assertEqual([(e['source_d2_id'],e['target_d2_id'],e['source_visible_arrow'],
+                                   e['target_visible_arrow'],e['translated_label']) for e in mapping['edges']],
+                                 [(f'n{(i-1)//2:03d}',f'n{i:03d}',False,True,'') for i in range(1,n)])
+
+    def test_all_translations_regenerate_byte_for_byte(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            output=Path(tmp)/'translations'
+            subprocess.run([sys.executable,str(ROOT/'scripts/translations/regenerate.py'),
+                            '--output',str(output)],check=True,stdout=subprocess.DEVNULL)
+            report=json.loads((output/'regeneration-check.json').read_text())
+            self.assertTrue(report['valid'])
+            self.assertEqual(len(report['checks']),39)
 
     def test_changed_file_does_not_pass_as_frozen_input(self):
         with tempfile.TemporaryDirectory() as tmp:

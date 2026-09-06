@@ -32,7 +32,7 @@ jobs:
       - name: One-command setup and real-tool smoke (correctness only)
         run: >-
           ./make.sh
-          --fixtures jupyter_aws_eks
+          --fixtures basic_002 basic_010 basic_100 jupyter_aws_eks
           --warmups 0 --repetitions 1
           --bootstrap 100
           --output results/ci-smoke
@@ -42,7 +42,7 @@ jobs:
       - name: Reuse the installation on a second invocation
         run: |
           before=$(sha256sum .tools/setup-manifest.json)
-          ./make.sh --tools d2-dagre --formats svg --fixtures jupyter_aws_eks --warmups 0 --repetitions 1 --bootstrap 100 --output results/ci-reuse
+          ./make.sh --tools d2-dagre --formats svg --nodes 2 --warmups 0 --repetitions 1 --bootstrap 100 --output results/ci-reuse
           test "$before" = "$(sha256sum .tools/setup-manifest.json)"
       - name: Retain diagnostic logs and smoke renders
         if: always()

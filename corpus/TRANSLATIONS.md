@@ -1,6 +1,8 @@
 # Translation and validation boundaries
 
-The ten diagrams contain **486 semantic objects: 346 leaves and 140 groups, with 195 connections**. Every format retains those identities, nesting relationships, parallel edges and plain text labels. The semantic maps were captured after D2 compilation expanded implicit objects, scoped identifiers, classes and globs; they are not a regular-expression interpretation of D2 source. The mappings include the source-D2 hash and full source attributes.
+The ten real-world diagrams contain **486 semantic objects: 346 leaves and 140 groups, with 195 connections**. Three generated basic trees add 2, 10, and 100 nodes with 1, 9, and 99 edges respectively. Every format retains those identities, nesting relationships, parallel edges and plain text labels. The semantic maps were captured after D2 compilation expanded implicit objects, scoped identifiers, classes and globs; they are not a regular-expression interpretation of D2 source. The mappings include the source-D2 hash and full source attributes.
+
+The basic graphs use only rectangles, fixed-width plain text labels, unlabeled directed edges, and a global downward direction. They have no omitted constraints or synthetic layout objects. Their layouts, default typography, and styling still differ between renderers. The following feature approximations apply to the real-world diagrams.
 
 D2 retains its source diagrams and styles. Mermaid, DOT and PlantUML translate the same content with the following deliberate limitations. They are comparable real-world CLI workloads, not pixel-equivalent renderers or isolated measurements of a single layout algorithm.
 
@@ -47,7 +49,7 @@ From the repository root, choose an output directory that does not exist:
 python3 scripts/translations/regenerate.py --output /tmp/d2-bench-generated
 ```
 
-This regenerates all 30 translated inputs from the frozen compiler-derived maps and verifies their hashes against the corpus. It uses only Python's standard library. It does not overwrite the checked-in corpus or its manifest. The maps retain sufficient original compiler attributes to reconstruct the Mermaid translation and feed the DOT/PlantUML translators.
+This regenerates all 39 translated inputs from the frozen compiler-derived maps and verifies their hashes against the corpus. It uses only Python's standard library. It does not overwrite the checked-in corpus or its manifest. The maps retain sufficient original compiler attributes to reconstruct the Mermaid translation and feed the DOT/PlantUML translators. The three generated basic D2 definitions can be reproduced separately with `python3 corpus/generators/basic.py --output /tmp/d2-bench-basic`; the real-world D2 definitions remain frozen adaptations of their sources.
 
 To rebuild semantic maps after changing D2 inputs, `scripts/translations/export.go` calls D2's actual compiler. Run it from a chosen public D2 module checkout, passing an output directory and the D2 input files; then use `mermaid_from_compiler.py` with that graph directory, the fixture directory and a new output directory. Review all semantic and rendering differences before replacing the corpus and hashes. The helper records source basenames, not local checkout paths.
 

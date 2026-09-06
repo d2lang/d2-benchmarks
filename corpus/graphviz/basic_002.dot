@@ -1,0 +1,10 @@
+// Generated from the audited D2 semantic mapping. See TRANSLATION.md.
+digraph diagram {
+  graph [compound="true", rankdir="TB", bgcolor="white", fontname="Helvetica", fontsize="14", pad="0.25"];
+  node [shape="box", fontname="Helvetica", fontsize="14", color="#333333", margin="0.12,0.08"];
+  edge [fontname="Helvetica", fontsize="14", color="#333333"];
+  node_n000 [id="node_n000", label="Node 000", d2_id="n000", semantic_kind="node", shape="box"];
+  node_n001 [id="node_n001", label="Node 001", d2_id="n001", semantic_kind="node", shape="box"];
+  // Exactly one DOT edge per compiled D2 edge, preserving order and multiplicity.
+  node_n000 -> node_n001 [id="edge000", d2_id="(n000 -> n001)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+}

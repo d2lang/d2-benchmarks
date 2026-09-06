@@ -8,6 +8,11 @@
   },
   "licenses": [
     {
+      "path": "licenses/basic_MIT_LICENSE",
+      "sha256": "65f7947edf741ba698e3f381a56f3f6a19ab6c67bb96189139966f3f15b36069",
+      "origin": "generated"
+    },
+    {
       "path": "licenses/jupyter_aws_eks_LICENSE",
       "sha256": "cece8af57dcd1e4cdaaca6d44d41d36498caf5812388f7e54612f19f1a713632",
       "url": "https://github.com/jupyter-infra/jupyter-deploy/blob/7283c07396c3d0126346217089e2527d1ce652f6/LICENSE"
@@ -65,6 +70,177 @@
   ],
   "fixtures": [
     {
+      "id": "basic_002",
+      "title": "Basic 2-node balanced binary tree",
+      "category": "basic",
+      "counts": {
+        "leaf_nodes": 2,
+        "groups": 0,
+        "edges": 1
+      },
+      "png_density": 2.0,
+      "primary_png": true,
+      "inputs": {
+        "d2": {
+          "path": "d2/basic_002.d2",
+          "sha256": "9c034d1cb1f77ef307afa40f5b7fbd8a78a275973b4989ccfcfaf051cd299164"
+        },
+        "mermaid": {
+          "path": "mermaid/basic_002.mmd",
+          "sha256": "33a15aaf1b69f0a421b0f4449f2206985a9c12f1604667f5178167b4081598d3"
+        },
+        "graphviz": {
+          "path": "graphviz/basic_002.dot",
+          "sha256": "7a10db3909fce29bc73cf4dbac046a2efabc5e526fa91864954da8596a09fdcb"
+        },
+        "plantuml": {
+          "path": "plantuml/basic_002.puml",
+          "sha256": "3b149be14b0f1583f0a2804fe309a9dbc28785dd449578a45f84bebd673bac9c"
+        }
+      },
+      "semantic": {
+        "path": "semantic/basic_002.mapping.json",
+        "sha256": "b693916b8f25329dccd1897d817b002648574f52b06ea20fe6269c35bf095786"
+      },
+      "translations": {
+        "graphviz": {
+          "path": "semantic/graphviz/basic_002.mapping.json",
+          "sha256": "629f226c619a96be9b129f433580a7db71a4abd6d38ccd2a996492c6c584d4c6"
+        },
+        "plantuml": {
+          "path": "semantic/plantuml/basic_002.mapping.json",
+          "sha256": "692495a809adf287a711f5ec37d66e4ae9dfe1fad4504c246c587600c93dc801"
+        }
+      },
+      "source": {
+        "kind": "generated",
+        "generator": {
+          "path": "generators/basic.py",
+          "sha256": "7132b362a0cb7bb68c0b901f9020b5dd75768362258df8f67ce8288b684fb682"
+        },
+        "model": "balanced-binary-tree",
+        "nodes": 2,
+        "license": "MIT",
+        "license_files": [
+          "licenses/basic_MIT_LICENSE"
+        ]
+      }
+    },
+    {
+      "id": "basic_010",
+      "title": "Basic 10-node balanced binary tree",
+      "category": "basic",
+      "counts": {
+        "leaf_nodes": 10,
+        "groups": 0,
+        "edges": 9
+      },
+      "png_density": 2.0,
+      "primary_png": true,
+      "inputs": {
+        "d2": {
+          "path": "d2/basic_010.d2",
+          "sha256": "9b0e1f8bbd87ecf3401a10f4e0ea9d26880e5558d1c994592e682c02fb27255a"
+        },
+        "mermaid": {
+          "path": "mermaid/basic_010.mmd",
+          "sha256": "fa41d345e7f64d75b0e77a33ac0de43d7d9a8011c1a0ca027b55ea376ed14b64"
+        },
+        "graphviz": {
+          "path": "graphviz/basic_010.dot",
+          "sha256": "77fa262d530ab117d85ba20cd1a632ee0f7af5ecb240ba8ef791551f203637d3"
+        },
+        "plantuml": {
+          "path": "plantuml/basic_010.puml",
+          "sha256": "64752212852b497fd43931456c69a37a4fed14153c80018d5e55621d6aefc714"
+        }
+      },
+      "semantic": {
+        "path": "semantic/basic_010.mapping.json",
+        "sha256": "f9a3bfe19778f934ec752f456c95072eae79019faa6815e866e8632e16e345e7"
+      },
+      "translations": {
+        "graphviz": {
+          "path": "semantic/graphviz/basic_010.mapping.json",
+          "sha256": "2e9840c5e78b029adbce0ad699075e38e7252f294acd0f219a054fd82768b19c"
+        },
+        "plantuml": {
+          "path": "semantic/plantuml/basic_010.mapping.json",
+          "sha256": "18c2c21fd5fd56b8efd4f69fd5e382e69b1a149193bada38bf6a1edbd70e0b82"
+        }
+      },
+      "source": {
+        "kind": "generated",
+        "generator": {
+          "path": "generators/basic.py",
+          "sha256": "7132b362a0cb7bb68c0b901f9020b5dd75768362258df8f67ce8288b684fb682"
+        },
+        "model": "balanced-binary-tree",
+        "nodes": 10,
+        "license": "MIT",
+        "license_files": [
+          "licenses/basic_MIT_LICENSE"
+        ]
+      }
+    },
+    {
+      "id": "basic_100",
+      "title": "Basic 100-node balanced binary tree",
+      "category": "basic",
+      "counts": {
+        "leaf_nodes": 100,
+        "groups": 0,
+        "edges": 99
+      },
+      "png_density": 2.0,
+      "primary_png": true,
+      "inputs": {
+        "d2": {
+          "path": "d2/basic_100.d2",
+          "sha256": "1dcdab7e89da8893e7c523a9c89d6f995fcfa4ca8a2c9c7e318a479477ee258d"
+        },
+        "mermaid": {
+          "path": "mermaid/basic_100.mmd",
+          "sha256": "5b8e841eb21bc3e6342c9a377d807a4180833fac1d31f2b529a2429b82016e39"
+        },
+        "graphviz": {
+          "path": "graphviz/basic_100.dot",
+          "sha256": "e386d33e0f463097abe90b6772b5285815a0cb117322fb7c30e663d885f28d51"
+        },
+        "plantuml": {
+          "path": "plantuml/basic_100.puml",
+          "sha256": "12bda4b8a9bfb556f97619512bbedf6bb3f612c4c2ebcdddf08fecf64f685644"
+        }
+      },
+      "semantic": {
+        "path": "semantic/basic_100.mapping.json",
+        "sha256": "72f3551a3f54030c297dfc872661730e93a1cbd156023f13976cf3b0b075f3d1"
+      },
+      "translations": {
+        "graphviz": {
+          "path": "semantic/graphviz/basic_100.mapping.json",
+          "sha256": "0cd8b2b11a76b9c16f32f2364ab27ddb44c3d91a8b39a66413062fccbf326716"
+        },
+        "plantuml": {
+          "path": "semantic/plantuml/basic_100.mapping.json",
+          "sha256": "b05674b7fed427ead688b5272374e96d82062415ad898d7ef53776de85ca5abc"
+        }
+      },
+      "source": {
+        "kind": "generated",
+        "generator": {
+          "path": "generators/basic.py",
+          "sha256": "7132b362a0cb7bb68c0b901f9020b5dd75768362258df8f67ce8288b684fb682"
+        },
+        "model": "balanced-binary-tree",
+        "nodes": 100,
+        "license": "MIT",
+        "license_files": [
+          "licenses/basic_MIT_LICENSE"
+        ]
+      }
+    },
+    {
       "id": "fulcro_rad",
       "title": "Fulcro RAD architecture",
       "counts": {
@@ -116,7 +292,8 @@
         "license_files": [
           "licenses/fulcro_rad_LICENSE"
         ]
-      }
+      },
+      "category": "real-world"
     },
     {
       "id": "jupyter_aws_eks",
@@ -170,7 +347,8 @@
         "license_files": [
           "licenses/jupyter_aws_eks_LICENSE"
         ]
-      }
+      },
+      "category": "real-world"
     },
     {
       "id": "jupyter_k8s_oidc",
@@ -224,7 +402,8 @@
         "license_files": [
           "licenses/jupyter_k8s_oidc_LICENSE"
         ]
-      }
+      },
+      "category": "real-world"
     },
     {
       "id": "leios_simulator",
@@ -278,7 +457,8 @@
         "license_files": [
           "licenses/leios_simulator_LICENSE"
         ]
-      }
+      },
+      "category": "real-world"
     },
     {
       "id": "lion_reader_frontend",
@@ -332,7 +512,8 @@
         "license_files": [
           "licenses/lion_reader_frontend_LICENSE"
         ]
-      }
+      },
+      "category": "real-world"
     },
     {
       "id": "mocha_soc",
@@ -387,7 +568,8 @@
           "licenses/mocha_soc_REUSE.toml",
           "licenses/mocha_soc_Apache-2.0.txt"
         ]
-      }
+      },
+      "category": "real-world"
     },
     {
       "id": "queue_workers",
@@ -441,7 +623,8 @@
         "license_files": [
           "licenses/queue_workers_LICENSE"
         ]
-      }
+      },
+      "category": "real-world"
     },
     {
       "id": "ross_overview",
@@ -495,7 +678,8 @@
         "license_files": [
           "licenses/ross_overview_LICENSE.md"
         ]
-      }
+      },
+      "category": "real-world"
     },
     {
       "id": "spyre_encoder",
@@ -549,7 +733,8 @@
         "license_files": [
           "licenses/spyre_encoder_LICENSE"
         ]
-      }
+      },
+      "category": "real-world"
     },
     {
       "id": "tpmjs_architecture",
@@ -603,7 +788,8 @@
         "license_files": [
           "licenses/tpmjs_architecture_LICENSE"
         ]
-      }
+      },
+      "category": "real-world"
     }
   ]
 }

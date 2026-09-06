@@ -10,11 +10,33 @@ from unittest.mock import patch
 from types import SimpleNamespace
 import zlib
 
-from benchmarks.runner import clean_environment, command_for, image_info, invoke, load_toolchain, run
+from benchmarks.runner import clean_environment, command_for, image_info, invoke, load_toolchain, run, select_fixtures
 
 
 def png_chunk(kind, payload):
     return struct.pack('>I', len(payload)) + kind + payload + struct.pack('>I', zlib.crc32(kind + payload) & 0xffffffff)
+
+
+class WorkloadSelectionTests(unittest.TestCase):
+    def test_size_selection_excludes_real_world_and_preserves_each_scale(self):
+        fixtures = [dict(id=f'basic_{n}', category='basic', counts={'leaf_nodes': n}) for n in (2, 10, 100)]
+        fixtures.append(dict(id='real', category='real-world', counts={'leaf_nodes': 10}))
+        args = SimpleNamespace(fixtures=None, category=None, nodes=None)
+        self.assertEqual(select_fixtures(fixtures, args), fixtures)
+        args.nodes = [2, 10]
+        self.assertEqual([f['id'] for f in select_fixtures(fixtures, args)], ['basic_2', 'basic_10'])
+        args.nodes, args.category = None, ['real-world']
+        self.assertEqual([f['id'] for f in select_fixtures(fixtures, args)], ['real'])
+        args.nodes = [10]
+        with self.assertRaisesRegex(ValueError, 'no fixtures match'):
+            select_fixtures(fixtures, args)
+
+    def test_unknown_fixture_or_size_is_not_silently_omitted(self):
+        fixtures = [dict(id='basic', category='basic', counts={'leaf_nodes': 2})]
+        with self.assertRaisesRegex(ValueError, 'unknown fixtures'):
+            select_fixtures(fixtures, SimpleNamespace(fixtures=['basic', 'missing']))
+        with self.assertRaisesRegex(ValueError, 'unsupported basic node counts'):
+            select_fixtures(fixtures, SimpleNamespace(fixtures=None, nodes=[2, 100]))
 
 
 class OutputValidationTests(unittest.TestCase):
@@ -40,7 +62,8 @@ class OutputValidationTests(unittest.TestCase):
             path.write_text('<svg xmlns="http://www.w3.org/2000/svg" width="72pt" height="36pt" viewBox="0 0 72 36"/>')
             info = image_info(path)
             self.assertEqual((info['width_css_px'], info['height_css_px']), (96, 48))
-            self.assertGreater(info['gzip9_bytes'], 0)
+            self.assertNotIn('bytes', info)
+            self.assertNotIn('gzip9_bytes', info)
             path.write_text('<svg xmlns="http://www.w3.org/2000/svg" data-diagram-type="ERROR"/>')
             with self.assertRaisesRegex(ValueError, 'error diagram'):
                 image_info(path)

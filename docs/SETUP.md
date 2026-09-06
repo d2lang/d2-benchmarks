@@ -8,6 +8,19 @@ Run from the repository root:
 
 This installs the pinned tools if needed, then runs the complete benchmark and generates its reports. Later invocations reuse a completed installation with matching pins. Pass runner options directly, for example `./make.sh --formats svg`. `./make.sh --help` displays options without installing diagram tools. An explicit `--toolchain PATH` uses your existing tools and skips automatic tool setup.
 
+The default measures all four CLIs in SVG and PNG on three basic diagrams (2, 10, and 100 nodes) and ten real-world complex diagrams. Reports keep every basic size and each real-world output format separate. The default sampling plan is three warm-up rounds and twenty measured rounds; reported metrics concern rendering time, not file size.
+
+To select part of the matrix:
+
+```sh
+./make.sh --category basic
+./make.sh --nodes 2 10 100 --formats svg
+./make.sh --category real-world --formats svg png
+./make.sh --fixtures jupyter_aws_eks --warmups 0 --repetitions 1 --label smoke
+```
+
+`--category` accepts `basic`, `real-world`, or both. `--nodes` selects basic diagrams with those node counts and excludes real-world diagrams. Use `--fixtures` for explicit fixture IDs. A short smoke run checks execution; its report suppresses aggregate performance rankings.
+
 The launcher uses an available Python 3.11.9+ (3.12+ recommended). If none is available, it downloads checksum-pinned CPython 3.12.14 from the [Python standalone build release](https://github.com/astral-sh/python-build-standalone/releases/tag/20260901) into `.tools-python/`. Bootstrap requires `curl`, `tar`, and `sha256sum` or `shasum`; it verifies the archive before extraction. To select your own interpreter, run `PYTHON=/path/to/python3 ./make.sh`. `PYTHON` is an executable path, not a command with flags.
 
 For the direct Python commands in these docs, use your supported interpreter or the downloaded `.tools-python/cpython-3.12.14-20260901-<target>/python/bin/python3`, where `<target>` is `aarch64-apple-darwin` or `x86_64-unknown-linux-gnu`. For setup without a benchmark run:
@@ -71,6 +84,6 @@ TALA is optional and is not downloaded or configured by setup. Add a separately 
 
 ## CI scope
 
-The workflow runs Python tests, corpus validation, a fresh Linux tool setup, and one fixture through all four CLIs in both output formats. On its ephemeral Ubuntu runner it enables sandbox user namespaces using the same sysctl setting as [Puppeteer's upstream CI](https://github.com/puppeteer/puppeteer/blob/main/.github/workflows/ci.yml); this is separate from the local setup script. Version pins and native execution failures are correctness checks. Shared-runner durations are retained as diagnostics and are never used as a performance threshold or a published benchmark result.
+The workflow runs Python tests, corpus validation, a fresh Linux tool setup, and all three basic fixtures plus one real-world fixture through all four CLIs in both output formats. A second launcher invocation checks setup reuse and basic-size selection. On its ephemeral Ubuntu runner it enables sandbox user namespaces using the same sysctl setting as [Puppeteer's upstream CI](https://github.com/puppeteer/puppeteer/blob/main/.github/workflows/ci.yml); this is separate from the local setup script. Version pins and native execution failures are correctness checks. Shared-runner durations are retained as diagnostics and are never used as a performance threshold or a published benchmark result.
 
 Download sources: [Go releases](https://go.dev/dl/), [Node.js releases](https://nodejs.org/dist/), [Chrome for Testing](https://developer.chrome.com/docs/automation-and-testing/chrome-for-testing), [Micromamba](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html), [Graphviz downloads](https://graphviz.org/download/), and [PlantUML releases](https://github.com/plantuml/plantuml/releases/tag/v1.2026.8).

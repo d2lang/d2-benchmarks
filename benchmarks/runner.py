@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import datetime as dt
-import gzip
 import hashlib
 import json
 import math
@@ -110,7 +109,7 @@ def image_info(path: Path) -> dict:
     data = path.read_bytes()
     if not data:
         raise ValueError("empty output")
-    info = {"bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}
+    info = {"sha256": hashlib.sha256(data).hexdigest()}
     if path.suffix == ".png":
         if data[:8] != b"\x89PNG\r\n\x1a\n":
             raise ValueError("invalid PNG signature")
@@ -160,7 +159,6 @@ def image_info(path: Path) -> dict:
             for key in ("d", "points", "transform"):
                 if re.search(r"\b(?:NaN|Infinity|undefined)\b", element.get(key, "")):
                     raise ValueError("nonfinite SVG geometry")
-        info["gzip9_bytes"] = len(gzip.compress(data, compresslevel=9, mtime=0))
     return info
 
 
@@ -255,6 +253,29 @@ def build_jobs(fixtures: list[dict], names: list[str], formats: list[str], toolc
     return jobs
 
 
+def select_fixtures(fixtures: list[dict], args) -> list[dict]:
+    """Apply explicit workload filters without blending basic and real-world cases."""
+    selected = fixtures
+    if args.fixtures:
+        missing = set(args.fixtures) - {f["id"] for f in fixtures}
+        if missing:
+            raise ValueError("unknown fixtures: " + ", ".join(sorted(missing)))
+        selected = [f for f in selected if f["id"] in args.fixtures]
+    categories = getattr(args, "category", None)
+    if categories:
+        selected = [f for f in selected if f.get("category", "real-world") in categories]
+    nodes = getattr(args, "nodes", None)
+    if nodes:
+        available = {f["counts"]["leaf_nodes"] for f in fixtures if f.get("category") == "basic"}
+        missing = set(nodes) - available
+        if missing:
+            raise ValueError("unsupported basic node counts: " + ", ".join(map(str, sorted(missing))))
+        selected = [f for f in selected if f.get("category") == "basic" and f["counts"]["leaf_nodes"] in nodes]
+    if not selected:
+        raise ValueError("no fixtures match the selected category, node counts, and fixture IDs")
+    return selected
+
+
 def run(args) -> tuple[Path, int]:
     from .corpus import validate_corpus, validate_svg
     corpus = ROOT / "corpus"
@@ -262,12 +283,7 @@ def run(args) -> tuple[Path, int]:
     if validation.get("errors"):
         raise ValueError("corpus validation failed: " + str(validation["errors"]))
     manifest = json.loads((corpus / "manifest.json").read_text())
-    fixtures = manifest["fixtures"]
-    if args.fixtures:
-        missing = set(args.fixtures) - {f["id"] for f in fixtures}
-        if missing:
-            raise ValueError("unknown fixtures: " + ", ".join(sorted(missing)))
-        fixtures = [f for f in fixtures if f["id"] in args.fixtures]
+    fixtures = select_fixtures(manifest["fixtures"], args)
     toolchain = load_toolchain(args.toolchain)
     env = hardware()
     env["tools"] = inspect_tools(toolchain, args.tools)

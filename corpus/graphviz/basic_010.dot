@@ -1,0 +1,26 @@
+// Generated from the audited D2 semantic mapping. See TRANSLATION.md.
+digraph diagram {
+  graph [compound="true", rankdir="TB", bgcolor="white", fontname="Helvetica", fontsize="14", pad="0.25"];
+  node [shape="box", fontname="Helvetica", fontsize="14", color="#333333", margin="0.12,0.08"];
+  edge [fontname="Helvetica", fontsize="14", color="#333333"];
+  node_n000 [id="node_n000", label="Node 000", d2_id="n000", semantic_kind="node", shape="box"];
+  node_n001 [id="node_n001", label="Node 001", d2_id="n001", semantic_kind="node", shape="box"];
+  node_n002 [id="node_n002", label="Node 002", d2_id="n002", semantic_kind="node", shape="box"];
+  node_n003 [id="node_n003", label="Node 003", d2_id="n003", semantic_kind="node", shape="box"];
+  node_n004 [id="node_n004", label="Node 004", d2_id="n004", semantic_kind="node", shape="box"];
+  node_n005 [id="node_n005", label="Node 005", d2_id="n005", semantic_kind="node", shape="box"];
+  node_n006 [id="node_n006", label="Node 006", d2_id="n006", semantic_kind="node", shape="box"];
+  node_n007 [id="node_n007", label="Node 007", d2_id="n007", semantic_kind="node", shape="box"];
+  node_n008 [id="node_n008", label="Node 008", d2_id="n008", semantic_kind="node", shape="box"];
+  node_n009 [id="node_n009", label="Node 009", d2_id="n009", semantic_kind="node", shape="box"];
+  // Exactly one DOT edge per compiled D2 edge, preserving order and multiplicity.
+  node_n000 -> node_n001 [id="edge000", d2_id="(n000 -> n001)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n000 -> node_n002 [id="edge001", d2_id="(n000 -> n002)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n001 -> node_n003 [id="edge002", d2_id="(n001 -> n003)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n001 -> node_n004 [id="edge003", d2_id="(n001 -> n004)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n002 -> node_n005 [id="edge004", d2_id="(n002 -> n005)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n002 -> node_n006 [id="edge005", d2_id="(n002 -> n006)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n003 -> node_n007 [id="edge006", d2_id="(n003 -> n007)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n003 -> node_n008 [id="edge007", d2_id="(n003 -> n008)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+  node_n004 -> node_n009 [id="edge008", d2_id="(n004 -> n009)[0]", label="", dir="forward", arrowtail="none", arrowhead="normal"];
+}

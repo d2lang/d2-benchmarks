@@ -1,6 +1,8 @@
-# Third-party diagram licenses
+# Diagram licenses
 
-The diagram corpus and its translated derivatives retain their upstream licenses; the benchmark implementation license does not replace these licenses. Copyright notices and full license texts are included unchanged. Every generated translation is a modification of the corresponding D2 diagram, with changes described in [TRANSLATIONS.md](TRANSLATIONS.md).
+The three generated basic fixtures and their translated derivatives are original benchmark inputs, copyright (c) 2026 D2 Authors, under the [MIT license](licenses/basic_MIT_LICENSE). They have no third-party upstream source.
+
+The ten real-world diagrams and their translated derivatives retain their upstream licenses; the benchmark implementation license does not replace these licenses. Copyright notices and full license texts are included unchanged. Every generated translation is a modification of the corresponding D2 diagram, with changes described in [TRANSLATIONS.md](TRANSLATIONS.md).
 
 | Fixture and derivatives | License | Retained license / attribution |
 |---|---|---|

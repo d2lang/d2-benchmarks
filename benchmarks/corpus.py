@@ -171,7 +171,7 @@ def validate_corpus(root: Path) -> dict:
         manifest = json.loads((root / 'manifest.json').read_text())
         _check(manifest['schema_version'] == 1, 'Unsupported corpus schema')
         fixtures = manifest['fixtures']
-        _check(len(fixtures) == 10 and len({f['id'] for f in fixtures}) == 10, 'Expected ten unique fixtures')
+        _check(bool(fixtures) and len({f['id'] for f in fixtures}) == len(fixtures), 'Expected nonempty, unique fixtures')
         def check_file(entry):
             path = _relative(root,entry['path'])
             _check(sha256(path) == entry['sha256'], 'SHA-256 mismatch: ' + entry['path'])
@@ -180,7 +180,10 @@ def validate_corpus(root: Path) -> dict:
         verification=json.loads(check_file(manifest['source_verification']).read_text())
         verified={entry['url']:entry['sha256'] for entry in verification['files']}
         for entry in manifest['licenses']:
-            _check(verified.get(entry['url'])==entry['sha256'], 'License verification record differs')
+            if entry.get('origin') == 'generated':
+                _check('url' not in entry, 'Generated license must not claim upstream verification')
+            else:
+                _check(verified.get(entry['url'])==entry['sha256'], 'License verification record differs')
         for document in ('provenance','license_notice'):
             _check(_relative(root,manifest[document]).is_file(), 'Missing corpus documentation')
         for kind,ext in [('d2','d2'),('mermaid','mmd'),('graphviz','dot'),('plantuml','puml')]:
@@ -188,6 +191,7 @@ def validate_corpus(root: Path) -> dict:
         _check({p.name[:-13] for p in (root/'semantic').glob('*.mapping.json')} == {f['id'] for f in fixtures}, 'Incomplete/extra semantic fixture set')
         for fixture in fixtures:
             try:
+                _check(fixture['category'] in ('basic', 'real-world'), 'Unknown workload category')
                 mapping_path = check_file(fixture['semantic'])
                 m = json.loads(mapping_path.read_text())
                 _check(m['fixture'] == fixture['id'], 'Semantic fixture identity differs')
@@ -236,12 +240,22 @@ def validate_corpus(root: Path) -> dict:
                     elif kind=='plantuml':_check(not re.search(r'(?mi)^\s*!|<img\b|\[\[https?://',text),'PlantUML runtime include/image')
                     elif kind=='mermaid':_check(not re.search(r'(?mi)^\s*(?:click|accTitle|accDescr)\s|@\{[^}]*\bimg\s*:',text),'Mermaid runtime directive')
                 source=fixture['source']
-                _check(re.fullmatch(r'[0-9a-f]{40}',source['revision']) is not None,'Upstream revision is not pinned')
-                _check(verified.get(source['url'])==source['original_sha256'],'Upstream source verification differs')
+                if source.get('kind') == 'generated':
+                    _check(fixture['category'] == 'basic', 'Generated source category differs')
+                    check_file(source['generator'])
+                    _check(source['model'] == 'balanced-binary-tree', 'Unknown generated graph model')
+                    _check(source['nodes'] == counts['leaf_nodes'] and counts['groups'] == 0 and
+                           counts['edges'] == source['nodes'] - 1, 'Generated graph dimensions differ')
+                    _check('url' not in source and 'revision' not in source,
+                           'Generated source must not claim upstream verification')
+                else:
+                    _check(fixture['category'] == 'real-world', 'Upstream source category differs')
+                    _check(re.fullmatch(r'[0-9a-f]{40}',source['revision']) is not None,'Upstream revision is not pinned')
+                    _check(verified.get(source['url'])==source['original_sha256'],'Upstream source verification differs')
                 _check(source['license'] in ('MIT','Apache-2.0'),'Unrecognized source license')
                 for license_path in fixture['source']['license_files']:
                     _check(any(e['path']==license_path for e in manifest['licenses']), 'Missing fixture license')
-                cases.append({'id':fixture['id'],'counts':counts,'source_audits':audits})
+                cases.append({'id':fixture['id'],'category':fixture['category'],'counts':counts,'source_audits':audits})
             except (KeyError, ValueError, OSError, TypeError) as exc:
                 errors.append(fixture['id']+': '+str(exc))
         totals={key:sum(case['counts'][key] for case in cases) for key in ('leaf_nodes','groups','edges')}

@@ -1,0 +1,143 @@
+{
+  "fixture": "basic_002",
+  "counts": {
+    "objects": 2,
+    "leaf_nodes": 2,
+    "groups": 0,
+    "edges": 1
+  },
+  "source_sha256": "9c034d1cb1f77ef307afa40f5b7fbd8a78a275973b4989ccfcfaf051cd299164",
+  "semantic_mapping_sha256": "b693916b8f25329dccd1897d817b002648574f52b06ea20fe6269c35bf095786",
+  "plantuml_sha256": "3b149be14b0f1583f0a2804fe309a9dbc28785dd449578a45f84bebd673bac9c",
+  "layout": "Graphviz dot (PlantUML default)",
+  "root_attributes": {
+    "label": {
+      "value": ""
+    },
+    "labelDimensions": {
+      "width": 0,
+      "height": 0
+    },
+    "style": {},
+    "iconStyle": {},
+    "near_key": null,
+    "shape": {
+      "value": ""
+    },
+    "direction": {
+      "value": "down"
+    },
+    "constraint": null
+  },
+  "source_config": null,
+  "limitations": {},
+  "objects": [
+    {
+      "d2_id": "n000",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "Node 000",
+      "translated_label": "Node 000",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Node 000"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n000",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Node 000",
+      "differences": []
+    },
+    {
+      "d2_id": "n001",
+      "parent_d2_id": "",
+      "parent_mermaid_id": null,
+      "kind": "node",
+      "source_label": "Node 001",
+      "translated_label": "Node 001",
+      "source_shape": "rectangle",
+      "source_attributes": {
+        "label": {
+          "value": "Node 001"
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": "rectangle"
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "plantuml_id": "n001",
+      "parent_plantuml_id": null,
+      "plantuml_shape": "rectangle",
+      "encoded_label": "Node 001",
+      "differences": []
+    }
+  ],
+  "edges": [
+    {
+      "index": 0,
+      "d2_id": "(n000 -> n001)[0]",
+      "source_d2_id": "n000",
+      "target_d2_id": "n001",
+      "source_arrow_token": false,
+      "target_arrow_token": true,
+      "source_visible_arrow": false,
+      "target_visible_arrow": true,
+      "source_label": "",
+      "translated_label": "",
+      "source_attributes": {
+        "label": {
+          "value": ""
+        },
+        "labelDimensions": {
+          "width": 0,
+          "height": 0
+        },
+        "style": {},
+        "iconStyle": {},
+        "near_key": null,
+        "shape": {
+          "value": ""
+        },
+        "direction": {
+          "value": ""
+        },
+        "constraint": null
+      },
+      "source_arrowhead": null,
+      "target_arrowhead": null,
+      "source_plantuml_id": "n000",
+      "target_plantuml_id": "n001",
+      "plantuml_arrow": "-->",
+      "encoded_label": ""
+    }
+  ],
+  "synthetic_objects": 0,
+  "synthetic_edges": 0
+}

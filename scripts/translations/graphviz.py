@@ -185,8 +185,8 @@ def main():
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     summary = [translate(path, args.output) for path in sorted(args.source.glob("*.mapping.json"))]
-    if len(summary) != 10:
-        raise SystemExit(f"Expected 10 input mappings, found {len(summary)}")
+    if not summary:
+        raise SystemExit("No input mappings found")
     (args.output / "corpus.json").write_text(json.dumps(summary, indent=2) + "\n")
     print(json.dumps(summary, indent=2))
 

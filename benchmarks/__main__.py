@@ -37,6 +37,8 @@ def main() -> int:
     measure.add_argument("--tools", nargs="+", default=PUBLIC_TOOLS)
     measure.add_argument("--formats", nargs="+", choices=["svg", "png"], default=["svg", "png"])
     measure.add_argument("--fixtures", nargs="+")
+    measure.add_argument("--category", nargs="+", choices=["basic", "real-world"], help="workload families (default: both)")
+    measure.add_argument("--nodes", nargs="+", type=positive, help="select basic diagrams by node count: 2, 10, 100")
     measure.add_argument("--warmups", type=nonnegative, default=3)
     measure.add_argument("--repetitions", type=positive, default=20)
     measure.add_argument("--timeout", type=positive, default=120)
