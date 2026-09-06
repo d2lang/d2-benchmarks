@@ -4,17 +4,17 @@
 
 | Workload | Format | D2 / Dagre | Mermaid / Dagre | Graphviz / dot | PlantUML / Graphviz |
 |---|---|---:|---:|---:|---:|
-| Basic · 2 nodes | SVG | 16.9 | 357.4 | 64.2 | 854.6 |
-| Basic · 2 nodes | PNG 2× | 20.6 | 400.1 | 68.1 | 886.3 |
-| Basic · 10 nodes | SVG | 18.0 | 368.5 | 65.2 | 860.3 |
-| Basic · 10 nodes | PNG 2× | 41.3 | 430.9 | 86.3 | 939.7 |
-| Basic · 100 nodes | SVG | 26.2 | 498.6 | 68.7 | 910.7 |
-| Basic · 100 nodes | PNG 2× | 459.4 | 741.7 | 315.0 | 1,314.5 |
-| Real-world complex | SVG | 30.5 | 431.2 | 76.8 | 892.5 |
-| Real-world complex | PNG 2× | 259.7 | 665.4 | 327.9 | 1,390.4 |
-| TPMJS supplement | PNG 0.5× supplement | 360.4 | 789.4 | 184.5 | 1,363.5 |
+| Basic · 2 nodes | SVG | **16.9** | 357.4 | 64.2 | 854.6 |
+| Basic · 2 nodes | PNG 2× | **20.6** | 400.1 | 68.1 | 886.3 |
+| Basic · 10 nodes | SVG | **18.0** | 368.5 | 65.2 | 860.3 |
+| Basic · 10 nodes | PNG 2× | **41.3** | 430.9 | 86.3 | 939.7 |
+| Basic · 100 nodes | SVG | **26.2** | 498.6 | 68.7 | 910.7 |
+| Basic · 100 nodes | PNG 2× | 459.4 | 741.7 | **315.0** | 1,314.5 |
+| Real-world complex | SVG | **30.5** | 431.2 | 76.8 | 892.5 |
+| Real-world complex | PNG 2× | **259.7** | 665.4 | 327.9 | 1,390.4 |
+| TPMJS supplement | PNG 0.5× supplement | 360.4 | 789.4 | **184.5** | 1,363.5 |
 
-Times are milliseconds; lower is faster. Basic rows show the median of 20 runs. Real-world rows show the geometric mean of per-diagram medians: ten SVG diagrams and nine PNG diagrams at 2× density. TPMJS PNG uses a separate 0.5× supplement. All jobs had three excluded warm-ups. This is one Apple M4 session with uncontrolled desktop background activity; intervals and individual samples are in the reference report. [Reference report and raw evidence](examples/2026-09-06-macos-m4/README.md).
+Times are milliseconds; bold marks the lowest observed time in each row. Basic rows show the median of 20 runs. Real-world rows show the geometric mean of per-diagram medians: ten SVG diagrams and nine PNG diagrams at 2× density. TPMJS PNG uses a separate 0.5× supplement. All jobs had three excluded warm-ups. This is one Apple M4 session with uncontrolled desktop background activity; intervals and individual samples are in the reference report. [Reference report and raw evidence](examples/2026-09-06-macos-m4/README.md).
 
 [![Validation and real-tool smoke tests](https://github.com/d2lang/d2-benchmarks/actions/workflows/ci.yml/badge.svg)](https://github.com/d2lang/d2-benchmarks/actions/workflows/ci.yml)
 

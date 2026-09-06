@@ -313,6 +313,11 @@ def _md(value: Any) -> str:
     return str(value).replace("|", "\\|").replace("\n", " ")
 
 
+def _latency(value: float | None, fastest: float | None) -> str:
+    rendered = _num(value)
+    return f"**{rendered}**" if value is not None and value == fastest else rendered
+
+
 def _write_csv(root: Path, summary: dict) -> None:
     fields = ["fixture", "category", "node_count", "group", "tool", "format", "raster_density", "primary", "eligible",
               "expected_measured", "measured_attempts", "successes", "failures", "missing_measurements", "median_ms",
@@ -336,12 +341,13 @@ def _write_markdown(root: Path, summary: dict) -> None:
     c = summary["completeness"]
     lines = ["# Diagram CLI benchmark", "", f"Run `{summary['run_id']}` · status **{summary['status']}** · {summary['started_utc'] or 'date unavailable'}", "",
              "## Performance matrix", "",
-             "Fresh-process CLI latency in milliseconds; lower is faster. Basic diagrams are separated by node count. Real-world cells use the geometric mean of their per-diagram medians. No aggregate combines workload families, graph sizes, output formats, or PNG densities. Intervals and individual samples appear below.", "",
+             "Fresh-process CLI latency in milliseconds; lower is faster. Bold marks the lowest observed time, including exact ties, and does not imply statistical significance. Basic diagrams are separated by node count. Real-world cells use the geometric mean of their per-diagram medians. No aggregate combines workload families, graph sizes, output formats, or PNG densities. Intervals and individual samples appear below.", "",
              "| Workload | Format | " + " | ".join(_md(TOOL_NAMES.get(t, t)) for t in summary["tools"]) + " |",
              "|---|---|" + "---:|" * len(summary["tools"])]
     for group in summary["groups"]:
         aggregates = {a["tool"]: a for a in group["aggregates"]}
-        values = [_num(aggregates[t]["geomean_median_ms"]) if t in aggregates else "unavailable" for t in summary["tools"]]
+        fastest = min((a["geomean_median_ms"] for a in group["aggregates"]), default=None)
+        values = [_latency(aggregates[t]["geomean_median_ms"], fastest) if t in aggregates else "unavailable" for t in summary["tools"]]
         lines.append(f"| {_md(group['workload'])} | {_md(group['format_label'])} | " + " | ".join(values) + " |")
     lines += ["", f"{c['successes']} successful measured attempts / {c['expected_measured']} expected; {c['failures']} failures, {c['missing_measurements']} missing measurements. {c['warmup_attempts']} excluded warm-ups ({c['warmup_failures']} failed).", "",
               "[Interactive report](index.html) · [CSV](summary.csv) · [Complete statistics](summary.json) · [Run metadata](run.json) · [Raw attempts](raw.jsonl)", ""]
@@ -361,14 +367,22 @@ def _write_markdown(root: Path, summary: dict) -> None:
         lines += [f"Ratios are `{summary['baseline']} median / tool median`, geometrically averaged over matched fixtures. Above 1 means the tool is faster than the baseline. The baseline interval is exactly 1 because it is compared with itself.", "",
                   "| Tool | Geomean median (ms) | 95% latency interval (ms) | Baseline / tool | 95% ratio interval |",
                   "|---|---:|---:|---:|---:|"]
+        fastest = min(a["geomean_median_ms"] for a in group["aggregates"])
         for a in sorted(group["aggregates"], key=lambda a: a["geomean_median_ms"]):
-            lines.append(f"| {_md(TOOL_NAMES.get(a['tool'],a['tool']))} | {_num(a['geomean_median_ms'])} | {_interval(a['geomean_median_ci95_ms'])} | {_num(a['baseline_over_tool_ratio'])} | {_interval(a['ratio_ci95'])} |")
+            lines.append(f"| {_md(TOOL_NAMES.get(a['tool'],a['tool']))} | {_latency(a['geomean_median_ms'], fastest)} | {_interval(a['geomean_median_ci95_ms'])} | {_num(a['baseline_over_tool_ratio'])} | {_interval(a['ratio_ci95'])} |")
         lines.append("")
     lines += ["## Per-job observations", "", "Incomplete rows retain all successful observations for diagnosis; their conditional medians are not eligible for aggregate rankings. Intervals and ranges describe milliseconds.", "",
               "| Diagram | Tool | Output | Success / expected | Failed | Missing | Median | 95% interval | Min–max | Output hashes | Eligible |", "|---|---|---|---:|---:|---:|---:|---:|---:|---:|---|"]
+    ranked_groups = {g["id"] for g in summary["groups"] if g["ranking_available"]}
+    fastest_cases = {}
+    for case in summary["cases"]:
+        if case["group"] in ranked_groups:
+            key = (case["fixture"], case["group"])
+            fastest_cases[key] = min(fastest_cases.get(key, math.inf), case["timing_ms"]["median"])
     for case in summary["cases"]:
         s = case["timing_ms"]
-        lines.append(f"| {_md(case['title'])} | {_md(TOOL_NAMES.get(case['tool'],case['tool']))} | {case['format']} | {case['successes']}/{case['expected_measured']} | {case['failures']} | {len(case['missing_rounds'])} | {_num(s['median'])} | {_interval(s['median_ci95'])} | {_num(s['min'])}–{_num(s['max'])} | {case['measured_output_hash_count']}{' (changed)' if case['output_stable'] is False else ''} | {'yes' if case['eligible'] else 'no'} |")
+        fastest = fastest_cases.get((case["fixture"], case["group"]))
+        lines.append(f"| {_md(case['title'])} | {_md(TOOL_NAMES.get(case['tool'],case['tool']))} | {case['format']} | {case['successes']}/{case['expected_measured']} | {case['failures']} | {len(case['missing_rounds'])} | {_latency(s['median'], fastest)} | {_interval(s['median_ci95'])} | {_num(s['min'])}–{_num(s['max'])} | {case['measured_output_hash_count']}{' (changed)' if case['output_stable'] is False else ''} | {'yes' if case['eligible'] else 'no'} |")
     lines += ["", "## Environment and provenance", "", "The following metadata belongs to this run. No results from other machines or historical runs are substituted.", "", "```json", json.dumps({"environment": summary["environment"], "provenance": summary["provenance"], "harness_sha256": summary["harness_sha256"], "source_hashes": summary["source_hashes"], "corpus_validation": summary["corpus_validation"]}, indent=2, ensure_ascii=False), "```", ""]
     (root / "report.md").write_text("\n".join(lines))
 
@@ -424,16 +438,17 @@ const name=t=>names[t]||t,n=v=>v==null?'—':Number(v).toLocaleString('en-US',{m
 const text=(tag,value,cls)=>{const e=document.createElement(tag);e.textContent=value;if(cls)e.className=cls;return e;};
 const addOption=(el,value,label)=>{const o=text('option',label);o.value=value;el.append(o);};
 const cell=(row,value,cls)=>{const c=text('td',value,cls);row.append(c);return c;};
+const latencyCell=(row,value,fastest)=>{const c=cell(row,n(value));if(value!=null&&value===fastest)c.replaceChildren(text('strong',n(value)));return c;};
 const sourcePath=p=>typeof p==='string'&&!p.startsWith('/')&&!p.split('/').includes('..')&&!/^[a-z]+:/i.test(p)?p:null;
 const addLink=(parent,label,path)=>{if(!sourcePath(path))return;const a=text('a',label);a.href=path;a.target='_blank';a.rel='noopener';parent.append(a);};
 const count=D.completeness;
 $('status').append(text('strong',`Run ${D.run_id||''} · ${D.status}${D.smoke?' · SMOKE':D.short_run?' · SHORT RUN':''}`),text('span',`${count.successes} successes / ${count.expected_measured} expected measured attempts · ${count.failures} failures · ${count.missing_measurements} missing · ${count.warmup_failures} failed warm-ups.`));
 if(D.issues.length||!count.all_jobs_eligible||D.smoke||D.short_run||!['complete','completed','success'].includes(String(D.status).toLowerCase()))$('status').classList.add('warn');
-$('matrix').append(text('h2',`Performance matrix · ${(D.started_utc||'date unavailable').slice(0,10)}`),text('p','Fresh-process CLI latency in milliseconds; lower is faster. Basic node counts, the real-world corpus and output formats are compared independently. Each cell is the geometric mean of its per-diagram medians; a single basic diagram uses its own median. Confidence intervals and every individual sample remain available below.','note'));
+$('matrix').append(text('h2',`Performance matrix · ${(D.started_utc||'date unavailable').slice(0,10)}`),text('p','Fresh-process CLI latency in milliseconds; lower is faster. Bold marks the lowest observed time, including exact ties, and does not imply statistical significance. Basic node counts, the real-world corpus and output formats are compared independently. Each cell is the geometric mean of its per-diagram medians; a single basic diagram uses its own median. Confidence intervals and every individual sample remain available below.','note'));
 const matrixWrap=text('div','','table-wrap'),matrixTable=document.createElement('table'),matrixHead=document.createElement('thead'),matrixHeader=document.createElement('tr'),matrixBody=document.createElement('tbody');
 for(const label of ['Workload','Format',...D.tools.map(name)])matrixHeader.append(text('th',label));
 matrixHead.append(matrixHeader);matrixTable.append(matrixHead);
-for(const group of D.groups){const tr=document.createElement('tr');cell(tr,group.workload);cell(tr,group.format_label);for(const tool of D.tools){const a=group.aggregates.find(a=>a.tool===tool);const td=cell(tr,a?n(a.geomean_median_ms):'unavailable',a?'':'bad');td.title=a?`95% interval: ${ci(a.geomean_median_ci95_ms)} ms; ${group.fixture_count} fixture(s)`:group.ranking_suppression_reasons.join('; ');}matrixBody.append(tr);}
+for(const group of D.groups){const fastest=Math.min(...group.aggregates.map(a=>a.geomean_median_ms));const tr=document.createElement('tr');cell(tr,group.workload);cell(tr,group.format_label);for(const tool of D.tools){const a=group.aggregates.find(a=>a.tool===tool);const td=a?latencyCell(tr,a.geomean_median_ms,fastest):cell(tr,'unavailable','bad');td.title=a?`95% interval: ${ci(a.geomean_median_ci95_ms)} ms; ${group.fixture_count} fixture(s)`:group.ranking_suppression_reasons.join('; ');}matrixBody.append(tr);}
 matrixTable.append(matrixBody);matrixWrap.append(matrixTable);$('matrix').append(matrixWrap);
 for(const group of D.groups){
  const section=document.createElement('details');section.append(text('summary',group.title),text('p',`${group.fixture_count} fixed fixtures · ${group.successes}/${group.expected_measurements} successful measurements · ${group.failures} failed.`, 'muted'));
@@ -442,7 +457,8 @@ for(const group of D.groups){
   section.append(text('p',`Geometric means of per-fixture medians. Ratio = ${name(D.baseline)} / tool; above 1 means faster.`, 'note'));
   const wrap=text('div','','table-wrap'),table=document.createElement('table'),head=document.createElement('thead'),hr=document.createElement('tr');
   for(const label of ['Tool','Geomean median (ms)','95% latency interval (ms)','Baseline / tool','95% ratio interval'])hr.append(text('th',label));head.append(hr);table.append(head);const body=document.createElement('tbody');
-  for(const a of [...group.aggregates].sort((a,b)=>a.geomean_median_ms-b.geomean_median_ms)){const tr=document.createElement('tr');[name(a.tool),n(a.geomean_median_ms),ci(a.geomean_median_ci95_ms),n(a.baseline_over_tool_ratio),ci(a.ratio_ci95)].forEach(v=>cell(tr,v));body.append(tr);}table.append(body);wrap.append(table);section.append(wrap);
+  const fastest=Math.min(...group.aggregates.map(a=>a.geomean_median_ms));
+  for(const a of [...group.aggregates].sort((a,b)=>a.geomean_median_ms-b.geomean_median_ms)){const tr=document.createElement('tr');cell(tr,name(a.tool));latencyCell(tr,a.geomean_median_ms,fastest);[ci(a.geomean_median_ci95_ms),n(a.baseline_over_tool_ratio),ci(a.ratio_ci95)].forEach(v=>cell(tr,v));body.append(tr);}table.append(body);wrap.append(table);section.append(wrap);
  }$('aggregate').append(section);
 }
 D.fixtures.forEach(f=>addOption($('fixture'),f.id,f.title||f.id));
@@ -462,7 +478,8 @@ function panel(side){const c=current($(side).value),view=$(side+'-view'),links=$
  view.append(img);
 }
 function update(hash=true){const f=D.fixtures.find(x=>x.id===$('fixture').value),counts=f.counts||{};const first=current(D.tools[0]);$('fixture-note').textContent=`${f.category==='basic'?'Basic':'Real-world complex'} · ${counts.leaf_nodes??'?'} nodes · ${counts.groups??'?'} groups · ${counts.edges??'?'} edges${first?.format==='png'?` · ${first.raster_density}× PNG density${first.primary?'':' · supplemental'}`:''}`;
- $('jobs').replaceChildren();for(const tool of D.tools){const c=current(tool),row=document.createElement('tr');cell(row,name(tool));if(!c){cell(row,'Missing');$('jobs').append(row);continue;}const s=c.timing_ms;cell(row,`${c.successes}/${c.expected_measured}`,c.eligible?'':'bad');cell(row,`${c.failures} / ${c.missing_rounds.length}`,c.eligible?'':'bad');cell(row,n(s.median));cell(row,ci(s.median_ci95));const plot=cell(row,'');plot.append(spark(s));cell(row,`${n(s.min)}–${n(s.max)}`);cell(row,c.measured_output_hash_count+(c.output_stable===false?' · changed':''));$('jobs').append(row);}panel('left');panel('right');if(hash)history.replaceState(null,'','#'+new URLSearchParams({fixture:f.id,format:$('format').value,left:$('left').value,right:$('right').value,zoom:$('zoom').value}));}
+ const fastest=D.groups.some(g=>g.id===first?.group&&g.ranking_available)?Math.min(...D.tools.map(t=>current(t).timing_ms.median)):null;
+ $('jobs').replaceChildren();for(const tool of D.tools){const c=current(tool),row=document.createElement('tr');cell(row,name(tool));if(!c){cell(row,'Missing');$('jobs').append(row);continue;}const s=c.timing_ms;cell(row,`${c.successes}/${c.expected_measured}`,c.eligible?'':'bad');cell(row,`${c.failures} / ${c.missing_rounds.length}`,c.eligible?'':'bad');latencyCell(row,s.median,fastest);cell(row,ci(s.median_ci95));const plot=cell(row,'');plot.append(spark(s));cell(row,`${n(s.min)}–${n(s.max)}`);cell(row,c.measured_output_hash_count+(c.output_stable===false?' · changed':''));$('jobs').append(row);}panel('left');panel('right');if(hash)history.replaceState(null,'','#'+new URLSearchParams({fixture:f.id,format:$('format').value,left:$('left').value,right:$('right').value,zoom:$('zoom').value}));}
 function state(){const p=new URLSearchParams(location.hash.slice(1));$('fixture').value=D.fixtures.some(f=>f.id===p.get('fixture'))?p.get('fixture'):D.fixtures[0].id;$('format').value=[...$('format').options].some(o=>o.value===p.get('format'))?p.get('format'):D.cases.some(c=>c.format==='svg')?'svg':$('format').options[0].value;$('left').value=D.tools.includes(p.get('left'))?p.get('left'):D.tools.includes(D.baseline)?D.baseline:D.tools[0];$('right').value=D.tools.includes(p.get('right'))?p.get('right'):D.tools.find(t=>t!==$('left').value)||D.tools[0];$('zoom').value=p.get('zoom')==='actual'?'actual':'fit';update(false);}
 for(const id of ['fixture','format','left','right','zoom'])$(id).addEventListener('change',()=>update());window.addEventListener('hashchange',state);
 const failed=D.cases.filter(c=>!c.eligible).map(c=>({fixture:c.fixture,tool:c.tool,format:c.format,reasons:c.ineligibility_reasons,missing_rounds:c.missing_rounds,duplicate_rounds:c.duplicate_rounds,failures:c.failure_details}));$('failure-detail').textContent=JSON.stringify({recording_issues:D.issues,jobs:failed},null,2);if(failed.length||D.issues.length)$('failures').open=true;
