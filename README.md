@@ -2,23 +2,25 @@
 
 **Results — September 6, 2026 (UTC) · Apple M4 · milliseconds**
 
-| Workload | Format | D2 / Dagre | Mermaid / Dagre | Graphviz / dot | PlantUML / Graphviz |
-|---|---|---:|---:|---:|---:|
-| Basic · 2 nodes | SVG | **16.9** | 357.4 | 64.2 | 854.6 |
-| Basic · 2 nodes | PNG 2× | **20.6** | 400.1 | 68.1 | 886.3 |
-| Basic · 10 nodes | SVG | **18.0** | 368.5 | 65.2 | 860.3 |
-| Basic · 10 nodes | PNG 2× | **41.3** | 430.9 | 86.3 | 939.7 |
-| Basic · 100 nodes | SVG | **26.2** | 498.6 | 68.7 | 910.7 |
-| Basic · 100 nodes | PNG 2× | 459.4 | 741.7 | **315.0** | 1,314.5 |
-| Real-world complex | SVG | **30.5** | 431.2 | 76.8 | 892.5 |
-| Real-world complex | PNG 2× | **259.7** | 665.4 | 327.9 | 1,390.4 |
-| TPMJS supplement | PNG 0.5× supplement | 360.4 | 789.4 | **184.5** | 1,363.5 |
+| Workload | Format | D2 / Dagre | D2 / TALA | Mermaid / Dagre | Graphviz / dot | PlantUML / Graphviz |
+|---|---|---:|---:|---:|---:|---:|
+| Basic · 2 nodes | SVG | **17.6** | 20.9 | 368.8 | 66.6 | 856.8 |
+| Basic · 2 nodes | PNG 2× | **21.2** | 26.8 | 404.0 | 68.6 | 905.7 |
+| Basic · 10 nodes | SVG | **18.4** | 22.4 | 369.4 | 65.7 | 854.9 |
+| Basic · 10 nodes | PNG 2× | 41.3 | **38.1** | 415.9 | 87.6 | 951.5 |
+| Basic · 100 nodes | SVG | **27.7** | 127.4 | 506.8 | 68.7 | 929.6 |
+| Basic · 100 nodes | PNG 2× | 468.1 | 392.3 | 748.1 | **317.9** | 1,339.2 |
+| Real-world complex | SVG | **31.1** | 126.7 | 433.0 | 79.2 | 903.2 |
+| Real-world complex | PNG 2× | **264.5** | 302.2 | 684.6 | 331.6 | 1,420.1 |
+| TPMJS supplement | PNG 0.5× supplement | 367.1 | 3,634.2 | 802.6 | **187.3** | 1,387.0 |
 
-Times are milliseconds; bold marks the lowest observed time in each row. Basic rows show the median of 20 runs. Real-world rows show the geometric mean of per-diagram medians: ten SVG diagrams and nine PNG diagrams at 2× density. TPMJS PNG uses a separate 0.5× supplement. All jobs had three excluded warm-ups. This is one Apple M4 session with uncontrolled desktop background activity; intervals and individual samples are in the reference report. [Reference report and raw evidence](examples/2026-09-06-macos-m4/README.md).
+Times are milliseconds; bold marks the lowest observed time in each row. Basic rows show the median of 20 runs. Real-world rows show the geometric mean of per-diagram medians: ten SVG diagrams and nine PNG diagrams at 2× density. TPMJS PNG uses a separate 0.5× supplement. All jobs had three excluded warm-ups. This is one Apple M4 session with uncontrolled desktop background activity; intervals and individual samples are in the reference report. [Five-tool reference report and raw evidence](examples/2026-09-06-macos-m4-tala/README.md).
+
+D2 / TALA uses private staging commit `3b6ba0e25fd36522021fa3b84cb4a8a08a651799` with `--tala-seeds 1,2,3`. D2 / Dagre uses public commit `a825194903523c4409f4df7e7f4385efacb6deeb`. These are separate CLI builds, so the results include build differences as well as layout choice. TALA requires authorized private access; follow the [optional TALA recipe](docs/CUSTOM-TOOLS.md#optional-d2--tala). Plain `./make.sh` runs the four public tools; a [public-only reference](examples/2026-09-06-macos-m4/README.md) remains available.
 
 [![Validation and real-tool smoke tests](https://github.com/d2lang/d2-benchmarks/actions/workflows/ci.yml/badge.svg)](https://github.com/d2lang/d2-benchmarks/actions/workflows/ci.yml)
 
-Reproducible, end-to-end CLI rendering benchmarks for **D2, Mermaid, Graphviz, and PlantUML**, covering SVG and PNG, basic diagrams at three sizes, and complex diagrams from real projects.
+Reproducible, end-to-end CLI rendering benchmarks for **D2, Mermaid, Graphviz, and PlantUML**, with optional **D2 / TALA**, covering SVG and PNG, basic diagrams at three sizes, and complex diagrams from real projects.
 
 The suite measures the time to start a CLI, read a diagram, lay it out, render SVG or PNG, write the file, and exit. Results show latency, variation, and confidence intervals for each workload and format. Every run keeps its raw samples, versions, binary hashes, inputs, commands, and a gallery of actual outputs.
 
@@ -36,7 +38,7 @@ On the first run, `./make.sh` installs checksum-pinned tools into `.tools/`, bui
 
 The runner prints the location of `results/<run>/index.html`. Open that file in your browser for the performance matrix, timing distributions, uncertainty intervals, and side-by-side diagrams. `report.md`, `summary.csv`, `summary.json`, and `raw.jsonl` are in the same directory. Reports are generated locally and need no server or external assets.
 
-A complete run measures **13 diagrams × 4 tools × 2 formats**, with **3 excluded warm-ups and 20 measured repetitions** per job. The reference Apple M4 measurement phase took about 21 minutes; first-time setup takes additional time. Run this quick check first if desired:
+A default run measures **13 diagrams × 4 tools × 2 formats**, with **3 excluded warm-ups and 20 measured repetitions** per job. The five-tool reference above adds optional TALA for **130 jobs**, totaling **2,600 measured invocations and 390 excluded warm-ups**. Its Apple M4 measurement phase took **26.4 minutes**; first-time setup takes additional time. Run this quick check first if desired:
 
 ```sh
 ./make.sh --nodes 2 --warmups 1 --repetitions 1 --output results/smoke
