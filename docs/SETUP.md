@@ -1,11 +1,20 @@
 # Pinned local tool setup
 
-Run from the repository root with Python 3.11.9 or newer (3.12+ recommended):
+Run from the repository root:
+
+```sh
+./make.sh
+```
+
+This installs the pinned tools if needed, then runs the complete benchmark and generates its reports. Later invocations reuse a completed installation with matching pins. Pass runner options directly, for example `./make.sh --formats svg`. `./make.sh --help` displays options without installing diagram tools. An explicit `--toolchain PATH` uses your existing tools and skips automatic tool setup.
+
+The launcher uses an available Python 3.11.9+ (3.12+ recommended). If none is available, it downloads checksum-pinned CPython 3.12.14 from the [Python standalone build release](https://github.com/astral-sh/python-build-standalone/releases/tag/20260901) into `.tools-python/`. Bootstrap requires `curl`, `tar`, and `sha256sum` or `shasum`; it verifies the archive before extraction. To select your own interpreter, run `PYTHON=/path/to/python3 ./make.sh`. `PYTHON` is an executable path, not a command with flags.
+
+For the direct Python commands in these docs, use your supported interpreter or the downloaded `.tools-python/cpython-3.12.14-20260901-<target>/python/bin/python3`, where `<target>` is `aarch64-apple-darwin` or `x86_64-unknown-linux-gnu`. For setup without a benchmark run:
 
 ```sh
 python3 scripts/setup.py
 python3 -m benchmarks doctor
-python3 -m benchmarks validate
 ```
 
 Setup supports native macOS arm64 and Linux x86_64. Ubuntu 24.04 is the Linux CI target. A Linux host needs the standard desktop libraries required by Chrome Headless Shell; the GitHub-hosted Ubuntu 24.04 image supplies them. Minimal containers may lack those libraries. Ubuntu 23.10+ may also require an administrator to allow Chrome's sandbox user namespaces through AppArmor; see [Puppeteer's official troubleshooting guide](https://pptr.dev/troubleshooting#issues-with-apparmor-on-ubuntu). Setup reports Chrome launch errors in `.tools/setup.log` and does not install system packages or disable the browser sandbox.
@@ -46,14 +55,14 @@ Native font/rendering dependencies are in the platform locks. Platform font sele
 
 ## Reuse and alternate directories
 
-Rerunning setup with the same pins reuses verified downloads. It reinstalls locked npm packages, rebuilds D2 using its local build cache, and repeats all smoke renders. If pins change, setup asks for a fresh generated tools directory instead of silently mixing revisions.
+`./make.sh` reuses the completed setup without reinstalling. Running `python3 scripts/setup.py` explicitly reuses verified downloads, reinstalls locked npm packages, rebuilds D2 using its local build cache, and repeats all smoke renders. Incomplete setup is retried on the next launcher invocation. If pins change, setup asks for a fresh generated tools directory instead of silently mixing revisions.
 
 An alternate tools directory and a reusable cache are optional:
 
 ```sh
 python3 scripts/setup.py --tools-dir .tools-other --cache-dir .benchmark-cache
 python3 -m benchmarks doctor --toolchain .tools-other/toolchain.json
-python3 -m benchmarks run --toolchain .tools-other/toolchain.json
+./make.sh --toolchain .tools-other/toolchain.json
 ```
 
 Do not run setup concurrently against one tools/cache directory. Deleting a generated tools directory removes its installed tools; a separately chosen cache remains available for reuse.

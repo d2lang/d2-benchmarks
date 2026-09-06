@@ -32,7 +32,8 @@ def main() -> int:
     doctor.add_argument("--tools", nargs="+", default=PUBLIC_TOOLS)
     sub.add_parser("validate", help="verify the frozen corpus and translations without installing tools")
     measure = sub.add_parser("run", help="run serial CLI measurements into a new result directory, then generate a report")
-    measure.add_argument("--toolchain", type=Path, default=ROOT / ".tools/toolchain.json")
+    measure.add_argument("--toolchain", type=Path, help="existing custom toolchain (skips automatic setup)")
+    measure.add_argument("--setup", action="store_true", help="install or reuse pinned tools before running (used by ./make.sh)")
     measure.add_argument("--tools", nargs="+", default=PUBLIC_TOOLS)
     measure.add_argument("--formats", nargs="+", choices=["svg", "png"], default=["svg", "png"])
     measure.add_argument("--fixtures", nargs="+")
@@ -62,12 +63,17 @@ def main() -> int:
             if args.command == "run":
                 if len(args.tools) != len(set(args.tools)) or len(args.formats) != len(set(args.formats)):
                     raise ValueError("tools and formats cannot contain duplicates")
+                if args.toolchain is None:
+                    if args.setup:
+                        from scripts.setup import ensure_installed
+                        ensure_installed(ROOT / ".tools")
+                    args.toolchain = ROOT / ".tools/toolchain.json"
                 directory, status = run(args)
                 generate(directory, baseline=args.baseline, bootstrap=args.bootstrap)
                 print(f"Report: {directory / 'index.html'}")
                 return status
             generate(args.run_dir.resolve(), baseline=args.baseline, bootstrap=args.bootstrap)
-    except (ValueError, FileNotFoundError, FileExistsError, json.JSONDecodeError) as error:
+    except (ValueError, FileNotFoundError, FileExistsError, RuntimeError, json.JSONDecodeError) as error:
         parser.exit(2, f"error: {error}\n")
     return 0
 

@@ -15,6 +15,28 @@ SETUP = runpy.run_path(str(ROOT / 'scripts/setup.py'))
 
 
 class SetupTests(unittest.TestCase):
+    def test_only_reuse_completed_setup_with_current_pins_and_tools(self):
+        with tempfile.TemporaryDirectory() as folder:
+            tools = Path(folder)
+            executable = tools / 'tool'
+            executable.write_text('#!/bin/sh\nexit 0\n')
+            executable.chmod(0o755)
+            config = tools / 'toolchain.json'
+            config.write_text(json.dumps({'tools': {'tool': {'argv': [str(executable)]}}}))
+            state = {'platform': 'test', 'lock_hashes': {'runtime/pins.json': 'original'}}
+            # A config can exist before setup smoke checks finish.
+            self.assertFalse(SETUP['ready'](tools, state))
+            manifest = {'platform': state['platform'], 'lock_hashes': state['lock_hashes'],
+                        'toolchain_sha256': SETUP['digest'](config)}
+            (tools / 'setup-manifest.json').write_text(json.dumps(manifest))
+            self.assertTrue(SETUP['ready'](tools, state))
+            self.assertFalse(SETUP['ready'](tools, dict(state, lock_hashes={'runtime/pins.json': 'changed'})))
+            config.write_text(config.read_text() + '\n')
+            self.assertFalse(SETUP['ready'](tools, state))
+            config.write_text(config.read_text().rstrip('\n'))
+            executable.unlink()
+            self.assertFalse(SETUP['ready'](tools, state))
+
     def test_pins_cover_both_native_targets(self):
         pins = json.loads((ROOT / 'runtime/pins.json').read_text())
         self.assertEqual(set(pins['platforms']), {'osx-arm64', 'linux-64'})

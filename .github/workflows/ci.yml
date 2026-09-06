@@ -29,18 +29,21 @@ jobs:
       # user namespaces on this ephemeral Ubuntu runner. setup.py never changes this.
       - name: Enable Chrome sandbox user namespaces on the CI runner
         run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
-      - name: Install exact native tools and exercise SVG and PNG output
-        run: python3 scripts/setup.py
-      - name: Verify configured versions
-        run: python3 -m benchmarks doctor
-      - name: Real-tool smoke (correctness only, not a performance gate)
+      - name: One-command setup and real-tool smoke (correctness only)
         run: >-
-          python3 -m benchmarks run
+          ./make.sh
           --fixtures jupyter_aws_eks
           --warmups 0 --repetitions 1
           --bootstrap 100
           --output results/ci-smoke
           --label 'CI smoke only; shared-runner timings are not benchmark results'
+      - name: Verify configured versions
+        run: python3 -m benchmarks doctor
+      - name: Reuse the installation on a second invocation
+        run: |
+          before=$(sha256sum .tools/setup-manifest.json)
+          ./make.sh --tools d2-dagre --formats svg --fixtures jupyter_aws_eks --warmups 0 --repetitions 1 --bootstrap 100 --output results/ci-reuse
+          test "$before" = "$(sha256sum .tools/setup-manifest.json)"
       - name: Retain diagnostic logs and smoke renders
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -52,4 +55,5 @@ jobs:
             .tools/setup-manifest.json
             .tools/smoke/
             results/ci-smoke/
+            results/ci-reuse/
           retention-days: 14

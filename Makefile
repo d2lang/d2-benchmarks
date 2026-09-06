@@ -10,4 +10,4 @@ validate:
 test:
 	$(PYTHON) -m unittest discover -s tests -v
 bench:
-	$(PYTHON) -m benchmarks run
+	./make.sh

@@ -129,22 +129,62 @@ def validate_mermaid_browser(source: str, browser_variant: str, executable: Path
     return 'shell'
 
 
-def install(tools: Path, cache: Path) -> None:
-    pins = json.loads((RUNTIME / 'pins.json').read_text())
+def setup_state() -> dict:
     target = {('Darwin', 'arm64'): 'osx-arm64', ('Linux', 'x86_64'): 'linux-64'}.get((platform.system(), platform.machine()))
     if target is None:
         raise RuntimeError('Supported setup targets: macOS arm64 and Linux x86_64 (Ubuntu 24.04 CI).')
-    target_pins = pins['platforms'][target]
     native_lock_path = RUNTIME / 'locks' / (target + '.json')
-    native = json.loads(native_lock_path.read_text())['packages']
     lock_files = [RUNTIME / 'pins.json', native_lock_path, RUNTIME / 'package.json', RUNTIME / 'package-lock.json']
     lock_hashes = {str(p.relative_to(ROOT)): digest(p) for p in lock_files}
     fingerprint = hashlib.sha256(json.dumps(lock_hashes, sort_keys=True).encode()).hexdigest()
+    return {'platform': target, 'fingerprint': fingerprint, 'lock_hashes': lock_hashes}
+
+
+def ready(tools: Path, state: dict) -> bool:
+    """Only reuse an installation that finished all setup checks with these pins."""
+    try:
+        manifest = json.loads((tools / 'setup-manifest.json').read_text())
+        if (manifest.get('platform') != state['platform'] or
+                manifest.get('lock_hashes') != state['lock_hashes'] or
+                manifest.get('toolchain_sha256') != digest(tools / 'toolchain.json')):
+            return False
+        toolchain = json.loads((tools / 'toolchain.json').read_text())
+        for entry in toolchain['tools'].values():
+            if not os.access(entry['argv'][0], os.X_OK):
+                return False
+            for argument in entry['argv']:
+                if Path(argument).is_absolute() and not Path(argument).is_file():
+                    return False
+            browser = entry.get('env', {}).get('PUPPETEER_EXECUTABLE_PATH')
+            if browser and not os.access(browser, os.X_OK):
+                return False
+        return bool(toolchain['tools'])
+    except (OSError, ValueError, KeyError, TypeError, IndexError):
+        return False
+
+
+def ensure_installed(tools: Path) -> None:
+    if sys.version_info < (3, 11, 9):
+        raise RuntimeError('Python 3.11.9+ is required (3.12+ recommended).')
+    if ready(tools, setup_state()):
+        print(f'Reusing pinned tools: {tools}', flush=True)
+    else:
+        install(tools, tools / 'cache')
+
+
+def install(tools: Path, cache: Path) -> None:
+    pins = json.loads((RUNTIME / 'pins.json').read_text())
+    state = setup_state()
+    target, fingerprint, lock_hashes = state['platform'], state['fingerprint'], state['lock_hashes']
+    target_pins = pins['platforms'][target]
+    native_lock_path = RUNTIME / 'locks' / (target + '.json')
+    native = json.loads(native_lock_path.read_text())['packages']
     tools.mkdir(parents=True, exist_ok=True)
     cache.mkdir(parents=True, exist_ok=True)
     marker = tools / 'setup-lock.json'
     if marker.exists() and json.loads(marker.read_text()) != {'platform': target, 'fingerprint': fingerprint}:
         raise RuntimeError('Tool pins changed. Choose a fresh --tools-dir or remove this generated tools directory first.')
+    (tools / 'setup-manifest.json').unlink(missing_ok=True)
     marker.write_text(json.dumps({'platform': target, 'fingerprint': fingerprint}, indent=2) + '\n')
     log = tools / 'setup.log'
     env = os.environ.copy()
@@ -293,6 +333,7 @@ def install(tools: Path, cache: Path) -> None:
         assert actual['sha256'] == package['sha256']
     manifest = {'schema_version': 1, 'completed_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
                 'platform': target, 'pins': pins, 'lock_hashes': lock_hashes, 'versions': versions,
+                'toolchain_sha256': digest(tools / 'toolchain.json'),
                 'installed_native_packages': installed, 'graphviz_backends': graphviz_backends,
                 'mermaid_browser': {'variant': pins['versions']['browser_variant'], 'headless_mode': mermaid_browser_mode,
                                     'default_verified_from': '@mermaid-js/mermaid-cli/src/index.js'},
