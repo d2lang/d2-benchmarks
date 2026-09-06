@@ -45,7 +45,7 @@ To share a run, create a portable archive containing its raw records, inputs, re
 python3 scripts/export_run.py results/svg artifacts/svg.tar.gz
 ```
 
-Optional `--redact-prefix '/absolute/local/repository=${REPO}'` replaces that host path prefix in metadata while retaining input/output bytes and hashes. Review custom configuration before publishing; prefix replacement does not remove arbitrary secrets. Generated archives belong outside Git history.
+Optional `--redact-prefix '/absolute/local/repository=${REPO}'` replaces that host path prefix in metadata while retaining input/output bytes and hashes. Review custom configuration before publishing; prefix replacement does not remove arbitrary secrets. Keep generated runs outside Git history unless they are deliberately reviewed reference examples; see [contributing](CONTRIBUTING.md).
 
 ## Choose the workload
 

@@ -2,9 +2,9 @@
 
 An example of the suite's output, measured September 5, 2026. This is one active desktop session, with uncontrolled background activity; it is not a cross-machine ranking. All 800 measured invocations and 120 excluded warm-ups succeeded. All 40 jobs produced identical output hashes across their 20 measured samples.
 
-[Download the complete run](https://github.com/d2lang/d2-benchmarks/releases/download/v0.1.0/reference-svg-macos-m4-2026-09-05.tar.gz) · [SHA-256 checksum](https://github.com/d2lang/d2-benchmarks/releases/download/v0.1.0/reference-svg-macos-m4-2026-09-05.tar.gz.sha256)
+[Download the complete run](https://github.com/d2lang/d2-benchmarks/raw/refs/heads/main/examples/2026-09-05-macos-m4-svg/reference-svg-macos-m4-2026-09-05.tar.gz) · [SHA-256 checksum](reference-svg-macos-m4-2026-09-05.tar.gz.sha256)
 
-Extract the archive and open `benchmark-run/index.html` locally. It includes the interactive comparisons, per-diagram distributions and 95% bootstrap intervals, raw records, CSV/JSON/Markdown summaries, original inputs and licenses, SVGs, and an integrity manifest. Local repository path prefixes are replaced with `${REPO}` in metadata; input/output bytes and hashes are unchanged.
+The archive is also included in this directory when you clone the repository. Extract it and open `benchmark-run/index.html` locally. It includes the interactive comparisons, per-diagram distributions and 95% bootstrap intervals, raw records, CSV/JSON/Markdown summaries, original inputs and licenses, SVGs, and an integrity manifest. Local repository path prefixes are replaced with `${REPO}` in metadata; input/output bytes and hashes are unchanged.
 
 | Tool | SVG latency | Total SVG bytes | Total SVG gzip-9 bytes |
 |---|---:|---:|---:|

@@ -16,7 +16,7 @@ Pin versions and source revisions, verify downloaded artifacts against checksums
 
 Keep raw observations and exact environment/provenance alongside summaries. State the goal, sampling plan, corpus, selected configurations, formats, density, machine/power settings, and whether background activity was controlled. Show failures and all matched cases. Do not discard outliers, mix machines/revisions into one session, publish smoke timings as a baseline, or attribute complete CLI differences solely to an internal layout algorithm.
 
-`results/` is ignored by default because artifacts can be large and may contain local command paths. Review a run before sharing it. Prefer an attached archive or a clearly named `examples/` directory for a deliberately reviewed reference run, and explain any path redaction. Retain input and output hashes when redacting host-specific prefixes. Never include private source, credentials, or unrelated system/environment dumps.
+`results/` is ignored by default because artifacts can be large and may contain local command paths. Review a run before sharing it. Store deliberately reviewed reference runs in clearly named `examples/` directories, with compact archives and checksums where appropriate, and explain any path redaction. This repository does not publish releases; identify harness versions by commit SHA and results by their measurement date. Retain input and output hashes when redacting host-specific prefixes. Never include private source, credentials, or unrelated system/environment dumps.
 
 ## Pull request descriptions
 
