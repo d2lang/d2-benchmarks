@@ -1,15 +1,20 @@
 # d2-benchmarks
 
-**Results — September 5, 2026 · Apple M4 · SVG**
+**Results — September 6, 2026 (UTC) · Apple M4 · milliseconds**
 
-| Tool | Real-world SVG latency |
-|---|---:|
-| D2 / Dagre | 30.6 ms |
-| Graphviz / dot | 77.5 ms |
-| Mermaid / Dagre | 426.8 ms |
-| PlantUML / Graphviz | 932.5 ms |
+| Workload | Format | D2 / Dagre | Mermaid / Dagre | Graphviz / dot | PlantUML / Graphviz |
+|---|---|---:|---:|---:|---:|
+| Basic · 2 nodes | SVG | 16.9 | 357.4 | 64.2 | 854.6 |
+| Basic · 2 nodes | PNG 2× | 20.6 | 400.1 | 68.1 | 886.3 |
+| Basic · 10 nodes | SVG | 18.0 | 368.5 | 65.2 | 860.3 |
+| Basic · 10 nodes | PNG 2× | 41.3 | 430.9 | 86.3 | 939.7 |
+| Basic · 100 nodes | SVG | 26.2 | 498.6 | 68.7 | 910.7 |
+| Basic · 100 nodes | PNG 2× | 459.4 | 741.7 | 315.0 | 1,314.5 |
+| Real-world complex | SVG | 30.5 | 431.2 | 76.8 | 892.5 |
+| Real-world complex | PNG 2× | 259.7 | 665.4 | 327.9 | 1,390.4 |
+| TPMJS supplement | PNG 0.5× supplement | 360.4 | 789.4 | 184.5 | 1,363.5 |
 
-Latency is the geometric mean of ten per-diagram medians, with 20 measurements each. This previous reference measures real-world SVG only, in one active desktop session with uncontrolled background activity. [See the reference run and download its evidence](examples/2026-09-05-macos-m4-svg/README.md).
+Times are milliseconds; lower is faster. Basic rows show the median of 20 runs. Real-world rows show the geometric mean of per-diagram medians: ten SVG diagrams and nine PNG diagrams at 2× density. TPMJS PNG uses a separate 0.5× supplement. All jobs had three excluded warm-ups. This is one Apple M4 session with uncontrolled desktop background activity; intervals and individual samples are in the reference report. [Reference report and raw evidence](examples/2026-09-06-macos-m4/README.md).
 
 [![Validation and real-tool smoke tests](https://github.com/d2lang/d2-benchmarks/actions/workflows/ci.yml/badge.svg)](https://github.com/d2lang/d2-benchmarks/actions/workflows/ci.yml)
 
@@ -31,7 +36,7 @@ On the first run, `./make.sh` installs checksum-pinned tools into `.tools/`, bui
 
 The runner prints the location of `results/<run>/index.html`. Open that file in your browser for the performance matrix, timing distributions, uncertainty intervals, and side-by-side diagrams. `report.md`, `summary.csv`, `summary.json`, and `raw.jsonl` are in the same directory. Reports are generated locally and need no server or external assets.
 
-A complete run measures **13 diagrams × 4 tools × 2 formats**, with **3 excluded warm-ups and 20 measured repetitions** per job. Expect several minutes; the exact duration depends on your machine. Run this quick check first if desired:
+A complete run measures **13 diagrams × 4 tools × 2 formats**, with **3 excluded warm-ups and 20 measured repetitions** per job. The reference Apple M4 measurement phase took about 21 minutes; first-time setup takes additional time. Run this quick check first if desired:
 
 ```sh
 ./make.sh --nodes 2 --warmups 1 --repetitions 1 --output results/smoke
