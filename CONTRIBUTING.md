@@ -20,7 +20,7 @@ Keep raw observations and exact environment/provenance alongside summaries. Stat
 
 This suite measures rendering performance. Report latency and its distribution separately for SVG and PNG, for each basic node count, and for the real-world complex corpus. Keep the lower-density PNG supplement separate. Do not create a blended score across these workloads or add file-size/compression comparisons as benchmark metrics. Retain output hashes, dimensions, and viewable artifacts as correctness evidence. A published matrix must identify unmeasured cells rather than filling them from a different session or silently reusing an older corpus.
 
-`results/` is ignored by default because artifacts can be large and may contain local command paths. Review a run before sharing it. Store deliberately reviewed reference runs in clearly named `examples/` directories, with compact archives and checksums where appropriate, and explain any path redaction. This repository does not publish releases; identify harness versions by commit SHA and results by their measurement date. Retain input and output hashes when redacting host-specific prefixes. Never include private source, credentials, or unrelated system/environment dumps.
+Keep only the current published run in `reference/`; replace it when refreshing the README results. Do not accumulate dated archives or change reports. Local runs stay in ignored `results/`. Review data before sharing it, include a checksum, and retain input/output hashes and exact build metadata. Explain path redaction and exclude private source, credentials, and unrelated environment data.
 
 ## Pull request descriptions
 

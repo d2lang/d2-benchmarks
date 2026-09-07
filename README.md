@@ -18,7 +18,7 @@ Time to start the CLI, render a diagram, write the output, and exit—including 
 
 The real-world set contains ten diagrams originally written in D2. PNG uses 2× density, except TPMJS at 0.5×, shown separately. Layouts and image dimensions differ between tools. These numbers come from one desktop session with uncontrolled background activity.
 
-D2 / Dagre uses public D2 `c058268f661a`; D2 / TALA uses the separate private staging build `3f0a4a31a0ae`. [Full results and changes since September 6](examples/2026-09-07-macos-m4-tala/README.md) · [Methodology](docs/METHODOLOGY.md).
+D2 / Dagre uses public D2 `c058268f661a`; D2 / TALA uses the separate private staging build `3f0a4a31a0ae`. [Reference data](reference/README.md) · [Methodology](docs/METHODOLOGY.md).
 
 ## Run it
 
