@@ -172,6 +172,19 @@ def ensure_installed(tools: Path) -> None:
         install(tools, tools / 'cache')
 
 
+def d2_definitions(binary: Path, versions: dict, common: dict) -> dict:
+    provenance = dict(common, source='https://github.com/d2lang/d2', revision=versions['d2_revision'],
+                      go=versions['go'], build='CGO_ENABLED=0 go build -trimpath -ldflags="-s -w"',
+                      binary_sha256=digest(binary))
+    return {
+        'd2-dagre': {'kind': 'd2', 'argv': [str(binary), '--layout', 'dagre'],
+                     'version_argv': [str(binary), '--version'], 'env': {}, 'provenance': dict(provenance)},
+        'd2-tala': {'kind': 'd2', 'argv': [str(binary), '--layout', 'tala', '--tala-seeds', '1,2,3'],
+                    'version_argv': [str(binary), '--version'], 'env': {},
+                    'provenance': dict(provenance, tala_seeds=[1, 2, 3])},
+    }
+
+
 def install(tools: Path, cache: Path) -> None:
     pins = json.loads((RUNTIME / 'pins.json').read_text())
     state = setup_state()
@@ -257,9 +270,7 @@ def install(tools: Path, cache: Path) -> None:
     cli = npm_dir / 'node_modules/@mermaid-js/mermaid-cli/src/cli.js'
     common = {'runtime_lock_sha256': fingerprint, 'setup_platform': target}
     definitions = {
-        'd2-dagre': {'kind': 'd2', 'argv': [str(binary), '--layout', 'dagre'], 'version_argv': [str(binary), '--version'], 'env': {},
-                     'provenance': dict(common, source='https://github.com/d2lang/d2', revision=pins['versions']['d2_revision'],
-                                        go=pins['versions']['go'], build='CGO_ENABLED=0 go build -trimpath -ldflags="-s -w"', binary_sha256=digest(binary))},
+        **d2_definitions(binary, pins['versions'], common),
         'mermaid-dagre': {'kind': 'mermaid', 'argv': [str(node), str(cli)], 'version_argv': [str(node), str(cli), '--version'],
                            'env': {'PUPPETEER_EXECUTABLE_PATH': str(chrome), 'PUPPETEER_CACHE_DIR': str(cache / 'puppeteer')},
                            'provenance': dict(common, node=pins['versions']['node'], mermaid_cli=pins['versions']['mermaid_cli'],
@@ -337,7 +348,7 @@ def install(tools: Path, cache: Path) -> None:
                 'installed_native_packages': installed, 'graphviz_backends': graphviz_backends,
                 'mermaid_browser': {'variant': pins['versions']['browser_variant'], 'headless_mode': mermaid_browser_mode,
                                     'default_verified_from': '@mermaid-js/mermaid-cli/src/index.js'},
-                'smoke': 'All four tools rendered SVG and PNG successfully.',
+                'smoke': f'All {len(definitions)} tool configurations rendered SVG and PNG successfully.',
                 'font_note': 'Native font and rendering dependencies are pinned in the platform lock. System fonts and macOS CoreText/Linux Fontconfig can still change glyph metrics; record the host OS with each run.',
                 'scope': 'Task-local executables and caches; no shell initialization, sudo, global package install, or user conda environment registration.'}
     (tools / 'setup-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')

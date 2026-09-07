@@ -213,8 +213,8 @@ def validate_corpus(root: Path) -> dict:
                     _check(edge['source_d2_id'] in objects and edge['target_d2_id'] in objects, 'Missing edge endpoint')
                 counts = {'leaf_nodes':sum(o['kind']=='node' for o in objects.values()),'groups':sum(o['kind']=='group' for o in objects.values()),'edges':len(m['edges'])}
                 _check(counts == fixture['counts'], 'Semantic counts differ')
-                _check(fixture['png_density'] == (.5 if fixture['id']=='tpmjs_architecture' else 2.0), 'Unexpected raster density')
-                _check(fixture['primary_png'] == (fixture['id']!='tpmjs_architecture'), 'Unexpected PNG aggregate membership')
+                _check(fixture['png_density'] == 2.0, 'Unexpected raster density')
+                _check(fixture['primary_png'] is True, 'Unexpected PNG aggregate membership')
                 inputs = {kind:check_file(entry) for kind,entry in fixture['inputs'].items()}
                 _check(set(inputs) == {'d2','mermaid','graphviz','plantuml'}, 'Missing source format')
                 _check(sha256(inputs['d2']) == m['source_sha256'], 'D2 source not tied to semantic mapping')

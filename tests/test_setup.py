@@ -9,12 +9,35 @@ import tempfile
 import unittest
 import zipfile
 
+from benchmarks.runner import PUBLIC_TOOLS, command_for
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SETUP = runpy.run_path(str(ROOT / 'scripts/setup.py'))
 
 
 class SetupTests(unittest.TestCase):
+    def test_public_d2_layouts_share_binary_and_provenance(self):
+        with tempfile.TemporaryDirectory() as folder:
+            binary = Path(folder) / 'd2 with spaces'
+            binary.write_bytes(b'public D2 fixture')
+            versions = {'d2_revision': 'fixture-revision', 'go': '1.27.0'}
+            common = {'runtime_lock_sha256': 'fixture-lock', 'setup_platform': 'test'}
+            definitions = SETUP['d2_definitions'](binary, versions, common)
+            self.assertEqual(list(definitions), PUBLIC_TOOLS[:2])
+            dagre, tala = definitions['d2-dagre'], definitions['d2-tala']
+            self.assertEqual(dagre['argv'], [str(binary), '--layout', 'dagre'])
+            self.assertEqual(tala['argv'], [str(binary), '--layout', 'tala', '--tala-seeds', '1,2,3'])
+            self.assertEqual(dagre['version_argv'], tala['version_argv'])
+            self.assertEqual(dagre['env'], tala['env'])
+            self.assertEqual(tala['provenance']['tala_seeds'], [1, 2, 3])
+            self.assertEqual({k: v for k, v in tala['provenance'].items() if k != 'tala_seeds'}, dagre['provenance'])
+            self.assertEqual(dagre['provenance']['revision'], versions['d2_revision'])
+            self.assertEqual(dagre['provenance']['binary_sha256'], SETUP['digest'](binary))
+            source, output = Path('/source.d2'), Path('/output.png')
+            command = command_for(tala, source, output, 'png', 2, Path('/config'))
+            self.assertEqual(command, tala['argv'] + ['--scale', '1.0', str(source), str(output)])
+
     def test_only_reuse_completed_setup_with_current_pins_and_tools(self):
         with tempfile.TemporaryDirectory() as folder:
             tools = Path(folder)

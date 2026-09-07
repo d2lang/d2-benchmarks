@@ -29,7 +29,7 @@ The real-world corpus adds nesting, richer text, and application-specific struct
 
 Run the experiment on a machine with minimal background work, a stable power mode, and enough memory to avoid swapping. Record power/CPU-affinity settings when relevant and repeat complete sessions. The runner records hardware/OS/Python information, available CPU affinity/governor information, timestamps, load averages, exact commands, tool version output, executable/entry-file hashes, setup provenance, corpus hashes, and harness file hashes. It does not change CPU governors, disable turbo, clear caches, request elevated priority, or silently tune the host. Those choices affect representativeness and must be deliberate.
 
-The default includes all four publicly installable configurations. A custom toolchain may add another D2 build or TALA executable. State exactly which implementation is measured. An engine name alone is not a source revision or a guarantee that two D2 builds contain otherwise identical code.
+The default includes five public configurations: D2 / Dagre, D2 / TALA, Mermaid / Dagre, Graphviz / dot, and PlantUML / dot. The two D2 configurations use the same pinned binary and D2 sources; TALA uses fixed seeds `1,2,3`. There are four source formats. A custom toolchain may add other builds; record their exact revisions and configuration.
 
 ## Correctness before speed
 
@@ -53,7 +53,7 @@ Reports include Markdown, JSON, CSV, local HTML, actual SVG/PNG artifacts, and r
 
 ## Raster density and rendering work
 
-All three basic PNG cases and nine primary real-world PNG cases use 2× CSS-pixel density: D2 `--scale 1`, Mermaid `-s 2`, Graphviz `-Gdpi=192`, PlantUML `-Sdpi=192`. Graphviz's SVG point dimensions convert at 96 CSS pixels per inch / 72 points per inch. TPMJS exceeds D2's normal-density raster pixel limit, so its PNG uses a separate 0.5× supplement: D2 `--scale 0.25`, Mermaid `-s 0.5`, and Graphviz/PlantUML DPI 48. It is explicitly excluded from the primary real-world PNG aggregate rather than silently downscaled only for one tool.
+All thirteen PNG cases use 2× CSS-pixel density: D2 `--scale 1`, Mermaid `-s 2`, Graphviz `-Gdpi=192`, PlantUML `-Sdpi=192`. Graphviz's SVG point dimensions convert at 96 CSS pixels per inch / 72 points per inch. All ten real-world PNG cases, including TPMJS, belong to the primary real-world PNG aggregate.
 
 PlantUML's image side limit is raised from 4096 to 32768 pixels to retain complete large diagrams. Source metadata remains enabled. Outputs are retained as produced, without minification or resizing.
 

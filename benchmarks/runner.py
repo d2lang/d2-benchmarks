@@ -21,7 +21,7 @@ from xml.etree import ElementTree as ET
 import zlib
 
 ROOT = Path(__file__).resolve().parents[1]
-PUBLIC_TOOLS = ["d2-dagre", "mermaid-dagre", "graphviz-dot", "plantuml-dot"]
+PUBLIC_TOOLS = ["d2-dagre", "d2-tala", "mermaid-dagre", "graphviz-dot", "plantuml-dot"]
 KINDS = {"d2": ".d2", "mermaid": ".mmd", "graphviz": ".dot", "plantuml": ".puml"}
 
 

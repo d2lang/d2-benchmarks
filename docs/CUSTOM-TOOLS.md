@@ -32,65 +32,17 @@ For another D2 build, add a distinct ID such as `d2-candidate`, with `kind: "d2"
 
 Compare each configuration within the same workload and output format. The default includes SVG and PNG for basic 2-, 10-, and 100-node trees and the real-world complex corpus, with separate results for each dimension. For example, `./make.sh --toolchain local.json --tools d2-dagre d2-candidate --category basic --formats svg png` measures both configurations on all three basic sizes. `--nodes 100` limits the run to the basic 100-node case; it does not select real-world diagrams by their node counts. Reports compare elapsed CLI time and do not score output file size.
 
-## Optional D2 / TALA
+## D2 / TALA
 
-The five-tool reference adds D2 / TALA from private staging commit `3f0a4a31a0aeadfc35b31bdb04def30982e2d304`. TALA requires your own authorized source access or executable; this repository does not distribute its source or binary. Plain `./make.sh` continues to install and measure the four public tools.
+The pinned public D2 binary includes both Dagre and TALA. Setup registers `d2-dagre` and `d2-tala` against that same executable, with `--layout tala --tala-seeds 1,2,3` for TALA. The fixed seeds keep its search inputs consistent across invocations.
 
-With access to `alixander/d2-tala-staging`, run this from the benchmark repository root. Use Python 3.11.9 or newer as described in [setup](SETUP.md), and authenticate `gh` for the private repository. Setup installs the pinned public tools and Go compiler without starting a benchmark.
+To compare the two built-in layouts:
 
 ```sh
-set -eu
-python3 scripts/setup.py
-benchmark_root="$(pwd)"
-mkdir -p .tools-tala
-gh repo clone alixander/d2-tala-staging .tools-tala/source
-git -C .tools-tala/source checkout --detach 3f0a4a31a0aeadfc35b31bdb04def30982e2d304
-(
-  cd .tools-tala/source
-  CGO_ENABLED=0 GOTOOLCHAIN=local GOWORK=off \
-    "$benchmark_root/.tools/go/go/bin/go" build -trimpath -ldflags='-s -w' \
-    -o "$benchmark_root/.tools-tala/d2" .
-)
-cp .tools/toolchain.json .tools-tala/toolchain.json
-python3 - <<'PY'
-import hashlib
-import json
-from pathlib import Path
-import subprocess
-
-root = Path.cwd()
-config = root / ".tools-tala/toolchain.json"
-binary = root / ".tools-tala/d2"
-revision = subprocess.check_output(
-    ["git", "-C", str(root / ".tools-tala/source"), "rev-parse", "HEAD"], text=True
-).strip()
-assert revision == "3f0a4a31a0aeadfc35b31bdb04def30982e2d304"
-toolchain = json.loads(config.read_text())
-toolchain["tools"]["d2-tala"] = {
-    "kind": "d2",
-    "argv": [str(binary), "--layout", "tala", "--tala-seeds", "1,2,3"],
-    "version_argv": [str(binary), "--version"],
-    "env": {},
-    "provenance": {
-        "source": "https://github.com/alixander/d2-tala-staging",
-        "revision": revision,
-        "go": subprocess.check_output(
-            [str(root / ".tools/go/go/bin/go"), "version"], text=True
-        ).strip(),
-        "build": "CGO_ENABLED=0 GOTOOLCHAIN=local GOWORK=off go build -trimpath -ldflags='-s -w'",
-        "binary_sha256": hashlib.sha256(binary.read_bytes()).hexdigest(),
-        "tala_seeds": [1, 2, 3],
-    },
-}
-config.write_text(json.dumps(toolchain, indent=2) + "\n")
-PY
-python3 -m benchmarks doctor --toolchain .tools-tala/toolchain.json \
-  --tools d2-dagre d2-tala mermaid-dagre graphviz-dot plantuml-dot
-./make.sh --toolchain .tools-tala/toolchain.json \
-  --tools d2-dagre d2-tala mermaid-dagre graphviz-dot plantuml-dot
+./make.sh --tools d2-dagre d2-tala
 ```
 
-The source, binary, and generated configuration stay in ignored `.tools-tala/`. The explicit seeds fix TALA's search inputs across invocations. This comparison uses the public D2 build for Dagre and the separate staging build for TALA, so timings include differences between those builds. To isolate layout choice, add the staging executable's Dagre mode under another tool ID and measure both modes together.
+For a custom D2 build, use `kind: "d2"` with the appropriate layout arguments and record the exact source revision and build flags. Reuse the same executable for both configurations to isolate the layout choice.
 
 ## Other configurations
 

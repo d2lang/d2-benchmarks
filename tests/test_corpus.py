@@ -58,6 +58,20 @@ class CorpusTests(unittest.TestCase):
             result=validate_corpus(corpus)
             self.assertTrue(any('SHA-256 mismatch' in e for e in result['errors']))
 
+    def test_all_fixtures_require_primary_png_at_two_times_density(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            corpus=Path(tmp)/'corpus';shutil.copytree(ROOT/'corpus',corpus)
+            manifest_path=corpus/'manifest.json';original=manifest_path.read_text()
+            for ident in ('basic_002','tpmjs_architecture'):
+                for field,value,error in [('png_density',.5,'Unexpected raster density'),
+                                          ('primary_png',False,'Unexpected PNG aggregate membership')]:
+                    with self.subTest(fixture=ident,field=field):
+                        manifest=json.loads(original)
+                        fixture=next(f for f in manifest['fixtures'] if f['id']==ident)
+                        fixture[field]=value;manifest_path.write_text(json.dumps(manifest))
+                        result=validate_corpus(corpus)
+                        self.assertTrue(any(ident in e and error in e for e in result['errors']),result)
+
     def test_rehashed_translation_cannot_drop_parallel_edge(self):
         with tempfile.TemporaryDirectory() as tmp:
             corpus=Path(tmp)/'corpus';shutil.copytree(ROOT/'corpus',corpus)

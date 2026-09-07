@@ -13,11 +13,13 @@ class CliTests(unittest.TestCase):
         events = []
         with patch('sys.argv', ['benchmarks', 'run', '--setup']), \
                 patch('scripts.setup.ensure_installed', side_effect=lambda _: events.append('setup')), \
-                patch('benchmarks.__main__.run', side_effect=lambda _: (events.append('run') or (Path('results/test'), 1))), \
+                patch('benchmarks.__main__.run', side_effect=lambda _: (events.append('run') or (Path('results/test'), 1))) as run, \
                 patch('benchmarks.report.generate', side_effect=lambda *a, **kw: events.append('report')), \
                 contextlib.redirect_stdout(io.StringIO()):
             self.assertEqual(main(), 1)
         self.assertEqual(events, ['setup', 'run', 'report'])
+        self.assertEqual(run.call_args.args[0].tools,
+                         ['d2-dagre', 'd2-tala', 'mermaid-dagre', 'graphviz-dot', 'plantuml-dot'])
 
     def test_explicit_toolchain_skips_install_and_preserves_arguments(self):
         with patch('sys.argv', ['benchmarks', 'run', '--setup', '--toolchain', 'custom tools.json',

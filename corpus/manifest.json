@@ -744,8 +744,8 @@
         "groups": 48,
         "edges": 63
       },
-      "png_density": 0.5,
-      "primary_png": false,
+      "png_density": 2.0,
+      "primary_png": true,
       "inputs": {
         "d2": {
           "path": "d2/tpmjs_architecture.d2",

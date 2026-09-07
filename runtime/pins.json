@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "versions": {
-    "d2_revision": "c058268f661a124da15b409b0f907ec7b38f8228",
+    "d2_revision": "52a59749a4e4ce600b877511acfbb15b9aa5d9ce",
     "go": "1.27.0",
     "node": "24.19.0",
     "mermaid_cli": "11.17.0",
@@ -16,8 +16,8 @@
   },
   "common": {
     "d2_source": {
-      "url": "https://codeload.github.com/d2lang/d2/tar.gz/c058268f661a124da15b409b0f907ec7b38f8228",
-      "sha256": "6dc0f3f5832163fe8c7f9ce474582476539d4130a86463219464c09f479305b9"
+      "url": "https://codeload.github.com/d2lang/d2/tar.gz/52a59749a4e4ce600b877511acfbb15b9aa5d9ce",
+      "sha256": "c870cab60909e2a79cec60a9574fd219a4238d1bee7ceb4a658996fa7fb7726f"
     },
     "plantuml": {
       "url": "https://github.com/plantuml/plantuml/releases/download/v1.2026.8/plantuml.jar",

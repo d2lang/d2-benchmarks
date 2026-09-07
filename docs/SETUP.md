@@ -8,7 +8,7 @@ Run from the repository root:
 
 This installs the pinned tools if needed, then runs the complete benchmark and generates its reports. Later invocations reuse a completed installation with matching pins. Pass runner options directly, for example `./make.sh --formats svg`. `./make.sh --help` displays options without installing diagram tools. An explicit `--toolchain PATH` uses your existing tools and skips automatic tool setup.
 
-The default measures all four CLIs in SVG and PNG on three basic diagrams (2, 10, and 100 nodes) and ten real-world complex diagrams. Reports keep every basic size and each real-world output format separate. The default sampling plan is three warm-up rounds and twenty measured rounds; reported metrics concern rendering time, not file size.
+The default measures five configurations: D2 / Dagre, D2 / TALA, Mermaid / Dagre, Graphviz / dot, and PlantUML / dot. Both D2 configurations use the same public binary; TALA uses fixed seeds `1,2,3`. Each configuration renders SVG and PNG for three basic diagrams (2, 10, and 100 nodes) and ten real-world complex diagrams. Reports keep every basic size and each real-world output format separate. The default sampling plan is three warm-up rounds and twenty measured rounds; reported metrics concern rendering time, not file size.
 
 To select part of the matrix:
 
@@ -34,13 +34,13 @@ Setup supports native macOS arm64 and Linux x86_64. Ubuntu 24.04 is the Linux CI
 
 The script installs executables and caches under `.tools/`. It does not run sudo, initialize a shell, change PATH permanently, register a user conda environment, or install global npm/pip packages. No Docker image is provided. Allow several gigabytes of free space for the downloaded archives, native libraries, Chromium, npm dependencies, Go modules, and compilation cache.
 
-Setup renders a small graph to both SVG and PNG with all four tools before declaring success. These smoke renders check execution, not performance or equivalence across the full corpus. The benchmark command performs the corpus run separately.
+Setup renders a small graph to both SVG and PNG with all five configurations before declaring success. These smoke renders check execution, not performance or equivalence across the full corpus. The benchmark command performs the corpus run separately.
 
 ## Frozen versions
 
 | Component | Pin |
 | --- | --- |
-| D2 | Public commit `a825194903523c4409f4df7e7f4385efacb6deeb` |
+| D2, including built-in TALA | Public commit `52a59749a4e4ce600b877511acfbb15b9aa5d9ce` |
 | Go | 1.27.0 |
 | Node.js | 24.19.0 |
 | Mermaid CLI | 11.17.0 |
@@ -80,10 +80,10 @@ python3 -m benchmarks doctor --toolchain .tools-other/toolchain.json
 
 Do not run setup concurrently against one tools/cache directory. Deleting a generated tools directory removes its installed tools; a separately chosen cache remains available for reuse.
 
-TALA is optional and is not downloaded or configured by setup. Add a separately obtained executable to a local toolchain file using the documented `d2-tala` schema. The public setup does not require access to a private repository.
+To compare only D2's built-in layouts, run `./make.sh --tools d2-dagre d2-tala`. See [custom toolchains](CUSTOM-TOOLS.md) to compare other builds.
 
 ## CI scope
 
-The workflow runs Python tests, corpus validation, a fresh Linux tool setup, and all three basic fixtures plus one real-world fixture through all four CLIs in both output formats. A second launcher invocation checks setup reuse and basic-size selection. On its ephemeral Ubuntu runner it enables sandbox user namespaces using the same sysctl setting as [Puppeteer's upstream CI](https://github.com/puppeteer/puppeteer/blob/main/.github/workflows/ci.yml); this is separate from the local setup script. Version pins and native execution failures are correctness checks. Shared-runner durations are retained as diagnostics and are never used as a performance threshold or a published benchmark result.
+The workflow runs Python tests, corpus validation, a fresh Linux tool setup, and all three basic fixtures plus one real-world fixture through all five configurations in both output formats. A second launcher invocation checks setup reuse and basic-size selection. On its ephemeral Ubuntu runner it enables sandbox user namespaces using the same sysctl setting as [Puppeteer's upstream CI](https://github.com/puppeteer/puppeteer/blob/main/.github/workflows/ci.yml); this is separate from the local setup script. Version pins and native execution failures are correctness checks. Shared-runner durations are retained as diagnostics and are never used as a performance threshold or a published benchmark result.
 
 Download sources: [Go releases](https://go.dev/dl/), [Node.js releases](https://nodejs.org/dist/), [Chrome for Testing](https://developer.chrome.com/docs/automation-and-testing/chrome-for-testing), [Micromamba](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html), [Graphviz downloads](https://graphviz.org/download/), and [PlantUML releases](https://github.com/plantuml/plantuml/releases/tag/v1.2026.8).
