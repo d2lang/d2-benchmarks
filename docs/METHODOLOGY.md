@@ -39,6 +39,8 @@ The runner validates every retained output after its process exits. SVG checks i
 
 A command returning zero with an invalid or missing output is a failure. Warm-up failures, measured failures, timeouts, and interrupted sessions remain visible. No failed attempt is replaced by a retry. Per-job successful-sample statistics are labeled with their denominator; aggregate rankings require complete successful comparable jobs and a completed session. A tool that fails the difficult cases cannot obtain a better score by dropping them.
 
+Post-run visual review can reject outputs by SHA-256 in the run's `review.json`, with a reason for each rejection. Reports apply those failures while preserving the original raw observations and timings. Complete tools retain their aggregate latencies; a group containing a failed tool has no ranking or ratios.
+
 Output hash stability is reported, not assumed. Nondeterministic identifiers or metadata can change the file without changing appearance; investigate differences before attributing them to layout or declaring them harmless. Hashes and image dimensions are validation evidence, not performance scores.
 
 ## Statistics and presentation

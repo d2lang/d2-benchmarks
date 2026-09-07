@@ -7,6 +7,7 @@ import json
 import math
 from pathlib import Path
 import random
+import re
 import statistics
 from typing import Any
 
@@ -86,6 +87,44 @@ def _read_rows(path: Path) -> tuple[list[dict], list[str]]:
         except (ValueError, json.JSONDecodeError) as error:
             errors.append(f"raw.jsonl line {line_number}: {error}")
     return rows, errors
+
+
+def _apply_review(root: Path, rows: list[dict]) -> tuple[list[dict], dict | None]:
+    """Apply explicit output rejections without changing the recorded attempts."""
+    path = root / "review.json"
+    if not path.exists():
+        return rows, None
+    try:
+        review = json.loads(path.read_text())
+    except (ValueError, UnicodeError) as error:
+        raise ValueError(f"Invalid review.json: {error}") from error
+    if (not isinstance(review, dict) or set(review) != {"schema_version", "rejected_outputs"}
+            or type(review["schema_version"]) is not int or review["schema_version"] != 1
+            or not isinstance(review["rejected_outputs"], list)):
+        raise ValueError("review.json requires schema_version 1 and a rejected_outputs array")
+    observed = {row.get("image", {}).get("sha256") for row in rows}
+    rejected = {}
+    for entry in review["rejected_outputs"]:
+        if (not isinstance(entry, dict) or set(entry) != {"sha256", "reason"}
+                or not isinstance(entry["sha256"], str) or not re.fullmatch(r"[0-9a-f]{64}", entry["sha256"])
+                or not isinstance(entry["reason"], str) or not entry["reason"].strip()):
+            raise ValueError("review.json rejections require a lowercase SHA-256 and a nonempty reason")
+        digest = entry["sha256"]
+        if digest in rejected:
+            raise ValueError(f"review.json contains a duplicate rejection: {digest}")
+        if digest not in observed:
+            raise ValueError(f"review.json rejection matches no raw output: {digest}")
+        rejected[digest] = entry["reason"]
+    reviewed = []
+    for row in rows:
+        copy = dict(row)
+        reason = rejected.get(row.get("image", {}).get("sha256"))
+        if reason is not None:
+            copy["success"] = False
+            copy["review_rejection"] = reason
+            copy["validation_error"] = "; ".join(filter(None, [row.get("validation_error"), f"Output review rejected: {reason}"]))
+        reviewed.append(copy)
+    return reviewed, review
 
 
 def _bootstrap_draws(n: int, iterations: int, seed: int) -> list[list[int]]:
@@ -202,12 +241,14 @@ def _summarize(root: Path, run: dict, rows: list[dict], parse_errors: list[str],
                 if plan_mismatches: reasons.append("raw job metadata differs from the planned job")
                 if hash_records != len(successful): reasons.append("one or more successful measurements lack output hashes")
                 if not asset["verified"]: reasons.append("retained output is missing or does not match the final successful record")
+                reasons += [f"Output review rejected: {reason}" for reason in dict.fromkeys(
+                    r["review_rejection"] for r in records if r.get("review_rejection"))]
                 if len(samples) not in draws_by_count:
                     draws_by_count[len(samples)] = _bootstrap_draws(len(samples), bootstrap, seed)
                 draws = draws_by_count[len(samples)]
                 stats, boot = _statistics(samples, draws)
                 bootstrap_medians[key] = boot
-                failure_details = [{k: r.get(k) for k in ("round", "returncode", "timeout", "validation_error", "stderr", "wall_ms")}
+                failure_details = [{k: r.get(k) for k in ("round", "returncode", "timeout", "validation_error", "review_rejection", "stderr", "wall_ms")}
                                    for r in measured if not valid_success(r)]
                 primary = bool(job.get("primary", fixture.get("primary_png", True)))
                 group = _group(fixture, fmt, primary)
@@ -252,27 +293,33 @@ def _summarize(root: Path, run: dict, rows: list[dict], parse_errors: list[str],
         group_fixtures = [f for f in fixture_ids if any(c["fixture"] == f for c in group_cases)]
         expected = {(fixture, tool) for fixture in group_fixtures for tool in tools}
         actual = {(c["fixture"], c["tool"]) for c in group_cases}
-        reasons = list(global_reasons)
-        if actual != expected: reasons.append("Tools do not cover the same fixture set")
-        if baseline not in tools: reasons.append(f"Baseline {baseline} is not part of this run")
-        if any(not c["eligible"] for c in group_cases): reasons.append("At least one expected job is incomplete, failed, or unverified; no success-only ranking is shown")
+        latency_reasons = list(global_reasons)
+        if actual != expected: latency_reasons.append("Tools do not cover the same fixture set")
+        if baseline not in tools: latency_reasons.append(f"Baseline {baseline} is not part of this run")
         densities = {c["raster_density"] for c in group_cases}
-        if group_meta["format"] == "png" and len(densities) != 1: reasons.append("PNG density differs within this group")
+        if group_meta["format"] == "png" and len(densities) != 1: latency_reasons.append("PNG density differs within this group")
         if group_meta["format"] == "png" and group_meta["primary"] and densities != {2, 2.0}:
-            reasons.append("Primary PNG is not consistently rendered at 2x density")
+            latency_reasons.append("Primary PNG is not consistently rendered at 2x density")
+        reasons = list(latency_reasons)
+        if any(not c["eligible"] for c in group_cases): reasons.append("At least one expected job is incomplete, failed, or unverified; no success-only ranking is shown")
         aggregates = []
-        if not reasons:
+        if not latency_reasons:
             lookup = {(c["fixture"], c["tool"]): c for c in group_cases}
             for tool in tools:
                 selected = [lookup[f, tool] for f in group_fixtures]
-                baselines = [lookup[f, baseline] for f in group_fixtures]
-                ratios = [b["timing_ms"]["median"]/c["timing_ms"]["median"] for b, c in zip(baselines, selected)]
+                # A tool's latency covers the entire fixed group or is withheld.
+                # Other complete tools remain descriptive, without a ranking.
+                if any(not c["eligible"] for c in selected):
+                    continue
+                ratios = [lookup[f, baseline]["timing_ms"]["median"]/c["timing_ms"]["median"]
+                          for f, c in zip(group_fixtures, selected)] if not reasons else []
                 boot_ratios, boot_medians = [], []
                 for i in range(bootstrap):
                     boot_medians.append(_geomean([bootstrap_medians[(f, tool, group_meta["format"])][i]
                                                   for f in group_fixtures]))
-                    boot_ratios.append(_geomean([bootstrap_medians[(f, baseline, selected[0]["format"])][i] /
-                                                 bootstrap_medians[(f, tool, selected[0]["format"])][i] for f in group_fixtures]))
+                    if not reasons:
+                        boot_ratios.append(_geomean([bootstrap_medians[(f, baseline, selected[0]["format"])][i] /
+                                                     bootstrap_medians[(f, tool, selected[0]["format"])][i] for f in group_fixtures]))
                 aggregates.append({"tool": tool, "fixtures": group_fixtures,
                                    "geomean_median_ms": _geomean([c["timing_ms"]["median"] for c in selected]),
                                    "geomean_median_ci95_ms": [_quantile(boot_medians,.025), _quantile(boot_medians,.975)] if boot_medians else None,
@@ -284,7 +331,7 @@ def _summarize(root: Path, run: dict, rows: list[dict], parse_errors: list[str],
                        "expected_measurements": len(expected)*repetitions, "attempts": sum(c["measured_attempts"] for c in group_cases),
                        "successes": sum(c["successes"] for c in group_cases), "failures": sum(c["failures"] for c in group_cases),
                        "ranking_available": not reasons, "ranking_suppression_reasons": reasons,
-                       "aggregates": aggregates, "ranking": [a["tool"] for a in sorted(aggregates,key=lambda a:a["geomean_median_ms"])] if aggregates else None})
+                       "aggregates": aggregates, "ranking": [a["tool"] for a in sorted(aggregates,key=lambda a:a["geomean_median_ms"])] if not reasons else None})
     return {"schema_version":SCHEMA_VERSION, "run_id":run.get("run_id"), "status":run.get("status","incomplete"),
             "started_utc":run.get("started_utc"), "completed_utc":run.get("completed_utc"),
             "baseline":baseline, "tools":tools, "fixtures":fixtures, "environment":run.get("environment",{}),
@@ -346,16 +393,19 @@ def _write_markdown(root: Path, summary: dict) -> None:
              "|---|---|" + "---:|" * len(summary["tools"])]
     for group in summary["groups"]:
         aggregates = {a["tool"]: a for a in group["aggregates"]}
-        fastest = min((a["geomean_median_ms"] for a in group["aggregates"]), default=None)
+        fastest = min((a["geomean_median_ms"] for a in group["aggregates"]), default=None) if group["ranking_available"] else None
         values = [_latency(aggregates[t]["geomean_median_ms"], fastest) if t in aggregates else "unavailable" for t in summary["tools"]]
         lines.append(f"| {_md(group['workload'])} | {_md(group['format_label'])} | " + " | ".join(values) + " |")
     lines += ["", f"{c['successes']} successful measured attempts / {c['expected_measured']} expected; {c['failures']} failures, {c['missing_measurements']} missing measurements. {c['warmup_attempts']} excluded warm-ups ({c['warmup_failures']} failed).", "",
               "[Interactive report](index.html) · [CSV](summary.csv) · [Complete statistics](summary.json) · [Run metadata](run.json) · [Raw attempts](raw.jsonl)", ""]
     if summary["smoke"] or summary["short_run"]:
         lines += ["**Smoke or short run: use this report to check execution and outputs. Aggregate rankings are suppressed.**", ""]
-    lines += [f"{c['jobs_with_changing_output_hashes']} jobs produced more than one measured output hash. Changing hashes can reflect layout, identifiers or metadata; hashes alone do not explain the cause.", ""]
+    lines += [f"{c['jobs_with_changing_output_hashes']} jobs produced more than one successful measured output hash. Changing hashes can reflect layout, identifiers or metadata; hashes alone do not explain the cause.", ""]
     if summary["issues"]:
         lines += ["## Recording issues", ""] + ["- " + _md(i) for i in summary["issues"]] + [""]
+    if summary.get("output_review"):
+        lines += ["## Output review", "", "[Review decisions](review.json) reject the following output hashes. Matching attempts remain in the raw records and count as failures in this report.", ""]
+        lines += [f"- `{entry['sha256']}`: {_md(entry['reason'])}" for entry in summary["output_review"]["rejected_outputs"]] + [""]
     lines += ["## Method and uncertainty", "", BOOTSTRAP_NOTE, "",
               f"Medians use all successful measured attempts, excluding warm-ups. {summary['repetitions']} measurements and {summary['warmups']} warm-ups were planned per job. Bootstrap iterations: {summary['bootstrap']['iterations']}; deterministic seed: {summary['bootstrap']['seed']}.", "",
               "Fresh-process CLI time includes startup, parsing, layout, rendering and output writing. It is not isolated layout-engine time. Equal PNG density does not imply equal pixels or styling. Controlled basic graphs expose scale and startup costs; the D2-authored real-world diagrams represent a fixed corpus, not a random sample of graph workloads.", ""]
@@ -363,6 +413,10 @@ def _write_markdown(root: Path, summary: dict) -> None:
         lines += [f"## {group['title']}", "", f"{group['fixture_count']} fixed fixtures; {group['successes']} successes / {group['expected_measurements']} expected measurements; {group['failures']} failures.", ""]
         if not group["ranking_available"]:
             lines += ["**Aggregate ranking unavailable.** " + "; ".join(group["ranking_suppression_reasons"]) + ".", ""]
+            if group["aggregates"]:
+                lines += ["Latencies below cover each tool's complete fixture group. No ranks or ratios are shown.", "",
+                          "| Tool | Geomean median (ms) | 95% latency interval (ms) |", "|---|---:|---:|"]
+                lines += [f"| {_md(TOOL_NAMES.get(a['tool'],a['tool']))} | {_num(a['geomean_median_ms'])} | {_interval(a['geomean_median_ci95_ms'])} |" for a in group["aggregates"]] + [""]
             continue
         lines += [f"Ratios are `{summary['baseline']} median / tool median`, geometrically averaged over matched fixtures. Above 1 means the tool is faster than the baseline. The baseline interval is exactly 1 because it is compared with itself.", "",
                   "| Tool | Geomean median (ms) | 95% latency interval (ms) | Baseline / tool | 95% ratio interval |",
@@ -383,7 +437,7 @@ def _write_markdown(root: Path, summary: dict) -> None:
         s = case["timing_ms"]
         fastest = fastest_cases.get((case["fixture"], case["group"]))
         lines.append(f"| {_md(case['title'])} | {_md(TOOL_NAMES.get(case['tool'],case['tool']))} | {case['format']} | {case['successes']}/{case['expected_measured']} | {case['failures']} | {len(case['missing_rounds'])} | {_latency(s['median'], fastest)} | {_interval(s['median_ci95'])} | {_num(s['min'])}–{_num(s['max'])} | {case['measured_output_hash_count']}{' (changed)' if case['output_stable'] is False else ''} | {'yes' if case['eligible'] else 'no'} |")
-    lines += ["", "## Environment and provenance", "", "The following metadata belongs to this run. No results from other machines or historical runs are substituted.", "", "```json", json.dumps({"environment": summary["environment"], "provenance": summary["provenance"], "harness_sha256": summary["harness_sha256"], "source_hashes": summary["source_hashes"], "corpus_validation": summary["corpus_validation"]}, indent=2, ensure_ascii=False), "```", ""]
+    lines += ["", "## Environment and provenance", "", "The following metadata belongs to this run. No results from other machines or historical runs are substituted.", "", "```json", json.dumps({"environment": summary["environment"], "provenance": summary["provenance"], "harness_sha256": summary["harness_sha256"], "report_generator_sha256": summary["report_generator_sha256"], "source_hashes": summary["source_hashes"], "corpus_validation": summary["corpus_validation"]}, indent=2, ensure_ascii=False), "```", ""]
     (root / "report.md").write_text("\n".join(lines))
 
 
@@ -394,10 +448,15 @@ def generate(run_dir: Path, baseline: str = "d2-dagre", bootstrap: int = 2000) -
     root=Path(run_dir).resolve()
     run=json.loads((root/"run.json").read_text())
     rows,errors=_read_rows(root/"raw.jsonl")
+    rows,review=_apply_review(root,rows)
     summary=_summarize(root,run,rows,errors,baseline,bootstrap)
+    summary["report_generator_sha256"]=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
     summary["source_hashes"]={"run.json":hashlib.sha256((root/"run.json").read_bytes()).hexdigest(),
                               "raw.jsonl":hashlib.sha256((root/"raw.jsonl").read_bytes()).hexdigest() if (root/"raw.jsonl").exists() else None,
                               "inputs/manifest.json":hashlib.sha256((root/"inputs/manifest.json").read_bytes()).hexdigest() if (root/"inputs/manifest.json").exists() else None}
+    if review is not None:
+        summary["output_review"]=review
+        summary["source_hashes"]["review.json"]=hashlib.sha256((root/"review.json").read_bytes()).hexdigest()
     (root/"summary.json").write_text(json.dumps(summary,indent=2,ensure_ascii=False,allow_nan=False)+"\n")
     _write_csv(root,summary)
     _write_markdown(root,summary)
@@ -417,7 +476,7 @@ _HTML = r'''<!doctype html>
 <p>Fresh-process CLI latency across output formats, controlled graph sizes and real-world diagrams. Every recorded failure and missing measurement remains visible. Different layouts, fonts and canvases make these equivalent semantic graphs, not identical rendering workloads.</p>
 <div id="status" class="status" role="status"></div>
 <nav><a href="report.md">Text report</a><a href="summary.csv">CSV</a><a href="summary.json">Statistics JSON</a><a href="run.json">Run and environment</a><a href="raw.jsonl">Every raw attempt</a></nav>
-<section id="matrix"></section>
+<section id="matrix"></section><section id="output-review"></section>
 <h2>Inspect a diagram</h2><div class="controls">
 <label>Diagram<select id="fixture"></select></label><label>Format<select id="format"></select></label><label>Preview<select id="zoom"><option value="fit">Fit diagram</option><option value="actual">Actual size · scroll</option></select></label>
 </div><p id="fixture-note" class="muted"></p>
@@ -448,17 +507,19 @@ $('matrix').append(text('h2',`Performance matrix · ${(D.started_utc||'date unav
 const matrixWrap=text('div','','table-wrap'),matrixTable=document.createElement('table'),matrixHead=document.createElement('thead'),matrixHeader=document.createElement('tr'),matrixBody=document.createElement('tbody');
 for(const label of ['Workload','Format',...D.tools.map(name)])matrixHeader.append(text('th',label));
 matrixHead.append(matrixHeader);matrixTable.append(matrixHead);
-for(const group of D.groups){const fastest=Math.min(...group.aggregates.map(a=>a.geomean_median_ms));const tr=document.createElement('tr');cell(tr,group.workload);cell(tr,group.format_label);for(const tool of D.tools){const a=group.aggregates.find(a=>a.tool===tool);const td=a?latencyCell(tr,a.geomean_median_ms,fastest):cell(tr,'unavailable','bad');td.title=a?`95% interval: ${ci(a.geomean_median_ci95_ms)} ms; ${group.fixture_count} fixture(s)`:group.ranking_suppression_reasons.join('; ');}matrixBody.append(tr);}
+for(const group of D.groups){const fastest=group.ranking_available?Math.min(...group.aggregates.map(a=>a.geomean_median_ms)):null;const tr=document.createElement('tr');cell(tr,group.workload);cell(tr,group.format_label);for(const tool of D.tools){const a=group.aggregates.find(a=>a.tool===tool);const td=a?latencyCell(tr,a.geomean_median_ms,fastest):cell(tr,'unavailable','bad');td.title=a?`95% interval: ${ci(a.geomean_median_ci95_ms)} ms; ${group.fixture_count} fixture(s)`:group.ranking_suppression_reasons.join('; ');}matrixBody.append(tr);}
 matrixTable.append(matrixBody);matrixWrap.append(matrixTable);$('matrix').append(matrixWrap);
+if(D.output_review){$('output-review').append(text('h2','Output review'),text('p','Matching rejected outputs remain in raw records and count as failures in this report.'));addLink($('output-review'),'Review decisions','review.json');const list=document.createElement('ul');for(const entry of D.output_review.rejected_outputs)list.append(text('li',`${entry.sha256}: ${entry.reason}`));$('output-review').append(list);}
 for(const group of D.groups){
  const section=document.createElement('details');section.append(text('summary',group.title),text('p',`${group.fixture_count} fixed fixtures · ${group.successes}/${group.expected_measurements} successful measurements · ${group.failures} failed.`, 'muted'));
  if(!group.ranking_available){section.append(text('p','Ranking unavailable: '+group.ranking_suppression_reasons.join('; '),'aggregate-note'));}
- else{
-  section.append(text('p',`Geometric means of per-fixture medians. Ratio = ${name(D.baseline)} / tool; above 1 means faster.`, 'note'));
+ if(group.aggregates.length){
+  section.append(text('p',group.ranking_available?`Geometric means of per-fixture medians. Ratio = ${name(D.baseline)} / tool; above 1 means faster.`:"Latencies cover each tool's complete fixture group. No ranks or ratios are shown.", 'note'));
   const wrap=text('div','','table-wrap'),table=document.createElement('table'),head=document.createElement('thead'),hr=document.createElement('tr');
-  for(const label of ['Tool','Geomean median (ms)','95% latency interval (ms)','Baseline / tool','95% ratio interval'])hr.append(text('th',label));head.append(hr);table.append(head);const body=document.createElement('tbody');
-  const fastest=Math.min(...group.aggregates.map(a=>a.geomean_median_ms));
-  for(const a of [...group.aggregates].sort((a,b)=>a.geomean_median_ms-b.geomean_median_ms)){const tr=document.createElement('tr');cell(tr,name(a.tool));latencyCell(tr,a.geomean_median_ms,fastest);[ci(a.geomean_median_ci95_ms),n(a.baseline_over_tool_ratio),ci(a.ratio_ci95)].forEach(v=>cell(tr,v));body.append(tr);}table.append(body);wrap.append(table);section.append(wrap);
+  for(const label of ['Tool','Geomean median (ms)','95% latency interval (ms)',...(group.ranking_available?['Baseline / tool','95% ratio interval']:[])])hr.append(text('th',label));head.append(hr);table.append(head);const body=document.createElement('tbody');
+  const fastest=group.ranking_available?Math.min(...group.aggregates.map(a=>a.geomean_median_ms)):null;
+  const aggregates=group.ranking_available?[...group.aggregates].sort((a,b)=>a.geomean_median_ms-b.geomean_median_ms):group.aggregates;
+  for(const a of aggregates){const tr=document.createElement('tr');cell(tr,name(a.tool));latencyCell(tr,a.geomean_median_ms,fastest);cell(tr,ci(a.geomean_median_ci95_ms));if(group.ranking_available)[n(a.baseline_over_tool_ratio),ci(a.ratio_ci95)].forEach(v=>cell(tr,v));body.append(tr);}table.append(body);wrap.append(table);section.append(wrap);
  }$('aggregate').append(section);
 }
 D.fixtures.forEach(f=>addOption($('fixture'),f.id,f.title||f.id));
@@ -483,7 +544,7 @@ function update(hash=true){const f=D.fixtures.find(x=>x.id===$('fixture').value)
 function state(){const p=new URLSearchParams(location.hash.slice(1));$('fixture').value=D.fixtures.some(f=>f.id===p.get('fixture'))?p.get('fixture'):D.fixtures[0].id;$('format').value=[...$('format').options].some(o=>o.value===p.get('format'))?p.get('format'):D.cases.some(c=>c.format==='svg')?'svg':$('format').options[0].value;$('left').value=D.tools.includes(p.get('left'))?p.get('left'):D.tools.includes(D.baseline)?D.baseline:D.tools[0];$('right').value=D.tools.includes(p.get('right'))?p.get('right'):D.tools.find(t=>t!==$('left').value)||D.tools[0];$('zoom').value=p.get('zoom')==='actual'?'actual':'fit';update(false);}
 for(const id of ['fixture','format','left','right','zoom'])$(id).addEventListener('change',()=>update());window.addEventListener('hashchange',state);
 const failed=D.cases.filter(c=>!c.eligible).map(c=>({fixture:c.fixture,tool:c.tool,format:c.format,reasons:c.ineligibility_reasons,missing_rounds:c.missing_rounds,duplicate_rounds:c.duplicate_rounds,failures:c.failure_details}));$('failure-detail').textContent=JSON.stringify({recording_issues:D.issues,jobs:failed},null,2);if(failed.length||D.issues.length)$('failures').open=true;
-$('bootstrap-note').textContent=D.bootstrap.interpretation+` Bootstrap samples: ${D.bootstrap.iterations}. Seed: ${D.bootstrap.seed_text}.`;$('environment').textContent=JSON.stringify({environment:D.environment,provenance:D.provenance,source_hashes:D.source_hashes,harness_sha256:D.harness_sha256,corpus_validation:D.corpus_validation},null,2);$('footer').textContent=`${D.started_utc||''} — ${D.completed_utc||'run not completed'} · All statistics come from this run's recorded attempts.`;state();
+$('bootstrap-note').textContent=D.bootstrap.interpretation+` Bootstrap samples: ${D.bootstrap.iterations}. Seed: ${D.bootstrap.seed_text}.`;$('environment').textContent=JSON.stringify({environment:D.environment,provenance:D.provenance,source_hashes:D.source_hashes,harness_sha256:D.harness_sha256,report_generator_sha256:D.report_generator_sha256,output_review:D.output_review,corpus_validation:D.corpus_validation},null,2);$('footer').textContent=`${D.started_utc||''} — ${D.completed_utc||'run not completed'} · All statistics come from this run's recorded attempts.`;state();
 </script></body></html>'''
 
 

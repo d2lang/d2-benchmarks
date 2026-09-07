@@ -24,6 +24,9 @@ class ExportTests(unittest.TestCase):
             (source / 'renders/a.svg').write_bytes(image)
             (source / 'run.json').write_text(json.dumps({'run_id': 'example', 'status': 'complete', 'command': ['/host/repo/d2']}))
             (source / 'raw.jsonl').write_text(json.dumps({'command': ['/host/repo/d2'], 'wall_ms': 5}) + '\n')
+            review = {'schema_version': 1, 'rejected_outputs': [
+                {'sha256': hashlib.sha256(image).hexdigest(), 'reason': 'Incomplete diagram'}]}
+            (source / 'review.json').write_text(json.dumps(review))
             (source / 'unrelated-secret.txt').write_text('must not be copied')
 
             def report(root, baseline):
@@ -41,11 +44,13 @@ class ExportTests(unittest.TestCase):
                 names = archive.getnames()
                 self.assertFalse(any('unrelated-secret' in name for name in names))
                 self.assertEqual(archive.extractfile('benchmark-run/renders/a.svg').read(), image)
+                self.assertEqual(json.load(archive.extractfile('benchmark-run/review.json')), review)
                 records = archive.extractfile('benchmark-run/raw.jsonl').read()
                 self.assertNotIn(b'/host/repo', records)
                 self.assertIn(b'${REPO}', records)
                 hashes = json.load(archive.extractfile('benchmark-run/SHA256SUMS.json'))
                 self.assertEqual(hashes['renders/a.svg'], hashlib.sha256(image).hexdigest())
+                self.assertEqual(hashes['review.json'], hashlib.sha256(archive.extractfile('benchmark-run/review.json').read()).hexdigest())
             self.assertIn('/host/repo', (source / 'raw.jsonl').read_text(), 'export must not mutate source evidence')
 
     def test_external_symlink_is_rejected(self):

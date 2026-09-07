@@ -52,7 +52,7 @@ def export(source: Path, destination: Path, prefixes: list[tuple[str, str]], bas
                 if any(p.is_symlink() for p in [src, *src.rglob('*')]):
                     raise ValueError(f'Symlinks are not accepted in exported {name}')
                 shutil.copytree(src, root / name)
-        for name in ('run.json', 'environment.json'):
+        for name in ('run.json', 'environment.json', 'review.json'):
             if (source / name).exists():
                 value = redact(json.loads((source / name).read_text()), prefixes)
                 if name == 'run.json':
@@ -71,6 +71,7 @@ def export(source: Path, destination: Path, prefixes: list[tuple[str, str]], bas
         (root / 'README.txt').write_text(
             'Open index.html in a local browser. report.md, summary.csv, and summary.json summarize raw.jsonl.\n'
             'Inputs and rendered assets retain their original bytes and hashes. run.json records the source revision and publication transformations.\n'
+            'When present, review.json records outputs rejected by post-run visual review; reports apply those rejections without altering raw observations.\n'
             'Path tokens, when present, replace only explicitly selected host path prefixes. They are not executable filesystem paths.\n'
             'To repeat the experiment, check out the captured benchmark repository revision, run scripts/setup.py, and use the settings recorded in run.json.\n'
             'This is one machine/session; see its environment and the repository methodology before interpreting ratios.\n')

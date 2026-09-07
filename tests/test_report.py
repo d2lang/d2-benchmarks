@@ -1,12 +1,13 @@
 """Deterministic synthetic records test reporting logic; these are not benchmarks."""
 import hashlib
+import copy
 import json
 import math
 from pathlib import Path
 import tempfile
 import unittest
 
-from benchmarks.report import generate
+from benchmarks.report import _apply_review, generate
 
 
 class ReportTest(unittest.TestCase):
@@ -15,14 +16,15 @@ class ReportTest(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.root=Path(self.tmp.name)
 
-    def mock_run(self, values=None, status="completed", formats=("svg",), smoke=False, fixtures=None):
+    def mock_run(self, values=None, status="completed", formats=("svg",), smoke=False, fixtures=None,
+                 tools=("d2-dagre","graphviz-dot"), warmups=1, sample_repeats=2):
         values=values or {("a","d2-dagre"):[1,2,3,4,5],("a","graphviz-dot"):[2,4,6,8,10],
                           ("b","d2-dagre"):[10,20,30,40,50],("b","graphviz-dot"):[5,10,15,20,25]}
         fixtures=fixtures or [{"id":f,"title":"Fixture "+f,"counts":{"leaf_nodes":2,"groups":0,"edges":1},
                    "png_density":.5 if f=="b" else 2.0,"primary_png":f!="b"} for f in ("a","b")]
         jobs,records=[],[]
         for fixture in fixtures:
-            for tool in ("d2-dagre","graphviz-dot"):
+            for tool in tools:
                 for fmt in formats:
                     f=fixture["id"];output=f"renders/{tool}/{f}.{fmt}";path=self.root/output;path.parent.mkdir(parents=True,exist_ok=True)
                     content=b'<svg xmlns="http://www.w3.org/2000/svg" width="100" height="60"><text x="5" y="20">Synthetic test</text></svg>'
@@ -31,12 +33,12 @@ class ReportTest(unittest.TestCase):
                          "raster_density":fixture["png_density"] if fmt=="png" else None,"primary":fixture["primary_png"] if fmt=="png" else True,
                          "input":f"inputs/{f}.txt","input_sha256":"mock-input-hash","command":["mock-renderer"],"output":output}
                     jobs.append(job)
-                    for i,wall in [(-1,10000)]+list(enumerate([v for v in values[f,tool] for _ in range(2)])):
+                    for i,wall in [(i,10000) for i in range(-warmups,0)]+list(enumerate([v for v in values[f,tool] for _ in range(sample_repeats)])):
                         records.append({**job,"round":i,"warmup":i<0,"utc":"2000-01-01T00:00:00Z","loadavg":[0,0,0],"wall_ms":wall,
                                         "returncode":0,"success":True,"stdout":"","stderr":"",
                                         "image":{"bytes":len(content),"sha256":hashlib.sha256(content).hexdigest(),"width":100,"height":60,"pixels":6000 if fmt=="png" else None}})
         meta={"schema_version":1,"run_id":"synthetic-test","started_utc":"2000-01-01T00:00:00Z","completed_utc":"2000-01-01T00:01:00Z",
-              "status":status,"seed":123,"warmups":1,"repetitions":10,"tools":["d2-dagre","graphviz-dot"],"fixtures":fixtures,
+              "status":status,"seed":123,"warmups":warmups,"repetitions":5*sample_repeats,"tools":list(tools),"fixtures":fixtures,
               "jobs":jobs,"environment":{"description":"Synthetic test environment"},"smoke":smoke}
         self.save(meta,records)
         return meta,records
@@ -75,7 +77,10 @@ class ReportTest(unittest.TestCase):
         self.assertEqual((c["successes"],c["failures"],c["expected_measured"]),(9,1,10))
         self.assertFalse(s["groups"][0]["ranking_available"])
         self.assertIsNone(s["groups"][0]["ranking"])
-        self.assertEqual(s["groups"][0]["aggregates"],[])
+        self.assertEqual([a["tool"] for a in s["groups"][0]["aggregates"]],["d2-dagre"])
+        self.assertEqual(s["groups"][0]["aggregates"][0]["fixtures"],["a","b"])
+        self.assertIsNone(s["groups"][0]["aggregates"][0]["baseline_over_tool_ratio"])
+        self.assertIsNone(s["groups"][0]["aggregates"][0]["ratio_ci95"])
         self.assertIn("synthetic failure",(self.root/"index.html").read_text())
 
     def test_missing_attempt_and_missing_plan_are_explicit(self):
@@ -148,7 +153,7 @@ class ReportTest(unittest.TestCase):
         self.assertEqual([g["id"] for g in failed["groups"] if not g["ranking_available"]],["basic-10-png-primary"])
         markdown=(self.root/"report.md").read_text()
         self.assertLess(markdown.index("## Performance matrix"),markdown.index("## Method and uncertainty"))
-        self.assertIn("| Basic · 10 nodes | PNG 2× | unavailable | unavailable |",markdown)
+        self.assertIn("| Basic · 10 nodes | PNG 2× | unavailable | 10.00 |",markdown)
         self.assertIn("Real-world complex",markdown)
 
     def test_fatal_and_integrity_errors_suppress_every_workload(self):
@@ -158,6 +163,7 @@ class ReportTest(unittest.TestCase):
             self.save(meta,rows)
             summary=generate(self.root,bootstrap=20)
             self.assertTrue(all(not g["ranking_available"] for g in summary["groups"]))
+            self.assertTrue(all(not g["aggregates"] for g in summary["groups"]))
             self.assertTrue(all(any(field in reason for reason in g["ranking_suppression_reasons"]) for g in summary["groups"]))
 
     def test_performance_reports_omit_file_sizes_and_verify_assets_by_hash(self):
@@ -182,6 +188,7 @@ class ReportTest(unittest.TestCase):
             self.save(meta,rows);s=generate(self.root,bootstrap=10)
             self.assertFalse(s["groups"][0]["ranking_available"])
             self.assertTrue(s["groups"][0]["ranking_suppression_reasons"])
+            self.assertEqual(s["groups"][0]["aggregates"],[])
 
     def test_all_samples_retained_including_extreme_outlier(self):
         values={(f,t):[1,2,3,4,999999] for f in ("a","b") for t in ("d2-dagre","graphviz-dot")}
@@ -215,6 +222,97 @@ class ReportTest(unittest.TestCase):
         self.assertEqual(s["harness_sha256"],meta["harness_sha256"])
         self.assertEqual(s["corpus_validation"],meta["corpus_validation"])
         self.assertEqual(s["source_hashes"]["inputs/manifest.json"],hashlib.sha256(manifest.read_bytes()).hexdigest())
+        self.assertEqual(s["report_generator_sha256"],hashlib.sha256(Path(generate.__code__.co_filename).read_bytes()).hexdigest())
+
+    def test_review_rejections_preserve_raw_records_and_complete_tool_latencies(self):
+        tools=("d2-dagre","d2-tala","mermaid-dagre","graphviz-dot","plantuml-dot")
+        fixtures=[{"id":f"basic-{n}","category":"basic","counts":{"leaf_nodes":n},
+                   "png_density":2.,"primary_png":True} for n in (2,10,100)]
+        fixtures += [{"id":f,"category":"real-world","counts":{"leaf_nodes":10},
+                      "png_density":2.,"primary_png":True} for f in ("a","b")]
+        values={(f["id"],t):[i+1]*5 for f in fixtures for i,t in enumerate(tools)}
+        meta,rows=self.mock_run(values=values,fixtures=fixtures,formats=("svg","png"),
+                                tools=tools,warmups=3,sample_repeats=4)
+        target="b/mermaid-dagre/png"
+        content=b"retained visually incomplete output"
+        hashes=[hashlib.sha256(b"other incomplete output").hexdigest(),hashlib.sha256(content).hexdigest()]
+        for row in rows:
+            if row["id"]==target:
+                row["image"]["sha256"]=hashes[row["round"]%2]
+                (self.root/row["output"]).write_bytes(content)
+        self.save(meta,rows)
+        review={"schema_version":1,"rejected_outputs":[{"sha256":h,"reason":"Large missing content after visual review"} for h in hashes]}
+        (self.root/"review.json").write_text(json.dumps(review))
+        original=copy.deepcopy(rows)
+        reviewed,applied=_apply_review(self.root,rows)
+        self.assertEqual(rows,original)
+        self.assertEqual(applied,review)
+        for before,after in zip(rows,reviewed):
+            for key in ("wall_ms","image","returncode"):
+                self.assertEqual(before[key],after[key])
+        raw=(self.root/"raw.jsonl").read_bytes();run=(self.root/"run.json").read_bytes()
+        s=generate(self.root,bootstrap=20)
+        self.assertEqual((self.root/"raw.jsonl").read_bytes(),raw)
+        self.assertEqual((self.root/"run.json").read_bytes(),run)
+        self.assertEqual(s["status"],"completed")  # Process execution status remains recorded truth.
+        self.assertEqual(s["output_review"],review)
+        self.assertEqual(s["source_hashes"]["review.json"],hashlib.sha256((self.root/"review.json").read_bytes()).hexdigest())
+        self.assertEqual(s["source_hashes"]["raw.jsonl"],hashlib.sha256(raw).hexdigest())
+        c=next(c for c in s["cases"] if c["id"]==target)
+        self.assertEqual((c["successes"],c["failures"],c["warmup_failures"]),(0,20,3))
+        self.assertEqual(c["timing_ms"]["samples"],[])
+        self.assertIsNone(c["timing_ms"]["median"])
+        self.assertFalse(c["asset"]["verified"])
+        self.assertTrue(all(f["returncode"]==0 and f["review_rejection"]==review["rejected_outputs"][0]["reason"] for f in c["failure_details"]))
+        self.assertEqual((s["completeness"]["successes"],s["completeness"]["failures"],s["completeness"]["warmup_failures"]),(980,20,3))
+        self.assertEqual([g["id"] for g in s["groups"] if not g["ranking_available"]],["png-primary"])
+        group=next(g for g in s["groups"] if g["id"]=="png-primary")
+        self.assertIsNone(group["ranking"])
+        self.assertEqual([a["tool"] for a in group["aggregates"]],[t for t in tools if t!="mermaid-dagre"])
+        for a in group["aggregates"]:
+            self.assertEqual(a["fixtures"],["a","b"])
+            self.assertAlmostEqual(a["geomean_median_ms"],tools.index(a["tool"])+1)
+            self.assertIsNone(a["baseline_over_tool_ratio"])
+            self.assertIsNone(a["ratio_ci95"])
+        md=(self.root/"report.md").read_text()
+        self.assertIn("| Real-world complex | PNG 2× | 1.00 | 2.00 | unavailable | 4.00 | 5.00 |",md)
+        detail=md.split("## Real-world complex · PNG 2×",1)[1].split("## Per-job",1)[0]
+        self.assertNotIn("Baseline / tool",detail)
+        self.assertNotIn("**1.00**",detail)
+        self.assertIn(review["rejected_outputs"][0]["reason"],md)
+        html=(self.root/"index.html").read_text()
+        self.assertIn(review["rejected_outputs"][0]["reason"],html)
+        self.assertIn('"ranking_available":false',html)
+
+    def test_review_requires_valid_schema_unique_observed_hashes_and_reasons(self):
+        _,rows=self.mock_run()
+        digest=rows[0]["image"]["sha256"]
+        valid={"sha256":digest,"reason":"Rejected after inspection"}
+        invalid=[None,[],{}, {"schema_version":True,"rejected_outputs":[]},
+                 {"schema_version":2,"rejected_outputs":[]},
+                 {"schema_version":1,"rejected_outputs":{}},
+                 {"schema_version":1,"rejected_outputs":[],"typo":True}]
+        for entry in (None,{}, {**valid,"sha256":"z"*64}, {**valid,"sha256":"0"*64},
+                      {**valid,"sha256":digest.upper()}, {**valid,"reason":"  "},
+                      {**valid,"reason":42}, {**valid,"extra":"typo"}):
+            invalid.append({"schema_version":1,"rejected_outputs":[entry]})
+        invalid.append({"schema_version":1,"rejected_outputs":[valid,valid]})
+        for review in invalid:
+            with self.subTest(review=review):
+                (self.root/"review.json").write_text(json.dumps(review))
+                with self.assertRaisesRegex(ValueError,"review.json"):
+                    generate(self.root,bootstrap=0)
+        (self.root/"review.json").write_text('{"schema_version":')
+        with self.assertRaisesRegex(ValueError,"review.json"):
+            generate(self.root,bootstrap=0)
+
+    def test_primary_png_density_still_suppresses_all_aggregate_latencies(self):
+        fixtures=[{"id":f,"counts":{"leaf_nodes":2},"png_density":density,"primary_png":True}
+                  for f,density in (("a",2.),("b",1.))]
+        self.mock_run(fixtures=fixtures,formats=("png",))
+        s=generate(self.root,bootstrap=10)
+        self.assertFalse(s["groups"][0]["ranking_available"])
+        self.assertEqual(s["groups"][0]["aggregates"],[])
 
     def test_partial_raw_line_is_reported_without_dropping_other_jobs(self):
         self.mock_run()
