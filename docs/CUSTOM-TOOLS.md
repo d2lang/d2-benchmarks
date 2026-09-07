@@ -34,7 +34,7 @@ Compare each configuration within the same workload and output format. The defau
 
 ## Optional D2 / TALA
 
-The five-tool reference adds D2 / TALA from private staging commit `3b6ba0e25fd36522021fa3b84cb4a8a08a651799`. TALA requires your own authorized source access or executable; this repository does not distribute its source or binary. Plain `./make.sh` continues to install and measure the four public tools.
+The five-tool reference adds D2 / TALA from private staging commit `3f0a4a31a0aeadfc35b31bdb04def30982e2d304`. TALA requires your own authorized source access or executable; this repository does not distribute its source or binary. Plain `./make.sh` continues to install and measure the four public tools.
 
 With access to `alixander/d2-tala-staging`, run this from the benchmark repository root. Use Python 3.11.9 or newer as described in [setup](SETUP.md), and authenticate `gh` for the private repository. Setup installs the pinned public tools and Go compiler without starting a benchmark.
 
@@ -44,7 +44,7 @@ python3 scripts/setup.py
 benchmark_root="$(pwd)"
 mkdir -p .tools-tala
 gh repo clone alixander/d2-tala-staging .tools-tala/source
-git -C .tools-tala/source checkout --detach 3b6ba0e25fd36522021fa3b84cb4a8a08a651799
+git -C .tools-tala/source checkout --detach 3f0a4a31a0aeadfc35b31bdb04def30982e2d304
 (
   cd .tools-tala/source
   CGO_ENABLED=0 GOTOOLCHAIN=local GOWORK=off \
@@ -64,7 +64,7 @@ binary = root / ".tools-tala/d2"
 revision = subprocess.check_output(
     ["git", "-C", str(root / ".tools-tala/source"), "rev-parse", "HEAD"], text=True
 ).strip()
-assert revision == "3b6ba0e25fd36522021fa3b84cb4a8a08a651799"
+assert revision == "3f0a4a31a0aeadfc35b31bdb04def30982e2d304"
 toolchain = json.loads(config.read_text())
 toolchain["tools"]["d2-tala"] = {
     "kind": "d2",
