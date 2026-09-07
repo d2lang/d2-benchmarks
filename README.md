@@ -11,13 +11,13 @@
 | Basic · 100 nodes | SVG | **26.5** | 98.1 | 510.8 | 68.9 | 957.8 |
 | Basic · 100 nodes | PNG 2× | 523.9 | 343.0 | 747.3 | **313.4** | 1,364.9 |
 | Real-world complex | SVG | **29.3** | 115.8 | 431.4 | 78.3 | 943.1 |
-| Real-world complex | PNG 2× | 327.6 | 373.3 | Does not render | 396.1 | 1,651.5 |
+| Real-world complex | PNG 2× | **327.6** | 373.3 | Does not render | 396.1 | 1,651.5 |
 
-Time to start the CLI, render a diagram, write the output, and exit—including browser or JVM startup. **Bold is the lowest observed time.** Each result uses 20 runs after 3 warm-ups. Basic rows are medians; real-world rows are geometric means of per-diagram medians.
+Time to start the CLI, render a diagram, write the output, and exit—including browser or JVM startup. **Bold is the lowest valid time.** Each result uses 20 runs after 3 warm-ups. Basic rows are medians; real-world rows are geometric means of per-diagram medians.
 
 The real-world set contains ten diagrams originally written in D2, including TPMJS. All PNGs use 2× density. Layouts and image dimensions differ between tools. These numbers come from one desktop session with uncontrolled background activity.
 
-Mermaid's TPMJS PNG omits content at 2×, so its PNG average is unavailable and that row is unranked.
+Mermaid's TPMJS PNG omits content at 2×, so its PNG average is unavailable.
 
 Both D2 layouts use public D2 `52a59749a4e4`; TALA uses fixed seeds `1,2,3`. [Reference data](reference/README.md) · [Methodology](docs/METHODOLOGY.md).
 
